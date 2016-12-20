@@ -5,27 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Appli"
              mc:Ignorable="d" 
-             Width="640" Height="480">
+             Width="auto" Height="auto" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="74*"/>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="191*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="101*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="73*"/>
+            <RowDefinition Height="113*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="recap" HorizontalAlignment="Center" Grid.Row="1" FontWeight="Bold" FontSize="20" Text="RECAPITULATIF" VerticalAlignment="Center"/>
-        <TextBlock x:Name="total" HorizontalAlignment="Center" Grid.Row="3" FontSize="15" Text="Total :" VerticalAlignment="Center" RenderTransformOrigin="-0.564,0.663" Margin="262,17,337,18"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Center" Height="18" Grid.Row="3"  Text="7.5" VerticalAlignment="Center" Width="27" Margin="320,19,293,18"/>
-        <TextBlock x:Name="euro" HorizontalAlignment="Center" Grid.Row="3" FontSize="15" Text="€" VerticalAlignment="Center"  Margin="352,17,280,18"/>
-        <Button x:Name="Ticket" Content="TICKET" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="35" Margin="285,11,280,0" Background="Green"/>
-        <Button x:Name="Continuer" Content="CONTINUER" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="75" Height="35" Margin="285,56,280,0" Background="Red"/>
-
-
-
-
-
-
+        <TextBlock x:Name="recap" HorizontalAlignment="Center" Grid.Row="1" FontWeight="Bold" FontSize="50" Text="RECAPITULATIF" VerticalAlignment="Center" Height="67" Margin="160,0" Width="368"/>
+        <TextBlock x:Name="total" HorizontalAlignment="Center" Grid.Row="3" FontSize="30" Text="Total :" VerticalAlignment="Center" RenderTransformOrigin="-0.564,0.663" Margin="266,27,341,28" Height="40" Width="81"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" Height="36" Grid.Row="3" FontSize="30" Text="7.5" VerticalAlignment="Center" Width="48" Margin="352,31,288,28"/>
+        <TextBlock x:Name="euro" HorizontalAlignment="Center" Grid.Row="3" FontSize="30" Text="€" VerticalAlignment="Center"  Margin="408,27,264,28" RenderTransformOrigin="4.75,1.067" Height="40" Width="16"/>
+        <Button x:Name="Ticket" Content="TICKET" HorizontalAlignment="Center" Grid.Row="4" FontSize="30" VerticalAlignment="Top" Width="203" Height="106" Margin="245,11,240,-26" Background="Green"/>
+        <Button x:Name="Continuer" Content="CONTINUER" HorizontalAlignment="Center" FontSize="30" Grid.Row="4" VerticalAlignment="Top" Width="203" Height="106" Margin="245,141,240,-156" Background="Red"/>
+        <ListView x:Name="listView" HorizontalAlignment="Center" Height="121"  Grid.Row="1" Grid.RowSpan="3" VerticalAlignment="Center" Width="246" Margin="202,31,240,10"/>
 
     </Grid>
 </UserControl>

@@ -23,6 +23,17 @@ namespace Appli
         public MainWindow()
         {
             InitializeComponent();
+            mGridCentre.Children.Add(new Paiement());
+        }
+
+        private void quitter_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void quitter_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

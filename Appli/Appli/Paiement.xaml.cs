@@ -23,6 +23,7 @@ namespace Appli
         public Paiement()
         {
             InitializeComponent();
+            
         }
     }
 }
