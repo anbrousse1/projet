@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Appli
+namespace Vue
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
@@ -23,7 +23,7 @@ namespace Appli
         public MainWindow()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new Paiement());
+            mGridCentre.Children.Add(new AjouterPlat());
         }
 
         private void quitter_Click(object sender, RoutedEventArgs e)

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Appli
+namespace Vue
 {
     /// <summary>
     /// Logique d'interaction pour Paiement.xaml
