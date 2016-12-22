@@ -12,29 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Appli.Vue;
 
-namespace Vue
+namespace Appli.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
+    /// Logique d'interaction pour Caisse.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Caisse : UserControl
     {
-        public MainWindow()
+        public Caisse()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new Caisse());
+            IdUsager.Children.Add(new IdUsager());
+            recap.Children.Add(new Recapitulatif());
         }
 
-        private void quitter_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void quitter_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
     }
 }
