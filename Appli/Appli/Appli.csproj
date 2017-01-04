@@ -75,6 +75,12 @@
     <Compile Include="Vue\UCPlat.xaml.cs">
       <DependentUpon>UCPlat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vue\Connexion.xaml.cs">
+      <DependentUpon>Connexion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AccueilGerant.xaml.cs">
+      <DependentUpon>AccueilGerant.xaml</DependentUpon>
+    </Compile>
     <Page Include="Vue\AjouterPlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +132,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\UCPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Connexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\AccueilGerant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

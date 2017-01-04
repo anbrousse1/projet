@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Appli.Vue.UserControl2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Appli.Vue"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <DockPanel>
+        <Button DockPanel.Dock="Top" Foreground="White" Background="Black" Content="Déconnexion" Width="150" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"></Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Caisse" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold"></Button>
+            <Button Content="Statistique" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Column="1"></Button>
+            <Button Content="Gestion des Menus" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Column="2"></Button>
+            <Button Content="Gestion des Produits" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1"></Button>
+            <Button Content="Gestion des Utilisateurs" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1" Grid.Column="1"></Button>
+            <Button Content="Gestion des Plats" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1" Grid.Column="2"></Button>
+        </Grid>
+    </DockPanel>
+</UserControl>
