@@ -24,7 +24,7 @@ namespace Vue
         public MainWindow()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new Caisse());
+            mGridCentre.Children.Add(new UCBoisson());
         }
 
         private void quitter_Click(object sender, RoutedEventArgs e)
