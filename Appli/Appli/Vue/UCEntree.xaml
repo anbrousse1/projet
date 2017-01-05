@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Appli.Vue.UCPlat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Appli.Vue"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="4" Grid.Row="0" Content="Sélectionner une Entrée" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        <Button Grid.Column="0" Grid.Row="1" Content="Carottes" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <Button Grid.Column="1" Grid.Row="1" Content="Paté" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <Button Grid.Column="0" Grid.Row="2" Content="Jambon" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <Button Grid.Column="1" Grid.Row="2" Content="Mère de Yohann" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <Button Grid.Column="0" Grid.Row="3" Content="Sel" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <Button Grid.Column="1" Grid.Row="3" Content="Kangourou" FontWeight="Bold" Foreground="White" Margin="5,5,5,5" Background="DarkOrange" BorderBrush="Black" BorderThickness="2"></Button>
+        <StackPanel Grid.Column="2" Grid.Row="3">
+            <Button Content="Valider" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" Background="Green" BorderBrush="Black" BorderThickness="2"></Button>
+            <Button Content="Annuler" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" Background="Red" BorderBrush="Black" BorderThickness="2"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

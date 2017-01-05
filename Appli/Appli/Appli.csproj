@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +62,24 @@
     </Compile>
     <Compile Include="Vue\Recapitulatif.xaml.cs">
       <DependentUpon>Recapitulatif.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\UCBoisson.xaml.cs">
+      <DependentUpon>UCBoisson.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\UCDessert.xaml.cs">
+      <DependentUpon>UCDessert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\UCEntree.xaml.cs">
+      <DependentUpon>UCEntree.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\UCPlat.xaml.cs">
+      <DependentUpon>UCPlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\Connexion.xaml.cs">
+      <DependentUpon>Connexion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AccueilGerant.xaml.cs">
+      <DependentUpon>AccueilGerant.xaml</DependentUpon>
     </Compile>
     <Page Include="Vue\AjouterPlat.xaml">
       <SubType>Designer</SubType>
@@ -96,6 +116,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\Recapitulatif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\UCBoisson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\UCDessert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\UCEntree.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\UCPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\Connexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\AccueilGerant.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
