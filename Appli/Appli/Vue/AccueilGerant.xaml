@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
     <DockPanel>
-        <Button DockPanel.Dock="Top" Foreground="White" Background="Black" Content="Déconnexion" Width="150" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"></Button>
+        <Button DockPanel.Dock="Top" Content="Déconnexion" MinHeight="75" MinWidth="200"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"></Button>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -18,12 +18,12 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="Caisse" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold"></Button>
-            <Button Content="Statistique" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Column="1"></Button>
-            <Button Content="Gestion des Menus" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Column="2"></Button>
-            <Button Content="Gestion des Produits" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1"></Button>
-            <Button Content="Gestion des Utilisateurs" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1" Grid.Column="1"></Button>
-            <Button Content="Gestion des Plats" Foreground="Black" Background="MediumPurple" Height="75" Width="175" FontWeight="Bold" Grid.Row="1" Grid.Column="2"></Button>
+            <Button Content="Caisse" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" FontSize="35"></Button>
+            <Button Content="Statistique" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Column="1" FontSize="35"></Button>
+            <Button Content="Gestion des Menus" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" Grid.Column="2" FontSize="35"></Button>
+            <Button Content="Gestion des Produits" Foreground="Black" Background="LightSkyBlue"  Margin="50 50 50 50" FontWeight="Bold" Grid.Row="1" FontSize="35"></Button>
+            <Button Content="Gestion des Utilisateurs" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1"></Button>
+            <Button Content="Gestion des Plats" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="2"></Button>
         </Grid>
     </DockPanel>
 </UserControl>

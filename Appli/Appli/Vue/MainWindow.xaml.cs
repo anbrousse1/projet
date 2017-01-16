@@ -24,7 +24,7 @@ namespace Vue
         public MainWindow()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new UCBoisson());
+            mGridCentre.Children.Add(new Connexion());
         }
 
         private void quitter_Click(object sender, RoutedEventArgs e)
@@ -32,9 +32,6 @@ namespace Vue
             this.Close();
         }
 
-        private void quitter_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }

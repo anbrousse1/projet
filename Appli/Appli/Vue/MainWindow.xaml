@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:Vue"
         mc:Ignorable="d"
         Title="MainWindow" Width="640" Height="480"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#484854">
+   
     <Grid Name="mGridCentre">
         <Grid.RowDefinitions>
             <RowDefinition Height="223*"/>
             <RowDefinition Height="13*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="75" Click="quitter_Click_1"/>
+        <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="75" Click="quitter_Click"/>
 
     </Grid>
 </Window>
