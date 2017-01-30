@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\anbrousse1\Desktop\projet\Appli\Appli\obj\Debug\
+C:\Users\BASTIEN\Desktop\ProjetTut\projet\Appli\Appli\obj\Debug\
 Appli
 none
 false
 DEBUG;TRACE
-C:\Users\anbrousse1\Desktop\projet\Appli\Appli\App.xaml
+C:\Users\BASTIEN\Desktop\ProjetTut\projet\Appli\Appli\App.xaml
 12-876592540
 
-201958702008
+34831554782
 15767094614
 Vue\AjouterPlat.xaml;Vue\Caisse.xaml;Vue\IdUsager.xaml;Vue\MainWindow.xaml;Vue\Paiement.xaml;Vue\Recapitulatif.xaml;Vue\UCBoisson.xaml;Vue\UCDessert.xaml;Vue\UCEntree.xaml;Vue\UCPlat.xaml;Vue\Connexion.xaml;Vue\AccueilGerant.xaml;
 
-True
+False
 
