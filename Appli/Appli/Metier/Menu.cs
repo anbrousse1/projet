@@ -8,5 +8,25 @@ namespace Appli.Metier
 {
     class Menu
     {
+        internal int CodeMenu
+        {
+            get;
+            private set;
+        }
+
+        internal String Date
+        {
+            get;
+            private set;
+        }
+
+        private List<Plat> plats = new List<Plat>();
+
+        public Menu(int codeMenu, String date, List<Plat> lplats)
+        {
+            CodeMenu = codeMenu;
+            Date = date;
+            plats = lplats;
+        }
     }
 }
