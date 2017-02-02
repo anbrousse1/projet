@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class Cuisinier
+    internal class Cuisinier :Caissier
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class Produit
+    internal class Produit
     {
         internal int CodeProduit
         {
@@ -38,7 +38,7 @@ namespace Appli.Metier
             private set;
         }
 
-        public enum CategorieProduit
+        internal enum CategorieProduit
         {
             Fruit,
             Legume,
@@ -52,7 +52,7 @@ namespace Appli.Metier
             private set;
         }
 
-        public Produit(int codeProduit, String dateEffet, String dateFin, String nom, String observation, CategorieProduit categorie)
+        internal Produit(int codeProduit, String dateEffet, String dateFin, String nom, String observation, CategorieProduit categorie)
         {
             CodeProduit = codeProduit;
             DateEffet = dateEffet;

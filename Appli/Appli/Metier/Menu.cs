@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class Menu
+    internal class Menu
     {
         internal int CodeMenu
         {
@@ -14,6 +14,7 @@ namespace Appli.Metier
             private set;
         }
 
+        //Liste de date.
         internal String Date
         {
             get;
@@ -22,7 +23,7 @@ namespace Appli.Metier
 
         private List<Plat> plats = new List<Plat>();
 
-        public Menu(int codeMenu, String date, List<Plat> lplats)
+        internal Menu(int codeMenu, String date, List<Plat> lplats)
         {
             CodeMenu = codeMenu;
             Date = date;

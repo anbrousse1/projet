@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class PreAlimente
+    internal class PreAlimente : Paiement
     {
+        internal override void algoPaiment(Usager u, long montantAPayer)
+        {
+            u.Solde = u.Solde - montantAPayer;
+        }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class Caissier
+    internal class Caissier :Utilisateur
     {
+
     }
 }

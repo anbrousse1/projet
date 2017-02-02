@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class Plat
+    internal class Plat
     {
         internal int CodePlat
         {
@@ -14,13 +14,15 @@ namespace Appli.Metier
             private set;
         }
 
-        internal String DateEffet
+        //Type Date
+        internal DateTime DateEffet
         {
             get;
             private set;
         }
 
-        internal String DateFin
+        //Type date
+        internal DateTime DateFin
         {
             get;
             private set;
@@ -38,7 +40,7 @@ namespace Appli.Metier
             private set;
         }
 
-        public enum CategoriePlat
+        internal enum CategoriePlat
         {
             Entree,
             Plat,
@@ -53,7 +55,7 @@ namespace Appli.Metier
 
         private List<Produit> ingrediants = new List<Produit>();
 
-        public Plat(int codePlat, String dateEffet, String dateFin, String nom, double tarif, List<Produit> lingrediants, CategoriePlat categorie)
+        internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<Produit> lingrediants, CategoriePlat categorie)
         {
             CodePlat = codePlat;
             DateEffet = dateEffet;

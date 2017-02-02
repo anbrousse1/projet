@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    class PlatChoisis
+    internal class PlatChoisis
     {
+        internal DateTime date { get; private set; };
+        internal int CodePlat { get; private set; }
+
+
     }
 }

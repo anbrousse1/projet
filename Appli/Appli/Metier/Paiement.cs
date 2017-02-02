@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    interface Paiement
+    internal abstract class Paiement
     {
+         abstract internal void algoPaiment(Usager u, long montantAPayer);
     }
 }
