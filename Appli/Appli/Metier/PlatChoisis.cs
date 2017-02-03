@@ -11,6 +11,11 @@ namespace Appli.Metier
         internal DateTime date { get; private set; }
         internal int CodePlat { get; private set; }
 
+        internal PlatChoisis(DateTime d, int code)
+        {
+            date = d;
+            CodePlat = code;
+        }
 
     }
 }

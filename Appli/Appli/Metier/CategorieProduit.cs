@@ -12,6 +12,9 @@ namespace Appli.Metier
         Legume,
         Viande,
         Poisson,
-        Boisson
+        Boisson,
+        Feculent,
+        ProduitSucre,
+        Charcuterie
     };
 }

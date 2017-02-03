@@ -36,6 +36,19 @@ namespace Appli.Metier
             Tarif = tarif;
         }
 
+        //méthode permettant de changer la date d'effet
+        internal void ChangerDateEffet(DateTime d)
+        {
+            DateEffet = d;
+        }
+
+        //méthode permettant de modifier la date de fin
+        internal void ChangerDateFin(DateTime d)
+        {
+            DateFin = d;
+        }
+
+
 
     }
 }

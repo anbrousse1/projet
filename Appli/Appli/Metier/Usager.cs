@@ -18,7 +18,7 @@ namespace Appli.Metier
         internal String Service { get; private set; }
         internal Paiement algoDePaiement;
         internal double Solde { get; set; }
-        internal List<PlatChoisis> historiquePlatChoisi;
+        internal List<PlatChoisis> historiquePlatChoisi= new List<PlatChoisis>();
         internal Carte carte;
 
         internal Usager(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte)
@@ -42,10 +42,24 @@ namespace Appli.Metier
             }
         }
 
+        internal Usager(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte, List<PlatChoisis> histo)
+        {
+            super:
+            historiquePlatChoisi.AddRange(histo);
+        }
+
         //methode qui appelle un algo permetant d'incrementer la retenue sur salaire ou de décrementer la solde de l'usager
         internal void payer(double prix)
         {
             algoDePaiement.algoPaiment(this, prix);
+            //Effectuer changement solde dans BDD
+        }
+
+
+        //Permet D'ajouter un plat choisi
+        internal void AddPlatChoisis(PlatChoisis p)
+        {
+            historiquePlatChoisi.Add(p);
         }
 
     }

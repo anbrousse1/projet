@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal abstract class Utilisateur: Usager
+    internal abstract class Utilisateur :Usager
     {
+        internal String fonction;
 
+        internal Utilisateur(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom,
+            int cfonction, String service, int codePaiement, long solde, int numCarte)
+            :base(matricule,de,ds,titre,nom,prenom,cfonction,service,codePaiement,solde,numCarte){ }
+
+        internal Utilisateur (String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom,
+            int cfonction, String service, int codePaiement, long solde, int numCarte, List<PlatChoisis> histo)
+            :base(matricule,de,ds,titre,nom,prenom,cfonction,service,codePaiement,solde,numCarte,histo)
+        {}
 
     }
 }
