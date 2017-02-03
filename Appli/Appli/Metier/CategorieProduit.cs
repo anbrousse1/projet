@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal class PlatChoisis
+    internal enum CategorieProduit
     {
-        internal DateTime date { get; private set; }
-        internal int CodePlat { get; private set; }
-
-
-    }
+        Fruit,
+        Legume,
+        Viande,
+        Poisson,
+        Boisson
+    };
 }

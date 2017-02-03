@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Appli.Vue;
+using Appli.Metier;
 
 namespace Vue
 {
@@ -21,10 +22,20 @@ namespace Vue
     /// </summary>
     public partial class MainWindow : Window
     {
+        Self self;
         public MainWindow()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new Connexion());
+            mGridCentre.Children.Add(new Caisse(this));
+            try
+            {
+                this.self = new Self();
+            }catch(Exception e)
+            {
+                MessageBox.Show("Aucun menu trouvé pour la date du jour!!!");
+            }
+            
+            //Console.WriteLine(new DateTime(2017, 02, 04));
         }
 
         private void quitter_Click(object sender, RoutedEventArgs e)

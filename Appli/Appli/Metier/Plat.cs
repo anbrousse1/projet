@@ -8,53 +8,16 @@ namespace Appli.Metier
 {
     internal class Plat
     {
-        internal int CodePlat
-        {
-            get;
-            private set;
-        }
-
-        //Type Date
-        internal DateTime DateEffet
-        {
-            get;
-            private set;
-        }
-
-        //Type date
-        internal DateTime DateFin
-        {
-            get;
-            private set;
-        }
-
-        internal String Nom
-        {
-            get;
-            private set;
-        }
-
-        internal double Tarif
-        {
-            get;
-            private set;
-        }
-
-        internal enum CategoriePlat
-        {
-            Entree,
-            Plat,
-            Dessert
-        };
-
-        internal CategoriePlat Categorie
-        {
-            get;
-            private set;
-        }
-
+        internal int CodePlat { get;private set;}
+        internal DateTime DateEffet {get;private set;}
+        internal DateTime DateFin{get;private set;}
+        internal String Nom{get;private set;}
+        internal double Tarif {get;private set;}
+        internal CategoriePlat Categorie {get; private set;}
         private List<Produit> ingrediants = new List<Produit>();
 
+
+        //Constructeur de plat
         internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<Produit> lingrediants, CategoriePlat categorie)
         {
             CodePlat = codePlat;
@@ -65,5 +28,14 @@ namespace Appli.Metier
             ingrediants = lingrediants;
             Categorie = categorie;
         }
+
+
+        //méthode permettant de modifier le tarif d'un plat 
+        internal void changerTarif(double tarif)
+        {
+            Tarif = tarif;
+        }
+
+
     }
 }

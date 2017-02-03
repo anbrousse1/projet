@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Vue;
 
 namespace Appli.Vue
 {
@@ -20,9 +21,12 @@ namespace Appli.Vue
     /// </summary>
     public partial class AccueilGerant : UserControl
     {
-        public AccueilGerant()
+        private MainWindow parent;
+
+        public AccueilGerant(MainWindow m)
         {
             InitializeComponent();
+            parent = m;
         }
     }
 }

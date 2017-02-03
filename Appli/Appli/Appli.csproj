@@ -59,6 +59,8 @@
     </ApplicationDefinition>
     <Compile Include="Metier\Caissier.cs" />
     <Compile Include="Metier\Carte.cs" />
+    <Compile Include="Metier\CategoriePlat.cs" />
+    <Compile Include="Metier\CategorieProduit.cs" />
     <Compile Include="Metier\Cuisinier.cs" />
     <Compile Include="Metier\Gerant.cs" />
     <Compile Include="Metier\Menu.cs" />

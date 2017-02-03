@@ -8,7 +8,7 @@ namespace Appli.Metier
 {
     internal class RetenueSalaire : Paiement
     {
-        internal override void algoPaiment(Usager u, long montantAPayer)
+        internal override void algoPaiment(Usager u, double montantAPayer)
         {
             u.Solde = u.Solde + montantAPayer;
         }

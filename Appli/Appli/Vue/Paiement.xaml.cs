@@ -20,8 +20,10 @@ namespace Vue
     /// </summary>
     public partial class Paiement : UserControl
     {
-        public Paiement()
+        private MainWindow parent;
+        public Paiement(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
             
         }

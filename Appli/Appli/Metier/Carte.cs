@@ -8,5 +8,11 @@ namespace Appli.Metier
 {
     internal class Carte
     {
+        internal int Numero { get; private set; }
+
+        internal Carte(int num)
+        {
+            Numero = num;
+        }
     }
 }

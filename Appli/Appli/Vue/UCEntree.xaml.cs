@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Vue;
 
 namespace Appli.Vue
 {
@@ -20,8 +21,10 @@ namespace Appli.Vue
     /// </summary>
     public partial class UCEntree : UserControl
     {
-        public UCEntree()
+        private MainWindow parent;
+        public UCEntree(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
         }
     }

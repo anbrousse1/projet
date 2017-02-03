@@ -20,8 +20,10 @@ namespace Vue
     /// </summary>
     public partial class AjouterPlat : UserControl
     {
-        public AjouterPlat()
+        private MainWindow parent;
+        public AjouterPlat(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
         }
 

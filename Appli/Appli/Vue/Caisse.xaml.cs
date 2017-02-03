@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Vue;
 
 namespace Appli.Vue
 {
@@ -20,12 +21,22 @@ namespace Appli.Vue
     /// </summary>
     public partial class Caisse : UserControl
     {
-        public Caisse()
+        private MainWindow parent;
+
+        public Caisse(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
             IdUsager.Children.Add(new IdUsager());
             recap.Children.Add(new Recapitulatif());
         }
 
+        public void ClickEntree(object sender, RoutedEventArgs e)
+        {
+            this.parent.mGridCentre.Children.Add(new UCEntree(parent));
+        }
+
     }
+
+    
 }

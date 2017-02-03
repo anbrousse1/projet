@@ -8,6 +8,6 @@ namespace Appli.Metier
 {
     internal abstract class Paiement
     {
-         abstract internal void algoPaiment(Usager u, long montantAPayer);
+         abstract internal void algoPaiment(Usager u, double montantAPayer);
     }
 }

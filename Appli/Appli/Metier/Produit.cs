@@ -8,50 +8,15 @@ namespace Appli.Metier
 {
     internal class Produit
     {
-        internal int CodeProduit
-        {
-            get;
-            private set;
-        }
+        internal int CodeProduit{get;private set;}
+        internal String DateEffet {get;private set;}
+        internal String DateFin{get; private set;}
+        internal String Nom{get;private set;}
+        internal String Observation { get; private set;}
+        internal CategorieProduit Categorie{ get;private set; }
 
-        internal String DateEffet
-        {
-            get;
-            private set;
-        }
 
-        internal String DateFin
-        {
-            get;
-            private set;
-        }
-
-        internal String Nom
-        {
-            get;
-            private set;
-        }
-
-        internal String Observation
-        {
-            get;
-            private set;
-        }
-
-        internal enum CategorieProduit
-        {
-            Fruit,
-            Legume,
-            Viande,
-            Poisson
-        };
-
-        internal CategorieProduit Categorie
-        {
-            get;
-            private set;
-        }
-
+        //Constructeur de produit
         internal Produit(int codeProduit, String dateEffet, String dateFin, String nom, String observation, CategorieProduit categorie)
         {
             CodeProduit = codeProduit;
