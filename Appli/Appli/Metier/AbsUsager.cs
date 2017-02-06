@@ -20,6 +20,8 @@ namespace Appli.Metier
         internal double Solde { get; set; }
         internal List<AbsPlatChoisis> historiquePlatChoisi = new List<AbsPlatChoisis>();
         internal Carte carte;
+        internal String fonction;
+
 
         internal void payer(double prix)
         {

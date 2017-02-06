@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appli.Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,10 +32,36 @@ namespace Appli.Vue
             recap.Children.Add(new Recapitulatif());
         }
 
-        public void ClickEntree(object sender, RoutedEventArgs e)
+        private void ClickEntree(object sender, RoutedEventArgs e)
         {
-            this.parent.mGridCentre.Children.Add(new UCEntree(parent));
+            parent.setUC(new UCEntree(parent));
         }
+
+        private void ClickPlat(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCPlat(parent));
+        }
+
+        private void ClickDessert(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCDessert(parent));
+        }
+
+        private void ClickBoisson(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCBoisson(parent));
+        }
+
+        private void ClickDeconnexion(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Connexion(parent));
+        }
+
+        private void ClickPaiement(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Paiement(parent));
+        }
+
 
     }
 

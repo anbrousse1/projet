@@ -22,11 +22,11 @@ namespace Vue
     /// </summary>
     public partial class MainWindow : Window
     {
-        Self self;
+        internal Self self;
+
         public MainWindow()
         {
             InitializeComponent();
-            mGridCentre.Children.Add(new Caisse(this));
             try
             {
                 this.self = new Self();
@@ -34,13 +34,20 @@ namespace Vue
             {
                 MessageBox.Show("Aucun menu trouvé pour la date du jour!!!");
             }
-            
+            mGridCentre.Children.Add(new Caisse(this));
+            //mGridCentre.Children.Add(new Connexion(this, self));
             //Console.WriteLine(new DateTime(2017, 02, 04));
         }
 
-        private void quitter_Click(object sender, RoutedEventArgs e)
+        internal void quitter_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        internal void setUC(UserControl uc)
+        {
+            mGridCentre.Children.Clear();
+            mGridCentre.Children.Add(uc);
         }
 
         

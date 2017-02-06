@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appli.Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,21 @@ namespace Appli.Vue
     public partial class UCDessert : UserControl
     {
         private MainWindow parent;
+
         public UCDessert(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
+        }
+
+        private void ClickValider(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Caisse(parent));
+        }
+
+        private void ClickAnnuler(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Caisse(parent));
         }
     }
 }

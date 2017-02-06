@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appli.Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,16 +24,18 @@ namespace Appli.Vue
     {
 
         private MainWindow parent;
+        private Self self;
 
-        public Connexion(MainWindow m)
+        public Connexion(MainWindow m, Self s)
         {
             parent = m;
+            self = s;
             InitializeComponent();
         }
 
         private void quitter_Click(object sender, RoutedEventArgs e)
         {
-
+            parent.Close();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    public class Self : AbstractSelf
+    public class Self
     {
 
         private DateTime dateDuJour = DateTime.Today;
@@ -23,23 +23,27 @@ namespace Appli.Metier
             dateDuJour = DateTime.Today;
             menus = getAllMenus();
             menuDuJour = getMenu(dateDuJour);
-            if (menuDuJour == null)
+            /*if (menuDuJour == null)
             {
                 throw new Exception();
-            }
+            }*/
         }
 
 
         //Retourne le menu correspondant à la date passé en paramètre
         private AbsMenu getMenu(DateTime d)
         {
-            foreach (Menu m in menus)
+            if (menus != null)
             {
-                if (m.dates.Contains(d))
+                foreach (Menu m in menus)
                 {
-                    return m;
+                    if (m.dates.Contains(d))
+                    {
+                        return m;
+                    }
                 }
             }
+            
             return null;
         }
 

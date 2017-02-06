@@ -61,7 +61,6 @@
     <Compile Include="Metier\AbsPlat.cs" />
     <Compile Include="Metier\AbsPlatChoisis.cs" />
     <Compile Include="Metier\AbsProduit.cs" />
-    <Compile Include="Metier\AbstractSelf.cs" />
     <Compile Include="Metier\AbsUsager.cs" />
     <Compile Include="Metier\Carte.cs" />
     <Compile Include="Metier\CategoriePlat.cs" />
