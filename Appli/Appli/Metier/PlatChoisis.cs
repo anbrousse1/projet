@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal class PlatChoisis
+    internal class PlatChoisis : AbsPlatChoisis
     {
-        internal DateTime date { get; private set; }
-        internal int CodePlat { get; private set; }
 
         internal PlatChoisis(DateTime d, int code)
         {

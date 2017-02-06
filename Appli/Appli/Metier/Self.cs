@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    public class Self
+    public class Self : AbstractSelf
     {
-        private DateTime dateDuJour;
-        private List<Menu> menus;
-        private List<Plat> plats;
-        private List<Produit> produits;
+
+        private DateTime dateDuJour = DateTime.Today;
+        private List<AbsMenu> menus;
+        private List<AbsPlat> plats;
+        private List<AbsProduit> produits;
         private String droitUtilisateur;
-        private Usager client;
+        private AbsUsager client;
+        private AbsMenu menuDuJour;
 
-
-        private Menu menuDuJour;
-
-        
         public Self()
         {
             droitUtilisateur = null;
@@ -33,7 +31,7 @@ namespace Appli.Metier
 
 
         //Retourne le menu correspondant à la date passé en paramètre
-        private Menu getMenu(DateTime d)
+        private AbsMenu getMenu(DateTime d)
         {
             foreach (Menu m in menus)
             {
@@ -47,7 +45,7 @@ namespace Appli.Metier
 
 
         //Charge la liste de menus à partir des élements de la BDD
-        private List<Menu> getAllMenus()
+        private List<AbsMenu> getAllMenus()
         {
             //recuperer dans BDD
             return null;
@@ -55,14 +53,14 @@ namespace Appli.Metier
 
 
         //Charge la liste de plats à partir des élements de la BDD
-        private List<Plat> getAllPlats()
+        private List<AbsPlat> getAllPlats()
         {
             //recuperer dans BDD
             return null;
         }
 
         //Charge la liste de produits à partir des élements de la BDD
-        private List<Produit> getAllProduit()
+        private List<AbsProduit> getAllProduit()
         {
             //recuperer dans BDD
             return null;
@@ -87,7 +85,7 @@ namespace Appli.Metier
         }
 
         //Charge liste des usagers à partir des éléments de,la BDD
-        private List<Usager> getAllUsager()
+        private List<AbsUsager> getAllUsager()
         {
             //BDD
             return null;
@@ -104,7 +102,7 @@ namespace Appli.Metier
         private List<String> GetEntrees()
         {
             List<String> entrees = new List<String>();
-            foreach (Plat p in menuDuJour.plats)
+            foreach (AbsPlat p in menuDuJour.plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Entree)){
                     entrees.Add(p.Nom);
@@ -117,7 +115,7 @@ namespace Appli.Metier
         private List<String> GetPlatsResistance()
         {
             List<String> plats = new List<String>();
-            foreach (Plat p in menuDuJour.plats)
+            foreach (AbsPlat p in menuDuJour.plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Plat)){
                     plats.Add(p.Nom);
@@ -130,7 +128,7 @@ namespace Appli.Metier
         private List<String> GetDesserts() {
             {
                 List<String> desserts = new List<String>();
-                foreach (Plat p in menuDuJour.plats)
+                foreach (AbsPlat p in menuDuJour.plats)
                 {
                     if (p.Categorie.Equals(CategoriePlat.Dessert)){
                         desserts.Add(p.Nom);
@@ -177,9 +175,9 @@ namespace Appli.Metier
         }
 
         //Permet à partir d'une liste de string d'obtenir une liste de produits
-        private List<Produit> FindProduits(List<String> prod)
+        private List<AbsProduit> FindProduits(List<String> prod)
         {
-            List<Produit> ingredients = new List<Produit>();
+            List<AbsProduit> ingredients = new List<AbsProduit>();
             foreach(String s in prod)
             {
                 ingredients.Add(FindProduit(s));
@@ -188,9 +186,9 @@ namespace Appli.Metier
         }
 
         //Permet à partir d'un string d'obtenir un produit
-        private Produit FindProduit(String prod)
+        private AbsProduit FindProduit(String prod)
         {
-            foreach (Produit p in produits)
+            foreach (AbsProduit p in produits)
             {
                 if (p.Nom.Equals(prod))
                 {
@@ -201,9 +199,9 @@ namespace Appli.Metier
         }
 
         //Permet à partir d'un string d'obtenir un plat
-        private Plat FindPlat(String plat)
+        private AbsPlat FindPlat(String plat)
         {
-            foreach(Plat p in plats)
+            foreach(AbsPlat p in plats)
             {
                 if (p.Nom.Equals(plat))
                 {
@@ -214,9 +212,9 @@ namespace Appli.Metier
         }
 
         //Permet à partir d'une liste de string d'obtenir une liste de plats
-        private List<Plat> FindPlats(List<String> plats)
+        private List<AbsPlat> FindPlats(List<String> plats)
         {
-            List<Plat> platsMenu= new List<Plat>();
+            List<AbsPlat> platsMenu= new List<AbsPlat>();
             foreach (String s in plats)
             {
                 platsMenu.Add(FindPlat(s));
@@ -248,7 +246,7 @@ namespace Appli.Metier
         //Permet d'jouter un plat choisis
         private void AddPlatChoisi(String plat)
         {
-            Plat p=FindPlat(plat);
+            AbsPlat p=FindPlat(plat);
             if (p != null)
             {
                 client.AddPlatChoisis(new PlatChoisis(DateTime.Today, p.CodePlat));
@@ -288,10 +286,10 @@ namespace Appli.Metier
 
 
         //methode qui retourne la liste des plats dispo à la date du jour
-        private List<Plat> GetPlatsDispo()
+        private List<AbsPlat> GetPlatsDispo()
         {
-            List<Plat> platDispo = new List<Plat>();
-            foreach(Plat p in plats)
+            List<AbsPlat> platDispo = new List<AbsPlat>();
+            foreach(AbsPlat p in plats)
             {
                 if (p.DateEffet.CompareTo(DateTime.Today) >= 0 && p.DateFin.CompareTo(DateTime.Today) < 0)
                 {
@@ -303,10 +301,10 @@ namespace Appli.Metier
 
 
         //methode qui rettourne la liste des produits dispo à la date du jour
-        private List<Produit> GetProduitsDispo()
+        private List<AbsProduit> GetProduitsDispo()
         {
-            List<Produit> produitsDispo = new List<Produit>();
-            foreach (Produit p in produits)
+            List<AbsProduit> produitsDispo = new List<AbsProduit>();
+            foreach (AbsProduit p in produits)
             {
                 if (p.DateEffet.CompareTo(DateTime.Today) >= 0 && p.DateFin.CompareTo(DateTime.Today) < 0)
                 {

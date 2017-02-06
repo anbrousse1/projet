@@ -33,10 +33,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Content="ENTREES" Grid.Column="0" Grid.Row="0" Margin="10,15,10,15" Background="#E3A814"/>
-                <Button Content="PLATS" Grid.Column="1" Grid.Row="0" Margin="10,15,10,15" Background="#46D366"/>
-                <Button Content="DESSERTS" Grid.Column="0" Grid.Row="1" Margin="10,15,10,15" Background="#4E07C2"/>
-                <Button Content="BOISSONS" Grid.Column="1" Grid.Row="1" Margin="10,15,10,15" Background="#1DD4ED"/>
+                <Button Content="ENTREES" Grid.Column="0" Grid.Row="0" Margin="10,15,10,15" Background="#E3A814" FontSize="30"/>
+                <Button Content="PLATS" Grid.Column="1" Grid.Row="0" Margin="10,15,10,15" Background="#46D366" FontSize="30"/>
+                <Button Content="DESSERTS" Grid.Column="0" Grid.Row="1" Margin="10,15,10,15" Background="#4E07C2" FontSize="30"/>
+                <Button Content="BOISSONS" Grid.Column="1" Grid.Row="1" Margin="10,15,10,15" Background="#1DD4ED" FontSize="30"/>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>

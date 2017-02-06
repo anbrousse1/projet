@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal class Produit
+    internal class Produit : AbsProduit
     {
-        internal int CodeProduit{get;private set;}
-        internal DateTime DateEffet {get;private set;}
-        internal DateTime DateFin{get; private set;}
-        internal String Nom{get;private set;}
-        internal String Observation { get; private set;}
-        internal CategorieProduit Categorie{ get;private set; }
+
 
 
         //Constructeur de produit
@@ -27,16 +22,5 @@ namespace Appli.Metier
             Categorie = categorie;
         }
 
-        //méthode permettant de changer la date d'effet
-        internal void ChangerDateEffet(DateTime d)
-        {
-            DateEffet = d;
-        }
-
-        //méthode permettant de modifier la date de fin
-        internal void ChangerDateFin(DateTime d)
-        {
-            DateFin = d;
-        }
     }
 }

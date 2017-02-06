@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal class RetenueSalaire : Paiement
+    internal class RetenueSalaire : AbsPaiement
     {
-        internal override void algoPaiment(Usager u, double montantAPayer)
+        internal override void algoPaiment(AbsUsager u, double montantAPayer)
         {
             u.Solde = u.Solde + montantAPayer;
         }
+
     }
 }

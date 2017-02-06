@@ -8,5 +8,7 @@ namespace Appli.Metier
 {
     internal abstract class AbsPlatChoisis
     {
+        internal DateTime date { get; set; }
+        internal int CodePlat { get; set; }
     }
 }

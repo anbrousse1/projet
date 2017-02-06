@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Appli.Metier
 {
-    internal class PreAlimente : Paiement
+    internal class PreAlimente : AbsPaiement
     {
-        internal override void algoPaiment(Usager u, double montantAPayer)
+        internal override void algoPaiment(AbsUsager u, double montantAPayer)
         {
             u.Solde = u.Solde - montantAPayer;
         }

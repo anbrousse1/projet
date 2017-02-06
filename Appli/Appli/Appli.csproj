@@ -57,14 +57,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Metier\Caissier.cs" />
+    <Compile Include="Metier\AbsMenu.cs" />
+    <Compile Include="Metier\AbsPlat.cs" />
+    <Compile Include="Metier\AbsPlatChoisis.cs" />
+    <Compile Include="Metier\AbsProduit.cs" />
+    <Compile Include="Metier\AbstractSelf.cs" />
+    <Compile Include="Metier\AbsUsager.cs" />
     <Compile Include="Metier\Carte.cs" />
     <Compile Include="Metier\CategoriePlat.cs" />
     <Compile Include="Metier\CategorieProduit.cs" />
-    <Compile Include="Metier\Cuisinier.cs" />
-    <Compile Include="Metier\Gerant.cs" />
     <Compile Include="Metier\Menu.cs" />
-    <Compile Include="Metier\Paiement.cs" />
+    <Compile Include="Metier\AbsPaiement.cs" />
     <Compile Include="Metier\Plat.cs" />
     <Compile Include="Metier\PlatChoisis.cs" />
     <Compile Include="Metier\PreAlimente.cs" />
