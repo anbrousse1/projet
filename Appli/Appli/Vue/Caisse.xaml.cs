@@ -54,12 +54,15 @@ namespace Appli.Vue
 
         private void ClickDeconnexion(object sender, RoutedEventArgs e)
         {
+            parent.self.deconnexion();
             parent.setUC(new Connexion(parent));
         }
 
         private void ClickPaiement(object sender, RoutedEventArgs e)
         {
+            parent.self.Paiement();
             parent.setUC(new Paiement(parent));
+
         }
 
 

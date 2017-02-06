@@ -13,9 +13,10 @@ namespace Appli.Metier
         private List<AbsMenu> menus;
         private List<AbsPlat> plats;
         private List<AbsProduit> produits;
-        private String droitUtilisateur;
+        public String droitUtilisateur;
         private AbsUsager client;
         private AbsMenu menuDuJour;
+        public double prixAPayer;
 
         public Self()
         {
@@ -74,7 +75,7 @@ namespace Appli.Metier
 
 
         //méthode permettant à un utilisateur de se connecter
-        private void connexion(String login, String mdp)
+        public void connexion(String login, String mdp)
         {
             //BDD
             //on mettra dans droitUtilisateur si c'est un gérant, un caissier ou un cuisinier et on chargera user.
@@ -83,7 +84,7 @@ namespace Appli.Metier
 
 
         //méthode permattant à un utilisateur de se déconnecter 
-        private void deconnexion()
+        public void deconnexion()
         {
             droitUtilisateur = null;
         }
@@ -143,9 +144,10 @@ namespace Appli.Metier
         }
 
         //Methode pour faire payer un usager
-        private void Paiement(double prixAPayer)
+        public void Paiement()
         {
             client.payer(prixAPayer);
+            //Modif BDD
         }
 
 
@@ -248,9 +250,10 @@ namespace Appli.Metier
         }
 
         //Permet d'jouter un plat choisis
-        private void AddPlatChoisi(String plat)
+        public void AddPlatChoisi(String plat)
         {
             AbsPlat p=FindPlat(plat);
+            prixAPayer = prixAPayer + p.Tarif;
             if (p != null)
             {
                 client.AddPlatChoisis(new PlatChoisis(DateTime.Today, p.CodePlat));

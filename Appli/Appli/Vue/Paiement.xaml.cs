@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Appli.Vue;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,6 +27,16 @@ namespace Vue
             parent = m;
             InitializeComponent();
             
+        }
+
+        public void ClickContinuer(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Caisse(parent));
+        }
+
+        public void clickTicket(object sender, RoutedEventArgs e)
+        {
+            //Enregistrer le ticket. 
         }
     }
 }

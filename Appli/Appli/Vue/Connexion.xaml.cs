@@ -24,12 +24,10 @@ namespace Appli.Vue
     {
 
         private MainWindow parent;
-        private Self self;
 
-        public Connexion(MainWindow m, Self s)
+        public Connexion(MainWindow m)
         {
             parent = m;
-            self = s;
             InitializeComponent();
         }
 
@@ -37,5 +35,26 @@ namespace Appli.Vue
         {
             parent.Close();
         }
+
+        private void ClickConnexion(object sender, RoutedEventArgs e)
+        {
+            parent.self.connexion(this.log.Text, this.mdp.Text);
+            String fonction = parent.self.droitUtilisateur;
+            if (fonction != null)
+            {
+                if (fonction.Equals("Caissier"))
+                {
+                    parent.setUC(new Caisse(parent));
+                }else if (fonction.Equals("Gerant"))
+                {
+                    parent.setUC(new AccueilGerant(parent));
+                }else
+                {
+                    parent.setUC(new Caisse(parent));
+                }
+            }
+        }
+
+
     }
 }
