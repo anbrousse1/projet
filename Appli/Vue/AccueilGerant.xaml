@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Appli.Vue.AccueilGerant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Appli.Vue"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <DockPanel>
+        <Button DockPanel.Dock="Top" Content="Déconnexion" MinHeight="75" MinWidth="200"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"></Button>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Caisse" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" FontSize="35"></Button>
+            <Button Content="Statistique" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Column="1" FontSize="35"></Button>
+            <Button Content="Gestion des Menus" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" Grid.Column="2" FontSize="35"></Button>
+            <Button Content="Gestion des Produits" Foreground="Black" Background="LightSkyBlue"  Margin="50 50 50 50" FontWeight="Bold" Grid.Row="1" FontSize="35"></Button>
+            <Button Content="Gestion des Utilisateurs" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1"></Button>
+            <Button Content="Gestion des Plats" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="2"></Button>
+        </Grid>
+    </DockPanel>
+</UserControl>
