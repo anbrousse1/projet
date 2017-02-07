@@ -1,25 +1,25 @@
-﻿<Window x:Class="Vue.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Vue"
-        mc:Ignorable="d"
-        Title="MainWindow" Width="640" Height="480"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#484854">
-    <DockPanel>
-        <Grid DockPanel.Dock="Top" Margin="10,10,10,0">
-            <Image x:Name="image" Width="100" Margin="10" HorizontalAlignment="Left"/>
-            <Label Content="Self" FontSize="40" Margin="115,0,-115,0"/>
+﻿    <Window x:Class="Vue.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:Vue"
+            mc:Ignorable="d"
+            Title="MainWindow" Width="640" Height="480"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#484854">
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" Margin="10,10,10,0">
+                <Image x:Name="image" Width="100" Margin="10" HorizontalAlignment="Left"/>
+                <Label Content="Self" FontSize="40" Margin="115,0,-115,0"/>
 
-        </Grid>
-        <Grid DockPanel.Dock="Bottom" Margin="0,447,519,0">
-            <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0"  Width="75" Click="quitter_Click"/>
-        </Grid>
+            </Grid>
+            <Grid DockPanel.Dock="Bottom" Margin="0,447,519,0">
+                <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0"  Width="75" Click="quitter_Click"/>
+            </Grid>
 
-        <Grid  Name="mGridCentre" Margin="0,0,0,-442">
+            <Grid  Name="mGridCentre" Margin="0,0,0,-442">
 
-        </Grid>
+            </Grid>
 
-    </DockPanel>
+        </DockPanel>
 
-</Window>
+    </Window>
