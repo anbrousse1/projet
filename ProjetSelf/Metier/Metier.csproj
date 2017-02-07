@@ -51,8 +51,14 @@
     <Compile Include="CategorieProduit.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Plat.cs" />
+    <Compile Include="PlatChoisis.cs" />
+    <Compile Include="PreAlimente.cs" />
+    <Compile Include="Produit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetenueSalaire.cs" />
     <Compile Include="Self.cs" />
+    <Compile Include="Usager.cs" />
+    <Compile Include="Utilisateur.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

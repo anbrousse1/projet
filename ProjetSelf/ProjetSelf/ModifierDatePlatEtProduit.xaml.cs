@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour UserControl2.xaml
+    /// Logique d'interaction pour ModifierDatePlatEtProduit.xaml
     /// </summary>
-    public partial class AccueilGerant : UserControl
+    public partial class ModifierDatePlatEtProduit : UserControl
     {
-        private MainWindow parent;
-
-        public AccueilGerant(MainWindow m)
+        public ModifierDatePlatEtProduit()
         {
             InitializeComponent();
-            parent = m;
-        }
-
-        private void ClickGestionPlat(object sender, RoutedEventArgs e)
-        {
-            //parent.setUC(new UCGestionPlat(parent));
         }
     }
 }

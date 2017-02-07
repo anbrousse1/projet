@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,11 +63,23 @@
     <Compile Include="AjouterPlat.xaml.cs">
       <DependentUpon>AjouterPlat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AjouterProduit.xaml.cs">
+      <DependentUpon>AjouterProduit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DialogueAjouterProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogueAjouterProduit.Designer.cs">
+      <DependentUpon>DialogueAjouterProduit.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdUsager.xaml.cs">
       <DependentUpon>IdUsager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierDatePlatEtProduit.xaml.cs">
+      <DependentUpon>ModifierDatePlatEtProduit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paiement.xaml.cs">
       <DependentUpon>Paiement.xaml</DependentUpon>
@@ -90,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AjouterPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AjouterProduit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +138,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModifierDatePlatEtProduit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Paiement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -159,6 +181,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="DialogueAjouterProduit.resx">
+      <DependentUpon>DialogueAjouterProduit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

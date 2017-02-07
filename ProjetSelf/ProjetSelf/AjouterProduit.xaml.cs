@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour AjouterPlat.xaml
+    /// Logique d'interaction pour AjouterProduit.xaml
     /// </summary>
-    public partial class AjouterPlat : UserControl
+    public partial class AjouterProduit : UserControl
     {
-        private MainWindow parent;
-        public AjouterPlat(MainWindow m)
+        MainWindow parent;
+        public AjouterProduit(MainWindow m)
         {
-            parent = m;
             InitializeComponent();
+            parent = m;
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
@@ -36,12 +36,5 @@ namespace Vue
         {
 
         }
-
-        private void ajouterProdClick(object sender, RoutedEventArgs e)
-        {
-            (new DialogueAjouterProduit(parent)).Show();
-
-        }
     }
 }
-
