@@ -26,7 +26,10 @@ namespace Vue
 
         public MainWindow()
         {
+
             InitializeComponent();
+            image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+
             try
             {
                 this.self = new Self();
