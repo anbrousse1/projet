@@ -27,7 +27,7 @@ namespace Vue
             {
                 MessageBox.Show("Aucun menu trouvé pour la date du jour!!!");
             }
-            mGridCentre.Children.Add(new ModifierDatePlatEtProduit());
+            mGridCentre.Children.Add(new Caisse(this));
             //mGridCentre.Children.Add(new Connexion(this, self));
             //Console.WriteLine(new DateTime(2017, 02, 04));
         }

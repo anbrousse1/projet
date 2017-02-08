@@ -17,13 +17,15 @@ namespace Metier
         private AbsUsager client;
         private AbsMenu menuDuJour;
         public double prixAPayer;
+        private IDataManager data;
 
-        public Self()
+        public Self(IDataManager stub)
         {
             droitUtilisateur = null;
             dateDuJour = DateTime.Today;
             menus = getAllMenus();
             menuDuJour = getMenu(dateDuJour);
+            data = stub;
             /*if (menuDuJour == null)
             {
                 throw new Exception();
