@@ -8,6 +8,6 @@ namespace Metier
 {
     public interface IDataManager
     {
-        void getAllMenu();
+        List<AbsMenu> getAllMenu();
     }
 }

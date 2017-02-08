@@ -15,6 +15,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: InternalsVisibleTo("Vue")]
 [assembly: InternalsVisibleTo("Persistance")]
+[assembly: InternalsVisibleTo("Test")]
+
 
 
 // L'affectation de la valeur false à ComVisible rend les types invisibles dans cet assembly 

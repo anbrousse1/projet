@@ -8,22 +8,46 @@ namespace Metier
 {
     public class Self
     {
-        
+        /// <summary>
+        /// ReadOnlyCollection des menus de l'application qui encapsule la liste menus
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu> menusROC
+        {
+            get;
+            private set;
+        } 
+        /// <summary>
+        /// Liste des menus
+        /// </summary>                       
+        private List<AbsMenu> menus = new List<AbsMenu>();
+
+        /// <summary>
+        /// ReadOnlyCollection des plats de l'application qui encapsule la liste plats
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des plats
+        /// </summary>
+        private List<AbsPlat> plats = new List<AbsPlat>();
+
+
         private DateTime dateDuJour = DateTime.Today;
-        private List<AbsMenu> menus;
-        private List<AbsPlat> plats;
-        private List<AbsProduit> produits;
         public String droitUtilisateur;
         private AbsUsager client;
         private AbsMenu menuDuJour;
         public double prixAPayer;
-        private IDataManager data;
+        public IDataManager data;
 
         public Self(IDataManager stub)
         {
+            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu>(menus);
+            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(plats);
             droitUtilisateur = null;
             dateDuJour = DateTime.Today;
-            menus = getAllMenus();
             menuDuJour = getMenu(dateDuJour);
             data = stub;
             /*if (menuDuJour == null)
@@ -52,27 +76,25 @@ namespace Metier
 
 
         //Charge la liste de menus à partir des élements de la BDD
-        private List<AbsMenu> getAllMenus()
+        public void getAllMenus()
         {
+            menus.Clear();
+            menus.AddRange(data.getAllMenu());
             //recuperer dans BDD
-            return null;
         }
 
 
         //Charge la liste de plats à partir des élements de la BDD
-        private List<AbsPlat> getAllPlats()
+        public void getAllPlats()
         {
             //recuperer dans BDD
-            return null;
         }
 
         //Charge la liste de produits à partir des élements de la BDD
-        private List<AbsProduit> getAllProduit()
+        public void getAllProduit()
         {
             //recuperer dans BDD
-            return null;
         }
-
 
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal abstract class AbsPlat
+    public abstract class AbsPlat
     {
         internal int CodePlat { get; set; }
         internal DateTime DateEffet { get; set; }
@@ -14,7 +14,7 @@ namespace Metier
         internal String Nom { get; set; }
         internal double Tarif { get; set; }
         internal CategoriePlat Categorie { get; set; }
-        protected List<AbsProduit> ingredients = new List<AbsProduit>();
+        internal List<AbsProduit> ingredients = new List<AbsProduit>();
 
         //méthode permettant de modifier le tarif d'un plat 
         internal void changerTarif(double tarif)

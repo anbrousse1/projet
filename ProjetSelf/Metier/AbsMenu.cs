@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal abstract class AbsMenu
+    public abstract class AbsMenu
     {
         internal int CodeMenu { get; set; }
         internal List<DateTime> dates = new List<DateTime>();
