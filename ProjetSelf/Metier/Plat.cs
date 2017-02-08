@@ -12,14 +12,14 @@ namespace Metier
 
 
         //Constructeur de plat
-        internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<AbsProduit> lingredients, CategoriePlat categorie)
+        internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<AbsProduit> ingredients, CategoriePlat categorie)
         {
             CodePlat = codePlat;
             DateEffet = dateEffet;
             DateFin = dateFin;
             Nom = nom;
             Tarif = tarif;
-            ingredients = lingredients;
+            this.ingredients = ingredients;
             Categorie = categorie;
         }
 

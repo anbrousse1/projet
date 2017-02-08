@@ -23,9 +23,10 @@ namespace Vue
         private MainWindow parent;
 
         public UCPlat(MainWindow m)
-        {
+        {       
             parent = m;
             InitializeComponent();
+            this.recap.Children.Add(new Recapitulatif());
         }
 
         private void ClickValider(object sender, RoutedEventArgs e)

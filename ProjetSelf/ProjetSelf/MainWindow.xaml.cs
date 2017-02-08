@@ -17,7 +17,7 @@ namespace Vue
         {
 
             InitializeComponent();
-           image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+           image.Source = new BitmapImage(new Uri("Images/ivan6.JPG", UriKind.Relative));
 
             try
             {

@@ -49,8 +49,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="PAIEMENT"  Background="Green" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="75" MinWidth="200"/>
-                    <Button Content="ANNULLER" Background="Red" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="75" MinWidth="200"/>
+                    <Button Content="PAIEMENT"  Grid.Row="0" Style="{StaticResource boutonValiderUC}" />
+                    <Button Content="ANNULLER" Grid.Row="1" Style="{StaticResource boutonAnnulerUC}" />
                 </Grid>
             </Grid>
         </Grid>

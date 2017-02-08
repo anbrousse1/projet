@@ -313,7 +313,7 @@ namespace Metier
         }
 
 
-        //methode qui rettourne la liste des produits dispo à la date du jour
+        //methode qui retourne la liste des produits dispo à la date du jour
         private List<AbsProduit> GetProduitsDispo()
         {
             List<AbsProduit> produitsDispo = new List<AbsProduit>();
@@ -325,6 +325,27 @@ namespace Metier
                 }
             }
             return produitsDispo;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d">date</param>
+        /// <returns>true si il y a déja un menu a la date donnée en paramètre sinon retourne faux</returns>
+        private Boolean DateMenuDispo(DateTime d)
+        {
+            foreach(Menu m in menus)
+            {
+                foreach(DateTime da in m.dates)
+                {
+                    if (d.Equals(da))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
     }

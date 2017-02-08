@@ -9,7 +9,7 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top" Margin="10,10,10,0">
             <Image x:Name="image" Width="100" Margin="10" HorizontalAlignment="Left"/>
-            <Label Content="Self" FontSize="40" Margin="115,0,-115,0"/>
+            <Label Content="EasySelf" FontSize="40" Margin="115,0,-115,0"/>
 
         </Grid>
         <Grid DockPanel.Dock="Bottom" Margin="0,447,519,0">
