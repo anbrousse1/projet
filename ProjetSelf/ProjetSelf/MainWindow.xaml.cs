@@ -39,8 +39,7 @@ namespace Vue
 
         internal void setUC(UserControl uc)
         {
-            mGridCentre.Children.Clear();
-            mGridCentre.Children.Add(uc);
+            new ValidationQuitter(this).Show();
         }
 
 
