@@ -45,6 +45,7 @@
     <Compile Include="AbsPlat.cs" />
     <Compile Include="AbsPlatChoisis.cs" />
     <Compile Include="AbsProduit.cs" />
+    <Compile Include="AbsRepas.cs" />
     <Compile Include="AbsUsager.cs" />
     <Compile Include="Carte.cs" />
     <Compile Include="CategoriePlat.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="PreAlimente.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repas.cs" />
     <Compile Include="RetenueSalaire.cs" />
     <Compile Include="Self.cs" />
     <Compile Include="Usager.cs" />

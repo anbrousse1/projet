@@ -18,7 +18,7 @@ namespace Metier
         internal String Service { get; set; }
         internal AbsPaiement algoDePaiement;
         internal double Solde { get; set; }
-        internal List<AbsPlatChoisis> historiquePlatChoisi = new List<AbsPlatChoisis>();
+        internal List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
         internal Carte carte;
         internal String fonction;
 
@@ -31,9 +31,17 @@ namespace Metier
 
 
         //Permet D'ajouter un plat choisi
-        internal void AddPlatChoisis(AbsPlatChoisis p)
+        internal void AddPlatChoisis(AbsPlat p)
         {
-            historiquePlatChoisi.Add(p);
+            foreach (AbsRepas r in historiquePlatChoisi)
+            {
+                if (r.date.Equals(DateTime.Now))
+                {
+                    r.AddPlat(p);
+                    return;
+                }
+            }
+            new Repas().AddPlat(p);
         }
     }
 }

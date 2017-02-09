@@ -284,7 +284,7 @@ namespace Metier
             prixAPayer = prixAPayer + p.Tarif;
             if (p != null)
             {
-                client.AddPlatChoisis(new PlatChoisis(DateTime.Today, p.CodePlat));
+                client.AddPlatChoisis(p);
                 //Ajouter à la BDD
             }
         }
