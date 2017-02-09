@@ -64,7 +64,7 @@ namespace Metier
                 {
                     algoDePaiement = new RetenueSalaire();
                 }
-                historiquePlatChoisi.AddRange(histo);
+                //historiquePlatChoisi.AddRange(histo);
             }
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal enum CategorieProduit
+    public enum CategorieProduit
     {
         Fruit,
         Legume,

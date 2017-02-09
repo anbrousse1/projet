@@ -8,14 +8,26 @@ namespace Metier
 {
     public abstract class AbsPlat
     {
-        internal int CodePlat { get; set; }
-        internal DateTime DateEffet { get; set; }
-        internal DateTime DateFin { get; set; }
-        internal String Nom { get; set; }
-        internal double Tarif { get; set; }
-        internal CategoriePlat Categorie { get; set; }
-        internal List<AbsProduit> ingredients = new List<AbsProduit>();
+        public int ID { get; set; }
+        public DateTime DateEffet { get; set; }
+        public DateTime DateFin { get; set; }
+        public String Nom { get; set; }
+        public double Tarif { get; set; }
+        public CategoriePlat Categorie { get; set; }
+        public List<Produit> ingredients = new List<Produit>();
 
+        public override string ToString()
+        {
+            string mess =  $"{ID}: {Nom} ({DateEffet:dd/MM/yyyy},{Categorie})\n";
+            int i = 0;
+            foreach (var p in ingredients)
+            {
+                i++;
+                mess+= "Produit "+ i + " : "+ p.ToString() + "\n";
+            }
+            return mess;
+
+        }
         //méthode permettant de modifier le tarif d'un plat 
         internal void changerTarif(double tarif)
         {

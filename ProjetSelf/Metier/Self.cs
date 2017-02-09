@@ -34,6 +34,19 @@ namespace Metier
         /// </summary>
         private List<AbsPlat> plats = new List<AbsPlat>();
 
+        /// <summary>
+        /// ReadOnlyCollection des produits de l'application qui encapsule la liste produits
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit> produitsROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des plats
+        /// </summary>
+        private List<AbsProduit> produits = new List<AbsProduit>();
+
 
         private DateTime dateDuJour = DateTime.Today;
         public String droitUtilisateur;
@@ -46,6 +59,8 @@ namespace Metier
         {
             menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu>(menus);
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(plats);
+            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(produits);
+
             droitUtilisateur = null;
             dateDuJour = DateTime.Today;
             menuDuJour = getMenu(dateDuJour);
@@ -87,13 +102,16 @@ namespace Metier
         //Charge la liste de plats à partir des élements de la BDD
         public void getAllPlats()
         {
-            //recuperer dans BDD
+            plats.Clear();
+            plats.AddRange(data.getAllPlats());
         }
 
         //Charge la liste de produits à partir des élements de la BDD
         public void getAllProduit()
         {
             //recuperer dans BDD
+            produits.Clear();
+            produits.AddRange(data.getAllProduits());
         }
 
 
@@ -259,14 +277,14 @@ namespace Metier
         //Permet d'ajouter un Plat
         private void Addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<String> ingredientString, String cate)
         {
-            plats.Add(new Plat(plats.Count + 1, debut, fin, nom, tarif, FindProduits(ingredientString), FindCategoriePlat(cate)));
+            //plats.Add(new Plat(plats.Count + 1, debut, fin, nom, tarif, FindProduits(ingredientString), FindCategoriePlat(cate)));
             //Ajouter dans BDD
         }
 
         //Permet d'ajouter un Produit
         private void AddProduit(int code, DateTime deb, DateTime fin, String nom, String observation, String cate)
         {
-            produits.Add(new Produit(code, deb, fin, nom, observation, FindCategorieProduit(cate)));
+           // produits.Add(new Produit(code, deb, fin, nom, observation, FindCategorieProduit(cate)));
             //Ajouter dans BDD
         }
 

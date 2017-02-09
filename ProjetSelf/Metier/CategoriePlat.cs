@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal enum CategoriePlat
+    public enum CategoriePlat
     {
         Entree,
         Plat,

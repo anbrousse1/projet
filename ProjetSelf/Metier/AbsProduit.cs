@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal abstract class AbsProduit
+    public abstract class AbsProduit
     {
-        internal int CodeProduit { get; set; }
-        internal DateTime DateEffet { get; set; }
-        internal DateTime DateFin { get; set; }
-        internal String Nom { get; set; }
-        internal String Observation { get; set; }
-        internal CategorieProduit Categorie { get; set; }
+        public int ID { get; set; }
+        public DateTime DateEffet { get; set; }
+        public DateTime DateFin { get; set; }
+        public String Nom { get; set; }
+        public String Observation { get; set; }
+        public CategorieProduit Categorie { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ID}: {Nom} ({DateEffet:dd/MM/yyyy}, {Observation} , {Categorie})";
+        }
 
         //méthode permettant de changer la date d'effet
         internal void ChangerDateEffet(DateTime d)

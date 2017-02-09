@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal class Plat : AbsPlat
+    public class Plat : AbsPlat
     {
 
 
 
-        //Constructeur de plat
-        internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<AbsProduit> ingredients, CategoriePlat categorie)
+        //Constructeur de plat il ne le faut pas sinon la bdd ne marche pas 
+       /* internal Plat(int codePlat, DateTime dateEffet, DateTime dateFin, String nom, double tarif, List<AbsProduit> ingredients, CategoriePlat categorie)
         {
-            CodePlat = codePlat;
+            ID = codePlat;
             DateEffet = dateEffet;
             DateFin = dateFin;
             Nom = nom;
             Tarif = tarif;
             this.ingredients = ingredients;
             Categorie = categorie;
-        }
+        }*/
 
 
     }

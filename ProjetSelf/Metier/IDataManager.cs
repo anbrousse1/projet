@@ -9,5 +9,10 @@ namespace Metier
     public interface IDataManager
     {
         List<AbsMenu> getAllMenu();
+
+        List<Produit> getAllProduits();
+
+        List<Plat> getAllPlats();
+
     }
 }

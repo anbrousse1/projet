@@ -32,8 +32,8 @@ namespace Metier
 
         internal Usager(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte, List<AbsPlatChoisis> histo)
         {
-            super:
-            historiquePlatChoisi.AddRange(histo);
+           // super:
+           // historiquePlatChoisi.AddRange(histo);
         }
 
     }
