@@ -50,10 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityDataManager.cs" />
+    <Compile Include="EntityMenu.cs" />
+    <Compile Include="EntityMenuPlat.cs" />
     <Compile Include="EntityPlat.cs" />
     <Compile Include="EntityProduit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StubDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
