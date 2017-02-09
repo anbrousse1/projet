@@ -20,7 +20,7 @@ namespace Vue
     /// </summary>
     public partial class Recapitulatif : UserControl
     {
-        public Recapitulatif()
+        public Recapitulatif(MainWindow m)
         {
             InitializeComponent();
         }

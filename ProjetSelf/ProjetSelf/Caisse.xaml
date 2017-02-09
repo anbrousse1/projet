@@ -40,8 +40,8 @@
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="7*"/>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="65*"/>
+                    <RowDefinition Height="35*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" Name="recap"/>
                 <Grid Grid.Row="1" >
@@ -49,8 +49,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="PAIEMENT"  Grid.Row="0" Style="{StaticResource boutonValiderUC}" />
-                    <Button Content="ANNULLER" Grid.Row="1" Style="{StaticResource boutonAnnulerUC}" />
+                    <Button Content="PAIEMENT"  Grid.Row="0" MaxWidth="350" Style="{StaticResource boutonValiderUC}" />
+                    <Button Content="ANNULLER" Grid.Row="1" MaxWidth="350" Style="{StaticResource boutonAnnulerUC}" />
                 </Grid>
             </Grid>
         </Grid>

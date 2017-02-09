@@ -52,6 +52,9 @@ namespace Vue
                 {
                     parent.setUC(new Caisse(parent));
                 }
+            }else
+            {
+                MessageBox.Show("Identifiant érronés");
             }
         }
 

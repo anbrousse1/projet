@@ -26,7 +26,8 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            this.recap.Children.Add(new Recapitulatif());
+            this.recap.Children.Add(new Recapitulatif(parent));
+            
         }
 
         private void ClickValider(object sender, RoutedEventArgs e)

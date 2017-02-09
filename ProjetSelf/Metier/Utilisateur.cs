@@ -32,7 +32,7 @@ namespace Metier
             }
 
 
-            internal Utilisateur(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte, List<AbsPlatChoisis> histo)
+            internal Utilisateur(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte, List<AbsRepas> histo)
             {
                 Matricule = matricule;
                 DateEntree = de;
@@ -64,7 +64,7 @@ namespace Metier
                 {
                     algoDePaiement = new RetenueSalaire();
                 }
-                //historiquePlatChoisi.AddRange(histo);
+                historiquePlatChoisi.AddRange(histo);
             }
 
         }

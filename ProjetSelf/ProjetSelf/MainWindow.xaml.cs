@@ -34,12 +34,13 @@ namespace Vue
 
         internal void quitter_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            new ValidationQuitter(this).Show();
         }
 
         internal void setUC(UserControl uc)
         {
-            new ValidationQuitter(this).Show();
+            this.mGridCentre.Children.Clear();
+            this.mGridCentre.Children.Add(uc);
         }
 
 

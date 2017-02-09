@@ -28,7 +28,7 @@ namespace Vue
             parent = m;
             InitializeComponent();
             IdUsager.Children.Add(new IdUsager());
-            recap.Children.Add(new Recapitulatif());
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         private void ClickEntree(object sender, RoutedEventArgs e)
@@ -53,13 +53,13 @@ namespace Vue
 
         private void ClickDeconnexion(object sender, RoutedEventArgs e)
         {
-            parent.self.deconnexion();
+            //parent.self.deconnexion();
             parent.setUC(new Connexion(parent));
         }
 
         private void ClickPaiement(object sender, RoutedEventArgs e)
         {
-            parent.self.Paiement();
+            //parent.self.Paiement();
             parent.setUC(new Paiement(parent));
 
         }
