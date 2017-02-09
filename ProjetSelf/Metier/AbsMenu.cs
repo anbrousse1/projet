@@ -8,9 +8,27 @@ namespace Metier
 {
     public abstract class AbsMenu
     {
-        internal int CodeMenu { get; set; }
-        internal List<DateTime> dates = new List<DateTime>();
-        internal List<AbsPlat> plats = new List<AbsPlat>();
+        public int ID { get; set; }
+        public string Nom { get; set; }
+        public List<DateTime> dates = new List<DateTime>();
+        public List<Plat> plats = new List<Plat>();
+
+        public override string ToString()
+        {
+            string mess = $"{ID}: {Nom} \n";
+            int i = 0;
+            foreach (var p in dates)
+            {
+                i++;
+                mess += "date " + i + " : " + p.ToString() + "\n";
+            }
+            foreach (var p in plats)
+            {
+                i++;
+                mess += "Plat " + i + " : " + p.ToString() + "\n";
+            }
+            return mess;
+        }
 
         //Permet d'ajouter un date à un menu
         internal void AddDate(DateTime d)

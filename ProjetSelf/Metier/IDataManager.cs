@@ -8,7 +8,7 @@ namespace Metier
 {
     public interface IDataManager
     {
-        List<AbsMenu> getAllMenu();
+        List<Menu> getAllMenu();
 
         List<Produit> getAllProduits();
 

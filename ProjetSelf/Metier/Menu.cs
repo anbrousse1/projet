@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal class Menu : AbsMenu
+    public class Menu : AbsMenu
     {
 
 
-        //Constructeur de menu
+        /*//Constructeur de menu
         internal Menu(int codeMenu, List<AbsPlat> lplats)
         {
-            CodeMenu = codeMenu;
+            ID = codeMenu;
             plats = lplats;
         }
-
+        */
 
     }
 }

@@ -24,7 +24,7 @@ namespace Metier
         /// <summary>
         /// ReadOnlyCollection des plats de l'application qui encapsule la liste plats
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platROC
         {
             get;
             private set;
@@ -32,7 +32,7 @@ namespace Metier
         /// <summary>
         /// Liste des plats
         /// </summary>
-        private List<AbsPlat> plats = new List<AbsPlat>();
+        private List<Plat> plats = new List<Plat>();
 
         /// <summary>
         /// ReadOnlyCollection des produits de l'application qui encapsule la liste produits
@@ -58,7 +58,7 @@ namespace Metier
         public Self(IDataManager stub)
         {
             menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu>(menus);
-            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(plats);
+            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
             produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(produits);
 
             droitUtilisateur = null;
@@ -291,7 +291,7 @@ namespace Metier
         //Permet d'ajouter un menu
         private void AddMenu(int code, List<String> plats)
         {
-            menus.Add(new Menu(code, FindPlats(plats)));
+            //menus.Add(new Menu(code, FindPlats(plats)));
             //Ajouter dans BDD
         }
 
