@@ -11,7 +11,7 @@ namespace Metier
         /// <summary>
         /// ReadOnlyCollection des menus de l'application qui encapsule la liste menus
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu> menusROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<Menu> menusROC
         {
             get;
             private set;
@@ -19,7 +19,7 @@ namespace Metier
         /// <summary>
         /// Liste des menus
         /// </summary>                       
-        private List<AbsMenu> menus = new List<AbsMenu>();
+        private List<Menu> menus = new List<Menu>();
 
         /// <summary>
         /// ReadOnlyCollection des plats de l'application qui encapsule la liste plats
@@ -37,7 +37,7 @@ namespace Metier
         /// <summary>
         /// ReadOnlyCollection des produits de l'application qui encapsule la liste produits
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit> produitsROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<Produit> produitsROC
         {
             get;
             private set;
@@ -45,7 +45,7 @@ namespace Metier
         /// <summary>
         /// Liste des plats
         /// </summary>
-        private List<AbsProduit> produits = new List<AbsProduit>();
+        private List<Produit> produits = new List<Produit>();
 
 
         private DateTime dateDuJour = DateTime.Today;
@@ -57,9 +57,9 @@ namespace Metier
 
         public Self(IDataManager stub)
         {
-            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu>(menus);
+            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
-            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(produits);
+            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
 
             droitUtilisateur = null;
             dateDuJour = DateTime.Today;
@@ -94,7 +94,7 @@ namespace Metier
         public void getAllMenus()
         {
             menus.Clear();
-            menus.AddRange(data.getAllMenu());
+            menus.AddRange(data.chargeAllMenu());
             //recuperer dans BDD
         }
 
@@ -103,7 +103,7 @@ namespace Metier
         public void getAllPlats()
         {
             plats.Clear();
-            plats.AddRange(data.getAllPlats());
+            plats.AddRange(data.chargeAllPlats());
         }
 
         //Charge la liste de produits à partir des élements de la BDD
@@ -111,7 +111,7 @@ namespace Metier
         {
             //recuperer dans BDD
             produits.Clear();
-            produits.AddRange(data.getAllProduits());
+            produits.AddRange(data.chargeAllProduits());
         }
 
 

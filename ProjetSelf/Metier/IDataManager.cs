@@ -8,11 +8,18 @@ namespace Metier
 {
     public interface IDataManager
     {
-        List<Menu> getAllMenu();
+        //Seule méthode a appelé pour l'instant : elle charge toute les ReadOnlyCollections
+        List<Menu> chargeAllMenu();
 
-        List<Produit> getAllProduits();
+        List<Produit> chargeAllProduits();
 
-        List<Plat> getAllPlats();
+        List<List<PlatProduit>> chargeAllPlatProduit(List<Plat> lpp, List<Produit> lp);
+
+        List<List<MenuPlat>> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp);
+
+        List<Plat> chargeAllPlats();
+
+        void chargeAll(Self s);
 
     }
 }

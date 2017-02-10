@@ -53,6 +53,7 @@
     <Compile Include="EntityMenu.cs" />
     <Compile Include="EntityMenuPlat.cs" />
     <Compile Include="EntityPlat.cs" />
+    <Compile Include="EntityPlatProduit.cs" />
     <Compile Include="EntityProduit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
