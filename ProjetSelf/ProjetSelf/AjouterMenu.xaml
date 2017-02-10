@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="Vue.AjouterMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Vue"
+      mc:Ignorable="d" 
+      Height="auto" Width="auto">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Ajouter un menu" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50" />
+
+        <TextBlock Text="Nom :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="1" />
+        <TextBox x:Name="nom" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0"/>
+
+        <TextBlock Text="Cliquer pour ajouter un plat:" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
+        <Button Content="Ajouter Plat" Grid.Column="1" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="100" MinHeight="50" Margin="15,0,0,0" Click="ajouterPlatClick"/>
+
+        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" FontSize="30" Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click" Margin="5,5,5,5"/>
+        <Button x:Name="Annuler" Content="ANNULER" HorizontalAlignment="Left" FontSize="30" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Background="Red" MinWidth="150" MinHeight="50"  Click="annuler_Click" Margin="5,5,5,5"/>
+
+    </Grid>
+</UserControl>

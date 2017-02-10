@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Vue.GererMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vue"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ComboBox x:Name="comboBox_menu" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30"/>
+
+        <DatePicker x:Name="dateMenu"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" FontSize="30" Grid.Column="2" VerticalAlignment="Center" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click"/>
+
+
+
+    </Grid>
+</UserControl>
