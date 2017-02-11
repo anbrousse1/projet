@@ -29,6 +29,14 @@ namespace Vue
             InitializeComponent();
             IdUsager.Children.Add(new IdUsager());
             recap.Children.Add(new Recapitulatif(parent));
+            if (parent.self.menuDuJour == null)
+            {
+                plat.IsEnabled = false;
+                dessert.IsEnabled = false;
+                entree.IsEnabled = false;
+
+                MessageBox.Show("pas de menu pour aujourd'hui");
+            }
         }
 
         private void ClickEntree(object sender, RoutedEventArgs e)

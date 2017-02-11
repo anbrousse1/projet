@@ -19,15 +19,8 @@ namespace Vue
             InitializeComponent();
            image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
 
-            try
-            {
-               // this.self = new Self();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Aucun menu trouvé pour la date du jour!!!");
-            }
-            mGridCentre.Children.Add(new Caisse(this));
+            self = new Self();
+            mGridCentre.Children.Add(new Connexion(this));
             //mGridCentre.Children.Add(new Connexion(this, self));
             //Console.WriteLine(new DateTime(2017, 02, 04));
         }

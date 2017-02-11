@@ -21,12 +21,20 @@ namespace Vue
     public partial class UCBoisson : UserControl
     {
         private MainWindow parent;
+        private List<Button> bouttons;
 
         public UCBoisson(MainWindow m)
         {
             parent = m;
             InitializeComponent();
             this.recap.Children.Add(new Recapitulatif(parent));
+            bouttons.Add(button1);
+            bouttons.Add(button2);
+            bouttons.Add(button3);
+            bouttons.Add(button4);
+            bouttons.Add(button5);
+            bouttons.Add(button6);
+
             
         }
 
@@ -68,6 +76,18 @@ namespace Vue
         private void ClickButton6(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button6.Content.ToString());
+        }
+
+        private void SetTextButtons(int i)
+        {
+            int nb = 0;
+            foreach(Button b in bouttons)
+            {
+                if (nb < i)
+                {
+                    
+                }
+            }
         }
     }
 }

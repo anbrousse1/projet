@@ -51,7 +51,7 @@ namespace Metier
         private DateTime dateDuJour = DateTime.Today;
         public String droitUtilisateur;
         private AbsUsager client;
-        private AbsMenu menuDuJour;
+        public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
 
@@ -70,7 +70,23 @@ namespace Metier
                 throw new Exception();
             }*/
         }
-    
+
+        public Self()
+        {
+            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
+            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
+            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
+
+            droitUtilisateur = null;
+            dateDuJour = DateTime.Today;
+            menuDuJour = getMenu(dateDuJour);
+            /*if (menuDuJour == null)
+            {
+                throw new Exception();
+            }*/
+        }
+
+
 
         //Retourne le menu correspondant à la date passé en paramètre
         private AbsMenu getMenu(DateTime d)
