@@ -23,9 +23,10 @@ namespace Metier
             foreach (var p in ingredients)
             {
                 i++;
-                mess+= "Produit "+ i + " : "+ p.ToString() + "\n";
+                mess += "Produit " + i + " : " + p.ToString() + "\n";
             }
             return mess;
+            
 
         }
         //méthode permettant de modifier le tarif d'un plat 

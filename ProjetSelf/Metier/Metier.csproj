@@ -55,6 +55,7 @@
     <Compile Include="MenuPlat.cs" />
     <Compile Include="Plat.cs" />
     <Compile Include="PlatChoisis.cs" />
+    <Compile Include="PlatProduit.cs" />
     <Compile Include="PreAlimente.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
