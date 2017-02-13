@@ -20,7 +20,7 @@ namespace Vue
            image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
 
             self = new Self();
-            mGridCentre.Children.Add(new AccueilGerant(this));
+            mGridCentre.Children.Add(new Stats(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)

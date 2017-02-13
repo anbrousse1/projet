@@ -99,6 +99,15 @@
     <Compile Include="Recapitulatif.xaml.cs">
       <DependentUpon>Recapitulatif.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StatGeneral.xaml.cs">
+      <DependentUpon>StatGeneral.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StatPeriode.xaml.cs">
+      <DependentUpon>StatPeriode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stats.xaml.cs">
+      <DependentUpon>Stats.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCBoisson.xaml.cs">
       <DependentUpon>UCBoisson.xaml</DependentUpon>
     </Compile>
@@ -181,6 +190,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Recapitulatif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatGeneral.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatPeriode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stats.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
