@@ -19,10 +19,12 @@ namespace Test
             Self self = new Self(bdd);
 
             bdd.chargeAll(self);
-            foreach(var l in self.menusROC)
+            
+            foreach (var l in self.menusROC)
             {
                 WriteLine(l.ToString());
             }
+            
 
             /*
 
