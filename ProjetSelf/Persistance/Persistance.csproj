@@ -55,6 +55,9 @@
     <Compile Include="EntityPlat.cs" />
     <Compile Include="EntityPlatProduit.cs" />
     <Compile Include="EntityProduit.cs" />
+    <Compile Include="EntityUsager.cs" />
+    <Compile Include="EntityUtilisateur.cs" />
+    <Compile Include="EntityUtilisateurUsager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
