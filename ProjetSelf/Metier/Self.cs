@@ -86,7 +86,52 @@ namespace Metier
             }*/
         }
 
-
+        public void chargeAll()
+        {
+            getAllProduit();
+            getAllPlats();
+            List<List<PlatProduit>> llpp = data.chargeAllPlatProduit(plats, produits);
+            foreach (var t in plats)
+            {
+                foreach (var n in llpp)
+                {
+                    foreach (var b in n)
+                    {
+                        if (b.idplat == t.ID)
+                        {
+                            foreach (var v in produits)
+                            {
+                                if (v.ID == b.idproduit)
+                                {
+                                    t.ingredients.Add(v);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            getAllMenus();
+            List<List<MenuPlat>> llmp = data.chargeAllMenuPlat(menus, plats);
+            foreach (var t in menus)
+            {
+                foreach (var n in llmp)
+                {
+                    foreach (var b in n)
+                    {
+                        if (b.idmenu == t.ID)
+                        {
+                            foreach (var v in plats)
+                            {
+                                if (v.ID == b.idplat)
+                                {
+                                    t.plats.Add(v);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         //Retourne le menu correspondant à la date passé en paramètre
         private AbsMenu getMenu(DateTime d)

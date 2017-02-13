@@ -10,6 +10,7 @@ namespace Metier
     {
         Entree,
         Plat,
-        Dessert
+        Dessert,
+        Boisson
     };
 }

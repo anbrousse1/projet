@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    class Usager :AbsUsager
+    public class Usager :AbsUsager
     {
-        internal Usager(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte)
+
+        /*internal Usager(String matricule, DateTime de, DateTime ds, String titre, String nom, String prenom, int cfonction, String service, int codePaiement, long solde, int numCarte)
         {
-            Matricule = matricule;
+            ID = matricule;
             DateEntree = de;
             DateSortie = ds;
             Titre = titre;
@@ -34,7 +35,7 @@ namespace Metier
         {
            // super:
            // historiquePlatChoisi.AddRange(histo);
-        }
+        }*/
 
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal class AbsRepas
+    public class AbsRepas
     {
         internal List<AbsPlatChoisis> plats;
         internal double prix;

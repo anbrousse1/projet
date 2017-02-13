@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal abstract class AbsUsager
+    public abstract class AbsUsager
     {
-        internal String Matricule { get; set; }
-        internal DateTime DateEntree { get; set; }
-        internal DateTime DateSortie { get; set; }
-        internal String Titre { get; set; }
-        internal String Nom { get; set; }
-        internal String Prenom { get; set; }
-        internal int CodeFonction { get; set; }
-        internal String Service { get; set; }
-        internal AbsPaiement algoDePaiement;
-        internal double Solde { get; set; }
-        internal List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
-        internal Carte carte;
-        internal String fonction;
+        public String ID { get; set; }
+        public DateTime DateEntree { get; set; }
+        public DateTime DateSortie { get; set; }
+        public String Titre { get; set; }
+        public String Nom { get; set; }
+        public String Prenom { get; set; }
+        public int CodeFonction { get; set; }
+        public String Service { get; set; }
+        public AbsPaiement algoDePaiement;
+        public double Solde { get; set; }
+        public List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        public Carte carte;
+        public String fonction;
 
 
         internal void payer(double prix)

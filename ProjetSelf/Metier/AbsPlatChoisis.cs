@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal abstract class AbsPlatChoisis
+    public abstract class AbsPlatChoisis
     {
         internal DateTime date { get; set; }
         internal int CodePlat { get; set; }
