@@ -60,6 +60,9 @@
     <Compile Include="AccueilGerant.xaml.cs">
       <DependentUpon>AccueilGerant.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AjouterMenu.xaml.cs">
+      <DependentUpon>AjouterMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AjouterPlat.xaml.cs">
       <DependentUpon>AjouterPlat.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,9 @@
     </Compile>
     <Compile Include="DialogueAjouterProduit.Designer.cs">
       <DependentUpon>DialogueAjouterProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GererMenu.xaml.cs">
+      <DependentUpon>GererMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="GestionMenu.xaml.cs">
       <DependentUpon>GestionMenu.xaml</DependentUpon>
@@ -130,6 +136,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AjouterMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AjouterPlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Connexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GererMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
