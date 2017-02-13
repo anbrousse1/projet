@@ -75,6 +75,18 @@
     <Compile Include="DialogueAjouterProduit.Designer.cs">
       <DependentUpon>DialogueAjouterProduit.cs</DependentUpon>
     </Compile>
+    <Compile Include="GestionMenu.xaml.cs">
+      <DependentUpon>GestionMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionPlat.xaml.cs">
+      <DependentUpon>GestionPlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionProduit.xaml.cs">
+      <DependentUpon>GestionProduit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GestionUtilisateur.xaml.cs">
+      <DependentUpon>GestionUtilisateur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IdUsager.xaml.cs">
       <DependentUpon>IdUsager.xaml</DependentUpon>
     </Compile>
@@ -122,6 +134,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Connexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionProduit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GestionUtilisateur.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

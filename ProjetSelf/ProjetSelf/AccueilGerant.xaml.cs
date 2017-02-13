@@ -30,7 +30,33 @@ namespace Vue
 
         private void ClickGestionPlat(object sender, RoutedEventArgs e)
         {
-            //parent.setUC(new UCGestionPlat(parent));
+            parent.setUC(new GestionPlat(parent));
+        }
+
+        private void ClickGestionMenu(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GestionMenu(parent));
+        }
+
+        private void ClickCaisse(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new Caisse(parent));
+        }
+
+        private void ClickGestionProduit(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GestionProduit(parent));
+        }
+
+
+        private void ClickGestionUtilisateur(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GestionUtilisateur(parent));
+        }
+
+        private void ClickStats(object sender, RoutedEventArgs e)
+        {
+            //parent.setUC(new Stats(parent));
         }
     }
 }

@@ -28,12 +28,6 @@ namespace Vue
             parent = m;
             InitializeComponent();
             this.recap.Children.Add(new Recapitulatif(parent));
-            bouttons.Add(button1);
-            bouttons.Add(button2);
-            bouttons.Add(button3);
-            bouttons.Add(button4);
-            bouttons.Add(button5);
-            bouttons.Add(button6);
 
             
         }
