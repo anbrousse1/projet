@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    internal class Carte
+    public class Carte
     {
         internal int Numero { get; private set; }
 

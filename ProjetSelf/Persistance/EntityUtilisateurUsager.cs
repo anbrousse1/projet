@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Metier
+namespace Persistance
 {
-    public abstract class AbsPaiement
+    class EntityUtilisateurUsager
     {
-        abstract internal void algoPaiment(AbsUsager u, double montantAPayer);
     }
 }
-

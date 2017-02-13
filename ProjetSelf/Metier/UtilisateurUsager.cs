@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-        public class Utilisateur
-        {
+    public class UtilisateurUsager
+    {
         public int ID { get; set; }
-        public String Login { get; set; }
-        public String  Password { get; set; }
+        public int IdUsager { get; set; }
+        public int IdUtilisateur { get; set; }
 
     }
 }
