@@ -19,7 +19,6 @@ namespace Metier
 
         List<Plat> chargeAllPlats();
 
-        void chargeAll(Self s);
 
     }
 }
