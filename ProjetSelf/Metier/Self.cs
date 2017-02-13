@@ -47,6 +47,33 @@ namespace Metier
         /// </summary>
         private List<Produit> produits = new List<Produit>();
 
+        /// <summary>
+        /// ReadOnlyCollection des usagers de l'application qui encapsule la liste usagers
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<Usager> usagerROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des usagers
+        /// </summary>
+        private List<Usager> usager = new List<Usager>();
+
+
+        /// <summary>
+        /// ReadOnlyCollection des utilisateur de l'application qui encapsule la liste utilisateur
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<Utilisateur> utilisateurROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des utilisateurs
+        /// </summary>
+        private List<Utilisateur> utilisateur = new List<Utilisateur>();
+
 
         private DateTime dateDuJour = DateTime.Today;
         public String droitUtilisateur;
@@ -60,6 +87,9 @@ namespace Metier
             menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
             produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
+            usagerROC = new System.Collections.ObjectModel.ReadOnlyCollection<Usager>(usager);
+            utilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<Utilisateur>(utilisateur);
+
 
             droitUtilisateur = null;
             dateDuJour = DateTime.Today;
@@ -88,6 +118,8 @@ namespace Metier
 
         public void chargeAll()
         {
+            getAllUsager();
+            getAllUtilisateur();
             getAllProduit();
             getAllPlats();
             List<List<PlatProduit>> llpp = data.chargeAllPlatProduit(plats, produits);
@@ -175,6 +207,19 @@ namespace Metier
             produits.AddRange(data.chargeAllProduits());
         }
 
+        public void getAllUsager()
+        {
+            //recuperer dans BDD
+            usager.Clear();
+            usager.AddRange(data.chargeAllUsager());
+        }
+
+        public void getAllUtilisateur()
+        {
+            //recuperer dans BDD
+            utilisateur.Clear();
+            utilisateur.AddRange(data.chargeAllUtilisateur());
+        }
 
 
         //méthode permettant à un utilisateur de se connecter
@@ -192,12 +237,7 @@ namespace Metier
             droitUtilisateur = null;
         }
 
-        //Charge liste des usagers à partir des éléments de,la BDD
-        private List<AbsUsager> getAllUsager()
-        {
-            //BDD
-            return null;
-        }
+
 
 
         //Permet d'identifier un usager avec son numéro de carte

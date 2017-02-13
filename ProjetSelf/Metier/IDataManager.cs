@@ -19,6 +19,11 @@ namespace Metier
 
         List<Plat> chargeAllPlats();
 
+        List<Usager> chargeAllUsager();
+
+        List<Utilisateur> chargeAllUtilisateur();
+
+
 
     }
 }

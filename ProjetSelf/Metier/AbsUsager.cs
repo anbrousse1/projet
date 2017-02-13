@@ -20,8 +20,13 @@ namespace Metier
         public double Solde { get; set; }
         public List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
         public Carte carte;
-        public String fonction;
+        public String Fonction { get; set; }
 
+        public override string ToString()
+        {
+            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + carte.Numero;
+            return m;
+        }
 
         internal void payer(double prix)
         {
