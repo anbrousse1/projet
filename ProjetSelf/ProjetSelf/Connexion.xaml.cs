@@ -22,24 +22,28 @@ namespace Vue
     {
 
         private MainWindow parent;
-
+        /// <summary>
+        /// constructeur du user Controle Connexion 
+        /// </summary>
+        /// <param name="m"></param>
         public Connexion(MainWindow m)
         {
             parent = m;
             InitializeComponent();
         }
 
-        private void quitter_Click(object sender, RoutedEventArgs e)
-        {
-            parent.Close();
-        }
-
+        /// <summary>
+        /// méthode appelé lorsqu'on clique sur le bouton connexion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickConnexion(object sender, RoutedEventArgs e)
         {
-            parent.self.connexion(this.log.Text, this.mdp.Text);
-            String fonction = parent.self.droitUtilisateur;
-            if (fonction != null)
+
+            if (parent.self.connexion(log.Text, mdp.Password))
             {
+                
+                String fonction = parent.self.DroitUtilisateur;
                 if (fonction.Equals("Caissier"))
                 {
                     parent.setUC(new Caisse(parent));

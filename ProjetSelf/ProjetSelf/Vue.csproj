@@ -274,6 +274,10 @@
       <Project>{10af8304-6467-463f-acd9-90809b31e2a8}</Project>
       <Name>Metier</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Persistance\Persistance.csproj">
+      <Project>{da49fa02-46f5-4ec9-bde5-1ef27b1d2350}</Project>
+      <Name>Persistance</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\fourchette.jpg" />

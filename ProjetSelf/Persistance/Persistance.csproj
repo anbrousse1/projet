@@ -59,6 +59,7 @@
     <Compile Include="EntityUtilisateur.cs" />
     <Compile Include="EntityUtilisateurUsager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StubDataManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

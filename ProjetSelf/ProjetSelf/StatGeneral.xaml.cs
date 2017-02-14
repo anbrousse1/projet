@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ProjetSelf
+namespace Vue
 {
     /// <summary>
     /// Logique d'interaction pour StatGeneral.xaml

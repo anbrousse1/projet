@@ -13,7 +13,7 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Récapitulatif :" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"/>
-        <ListView Grid.Row="1" MaxWidth="350">
+        <ListView Grid.Row="1" MaxWidth="350" ItemsSource="{Binding platsChoisisROC}" ItemTemplate="{StaticResource recap}" >
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListView.Background>

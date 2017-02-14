@@ -27,6 +27,13 @@
             <Setter Property="Background" Value="red"/>
         </Style>
 
+        <DataTemplate x:Key="recap">
+            <TextBlock Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5" >
+                <TextBlock.Text>
+                    <Binding Path="Nom" />
+                </TextBlock.Text>
+            </TextBlock>
+        </DataTemplate>
 
     </Application.Resources>
 </Application>

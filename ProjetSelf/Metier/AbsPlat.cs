@@ -20,13 +20,16 @@ namespace Metier
         {
             string mess =  $"{ID}: {Nom} ({DateEffet:dd/MM/yyyy},{Categorie})\n";
             int i = 0;
-            foreach (var p in ingredients)
+            if (ingredients != null)
             {
-                i++;
-                mess += "Produit " + i + " : " + p.ToString() + "\n";
+                foreach (var p in ingredients)
+                {
+                    i++;
+                    mess += "Produit " + i + " : " + p.ToString() + "\n";
+                }
+                
             }
             return mess;
-            
 
         }
         //méthode permettant de modifier le tarif d'un plat 

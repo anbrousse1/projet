@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Metier;
+using Persistance;
 
 namespace Vue
 {
@@ -17,10 +18,16 @@ namespace Vue
         {
 
             InitializeComponent();
-           image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
-
-            self = new Self();
-            mGridCentre.Children.Add(new Stats(this));
+            image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+            try
+            {
+                self = new Self(new StubDataManager());
+            }catch(Exception e)
+            {
+                MessageBox.Show("Pas de menu programmé pour aujourd'hui");
+            }
+            
+            mGridCentre.Children.Add(new Caisse(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)

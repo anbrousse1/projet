@@ -75,39 +75,140 @@ namespace Metier
         private List<Utilisateur> utilisateur = new List<Utilisateur>();
 
 
+
+        /// <summary>
+        /// ReadOnlyCollection des Entree du menu du jour qui encapsule la liste des entrées du jour
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> entreeROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des entrées
+        /// </summary>
+        private List<AbsPlat> entrees = new List<AbsPlat>();
+
+
+        /// <summary>
+        /// ReadOnlyCollection des Entree du menu du jour qui encapsule la liste des entrées du jour
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> dessertROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des entrées
+        /// </summary>
+        private List<AbsPlat> desserts = new List<AbsPlat>();
+
+
+        /// <summary>
+        /// ReadOnlyCollection des Plats du menu du jour qui encapsule la liste des plats du jour
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platsDuJourROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des entrées
+        /// </summary>
+        private List<AbsPlat> platsJour = new List<AbsPlat>();
+
+
+        /// <summary>
+        /// ReadOnlyCollection des Entree du menu du jour qui encapsule la liste des entrées du jour
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> boissonROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des entrées
+        /// </summary>
+        private List<AbsPlat> boissons = new List<AbsPlat>();
+
+        /// <summary>
+        /// ReadOnlyCollections de plats choisis qui encapsule une liste de plats choisis par le client
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platsChoisisROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste de plats choisis
+        /// </summary>
+        private List<AbsPlat> platsChoisis = new List<AbsPlat>();
+
+
         private DateTime dateDuJour = DateTime.Today;
-        public String droitUtilisateur;
+        public String DroitUtilisateur { get; private set; }
         private AbsUsager client;
         public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
 
+
+        /// <summary>
+        /// Constructeur de Self avec un IDataManager en paramètre
+        /// </summary>
+        /// <param name="stub"></param>
         public Self(IDataManager stub)
         {
+            data = stub;
             menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
             produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
             usagerROC = new System.Collections.ObjectModel.ReadOnlyCollection<Usager>(usager);
             utilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<Utilisateur>(utilisateur);
+            entreeROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(entrees);
+            platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
+            dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
+            boissonROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(boissons);
+            platsChoisisROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsChoisis);
+            DroitUtilisateur = null;
 
+            getAllMenus();
+            getAllPlats();
+            getAllProduit();
+            getAllUtilisateur();
+            getAllUsager();
 
-            droitUtilisateur = null;
             dateDuJour = DateTime.Today;
             menuDuJour = getMenu(dateDuJour);
-            data = stub;
+
+            ChargeBoisson();
+            ChargeDesserts();
+            ChargeEntrees();
+            ChargePlatsResistance();
+
+                 
             /*if (menuDuJour == null)
             {
                 throw new Exception();
             }*/
+
         }
 
+
+        /// <summary>
+        /// Constructeur de Self sans paramètre
+        /// </summary>
         public Self()
         {
             menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
             produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
+            entreeROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(entrees);
+            platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
+            dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
+            boissonROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(boissons);
 
-            droitUtilisateur = null;
+            DroitUtilisateur = null;
             dateDuJour = DateTime.Today;
             menuDuJour = getMenu(dateDuJour);
             /*if (menuDuJour == null)
@@ -116,6 +217,11 @@ namespace Metier
             }*/
         }
 
+
+
+        /// <summary>
+        /// Méthode pour tout charger
+        /// </summary>
         public void chargeAll()
         {
             getAllUsager();
@@ -165,7 +271,11 @@ namespace Metier
             }
         }
 
-        //Retourne le menu correspondant à la date passé en paramètre
+        /// <summary>
+        /// Retourne le menu correspondant à la date passé en paramètre
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         private AbsMenu getMenu(DateTime d)
         {
             if (menus != null)
@@ -183,23 +293,28 @@ namespace Metier
         }
 
 
-        //Charge la liste de menus à partir des élements de la BDD
+        /// <summary>
+        /// Charge la liste de menus à partir des élements de la BDD
+        /// </summary>
         public void getAllMenus()
         {
             menus.Clear();
-            menus.AddRange(data.chargeAllMenu());
-            //recuperer dans BDD
+            menus=data.chargeAllMenu();
         }
 
 
-        //Charge la liste de plats à partir des élements de la BDD
+        /// <summary>
+        /// Charge la liste de plats à partir des élements de la BDD
+        /// </summary>
         public void getAllPlats()
         {
             plats.Clear();
             plats.AddRange(data.chargeAllPlats());
         }
 
-        //Charge la liste de produits à partir des élements de la BDD
+        /// <summary>
+        /// Charge la liste de produits à partir des élements de la BDD
+        /// </summary>
         public void getAllProduit()
         {
             //recuperer dans BDD
@@ -207,90 +322,142 @@ namespace Metier
             produits.AddRange(data.chargeAllProduits());
         }
 
+        /// <summary>
+        /// Charge la liste des usagers.
+        /// </summary>
         public void getAllUsager()
         {
             //recuperer dans BDD
             usager.Clear();
-            usager.AddRange(data.chargeAllUsager());
+            usager=data.chargeAllUsager();
         }
 
+        /// <summary>
+        /// Charge les utilisateurs
+        /// </summary>
         public void getAllUtilisateur()
         {
-            //recuperer dans BDD
+
             utilisateur.Clear();
-            utilisateur.AddRange(data.chargeAllUtilisateur());
+            utilisateur=data.chargeAllUtilisateur();
         }
 
 
-        //méthode permettant à un utilisateur de se connecter
-        public void connexion(String login, String mdp)
+        /// <summary>
+        /// méthode permettant à un utilisateur de se connecter
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="mdp"></param>
+        public Boolean connexion(String login, String mdp)
         {
-            //BDD
-            //on mettra dans droitUtilisateur si c'est un gérant, un caissier ou un cuisinier et on chargera user.
-
+            foreach(AbsUtilisateur u in utilisateur)
+            {
+                Console.WriteLine("self "+u.Login + " " + u.Password);
+                if(login.Equals(u.Login)&& mdp.Equals(u.Password))
+                {
+                    foreach(AbsUsager usa in usager)
+                    {
+                        if (usa.ID == u.ID)
+                        {
+                            DroitUtilisateur = usa.Fonction;
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
 
-
-        //méthode permattant à un utilisateur de se déconnecter 
+        /// <summary>
+        /// méthode permattant à un utilisateur de se déconnecter 
+        /// </summary>
         public void deconnexion()
         {
-            droitUtilisateur = null;
+            DroitUtilisateur = null;
         }
 
 
 
-
-        //Permet d'identifier un usager avec son numéro de carte
+        /// <summary>
+        /// Permet d'identifier un usager avec son numéro de carte
+        /// </summary>
         private void FindUsager(int numeroCarte)
         {
-            //recuperer dans BDD
+            foreach(AbsUsager u in usager)
+            {
+                if (u.carte.Numero == numeroCarte)
+                {
+                   client= u;
+                }
+            }
         }
 
-        //Permet de recuperer la liste des entrees 
-        private List<String> GetEntrees()
+
+
+        /// <summary>
+        /// Permet de recuperer la liste des entrees 
+        /// </summary>
+        /// <returns></returns>
+        private void ChargeEntrees()
         {
-            List<String> entrees = new List<String>();
             foreach (AbsPlat p in menuDuJour.plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Entree))
                 {
-                    entrees.Add(p.Nom);
+                    entrees.Add(p);
                 }
             }
-            return entrees;
         }
 
-        //Permet de recuperer la liste des plats de resistance
-        private List<String> GetPlatsResistance()
+        /// <summary>
+        /// Charge boissons
+        /// </summary>
+       private void ChargeBoisson()
         {
-            List<String> plats = new List<String>();
+            foreach(AbsPlat p in plats)
+            {
+                if (p.Categorie.Equals(CategoriePlat.Boisson))
+                {
+                    boissons.Add(p);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Permet de recuperer la liste des plats de resistance
+        /// </summary>
+        private void ChargePlatsResistance()
+        {
             foreach (AbsPlat p in menuDuJour.plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Plat))
                 {
-                    plats.Add(p.Nom);
+                    platsJour.Add(p);
                 }
             }
-            return plats;
         }
 
-        //Permet de recuperer la liste des desserts
-        private List<String> GetDesserts()
+        /// <summary>
+        /// Permet de recuperer la liste des desserts
+        /// </summary>
+        private void ChargeDesserts()
         {
             {
-                List<String> desserts = new List<String>();
                 foreach (AbsPlat p in menuDuJour.plats)
                 {
                     if (p.Categorie.Equals(CategoriePlat.Dessert))
                     {
-                        desserts.Add(p.Nom);
+                        desserts.Add(p);
                     }
                 }
-                return desserts;
             }
         }
 
-        //Methode pour faire payer un usager
+
+
+        /// <summary>
+        /// Methode pour faire payer un usager
+        /// </summary>
         public void Paiement()
         {
             client.payer(prixAPayer);
@@ -300,7 +467,11 @@ namespace Metier
 
 
 
-        //retourne à partir d'une chaine de caractère une instance de CategoriePlat
+        /// <summary>
+        /// retourne à partir d'une chaine de caractère une instance de CategoriePlat
+        /// </summary>
+        /// <param name="cate"></param>
+        /// <returns></returns>
         private CategoriePlat FindCategoriePlat(String cate)
         {
             switch (cate)
@@ -311,7 +482,11 @@ namespace Metier
             }
         }
 
-        //retourne à partir d'un string une instance de CategorieProduit
+        /// <summary>
+        /// retourne à partir d'un string une instance de CategorieProduit
+        /// </summary>
+        /// <param name="cate"></param>
+        /// <returns></returns>
         private CategorieProduit FindCategorieProduit(string cate)
         {
             switch (cate)
@@ -327,7 +502,11 @@ namespace Metier
             }
         }
 
-        //Permet à partir d'une liste de string d'obtenir une liste de produits
+        /// <summary>
+        /// Permet à partir d'une liste de string d'obtenir une liste de produits
+        /// </summary>
+        /// <param name="prod"></param>
+        /// <returns></returns>
         private List<AbsProduit> FindProduits(List<String> prod)
         {
             List<AbsProduit> ingredients = new List<AbsProduit>();
@@ -338,7 +517,12 @@ namespace Metier
             return ingredients;
         }
 
-        //Permet à partir d'un string d'obtenir un produit
+
+        /// <summary>
+        /// Permet à partir d'un string d'obtenir un produit
+        /// </summary>
+        /// <param name="prod"></param>
+        /// <returns></returns>
         private AbsProduit FindProduit(String prod)
         {
             foreach (AbsProduit p in produits)
@@ -351,7 +535,11 @@ namespace Metier
             return null;
         }
 
-        //Permet à partir d'un string d'obtenir un plat
+        /// <summary>
+        /// Permet à partir d'un string d'obtenir un plat
+        /// </summary>
+        /// <param name="plat"></param>
+        /// <returns></returns>
         private AbsPlat FindPlat(String plat)
         {
             foreach (AbsPlat p in plats)
@@ -400,10 +588,16 @@ namespace Metier
         public void AddPlatChoisi(String plat)
         {
             AbsPlat p = FindPlat(plat);
-            prixAPayer = prixAPayer + p.Tarif;
-            if (p != null)
-            {
-                client.AddPlatChoisis(p);
+            if (p != null) {
+                Console.Write(p.ToString());
+                platsChoisis.Add(p);
+                foreach(AbsPlat ap in platsChoisis)
+                {
+                    Console.WriteLine(ap.ToString());
+                }
+                Console.WriteLine(platsChoisisROC.Count);
+                prixAPayer = prixAPayer + p.Tarif;
+                //client.AddPlatChoisis(p);
                 //Ajouter à la BDD
             }
         }
@@ -470,7 +664,7 @@ namespace Metier
 
 
         /// <summary>
-        /// 
+        /// Methode pour connaitre les dates Dispo
         /// </summary>
         /// <param name="d">date</param>
         /// <returns>true si il y a déja un menu a la date donnée en paramètre sinon retourne faux</returns>

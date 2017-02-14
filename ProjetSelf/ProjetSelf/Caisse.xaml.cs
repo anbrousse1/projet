@@ -28,7 +28,8 @@ namespace Vue
             parent = m;
             InitializeComponent();
             IdUsager.Children.Add(new IdUsager());
-            recap.Children.Add(new Recapitulatif(parent));
+            Recapitulatif r = new Recapitulatif(parent);
+            recap.Children.Add(r);
             if (parent.self.menuDuJour == null)
             {
                 plat.IsEnabled = false;
