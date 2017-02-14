@@ -47,6 +47,7 @@
     <Compile Include="AbsProduit.cs" />
     <Compile Include="AbsRepas.cs" />
     <Compile Include="AbsUsager.cs" />
+    <Compile Include="AbsUtilisateur.cs" />
     <Compile Include="Carte.cs" />
     <Compile Include="CategoriePlat.cs" />
     <Compile Include="CategorieProduit.cs" />

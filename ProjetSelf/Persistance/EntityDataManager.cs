@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Metier;
 using System.IO;
-
+using System.Linq;
 
 namespace Persistance
 {
@@ -19,10 +19,10 @@ namespace Persistance
 
             using (EntityMenu db = new EntityMenu())
             {
-                /*if( db.MenuSet.Count() > 0)
+                if( db.MenuSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
                 db.MenuSet.AddRange(new Menu[] { m, m2 });
                 db.SaveChanges();
 
@@ -49,10 +49,10 @@ namespace Persistance
 
             using (EntityPlatProduit db = new EntityPlatProduit())
             {
-                /*if (db.PlatProduitSet.Count() > 0)
+                if (db.PlatProduitSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
                 db.PlatProduitSet.AddRange(new PlatProduit[] { carotteRape, saucisse, lentille, saucisson });
                 db.SaveChanges();
 
@@ -94,10 +94,10 @@ namespace Persistance
 
             using (EntityMenuPlat db = new EntityMenuPlat())
             {
-               /* if (db.MenuPlatSet.Count() > 0)
+                if (db.MenuPlatSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
                 db.MenuPlatSet.AddRange(new MenuPlat[] { mP1, mP2, mP3,mP4,mP5,mP6 });
                 db.SaveChanges();
 
@@ -130,10 +130,10 @@ namespace Persistance
             List<Plat> lpp = new List<Plat>();
             using (EntityPlat db = new EntityPlat())
             {
-                /*if (db.PlatSet.Count() > 0)
+                if (db.PlatSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
                 db.PlatSet.AddRange(new Plat[] { lentilleS, carotteRape, saucissonE, biere });
                 db.SaveChanges();
 
@@ -157,10 +157,10 @@ namespace Persistance
 
             using (EntityProduit db = new EntityProduit())
             {
-                /*if (db.ProduitSet.Count() > 0)
+                if (db.ProduitSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
                 db.ProduitSet.AddRange(new Produit[] { carotte, saucisse, saucisson, lentille });
                 db.SaveChanges();
 
@@ -177,20 +177,31 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Usager bastien = new Usager { Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1, DateEntree = new DateTime(11, 02, 15), Service = "Restaurant", Titre = "Monsieur", algoDePaiement = new PreAlimente(), Solde = 25, carte = new Carte(12), Fonction = "Caissier"};
-            Usager leandre = new Usager { Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2, DateEntree = new DateTime(14, 07, 16), Service = "Restaurant", Titre = "Monsieur", algoDePaiement = new PreAlimente(), Solde = 78, carte = new Carte(15), Fonction = "Gérant" };
+            Usager bastien = new Usager {Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
+                DateEntree = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", algoDePaiement = new PreAlimente(),
+                Solde = 25, carte = new Carte(12), Fonction = "Caissier"};
+            Usager leandre = new Usager {Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
+                DateEntree = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", algoDePaiement = new PreAlimente(),
+                Solde = 78, carte = new Carte(15), Fonction = "Gérant" };
 
             List<Usager> lu = new List<Usager>();
 
             using (EntityUsager db = new EntityUsager())
             {
-              /*if (db.UsagerSet.Count() > 0)
+                if (db.UsagerSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
-              */
+              
                 db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }catch(Exception e)
+                {
+                    e.GetBaseException();
+                }
+                
 
                 foreach (var n in db.UsagerSet)
                 {
@@ -212,11 +223,11 @@ namespace Persistance
 
             using (EntityUtilisateur db = new EntityUtilisateur())
             {
-                /*if (db.UsagerSet.Count() > 0)
-                  {
-                      db.Database.Delete();
-                  }
-                */
+                if (db.UtilisateurSet.Count() > 0)
+                {
+                    db.Database.Delete();
+                }
+                
                 db.UtilisateurSet.AddRange(new Utilisateur[] { bastien, leandre });
                 db.SaveChanges();
 
@@ -228,7 +239,6 @@ namespace Persistance
             }
             return lu;
         }
-
-
+        
     }
 }

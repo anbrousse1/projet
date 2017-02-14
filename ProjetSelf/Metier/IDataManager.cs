@@ -8,7 +8,7 @@ namespace Metier
 {
     public interface IDataManager
     {
-        //Seule méthode a appelé pour l'instant : elle charge toute les ReadOnlyCollections
+        
         List<Menu> chargeAllMenu();
 
         List<Produit> chargeAllProduits();

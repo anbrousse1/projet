@@ -8,7 +8,7 @@ namespace Metier
 {
     public abstract class AbsUsager
     {
-        public String ID { get; set; }
+        public int ID { get; set; }
         public DateTime DateEntree { get; set; }
         public DateTime DateSortie { get; set; }
         public String Titre { get; set; }

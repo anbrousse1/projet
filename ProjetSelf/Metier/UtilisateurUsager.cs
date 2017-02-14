@@ -9,8 +9,8 @@ namespace Metier
     public class UtilisateurUsager
     {
         public int ID { get; set; }
-        public int IdUsager { get; set; }
-        public int IdUtilisateur { get; set; }
+        public int idUsager { get; set; }
+        public int idUtilisateur { get; set; }
 
     }
 }

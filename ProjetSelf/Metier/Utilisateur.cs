@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-        public class Utilisateur
-        {
-        public int ID { get; set; }
-        public String Login { get; set; }
-        public String  Password { get; set; }
+    public class Utilisateur : AbsUtilisateur
+    {
+        
 
     }
 }
