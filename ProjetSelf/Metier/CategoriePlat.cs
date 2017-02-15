@@ -8,8 +8,8 @@ namespace Metier
 {
     public enum CategoriePlat
     {
-        Entree,
         Plat,
+        Entree,
         Dessert,
         Boisson
     };

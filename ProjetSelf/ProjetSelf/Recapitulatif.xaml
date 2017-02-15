@@ -13,22 +13,19 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Récapitulatif :" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"/>
-        <ListView Grid.Row="1" MaxWidth="350" ItemsSource="{Binding platsChoisisROC}" ItemTemplate="{StaticResource recap}" >
-            <ListView.Background>
-                <SolidColorBrush Color="White" Opacity="0"/>
-            </ListView.Background>
+        <ListView Grid.Row="1" MaxWidth="450" ItemsSource="{Binding platsChoisisROC}" ItemTemplate="{StaticResource recap}" Background="Transparent"/>
 
-        </ListView>
         <StackPanel Grid.Row="2">
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Total: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
-                <TextBlock Name="prixRepas" Text="prx" FontSize="20"  Background="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Name="prixRepas" Text="0" FontSize="25"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
-                <TextBlock Name="soldeClient" Text="prx" FontSize="20" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
+                <TextBlock Name="soldeClient" Text="0" FontSize="25" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </WrapPanel>
         </StackPanel>
+        
     </Grid>
 
 </UserControl>

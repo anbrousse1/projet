@@ -591,10 +591,6 @@ namespace Metier
             if (p != null) {
                 Console.Write(p.ToString());
                 platsChoisis.Add(p);
-                foreach(AbsPlat ap in platsChoisis)
-                {
-                    Console.WriteLine(ap.ToString());
-                }
                 Console.WriteLine(platsChoisisROC.Count);
                 prixAPayer = prixAPayer + p.Tarif;
                 //client.AddPlatChoisis(p);

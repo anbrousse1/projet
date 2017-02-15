@@ -40,7 +40,7 @@ namespace Vue
             switch (i)
             {
                 case 0:
-                    MessageBox.Show("Aucun plats de résistance dans le menu!!!");
+                    MessageBox.Show("Aucune entrées dans le menu!!!");
                     button1.IsEnabled = false;
                     button2.IsEnabled = false;
                     button3.IsEnabled = false;
@@ -155,6 +155,8 @@ namespace Vue
         private void ClickButton1(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button1.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         /// <summary>
@@ -165,6 +167,8 @@ namespace Vue
         private void ClickButton2(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button2.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         /// <summary>
@@ -175,6 +179,8 @@ namespace Vue
         private void ClickButton3(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button3.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         /// <summary>
@@ -185,6 +191,8 @@ namespace Vue
         private void ClickButton4(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button4.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         /// <summary>
@@ -195,6 +203,8 @@ namespace Vue
         private void ClickButton5(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button5.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
 
         /// <summary>
@@ -205,6 +215,8 @@ namespace Vue
         private void ClickButton6(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button6.Content.ToString());
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
         }
     }
 }

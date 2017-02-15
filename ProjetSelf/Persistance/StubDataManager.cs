@@ -66,20 +66,20 @@ namespace Persistance
             p.Add(new Plat { ID = 011, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "baba au rhum", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
             p.Add(new Plat { ID = 012, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "bonbons", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
 
-            p.Add(new Plat { ID = 013, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 014, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade bleu", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 015, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rouge", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 016, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade orange", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 017, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rose", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 018, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade marron", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
+            p.Add(new Plat { ID = 013, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
+            p.Add(new Plat { ID = 014, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade bleu", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
+            p.Add(new Plat { ID = 015, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rouge", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
+            p.Add(new Plat { ID = 016, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade orange", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
+            p.Add(new Plat { ID = 017, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rose", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
+            p.Add(new Plat { ID = 018, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade marron", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
 
 
-            p.Add(new Plat { ID = 019, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Biere", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 020, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Eau gazeuse", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 021, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Eau plate", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 022, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Vin", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 023, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Soda", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
-            p.Add(new Plat { ID = 024, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Jus de fruit", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
+            p.Add(new Plat { ID = 019, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Biere", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
+            p.Add(new Plat { ID = 020, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Eau gazeuse", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
+            p.Add(new Plat { ID = 021, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Eau plate", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
+            p.Add(new Plat { ID = 022, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Vin", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
+            p.Add(new Plat { ID = 023, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Soda", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
+            p.Add(new Plat { ID = 024, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Jus de fruit", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
 
             return p;
         }

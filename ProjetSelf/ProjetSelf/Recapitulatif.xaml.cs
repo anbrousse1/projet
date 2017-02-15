@@ -25,6 +25,9 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
+            DataContext = parent.self;
+            prixRepas.Text = parent.self.prixAPayer.ToString()+"€";
+
         }
 
     }
