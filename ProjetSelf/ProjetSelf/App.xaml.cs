@@ -1,31 +1,32 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
-namespace ProjetSelf
+
+namespace Vue
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml
     /// </summary>
     public partial class App : Application
     {
-        /*
-        <Grid HorizontalAlignment = "Center" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-*/
+        private void ClickButtonMoins(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            AbsPlat p= (AbsPlat)b.DataContext;
+        }
 
-       /* <Button Content = "+" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                <TextBlock Background = "Transparent"  Grid.Column="2" Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
-                <Button Content = "-" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,0,5"/>
-            </Grid>*/
+
+        private void ClickButtonPlus(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            AbsPlat p = (AbsPlat)b.DataContext;
+        }
     }
 }

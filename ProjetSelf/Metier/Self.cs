@@ -589,9 +589,7 @@ namespace Metier
         {
             AbsPlat p = FindPlat(plat);
             if (p != null) {
-                Console.Write(p.ToString());
                 platsChoisis.Add(p);
-                Console.WriteLine(platsChoisisROC.Count);
                 prixAPayer = prixAPayer + p.Tarif;
                 //client.AddPlatChoisis(p);
                 //Ajouter à la BDD
