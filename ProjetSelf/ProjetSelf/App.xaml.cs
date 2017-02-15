@@ -16,10 +16,21 @@ namespace Vue
     /// </summary>
     public partial class App : Application
     {
+
         private void ClickButtonMoins(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
             AbsPlat p= (AbsPlat)b.DataContext;
+
+            
+            System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
+            ListViewItem l=(ListViewItem)s.TemplatedParent;
+            ListView lv=(ListView)l.Parent;
+            
+            //Console.WriteLine(((Grid)b.TemplatedParent).TemplatedParent);
+            //Grid g=(Grid)b.TemplatedParent;
+            //Recapitulatif r = (Recapitulatif)g.TemplatedParent;
+
         }
 
 
@@ -27,6 +38,9 @@ namespace Vue
         {
             Button b = (Button)sender;
             AbsPlat p = (AbsPlat)b.DataContext;
+            System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
+            ListViewItem l = (ListViewItem)s.TemplatedParent;
+            ListView lv = (ListView)l.Parent;
         }
     }
 }
