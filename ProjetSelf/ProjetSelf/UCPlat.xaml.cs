@@ -100,8 +100,11 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
+            parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
+
         }
+    
 
         /// <summary>
         /// appelle les méthode permettant de séactiver les boutons et charger leurs contenu

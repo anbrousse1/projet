@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +31,31 @@ namespace Vue
             
         }
 
+        /// <summary>
+        /// Méthode pour supprimer un plat choisis par le client
+        /// </summary>
+        /// <param name="p"></param>
+        public void Supprimer(AbsPlat p)
+        {
+            parent.self.supprimerPlatChoisis(p);
+        }
+
+        /// <summary>
+        /// Méthode pour incrémenter la quantité d'un plat choisis
+        /// </summary>
+        /// <param name="p"></param>
+        public void Incrementer(AbsPlat p)
+        {
+            parent.self.AugmenterQuantitePlat(p);
+        }
+
+        /// <summary>
+        /// Méthode pour décrémenter la quantité d'un plat choisis
+        /// </summary>
+        /// <param name="p"></param>
+        public void Decrementer(AbsPlat p)
+        {
+            parent.self.DiminuerQuantitePlat(p);
+        }
     }
 }

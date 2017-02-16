@@ -134,7 +134,7 @@ namespace Metier
         /// <summary>
         /// ReadOnlyCollections de plats choisis qui encapsule une liste de plats choisis par le client
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platsChoisisROC
+        public System.Collections.ObjectModel.ReadOnlyDictionary<AbsPlat,int> platsChoisisROC
         {
             get;
             private set;
@@ -142,7 +142,7 @@ namespace Metier
         /// <summary>
         /// Liste de plats choisis
         /// </summary>
-        private List<AbsPlat> platsChoisis = new List<AbsPlat>();
+        private Dictionary<AbsPlat,int> platsChoisis = new Dictionary<AbsPlat, int>();
 
 
         private DateTime dateDuJour = DateTime.Today;
@@ -169,7 +169,7 @@ namespace Metier
             platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
             dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
             boissonROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(boissons);
-            platsChoisisROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsChoisis);
+            platsChoisisROC = new System.Collections.ObjectModel.ReadOnlyDictionary<AbsPlat,int>(platsChoisis);
             DroitUtilisateur = null;
 
             getAllMenus();
@@ -186,7 +186,7 @@ namespace Metier
             ChargeEntrees();
             ChargePlatsResistance();
 
-                 
+
             /*if (menuDuJour == null)
             {
                 throw new Exception();
@@ -263,12 +263,15 @@ namespace Metier
                                 if (v.ID == b.idplat)
                                 {
                                     t.plats.Add(v);
+                                    t.dates.Add(v.DateEffet);
                                 }
                             }
                         }
                     }
                 }
             }
+
+            
         }
 
         /// <summary>
@@ -299,7 +302,7 @@ namespace Metier
         public void getAllMenus()
         {
             menus.Clear();
-            menus=data.chargeAllMenu();
+            menus.AddRange(data.chargeAllMenu());
         }
 
 
@@ -329,7 +332,7 @@ namespace Metier
         {
             //recuperer dans BDD
             usager.Clear();
-            usager=data.chargeAllUsager();
+            usager.AddRange(data.chargeAllUsager());
         }
 
         /// <summary>
@@ -339,7 +342,7 @@ namespace Metier
         {
 
             utilisateur.Clear();
-            utilisateur=data.chargeAllUtilisateur();
+            utilisateur.AddRange(data.chargeAllUtilisateur());
         }
 
 
@@ -589,7 +592,14 @@ namespace Metier
         {
             AbsPlat p = FindPlat(plat);
             if (p != null) {
-                platsChoisis.Add(p);
+                if (platsChoisis.ContainsKey(p))
+                {
+                    AugmenterQuantitePlat(p);
+                }else
+                {
+                    platsChoisis.Add(p, 1);
+                }
+                
                 prixAPayer = prixAPayer + p.Tarif;
                 //client.AddPlatChoisis(p);
                 //Ajouter à la BDD
@@ -675,6 +685,51 @@ namespace Metier
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// méthode qui supprime un plats des plats choisis par le client
+        /// </summary>
+        /// <param name="p"></param>
+        public void supprimerPlatChoisis(AbsPlat p)
+        { 
+            platsChoisis.Remove(p);
+            prixAPayer = prixAPayer-p.Tarif;
+        }
+
+
+        /// <summary>
+        /// Méthode qui permet d'incrementer la quantite d'nu plat choisis par le client
+        /// </summary>
+        /// <param name="p"></param>
+        public void AugmenterQuantitePlat(AbsPlat p)
+        {
+            platsChoisis[p] += 1;
+            prixAPayer = prixAPayer + p.Tarif;
+        }
+
+
+        /// <summary>
+        /// Méthode qui permet de décrementer la quantité d'un plat choisis par le client
+        /// </summary>
+        /// <param name="p"></param>
+        public void DiminuerQuantitePlat(AbsPlat p)
+        {
+            if(platsChoisis[p]<=1)
+            {
+                supprimerPlatChoisis(p);
+            }
+            platsChoisis[p] -= 1;
+            prixAPayer = prixAPayer - p.Tarif;
+        }
+
+        /// <summary>
+        /// Méthode pour supprimer tous les plats choisis
+        /// </summary>
+        public void supprimerAllPlatsChoisis()
+        {
+            platsChoisis.Clear();
+            prixAPayer = 0;
         }
 
     }

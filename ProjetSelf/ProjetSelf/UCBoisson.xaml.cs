@@ -22,6 +22,7 @@ namespace Vue
     public partial class UCBoisson : UserControl
     {
         private MainWindow parent;
+        private List<AbsPlat> boissons = new List<AbsPlat>();
 
         public UCBoisson(MainWindow m)
         {
@@ -95,6 +96,7 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
+            parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
         }
 
@@ -155,6 +157,7 @@ namespace Vue
         private void ClickButton1(object sender, RoutedEventArgs e)
         {
             parent.self.AddPlatChoisi(button1.Content.ToString());
+
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent));
         }

@@ -50,7 +50,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Button Content="PAIEMENT"  Grid.Row="0" MaxWidth="350" Style="{StaticResource boutonValiderUC}" />
-                    <Button Content="ANNULLER" Grid.Row="1" MaxWidth="350" Style="{StaticResource boutonAnnulerUC}" />
+                    <Button Content="ANNULER" Grid.Row="1" MaxWidth="350" Style="{StaticResource boutonAnnulerUC}" Click="ClickAnnuler"/>
                 </Grid>
             </Grid>
         </Grid>

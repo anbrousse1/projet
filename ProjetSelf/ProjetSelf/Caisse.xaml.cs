@@ -73,6 +73,13 @@ namespace Vue
 
         }
 
+        private void ClickAnnuler(object sender, RoutedEventArgs e)
+        {
+            parent.self.supprimerAllPlatsChoisis();
+            recap.Children.Clear();
+            recap.Children.Add(new Recapitulatif(parent));
+        }
+
 
     }
 

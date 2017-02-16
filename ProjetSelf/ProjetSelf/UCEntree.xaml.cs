@@ -95,6 +95,7 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
+            parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
         }
 

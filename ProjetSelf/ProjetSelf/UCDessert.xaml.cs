@@ -90,12 +90,13 @@ namespace Vue
         }
 
         /// <summary>
-        /// Methode appelé lorsqu'on clique sur annulé
+        /// Methode appelé lorsqu'on clique sur annuler
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
+            parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
         }
 
