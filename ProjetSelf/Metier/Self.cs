@@ -198,15 +198,10 @@ namespace Metier
             getAllUsager();
             getAllUtilisateur();
             getAllProduit();
-            getAllPlats();
-            List<Plat> lp = data.chargeAllPlatAvecIngred(plats, produits);
-            plats.Clear();
-            plats.AddRange(lp);
 
-            getAllMenus();
-            List<Menu> lm = data.chargeAllMenuPlat(menus, plats);
-            menus.Clear();
-            menus.AddRange(menus);
+            getAllPlatsIngre();
+            getAllMenusPlats();
+            
 
         }
 
@@ -232,23 +227,20 @@ namespace Metier
         }
 
 
-        /// <summary>
-        /// Charge la liste de menus à partir des élements de la BDD
-        /// </summary>
-        public void getAllMenus()
+    
+
+        public void getAllMenusPlats()
         {
             menus.Clear();
-            menus.AddRange(data.chargeAllMenu());
+            menus.AddRange(data.chargeAllMenuPlat(plats));
         }
 
 
-        /// <summary>
-        /// Charge la liste de plats à partir des élements de la BDD
-        /// </summary>
-        public void getAllPlats()
+      
+        public void getAllPlatsIngre()
         {
             plats.Clear();
-            plats.AddRange(data.chargeAllPlats());
+            plats.AddRange(data.chargeAllPlatAvecIngred(produits));
         }
 
         /// <summary>

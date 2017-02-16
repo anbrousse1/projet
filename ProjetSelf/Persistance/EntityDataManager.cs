@@ -6,11 +6,12 @@ using System.Linq;
 
 namespace Persistance
 {
-    class EntityDataManager : IDataManager
+    public class EntityDataManager : IDataManager
     {
 
         public List<Menu> chargeAllMenu()
         {
+
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
             Menu m = new Menu { Nom = "Menu1" };
@@ -19,6 +20,7 @@ namespace Persistance
 
             using (EntityMenu db = new EntityMenu())
             {
+                
                 if( db.MenuSet.Count() > 0)
                 {
                     db.Database.Delete();
@@ -34,8 +36,10 @@ namespace Persistance
             return lm;
         }
 
-        public List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp)
+        public List<Plat> chargeAllPlatAvecIngred(List<Produit> lp)
         {
+            List<Plat> lpp = new List<Plat>();
+            lpp = chargeAllPlats();
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
             PlatProduit carotteRape = new PlatProduit { idplat = lpp.Find(p => p.Nom == "carotteRape").ID, idproduit = lp.Find(p => p.Nom == "carotte").ID };
@@ -93,13 +97,14 @@ namespace Persistance
                         }
                     }
                 }
-
-                return lpp;
             }
+            return lpp;
         }
 
-        public List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
+        public List<Menu> chargeAllMenuPlat(List<Plat> lpp)
         {
+            List<Menu> lm = new List<Menu>();
+            lm = chargeAllMenu();
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
             MenuPlat mP1 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu1").ID, idplat = lpp.Find(a => a.Nom == "lentilleSauc").ID, date = DateTime.Today };
@@ -155,8 +160,6 @@ namespace Persistance
                     }
                 }
             }
-
-            
             return lm;
         }
 
@@ -164,10 +167,10 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Plat lentilleS = new Plat { Nom = "lentilleSauc", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Plat };
-            Plat carotteRape = new Plat { Nom = "carotteRape", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
-            Plat saucissonE = new Plat { Nom = "saucisson", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
-            Plat biere = new Plat { Nom = "biere", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 2, Categorie = CategoriePlat.Boisson };
+            Plat lentilleS = new Plat { ID=1 ,Nom = "lentilleSauc", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Plat };
+            Plat carotteRape = new Plat { ID = 2, Nom = "carotteRape", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
+            Plat saucissonE = new Plat { ID = 3, Nom = "saucisson", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
+            Plat biere = new Plat { ID = 4, Nom = "biere", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 2, Categorie = CategoriePlat.Boisson };
             List<Plat> lpp = new List<Plat>();
             using (EntityPlat db = new EntityPlat())
             {

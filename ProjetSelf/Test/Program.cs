@@ -23,16 +23,7 @@ namespace Test
             {
                 WriteLine(u.ToString());
             }
-            foreach (var u in self.usagerROC)
-            {
-                WriteLine(u.ToString());
-            }
-            foreach (var u in self.utilisateurROC)
-            {
-                WriteLine(u.ToString());
-            }
 
-            WriteLine("salut");
 
             Read();
             

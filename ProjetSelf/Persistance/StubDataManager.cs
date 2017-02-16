@@ -14,6 +14,11 @@ namespace Persistance
             return null;
         }
 
+        public List<Menu> chargeAllMenuPlat(List<Plat> lpp)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
         {
             List<Menu> menus = new List<Menu>();
@@ -42,6 +47,11 @@ namespace Persistance
             m.AddDate(DateTime.Today);
             menus.Add(m);
             return menus;
+        }
+
+        public List<Plat> chargeAllPlatAvecIngred(List<Produit> lp)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp)

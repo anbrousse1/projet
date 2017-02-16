@@ -21,7 +21,7 @@ namespace Vue
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
             try
             {
-                self = new Self(new StubDataManager());
+                self = new Self(new EntityDataManager());
 
             }catch(Exception e)
             {
