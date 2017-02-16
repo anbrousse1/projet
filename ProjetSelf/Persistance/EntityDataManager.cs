@@ -34,7 +34,7 @@ namespace Persistance
             return lm;
         }
 
-        public List<List<PlatProduit>> chargeAllPlatProduit(List<Plat> lpp, List<Produit> lp)
+        public List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp)
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
@@ -74,11 +74,31 @@ namespace Persistance
                 llpp.Add(PlatProd1);
                 llpp.Add(PlatProd2);
                 llpp.Add(PlatProd3);
-                return llpp;
+                foreach (var t in lpp)
+                {
+                    foreach (var n in llpp)
+                    {
+                        foreach (var b in n)
+                        {
+                            if (b.idplat == t.ID)
+                            {
+                                foreach (var v in lp)
+                                {
+                                    if (v.ID == b.idproduit)
+                                    {
+                                        t.ingredients.Add(v);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return lpp;
             }
         }
 
-        public List<List<MenuPlat>> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
+        public List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
@@ -113,10 +133,31 @@ namespace Persistance
                     }
                 }
             }
-
             llmp.Add(lmp);
             llmp.Add(lmp2);
-            return llmp;
+            foreach (var t in lm)
+            {
+                foreach (var n in llmp)
+                {
+                    foreach (var b in n)
+                    {
+                        if (b.idmenu == t.ID)
+                        {
+                            foreach (var v in lpp)
+                            {
+                                if (v.ID == b.idplat)
+                                {
+                                    t.plats.Add(v);
+                                    t.dates.Add(v.DateEffet);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            
+            return lm;
         }
 
         public List<Plat> chargeAllPlats()
@@ -142,6 +183,7 @@ namespace Persistance
                     lpp.Add(n);
                 }
             }
+
             return lpp;
         }
 

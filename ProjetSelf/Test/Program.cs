@@ -18,11 +18,11 @@ namespace Test
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
             
-            self.chargeAll();
-            /*foreach(var u in self.menusROC)
+
+            foreach(var u in self.menusROC)
             {
                 WriteLine(u.ToString());
-            }*/
+            }
             foreach (var u in self.usagerROC)
             {
                 WriteLine(u.ToString());
@@ -31,6 +31,8 @@ namespace Test
             {
                 WriteLine(u.ToString());
             }
+
+            WriteLine("salut");
 
             Read();
             

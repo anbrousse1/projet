@@ -172,50 +172,21 @@ namespace Metier
             platsChoisisROC = new System.Collections.ObjectModel.ReadOnlyDictionary<AbsPlat,int>(platsChoisis);
             DroitUtilisateur = null;
 
-            getAllMenus();
-            getAllPlats();
-            getAllProduit();
-            getAllUtilisateur();
-            getAllUsager();
+            chargeAll();
 
             dateDuJour = DateTime.Today;
             menuDuJour = getMenu(dateDuJour);
 
-            ChargeBoisson();
-            ChargeDesserts();
-            ChargeEntrees();
-            ChargePlatsResistance();
-
-
-            /*if (menuDuJour == null)
+            if (menuDuJour != null)
             {
-                throw new Exception();
-            }*/
+                chargeBoisson();
+                chargeDesserts();
+                chargeEntrees();
+                chargePlatsResistance();
+            }
 
         }
 
-
-        /// <summary>
-        /// Constructeur de Self sans paramètre
-        /// </summary>
-        public Self()
-        {
-            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
-            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
-            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
-            entreeROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(entrees);
-            platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
-            dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
-            boissonROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(boissons);
-
-            DroitUtilisateur = null;
-            dateDuJour = DateTime.Today;
-            menuDuJour = getMenu(dateDuJour);
-            /*if (menuDuJour == null)
-            {
-                throw new Exception();
-            }*/
-        }
 
 
 
@@ -228,50 +199,15 @@ namespace Metier
             getAllUtilisateur();
             getAllProduit();
             getAllPlats();
-            List<List<PlatProduit>> llpp = data.chargeAllPlatProduit(plats, produits);
-            foreach (var t in plats)
-            {
-                foreach (var n in llpp)
-                {
-                    foreach (var b in n)
-                    {
-                        if (b.idplat == t.ID)
-                        {
-                            foreach (var v in produits)
-                            {
-                                if (v.ID == b.idproduit)
-                                {
-                                    t.ingredients.Add(v);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            getAllMenus();
-            List<List<MenuPlat>> llmp = data.chargeAllMenuPlat(menus, plats);
-            foreach (var t in menus)
-            {
-                foreach (var n in llmp)
-                {
-                    foreach (var b in n)
-                    {
-                        if (b.idmenu == t.ID)
-                        {
-                            foreach (var v in plats)
-                            {
-                                if (v.ID == b.idplat)
-                                {
-                                    t.plats.Add(v);
-                                    t.dates.Add(v.DateEffet);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            List<Plat> lp = data.chargeAllPlatAvecIngred(plats, produits);
+            plats.Clear();
+            plats.AddRange(lp);
 
-            
+            getAllMenus();
+            List<Menu> lm = data.chargeAllMenuPlat(menus, plats);
+            menus.Clear();
+            menus.AddRange(menus);
+
         }
 
         /// <summary>
@@ -401,7 +337,7 @@ namespace Metier
         /// Permet de recuperer la liste des entrees 
         /// </summary>
         /// <returns></returns>
-        private void ChargeEntrees()
+        private void chargeEntrees()
         {
             foreach (AbsPlat p in menuDuJour.plats)
             {
@@ -415,7 +351,7 @@ namespace Metier
         /// <summary>
         /// Charge boissons
         /// </summary>
-       private void ChargeBoisson()
+       private void chargeBoisson()
         {
             foreach(AbsPlat p in plats)
             {
@@ -429,7 +365,7 @@ namespace Metier
         /// <summary>
         /// Permet de recuperer la liste des plats de resistance
         /// </summary>
-        private void ChargePlatsResistance()
+        private void chargePlatsResistance()
         {
             foreach (AbsPlat p in menuDuJour.plats)
             {
@@ -443,7 +379,7 @@ namespace Metier
         /// <summary>
         /// Permet de recuperer la liste des desserts
         /// </summary>
-        private void ChargeDesserts()
+        private void chargeDesserts()
         {
             {
                 foreach (AbsPlat p in menuDuJour.plats)

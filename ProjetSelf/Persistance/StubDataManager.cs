@@ -11,6 +11,11 @@ namespace Persistance
     {
         public List<Menu> chargeAllMenu()
         {
+            return null;
+        }
+
+        public List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
+        {
             List<Menu> menus = new List<Menu>();
 
             Menu m = new Menu { Nom = "menu 1" };
@@ -28,7 +33,7 @@ namespace Persistance
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "baba au rhum", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "bonbons", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Dessert });
 
-            m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree});
+            m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade bleu", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rouge", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade orange", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
@@ -39,20 +44,10 @@ namespace Persistance
             return menus;
         }
 
-        public List<List<MenuPlat>> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
+        public List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<List<PlatProduit>> chargeAllPlatProduit(List<Plat> lpp, List<Produit> lp)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Plat> chargeAllPlats()
-        {
-            List<Plat> p= new List<Plat>();
-            p.Add(new Plat{ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5,ingredients = null,Categorie = CategoriePlat.Plat});
+            List<Plat> p = new List<Plat>();
+            p.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, ingredients = null, Categorie = CategoriePlat.Plat });
             p.Add(new Plat { ID = 002, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "steack", Tarif = 8.5, ingredients = null, Categorie = CategoriePlat.Plat });
             p.Add(new Plat { ID = 003, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "poulet", Tarif = 1.5, ingredients = null, Categorie = CategoriePlat.Plat });
             p.Add(new Plat { ID = 004, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "frites", Tarif = 3, ingredients = null, Categorie = CategoriePlat.Plat });
@@ -82,6 +77,11 @@ namespace Persistance
             p.Add(new Plat { ID = 024, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "Jus de fruit", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Boisson });
 
             return p;
+        }
+
+        public List<Plat> chargeAllPlats()
+        {
+            return null;
         }
 
         public List<Produit> chargeAllProduits()

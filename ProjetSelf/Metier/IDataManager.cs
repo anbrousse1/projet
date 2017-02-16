@@ -13,9 +13,9 @@ namespace Metier
 
         List<Produit> chargeAllProduits();
 
-        List<List<PlatProduit>> chargeAllPlatProduit(List<Plat> lpp, List<Produit> lp);
+        List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp);
 
-        List<List<MenuPlat>> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp);
+        List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp);
 
         List<Plat> chargeAllPlats();
 
