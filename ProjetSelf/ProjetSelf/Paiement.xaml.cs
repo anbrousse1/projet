@@ -25,6 +25,7 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
+            mgrid.Children.Add(new Recapitulatif(parent));
 
         }
 

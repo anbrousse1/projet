@@ -17,12 +17,15 @@ namespace Test
 
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
-            
 
-            foreach(var u in self.menusROC)
-            {
-                WriteLine(u.ToString());
-            }
+            /*
+                        foreach(var u in self.menusROC)
+                        {
+                            WriteLine(u.ToString());
+                        }*/
+
+            DateTime d = new DateTime(2017, 02, 11);
+            WriteLine(d.);
 
 
             Read();

@@ -21,14 +21,14 @@ namespace Vue
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
             try
             {
-                self = new Self(new EntityDataManager());
+                self = new Self(new StubDataManager());
 
             }catch(Exception e)
             {
                 MessageBox.Show("Pas de menu programmé pour aujourd'hui");
             }
             
-            mGridCentre.Children.Add(new Caisse(this));
+            mGridCentre.Children.Add(new Paiement(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)
