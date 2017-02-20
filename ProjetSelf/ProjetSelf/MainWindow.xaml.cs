@@ -28,7 +28,7 @@ namespace Vue
                 MessageBox.Show("Pas de menu programmé pour aujourd'hui");
             }
             
-            mGridCentre.Children.Add(new Paiement(this));
+            mGridCentre.Children.Add(new Caisse(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)

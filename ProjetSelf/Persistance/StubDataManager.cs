@@ -16,11 +16,6 @@ namespace Persistance
 
         public List<Menu> chargeAllMenuPlat(List<Plat> lpp)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<Menu> chargeAllMenuPlat(List<Menu> lm, List<Plat> lpp)
-        {
             List<Menu> menus = new List<Menu>();
 
             Menu m = new Menu { Nom = "menu 1" };
@@ -49,12 +44,9 @@ namespace Persistance
             return menus;
         }
 
-        public List<Plat> chargeAllPlatAvecIngred(List<Produit> lp)
-        {
-            throw new NotImplementedException();
-        }
 
-        public List<Plat> chargeAllPlatAvecIngred(List<Plat> lpp, List<Produit> lp)
+
+        public List<Plat> chargeAllPlatAvecIngred(List<Produit> lp)
         {
             List<Plat> p = new List<Plat>();
             p.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, ingredients = null, Categorie = CategoriePlat.Plat });
