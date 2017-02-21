@@ -96,14 +96,17 @@
     <Compile Include="IdUsager.xaml.cs">
       <DependentUpon>IdUsager.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModifierDatePlatEtProduit.xaml.cs">
-      <DependentUpon>ModifierDatePlatEtProduit.xaml</DependentUpon>
+    <Compile Include="ModifierDateProduit.xaml.cs">
+      <DependentUpon>ModifierDateProduit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paiement.xaml.cs">
       <DependentUpon>Paiement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Recapitulatif.xaml.cs">
       <DependentUpon>Recapitulatif.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SimulationPassageCarte.xaml.cs">
+      <DependentUpon>SimulationPassageCarte.xaml</DependentUpon>
     </Compile>
     <Compile Include="StatGeneral.xaml.cs">
       <DependentUpon>StatGeneral.xaml</DependentUpon>
@@ -123,8 +126,14 @@
     <Compile Include="UCEntree.xaml.cs">
       <DependentUpon>UCEntree.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCModifProd.xaml.cs">
+      <DependentUpon>UCModifProd.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UCPlat.xaml.cs">
       <DependentUpon>UCPlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCPlatC.xaml.cs">
+      <DependentUpon>UCPlatC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidationQuitter.cs">
       <SubType>Form</SubType>
@@ -195,7 +204,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ModifierDatePlatEtProduit.xaml">
+    <Page Include="ModifierDateProduit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -204,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Recapitulatif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimulationPassageCarte.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -231,7 +244,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCModifProd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UCPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCPlatC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

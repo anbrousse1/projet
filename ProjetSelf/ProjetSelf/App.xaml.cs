@@ -24,12 +24,12 @@ namespace Vue
         private void ClickButtonMoins(object sender, RoutedEventArgs e)
         {
             Button b = (Button)sender;
-            KeyValuePair<AbsPlat,int> kvp = (KeyValuePair<AbsPlat, int>)b.DataContext;
+            KeyValuePair<AbsPlat, int> kvp = (KeyValuePair<AbsPlat, int>)b.DataContext;
             AbsPlat p = kvp.Key;
             System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
-            ListViewItem l=(ListViewItem)s.TemplatedParent;
-            ListView lv=(ListView)l.Parent;
-            
+            ListViewItem l = (ListViewItem)s.TemplatedParent;
+            ListView lv = (ListView)l.Parent;
+
             //Console.WriteLine(((Grid)b.TemplatedParent).TemplatedParent);
             //Grid g=(Grid)b.TemplatedParent;
             //Recapitulatif r = (Recapitulatif)g.TemplatedParent;

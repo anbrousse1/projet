@@ -13,10 +13,10 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Image Grid.Column="0"/>
-        <TextBlock Grid.Column="1" Text="NOM" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="2" Text="PRENOM" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock Grid.Column="3" Text="SERVICE" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="0" Name="titre" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="1" Name="nom" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="2" Name="prenom" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Column="3" Name="service"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
     </Grid>
 </UserControl>

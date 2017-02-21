@@ -54,7 +54,7 @@ namespace Vue
                 }
                 else
                 {
-                    parent.setUC(new Caisse(parent));
+                    parent.setUC(new AccueilGerant(parent));
                 }
             }else
             {

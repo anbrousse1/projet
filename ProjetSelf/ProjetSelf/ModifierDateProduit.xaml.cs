@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace Vue
     /// </summary>
     public partial class ModifierDatePlatEtProduit : UserControl
     {
-        public ModifierDatePlatEtProduit()
+        MainWindow parent;
+        AbsProduit prod;
+        public ModifierDatePlatEtProduit(MainWindow m, AbsProduit p)
         {
+            parent = m;
+            prod = p;
             InitializeComponent();
+        }
+
+        private void clickRetour(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new AccueilGerant(parent));
         }
     }
 }

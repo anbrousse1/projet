@@ -17,19 +17,22 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour IdUsager.xaml
+    /// Logique d'interaction pour UCModifProd.xaml
     /// </summary>
-    public partial class IdUsager : UserControl
+    public partial class UCModifProd : UserControl
     {
         MainWindow parent;
-        public IdUsager(MainWindow m)
+        public UCModifProd(MainWindow m)
         {
             InitializeComponent();
             parent = m;
-            nom.Text=parent.self.client.Nom;
-            prenom.Text = parent.self.client.Prenom;
-            titre.Text = parent.self.client.Titre;
-            service.Text = parent.self.client.Service;
+            DataContext=parent.self;
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AbsProduit prod = ((sender as ListBox).SelectedItem as AbsProduit);
+            parent.setUC(new ModifierDatePlatEtProduit(parent, prod));
         }
 
     }

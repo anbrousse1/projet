@@ -1,5 +1,4 @@
-﻿using Metier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,20 +16,26 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour IdUsager.xaml
+    /// Logique d'interaction pour SimulationPassageCarte.xaml
     /// </summary>
-    public partial class IdUsager : UserControl
+    public partial class SimulationPassageCarte : UserControl
     {
         MainWindow parent;
-        public IdUsager(MainWindow m)
+        public SimulationPassageCarte(MainWindow m)
         {
             InitializeComponent();
             parent = m;
-            nom.Text=parent.self.client.Nom;
-            prenom.Text = parent.self.client.Prenom;
-            titre.Text = parent.self.client.Titre;
-            service.Text = parent.self.client.Service;
         }
 
+        private void clickOK(object sender, RoutedEventArgs e)
+        {
+            if (parent.self.findUsager(numero.Text))
+            {
+                parent.setUC(new Caisse(parent));
+            }else
+            {
+                MessageBox.Show("Pas de client trouvé avec ce numéro de carte");
+            }
+        }
     }
 }

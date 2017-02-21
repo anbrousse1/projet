@@ -56,7 +56,7 @@ namespace Vue
 
         private void ClickStats(object sender, RoutedEventArgs e)
         {
-            //parent.setUC(new Stats(parent));
+            parent.setUC(new Stats(parent));
         }
     }
 }

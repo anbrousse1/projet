@@ -15,8 +15,10 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*" />
                 <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <Grid Name="IdUsager" />
+            <Button Grid.Column="1" Name="retour" Content="Retour Accueil Gérant" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="75" MinWidth="200" Click="clickRetour"/>
             <Button Grid.Column="2" Content="Deconnexion" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="75" MinWidth="200" Click="ClickDeconnexion"/>
         </Grid>
         <Grid Grid.Row="1">
@@ -37,6 +39,7 @@
                 <Button Name="plat" Content="PLATS" Grid.Column="1" Grid.Row="0" Margin="10,15,10,15" Background="#46D366" FontSize="30" Click="ClickPlat"/>
                 <Button Name="dessert"  Content="DESSERTS" Grid.Column="0" Grid.Row="1" Margin="10,15,10,15" Background="#4E07C2" FontSize="30" Click="ClickDessert"/>
                 <Button Name="boisson" Content="BOISSONS" Grid.Column="1" Grid.Row="1" Margin="10,15,10,15" Background="#1DD4ED" FontSize="30" Click="ClickBoisson"/>
+
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -49,7 +52,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="PAIEMENT"  Grid.Row="0" MaxWidth="350" Style="{StaticResource boutonValiderUC}" />
+                    <Button Content="PAIEMENT"  Grid.Row="0" MaxWidth="350" Style="{StaticResource boutonValiderUC}" Click="ClickPaiement"/>
                     <Button Content="ANNULER" Grid.Row="1" MaxWidth="350" Style="{StaticResource boutonAnnulerUC}" Click="ClickAnnuler"/>
                 </Grid>
             </Grid>

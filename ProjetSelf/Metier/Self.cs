@@ -147,7 +147,7 @@ namespace Metier
 
         private DateTime dateDuJour = DateTime.Today;
         public String DroitUtilisateur { get; private set; }
-        private AbsUsager client;
+        public AbsUsager client;
         public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
@@ -258,7 +258,6 @@ namespace Metier
         /// </summary>
         public void getAllUsager()
         {
-            //recuperer dans BDD
             usager.Clear();
             usager.AddRange(data.chargeAllUsager());
         }
@@ -271,6 +270,16 @@ namespace Metier
 
             utilisateur.Clear();
             utilisateur.AddRange(data.chargeAllUtilisateur());
+        }
+
+        private String getFonction(int code)
+        {
+            switch (code)
+            {
+                case 1: return "Caissier";
+                case 2: return "Gerant";
+                default: return "Cuisinier";
+            }
         }
 
 
@@ -290,7 +299,7 @@ namespace Metier
                     {
                         if (usa.ID == u.ID)
                         {
-                            DroitUtilisateur = usa.Fonction;
+                            DroitUtilisateur = getFonction(usa.CodeFonction);
                             return true;
                         }
                     }
@@ -312,15 +321,17 @@ namespace Metier
         /// <summary>
         /// Permet d'identifier un usager avec son numéro de carte
         /// </summary>
-        private void FindUsager(int numeroCarte)
+        public Boolean findUsager(String numeroCarte)
         {
             foreach(AbsUsager u in usager)
             {
-                if (u.carte.Numero == numeroCarte)
+                if (u.carte.Numero.ToString().Equals(numeroCarte))
                 {
                    client= u;
+                    return true;
                 }
             }
+            return false;
         }
 
 

@@ -102,7 +102,9 @@ namespace Persistance
         public List<Usager> chargeAllUsager()
         {
             List < Usager >u = new List<Usager>();
-            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, Fonction="Caissier" });
+            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, Fonction="Caissier" , carte=new Carte(1)});
+            u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", Solde = 40, Fonction = "Caissier", carte = new Carte(2) });
+            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", carte = new Carte(3) });
             return u;
         }
 
@@ -110,6 +112,8 @@ namespace Persistance
         {
             List<Utilisateur> u = new List<Utilisateur>();
             u.Add(new Utilisateur { ID = 001, Login = "caisse", Password = "admin" });
+            u.Add(new Utilisateur { ID = 002, Login = "gerant", Password = "admin" });
+            u.Add(new Utilisateur { ID = 001, Login = "cuisine", Password = "admin" });
             return u;
         }
     }

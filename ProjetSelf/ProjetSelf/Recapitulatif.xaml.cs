@@ -28,6 +28,10 @@ namespace Vue
             InitializeComponent();
             DataContext = parent.self;
             prixRepas.Text = parent.self.prixAPayer.ToString()+"€";
+            if (parent.self.client != null)
+            {
+                soldeClient.Text = parent.self.client.Solde.ToString()+"€";
+            }
             
         }
 

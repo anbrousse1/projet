@@ -26,9 +26,20 @@ namespace Vue
             InitializeComponent();
             parent = m;
         }
+
         private void ClickRetour(object sender, RoutedEventArgs e)
         {
             parent.setUC(new AccueilGerant(parent));
+        }
+
+        private void clickAjouter(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new AjouterProduit(parent));
+        }
+
+        private void clickModifier(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCModifProd(parent));
         }
 
     }

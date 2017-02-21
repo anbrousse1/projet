@@ -27,7 +27,18 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            IdUsager.Children.Add(new IdUsager());
+            if (parent.self.client != null)
+            {
+                IdUsager.Children.Add(new IdUsager(parent));
+            }
+            else
+            {
+                plat.IsEnabled = false;
+                dessert.IsEnabled = false;
+                entree.IsEnabled = false;
+                boisson.IsEnabled = false;
+                IdUsager.Children.Add(new SimulationPassageCarte(parent));
+            }
             Recapitulatif r = new Recapitulatif(parent);
             recap.Children.Add(r);
             if (parent.self.menuDuJour == null)
@@ -35,8 +46,11 @@ namespace Vue
                 plat.IsEnabled = false;
                 dessert.IsEnabled = false;
                 entree.IsEnabled = false;
-
                 MessageBox.Show("pas de menu pour aujourd'hui");
+            }
+            if (parent.self.DroitUtilisateur.Equals("Caissier"))
+            {
+                retour.Visibility = Visibility.Hidden;
             }
         }
 
@@ -80,7 +94,10 @@ namespace Vue
             recap.Children.Add(new Recapitulatif(parent));
         }
 
-
+        private void clickRetour(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new AccueilGerant(parent));
+        }
     }
 
 

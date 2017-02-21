@@ -10,12 +10,12 @@
         <Grid.RowDefinitions>
             
             <RowDefinition Height="60*" />
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Name="mgrid"/>
-        <Button Style="{StaticResource boutonValiderUC}" x:Name="Ticket" Content="TICKET" HorizontalAlignment="Center" Grid.Row="1" FontSize="30" VerticalAlignment="Top" Width="203" Height="106"  Background="Green"/>
-        <Button Style="{StaticResource boutonAnnulerUC}" x:Name="Continuer" Content="CONTINUER" HorizontalAlignment="Center" FontSize="30" Grid.Row="2" VerticalAlignment="Top" Width="203" Height="106" Background="Red"/>
+        <Button Grid.Row="1" Style="{StaticResource boutonValiderUC}" x:Name="Ticket" Content="TICKET" MaxWidth="350"/>
+        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" x:Name="Continuer" Content="CONTINUER" Click="ClickContinuer" MaxWidth="350"/>
 
     </Grid>
 </UserControl>

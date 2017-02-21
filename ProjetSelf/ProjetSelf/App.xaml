@@ -51,5 +51,9 @@
             <ContentControl Content="{Binding Nom }"/>
         </DataTemplate>
 
+        <DataTemplate x:Key="prod">
+            <TextBlock Text="{Binding ToString()}"/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

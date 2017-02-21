@@ -33,6 +33,21 @@ namespace Vue
             parent.setUC(new AccueilGerant(parent));
         }
 
+        private void clickAjouter(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clickModifier(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clickVisualiser(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
     }
 }
