@@ -237,7 +237,7 @@ namespace Persistance
                 {
                     db.Database.Delete();
                 }
-              
+
                 db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
                 try
                 {
@@ -275,7 +275,7 @@ namespace Persistance
                 
                 db.UtilisateurSet.AddRange(new Utilisateur[] { bastien, leandre });
                 db.SaveChanges();
-
+                
                 foreach (var n in db.UtilisateurSet)
                 {
                     lu.Add(n);
