@@ -30,9 +30,21 @@ namespace Vue
             InitializeComponent();
         }
 
-        private void clickRetour(object sender, RoutedEventArgs e)
+        private void clickAnnuler(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new AccueilGerant(parent));
+            parent.setUC(new UCModifProd(parent));
+        }
+
+        private void clickValider(object sender, RoutedEventArgs e)
+        {
+
+            DateTime effet = (DateTime)dateEffet.SelectedDate;
+            DateTime fin = (DateTime)dateFin.SelectedDate;
+            String obser = obs.Text;
+            //parent.self.
+            Console.WriteLine(effet + " " + fin + " " + obser);
+            MessageBox.Show("Modifier avec succès !!!");
+            parent.setUC(new UCModifProd(parent));
         }
     }
 }

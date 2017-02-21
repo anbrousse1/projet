@@ -23,7 +23,9 @@ namespace Vue
         private MainWindow parent;
         public GestionProduit(MainWindow m)
         {
+           
             InitializeComponent();
+            bu.UpdateLayout();
             parent = m;
         }
 
@@ -41,6 +43,8 @@ namespace Vue
         {
             parent.setUC(new UCModifProd(parent));
         }
+
+        
 
     }
 }

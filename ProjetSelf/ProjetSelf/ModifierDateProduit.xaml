@@ -17,6 +17,7 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <TextBlock Text="Modifier la date d'effet" Grid.ColumnSpan="4" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50" />
@@ -27,7 +28,10 @@
         <TextBlock Text="Selectionner Date de fin :" Grid.Column="0" Grid.Row="2" Margin="0,15,0,0" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <DatePicker x:Name="dateFin"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Margin="15,0,0,0" />
 
-        <Button Content="Appliquer" Grid.ColumnSpan="2" Grid.Row="3" Margin="10,10,10,10" Style="{StaticResource boutonValiderUC}"/>
-        <Button Content="retour" Grid.ColumnSpan="2" Grid.Row="4" Margin="10,10,10,10" Style="{StaticResource boutonAnnulerUC}"/>
+        <TextBlock Text="Entrer des observation (facultatif) " Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Right" />
+        <TextBox Name="obs" Grid.Column="1" Grid.Row="3" Margin="5,5,5,5"/>
+
+        <Button Content="Appliquer" Grid.ColumnSpan="2" Grid.Row="4" Margin="10,10,10,10" Style="{StaticResource boutonValiderUC}" Click="clickValider" />
+        <Button Content="retour" Grid.ColumnSpan="2" Grid.Row="5" Margin="10,10,10,10" Style="{StaticResource boutonAnnulerUC}" Click="clickAnnuler"/>
     </Grid>
 </UserControl>

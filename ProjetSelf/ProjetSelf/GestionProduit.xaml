@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
 
 
-        <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Content="Ajouter Produit" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="clickAjouter"/>
+        <Button Name="bu" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Content="Ajouter Produit"  Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="clickAjouter"/>
         <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Content="Modifier Plat" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="clickModifier"/>
 
         <Button Click="ClickRetour" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Content="Retour" Background="Gray" MaxHeight="100" MaxWidth="100"/>
