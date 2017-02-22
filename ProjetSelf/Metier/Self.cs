@@ -406,7 +406,127 @@ namespace Metier
             //Modif BDD
         }
 
+        public DateTime getDateEffetMiniProd(AbsProduit p)
+        {
+            DateTime mini =DateTime.Today;
 
+            foreach(AbsPlat pl in plats)
+            {
+                if (pl.ingredients != null)
+                {
+                    foreach (AbsProduit pro in pl.ingredients)
+                    {
+                        if (p.Nom.Equals(pro.Nom))
+                        {
+                            DateTime dmp = getDateEffetMiniPlat(pl);
+                            if (mini.CompareTo(dmp) > 0)
+                            {
+                                mini = dmp;
+                            }
+                        }
+                    }
+                }          
+            }
+            return mini;
+        }
+
+        public DateTime getDateFinMiniProd(AbsProduit p)
+        {
+            DateTime mini = DateTime.Today;
+
+            foreach (AbsPlat pl in plats)
+            {
+                if (pl.ingredients != null)
+                {
+                    foreach (AbsProduit pro in pl.ingredients)
+                    {
+                        if (p.Nom.Equals(pro.Nom))
+                        {
+                            DateTime dmp = getDateEffetMiniPlat(pl);
+                            if (mini.CompareTo(dmp) < 0)
+                            {
+                                mini = dmp;
+                            }
+                        }
+                    }
+                }
+               
+            }
+            return mini;
+        }
+
+
+        public DateTime getDateEffetMiniPlat(AbsPlat plat)
+        {
+            DateTime date= DateTime.Today;
+            foreach(AbsMenu m in menus)
+            {
+                if (m.plats.Contains(plat))
+                {
+                    DateTime dmm = getDatePlusProcheMenu(m);
+                    if (date.CompareTo(dmm) > 0)
+                    {
+                        date = dmm;
+                    }
+
+                }
+            }
+            return date;
+        }
+
+        private DateTime getDateFinMiniPlat(AbsPlat plat)
+        {
+            DateTime date = DateTime.Today;
+            foreach (AbsMenu m in menus)
+            {
+                if (m.plats.Contains(plat))
+                {
+                    DateTime dmm = getDatePlusProcheMenu(m);
+                    if (date.CompareTo(dmm) < 0)
+                    {
+                        date = dmm;
+                    }
+
+                }
+            }
+            return date;
+        }
+
+        /// <summary>
+        /// Méthode qui permet d'obtenir la prochaine fois qu'un menu sera utlisé.
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        private DateTime getDatePlusProcheMenu(AbsMenu m)
+        {
+            DateTime d = m.dates.First();
+            foreach(DateTime da in m.dates)
+            {
+                if (d.CompareTo(da) > 0)
+                {
+                    d = da;
+                }
+            }
+            return d;
+        }
+
+        /// <summary>
+        /// Méthode qui permet d'obtenir la date la plus lointaine à laquelle un menu sera utilisé.
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        private DateTime getDatePlusLointaineMenu(AbsMenu m)
+        {
+            DateTime d = m.dates.First();
+            foreach (DateTime da in m.dates)
+            {
+                if (d.CompareTo(da) < 0)
+                {
+                    d = da;
+                }
+            }
+            return d;
+        }
 
 
         /// <summary>
@@ -420,6 +540,7 @@ namespace Metier
             {
                 case "Entree": return CategoriePlat.Entree;
                 case "Dessert": return CategoriePlat.Dessert;
+                case "Boisson": return CategoriePlat.Boisson;
                 default: return CategoriePlat.Plat;
             }
         }
@@ -440,7 +561,7 @@ namespace Metier
                 case "Feculent": return CategorieProduit.Feculent;
                 case "Produit sucré": return CategorieProduit.ProduitSucre;
                 case "Charcuterie": return CategorieProduit.Charcuterie;
-                default: return CategorieProduit.Boisson;
+                default: return CategorieProduit.Autres;
             }
         }
 
@@ -513,10 +634,10 @@ namespace Metier
         }
 
         //Permet d'ajouter un Produit
-        private void AddProduit(int code, DateTime deb, DateTime fin, String nom, String observation, String cate)
+        public void addProduit(DateTime deb, DateTime fin, String nom, String observation, String cate)
         {
-           // produits.Add(new Produit(code, deb, fin, nom, observation, FindCategorieProduit(cate)));
-            //Ajouter dans BDD
+           produits.Add(new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count+1 , Observation = observation });
+            //Ajouter à BDD
         }
 
         //Permet d'ajouter un menu
@@ -669,6 +790,23 @@ namespace Metier
         {
             platsChoisis.Clear();
             prixAPayer = 0;
+        }
+
+        /// <summary>
+        /// Retourne vrai si un produit a déja ce nom sinon faux
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
+        public Boolean produitExistant(string nom)
+        {
+            foreach(AbsProduit p in produits)
+            {
+                if (p.Nom.Equals(nom))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

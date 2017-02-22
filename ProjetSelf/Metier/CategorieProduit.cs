@@ -12,9 +12,9 @@ namespace Metier
         Legume,
         Viande,
         Poisson,
-        Boisson,
         Feculent,
         ProduitSucre,
-        Charcuterie
+        Charcuterie,
+        Autres
     };
 }
