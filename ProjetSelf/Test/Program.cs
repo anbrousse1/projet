@@ -16,11 +16,11 @@ namespace Test
     {
         static void Main(string[] args)
         {
-
-            /*EntityDataManager bdd = new EntityDataManager();
+            
+            EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
-
-            foreach(var u in self.menusROC)
+            
+            /*foreach(var u in self.menusROC)
             {
                  WriteLine(u.ToString());
             }
@@ -29,8 +29,8 @@ namespace Test
 
             BackupFile.Sauvegarde();
             // Inform the user that the backup has been completed.   
-            System.Console.WriteLine("Full Backup complete.");*/
-
+            System.Console.WriteLine("Full Backup complete.");
+            /*
             BackupFile.Restore();
             // Inform the user that the restore has been completed.   
             System.Console.WriteLine("Full Restore complete.");
@@ -40,7 +40,8 @@ namespace Test
                 WriteLine(u.ToString());
             }
 
-            Read();*/
+            Read();
+            */
         }
     }
 }

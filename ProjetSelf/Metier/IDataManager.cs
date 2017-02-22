@@ -20,7 +20,5 @@ namespace Metier
 
         List<Utilisateur> chargeAllUtilisateur();
 
-
-
     }
 }

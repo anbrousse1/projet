@@ -11,7 +11,6 @@ namespace Persistance
     {
         public static void Sauvegarde()
         {
-            /*
             // Connect to the local, default instance of SQL Server.   
             Server srv = new Server("(localdb)\\MSSQLLocalDB");
             // Reference the ProjetSelf database.   
@@ -79,7 +78,13 @@ namespace Persistance
             rs.Database = "ProjetSelf";
 
             // Restore the full database backup with no recovery.   
-            rs.SqlRestore(srv);*/
+            rs.SqlRestore(srv);
+
+            // reacquire a reference to the database  
+            db = srv.Databases["ProjetSelf"];
+
+            // Remove the device from the Restore object.  
+            rs.Devices.Remove(bdi);
         }
     }
 }

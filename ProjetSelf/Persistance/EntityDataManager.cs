@@ -285,5 +285,69 @@ namespace Persistance
             return lu;
         }
         
+        public void ajouterProduit(Produit p)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                db.ProduitSet.Add(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void ajouterPlat(Plat p, List<Produit> lp)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                db.PlatSet.Add(p);
+                db.SaveChanges();
+            }
+
+            using(EntityPlatProduit db = new EntityPlatProduit())
+            {
+                foreach (var s in lp)
+                {
+                    db.PlatProduitSet.Add(new PlatProduit { idplat = p.ID, idproduit = s.ID });
+                }
+                db.SaveChanges();
+            }
+            //p.ingredients = lp;
+        }
+
+        public void ajouterMenu(Menu p, List<Plat> lp)
+        {
+            using (EntityMenu db = new EntityMenu())
+            {
+                db.MenuSet.Add(p);
+                db.SaveChanges();
+            }
+
+            using (EntityMenuPlat db = new EntityMenuPlat())
+            {
+                foreach (var s in lp)
+                {
+                    db.MenuPlatSet.Add(new MenuPlat { idmenu = p.ID , idplat = s.ID });
+                }
+                db.SaveChanges();
+            }
+            //p.plats = lp;
+        }
+
+        public void ajouterUtilisateur(Utilisateur p)
+        {
+            using (EntityUtilisateur db = new EntityUtilisateur())
+            {
+                db.UtilisateurSet.Add(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void ajouterUsager(Usager p)
+        {
+            using (EntityUsager db = new EntityUsager())
+            {
+                db.UsagerSet.Add(p);
+                db.SaveChanges();
+            }
+        }
     }
 }
