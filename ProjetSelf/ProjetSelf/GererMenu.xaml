@@ -34,14 +34,32 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <ComboBox x:Name="comboBox_menu" ItemsSource="{Binding menusROC}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" Height="30">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Nom}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Label Content="Liste des menus entre parenthèse l'intervalle de programation disponible"/>
+            <ComboBox x:Name="comboBox_menu" ItemsSource="{Binding menusROC}"  Width="130" Height="30">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <Label Content="{Binding Nom}" />
+                            <Label Content="(" />
+                            <Label Content="{Binding effet.Day}" />
+                            <Label Content="/" />
+                            <Label Content="{Binding effet.Month}"/>
+                            <Label Content="/" />
+                            <Label Content="{Binding effet.Year}"/>
+                            <Label Content=" ->" />
+                            <Label Content="{Binding fin.Day}"/>
+                            <Label Content="/" />
+                            <Label Content="{Binding fin.Month}"/>
+                            <Label Content="/" />
+                            <Label Content="{Binding fin.Year}"/>
+                            <Label Content=")" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+       
 
         <DatePicker x:Name="dateMenu"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 

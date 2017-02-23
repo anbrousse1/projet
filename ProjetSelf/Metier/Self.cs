@@ -666,11 +666,21 @@ namespace Metier
         }
 
         //Permet d'ajouter un Plat
-        public void addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<Produit> ingredient, String cate)
+        public void addplat( String nom, Double tarif, List<Produit> ingredients, String cate)
         {
-            Plat p = new Plat { Nom = nom, DateEffet = debut, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate) };
-            data.ajouterPlat(p,ingredient);
-            p.ingredients = ingredient;
+
+            Plat p = new Plat { Nom = nom, /*DateEffet = effet, DateFin = fin,*/ Tarif = tarif, Categorie = FindCategoriePlat(cate),  };
+            data.ajouterPlat(p,ingredients);
+            p.ingredients = ingredients;
+            plats.Add(p);
+        }
+
+        public void addplat(DateTime effet, DateTime fin,String nom, Double tarif, List<Produit> ingredients, String cate)
+        {
+
+            Plat p = new Plat { Nom = nom, DateEffet = effet, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate), };
+            data.ajouterPlat(p, ingredients);
+            p.ingredients = ingredients;
             plats.Add(p);
         }
 
@@ -854,6 +864,18 @@ namespace Metier
             return false;
         }
 
+        public Boolean platExistant(String nom)
+        {
+            foreach(AbsPlat p in plats)
+            {
+                if (p.Nom.Equals(nom))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         /// <summary>
         /// Permet de charger les 20 prochaines dates sans menu
         /// </summary>
@@ -899,6 +921,31 @@ namespace Metier
                 }
             }
         }
+
+        public void chargeDatesEffetMenus()
+        {
+            
+            foreach (AbsMenu m in menus)
+            {
+
+                DateTime min =m.plats.First<Plat>().DateEffet;
+                DateTime max = m.plats.First<Plat>().DateFin;
+                foreach(AbsPlat p in m.plats)
+                {
+                    if (min.CompareTo(p.DateEffet) > 0)
+                    {
+                        min = p.DateEffet;
+                    }
+                    if (max.CompareTo(p.DateFin) < 0)
+                    {
+                        max = p.DateFin;
+                    }
+                }
+                m.effet = min;
+                m.fin = max;
+            }
+        }
+
     }
 }
 

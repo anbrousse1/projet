@@ -50,7 +50,10 @@
         <ComboBox Name="dessert" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" ItemsSource="{Binding allDessertsROC}" VerticalAlignment="Center" MinWidth="100">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Nom}" />
+                    <WrapPanel>
+                        <Label Content="{Binding Nom}" />
+                        
+                    </WrapPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
@@ -61,7 +64,7 @@
 
         <Button Content="retour" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
 
-        <ListView Name="listMenu" BorderBrush="Transparent" Background="Transparent" Grid.Column="2" Grid.RowSpan="6" Grid.Row="1" ItemsSource="{Binding platsMenu}">
+        <ListView Name="listMenu" BorderBrush="Transparent" Background="Transparent" Grid.Column="2" Grid.RowSpan="6" Grid.Row="1" ItemsSource="{Binding platMenuROC}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding Nom}"/>

@@ -25,6 +25,7 @@ namespace Vue
         public GererMenu(MainWindow m)
         {
             parent = m;
+            parent.self.chargeDatesEffetMenus();
             parent.self.chargeDateDispo();
             DataContext = parent.self;
             InitializeComponent();
@@ -39,8 +40,9 @@ namespace Vue
         {
             DateTime d;
             AbsMenu m=null;
-
-            m =(AbsMenu)comboBox_menu.SelectedItem;               
+            m =(AbsMenu)comboBox_menu.SelectedItem;
+            Console.WriteLine(m.effet);
+            Console.WriteLine(m.fin);         
             try
             {
                 d = (DateTime)dateMenu.SelectedDate;

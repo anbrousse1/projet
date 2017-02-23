@@ -10,6 +10,8 @@ namespace Metier
     {
         public int ID { get; set; }
         public string Nom { get; set; }
+        public DateTime effet= new DateTime();
+        public DateTime fin= new DateTime();
         public List<DateTime> dates = new List<DateTime>();
         public List<Plat> plats = new List<Plat>();
 

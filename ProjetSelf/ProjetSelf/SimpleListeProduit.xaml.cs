@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,26 +17,22 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour GestionPlat.xaml
+    /// Logique d'interaction pour SimpleListeProduit.xaml
     /// </summary>
-    public partial class GestionPlat : UserControl
+    public partial class SimpleListeProduit : UserControl
     {
-        MainWindow parent;
-        public GestionPlat(MainWindow m)
+        private AjouterPlat parent;
+        public SimpleListeProduit(AjouterPlat p)
         {
+            parent = p;
+            DataContext = parent;
             InitializeComponent();
-            parent = m;
         }
 
-        private void ClickRetour(object sender, RoutedEventArgs e)
+        private void ListView_Selected(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new AccueilGerant(parent));
+            Produit p= (Produit)((ListView)sender).SelectedItem;
+            parent.supprimerPrduit(p);
         }
-
-        private void ajouterClick(object sender, RoutedEventArgs e)
-        {
-            parent.setUC(new AjouterPlat(parent));
-        }
-
     }
 }
