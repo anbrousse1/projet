@@ -9,6 +9,7 @@ namespace Persistance
 {
     public class BackupFile
     {
+        /*
         public static void Sauvegarde()
         {
             // Connect to the local, default instance of SQL Server.   
@@ -85,6 +86,6 @@ namespace Persistance
 
             // Remove the device from the Restore object.  
             rs.Devices.Remove(bdi);
-        }
+        }*/
     }
 }
