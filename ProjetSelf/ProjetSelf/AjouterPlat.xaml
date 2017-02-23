@@ -25,13 +25,13 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Ajouter un plat" Grid.RowSpan="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50" />
 
-        <TextBlock Text="Categorie* :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="2" />
+        <TextBlock Text="Categorie :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="2" />
         <ComboBox x:Name="comboBox_type" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30" Grid.Row="2" Margin="15,0,0,0"/>
 
-        <TextBlock Text="Nom* :" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
+        <TextBlock Text="Nom :" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
         <TextBox x:Name="nom" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0"/>
 
-        <TextBlock Text="Cliquer pour ajouter un ingredient:*" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
+        <TextBlock Text="Cliquer pour ajouter un ingredient:" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
         <WrapPanel  Grid.Column="1" Grid.Row="5">
             <ComboBox Name="prod"  ItemsSource="{Binding produitsROC}" MinWidth="150">
                 <ComboBox.ItemTemplate>
@@ -42,9 +42,9 @@
             </ComboBox>
             <Button Content="Ajouter Ingredient"  VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="100" MinHeight="50" Margin="15,0,0,0" Click="ajouterProdClick"/>
         </WrapPanel>
-        
 
-        <TextBlock Text="Tarif* :" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
+
+        <TextBlock Text="Tarif :" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30"/>
         <TextBox x:Name="tarif" Grid.Column="1" Grid.Row="6"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0" />
 
 

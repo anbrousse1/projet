@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour SimpleListeProduit.xaml
+    /// Logique d'interaction pour SimpleListePlat.xaml
     /// </summary>
-    public partial class SimpleListeProduit : UserControl
+    public partial class SimpleListePlat : UserControl
     {
-        private AjouterPlat parent;
-        public SimpleListeProduit(AjouterPlat p)
+        private AjouterMenu parent;
+        public SimpleListePlat(AjouterMenu p)
         {
             parent = p;
             DataContext = parent;
@@ -31,8 +31,8 @@ namespace Vue
 
         private void ListView_Selected(object sender, SelectionChangedEventArgs e)
         {
-            Produit p= (Produit)((ListView)sender).SelectedItem;
-            parent.supprimerProduit(p);
+            Plat p = (Plat)((ListView)sender).SelectedItem;
+            parent.supprimerPlat(p);
         }
     }
 }

@@ -105,6 +105,9 @@
     <Compile Include="Recapitulatif.xaml.cs">
       <DependentUpon>Recapitulatif.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SimpleListePlat.xaml.cs">
+      <DependentUpon>SimpleListePlat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SimpleListeProduit.xaml.cs">
       <DependentUpon>SimpleListeProduit.xaml</DependentUpon>
     </Compile>
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Recapitulatif.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SimpleListePlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

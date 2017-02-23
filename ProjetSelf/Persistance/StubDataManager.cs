@@ -11,27 +11,27 @@ namespace Persistance
     {
         public void ajouterMenu(Menu p, List<Plat> lp)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ajouterPlat(Plat p, List<Produit> lp)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ajouterProduit(Produit p)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ajouterUsager(Usager p)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ajouterUtilisateur(Utilisateur p)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public List<Menu> chargeAllMenu()

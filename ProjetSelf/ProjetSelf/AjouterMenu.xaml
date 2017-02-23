@@ -52,7 +52,6 @@
                 <DataTemplate>
                     <WrapPanel>
                         <Label Content="{Binding Nom}" />
-                        
                     </WrapPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -64,13 +63,7 @@
 
         <Button Content="retour" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
 
-        <ListView Name="listMenu" BorderBrush="Transparent" Background="Transparent" Grid.Column="2" Grid.RowSpan="6" Grid.Row="1" ItemsSource="{Binding platMenuROC}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding Nom}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid Grid.Column="2" Grid.RowSpan="6" Grid.Row="1" Name="plats"/>
 
 
 

@@ -22,77 +22,121 @@ namespace Vue
     public partial class AjouterMenu : UserControl
     {
         private MainWindow parent;
-        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platMenuROC;
+        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platsROC;
         private List<Plat> platsMenu = new List<Plat>();
+
+        private int nbEntree = 0;
+        private int nbPlat = 0;
+        private int nbDessert = 0;
 
         public AjouterMenu(MainWindow m)
         {
             parent = m;
             parent.self.chargeEntrPlatDes();
+            platsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(platsMenu);
             DataContext = parent.self;
-            platMenuROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(platsMenu);
+            
             InitializeComponent();
+            plats.Children.Add(new SimpleListePlat(this));
         }
 
         private void ajouterPlatClick(object sender, RoutedEventArgs e)
         {
-            Plat p = (Plat)plat.SelectedItem;
-            if (p == null)
+            if (nbPlat != 6)
             {
-                MessageBox.Show("Veuillez sélectionner un plat");
-            }else
-            {
-                if (platsMenu.Contains(p))
+                Plat p = (Plat)plat.SelectedItem;
+                if (p == null)
                 {
-                    MessageBox.Show("Ce plat a déjà était ajouté");
+                    MessageBox.Show("Veuillez sélectionner un plat");
                 }
                 else
                 {
-                    platsMenu.Add(p);
+                    if (platsMenu.Contains(p))
+                    {
+                        MessageBox.Show("Ce plat a déjà était ajouté");
+                    }
+                    else
+                    {
+                        platsMenu.Add(p);
+                        nbPlat++;
+                        plats.Children.Clear();
+                        plats.Children.Add(new SimpleListePlat(this));
+                    }
                 }
+            }else
+            {
+                MessageBox.Show("Nombre limite de plats atteint(6)");
             }
+           
         }
 
         private void ajouterEntreeClick(object sender, RoutedEventArgs e)
         {
-            Plat p = (Plat)entree.SelectedItem;
-            if (p == null)
+            if (nbEntree != 6)
             {
-                MessageBox.Show("Veuillez sélectionner une entree");
-            }
-            else
-            {
-                if (platsMenu.Contains(p))
+                Plat p = (Plat)entree.SelectedItem;
+                if (p == null)
                 {
-                    MessageBox.Show("Ce plat a déjà était ajouté");
+                    MessageBox.Show("Veuillez sélectionner une entree");
                 }
                 else
                 {
-                    platsMenu.Add(p);
+                    if (platsMenu.Contains(p))
+                    {
+                        MessageBox.Show("Ce plat a déjà était ajouté");
+                    }
+                    else
+                    {
+                        platsMenu.Add(p);
+                        nbEntree++;
+                        plats.Children.Clear();
+                        plats.Children.Add(new SimpleListePlat(this));
+                    }
                 }
+
+            }
+           else
+            {
+                MessageBox.Show("Nombre limite d'entrées atteint(6)");
             }
         }
 
         private void ajouterDessertClick(object sender, RoutedEventArgs e)
         {
-            Plat p = (Plat)plat.SelectedItem;
-            if (p == null)
+            if (nbDessert != 6)
             {
-                MessageBox.Show("Veuillez sélectionner un dessert");
-            }
-            else
-            {
-                if (platsMenu.Contains(p))
+                Plat p = (Plat)dessert.SelectedItem;
+                if (p == null)
                 {
-                    MessageBox.Show("Ce plat a déjà était ajouté");
+                    MessageBox.Show("Veuillez sélectionner un dessert");
                 }
                 else
                 {
-                    platsMenu.Add(p);
+                    if (platsMenu.Contains(p))
+                    {
+                        MessageBox.Show("Ce plat a déjà était ajouté");
+                    }
+                    else
+                    {
+                        platsMenu.Add(p);
+                        nbDessert++;
+                        plats.Children.Clear();
+                        plats.Children.Add(new SimpleListePlat(this));
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Nombre limite de desserts atteint(6)");
             }
         }
 
+        public void supprimerPlat(Plat p)
+        {
+            platsMenu.Remove(p);
+            plats.Children.Clear();
+            plats.Children.Add(new SimpleListePlat(this));
+        }
 
         private void ajouterMenuClick(object sender, RoutedEventArgs e)
         {
@@ -111,4 +155,7 @@ namespace Vue
             }
         }
     }
+
+
+
 }

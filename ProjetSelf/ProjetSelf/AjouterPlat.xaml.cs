@@ -35,18 +35,26 @@ namespace Vue
             parent = m;
             DataContext = parent.self;
             InitializeComponent();
+            chargeCombobox();
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 String cate=(String)comboBox_type.SelectedItem;
                 String n = nom.Text;
-                String t = tarif.Text;
-                if (n.Equals("") || t.Equals("")|| ingredients.Count==0 )
+                double i = 1;
+                if (!double.TryParse(tarif.Text, out i))
                 {
-                    MessageBox.Show("Veuillez remplir tout les champs avec une étoile et ajouter au moins un ingrédient");
+                    MessageBox.Show("Valeur saisie dans tarif incorrecte");
+                    return;
+                }
+                double t=double.Parse(tarif.Text);
+                Console.WriteLine(ingredients.Count);
+                if (n.Equals("") || ingredients.Count==0 )
+                {
+                    MessageBox.Show("Veuillez remplir tout les champs et ajouter au moins un ingrédient");
                 }
                 else
                 {
@@ -56,14 +64,15 @@ namespace Vue
                     }
                     else
                     {
-                        //parent.self.addplat(n, t, ingredients, cate);
+                        parent.self.addplat(n, t, ingredients, cate);
                         MessageBox.Show("Le plat a été ajouté");
                         parent.setUC(new GestionPlat(parent));
                     }
-                    
                 }
-            }catch { MessageBox.Show("Veuillez remplir tout les champs avec une étoile et ajouter au moins un ingrédient"); }
+            //}catch { MessageBox.Show("Veuillez remplir tout les champs avec une étoile et ajouter au moins un ingrédient"); }
         }
+
+        
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
@@ -82,15 +91,52 @@ namespace Vue
         }
 
 
-        public void supprimerPrduit(Produit p)
+        public void supprimerProduit(Produit p)
         {
             ingredients.Remove(p);
             listeIngredient.Children.Clear();
             listeIngredient.Children.Add(new SimpleListeProduit(this));
         }
 
+        /*private void tarif_KeyDown(object sender, KeyEventArgs e)
+        {
+            char c = (char)e.Key;
+            Console.WriteLine(c);
+            if (Char.IsNumber(c))
+            {
+                Console.WriteLine(Char.IsNumber(c));
+                if (virgule)
+                {
+                    prix= prix+Char.GetNumericValue(c);
+                    e.Handled = true;
+                    return;
+                }
+            }else
+            {
+                if (c.Equals(",") && virgule)
+                {
+                    virgule = false;
+                    e.Handled = true;
+                    if (centimes == 0)
+                    {
+                        centimes = Char.GetNumericValue(c) * 10;
+                    }else
+                    {
+                        centimes = centimes + Char.GetNumericValue(c);
+                    }
+                    return;
+                }
+            }
+            e.Handled = false;
+        }*/
 
-        
+        private void chargeCombobox()
+        {
+            comboBox_type.Items.Add("Entree");
+            comboBox_type.Items.Add("Dessert");
+            comboBox_type.Items.Add("Plat");
+        }
+            
     }
 }
 
