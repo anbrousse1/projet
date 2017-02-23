@@ -12,14 +12,42 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
 
-        <ComboBox x:Name="comboBox_menu" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30"/>
+        <Label Content="Sélectionner un menu de la liste et une date, ci-dessous les 20 prochaines dates disponibles" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center"/>
 
-        <DatePicker x:Name="dateMenu"  Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ListView Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding dateDispoROC}" HorizontalAlignment="Center" BorderBrush="Transparent">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <WrapPanel HorizontalAlignment="Center" Margin="50,0,50,0">
+                        <Label Content="{Binding Day}"/>
+                        <Label Content="/"/>
+                        <Label Content="{Binding Month}"/>
+                        <Label Content="/"/>
+                        <Label Content="{Binding Year}"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <ComboBox x:Name="comboBox_menu" ItemsSource="{Binding menusROC}" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="130" Height="30">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Nom}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
-        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" FontSize="30" Grid.Column="2" VerticalAlignment="Center" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click"/>
+        <DatePicker x:Name="dateMenu"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
+        <Button x:Name="valider" Content="VALIDER" Grid.Row="2" HorizontalAlignment="Center" FontSize="30" Grid.Column="2" VerticalAlignment="Center" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click"/>
 
+        <Button Content="Retour" Grid.Row="3" Grid.Column="1" Click="retour_Click"/>
 
     </Grid>
 </UserControl>

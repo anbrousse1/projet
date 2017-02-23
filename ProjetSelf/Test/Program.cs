@@ -19,7 +19,30 @@ namespace Test
             
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
-            
+
+            self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
+
+            foreach (var u in self.produitsROC)
+            {
+                WriteLine(u.ToString());
+            }
+
+            self.addplat(DateTime.Today, DateTime.Today, "plattest", 50, self.produitsROC.Where(w => w.ID > 3).ToList(), "Plat");
+
+            foreach (var u in self.platROC)
+            {
+                WriteLine(u.ToString());
+            }
+
+            self.addMenu("menutest", self.platROC.Where(w => w.ID > 2).ToList());
+
+            foreach (var u in self.menusROC)
+            {
+                WriteLine(u.ToString());
+            }
+
+            Read();
+
             /*foreach(var u in self.menusROC)
             {
                  WriteLine(u.ToString());

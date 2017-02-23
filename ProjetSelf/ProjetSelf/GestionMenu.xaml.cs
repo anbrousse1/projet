@@ -32,5 +32,15 @@ namespace Vue
         {
             parent.setUC(new AccueilGerant(parent));
         }
+
+        private void ClickProgrammer(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GererMenu(parent));
+        }
+
+        private void ClickAjouter(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new AjouterMenu(parent));
+        }
     }
 }

@@ -144,6 +144,40 @@ namespace Metier
         /// </summary>
         private Dictionary<AbsPlat,int> platsChoisis = new Dictionary<AbsPlat, int>();
 
+        /// <summary>
+        /// ReadOnlyCollection de date qui encapsule la liste des 2O prochaines dates disponible pour programmer un menu
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<DateTime> dateDispoROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Listes des 20 prochaines dates dispo
+        /// </summary>
+        private List<DateTime> dateDispo = new List<DateTime>();
+
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> allEntreesROC
+        {
+            get;
+            private set;
+        }
+        private List<AbsPlat> allEntrees = new List<AbsPlat>();
+
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> allPlatsResROC
+        {
+            get;
+            private set;
+        }
+        private List<AbsPlat> allPlatsRes = new List<AbsPlat>();
+
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> allDessertsROC
+        {
+            get;
+            private set;
+        }
+        private List<AbsPlat> allDesserts = new List<AbsPlat>();
+
 
         private DateTime dateDuJour = DateTime.Today;
         public String DroitUtilisateur { get; private set; }
@@ -170,6 +204,11 @@ namespace Metier
             dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
             boissonROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(boissons);
             platsChoisisROC = new System.Collections.ObjectModel.ReadOnlyDictionary<AbsPlat,int>(platsChoisis);
+            dateDispoROC = new System.Collections.ObjectModel.ReadOnlyCollection<DateTime>(dateDispo);
+            allEntreesROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allEntrees);
+            allPlatsResROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allPlatsRes);
+            allDessertsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allDesserts);
+
             DroitUtilisateur = null;
 
             chargeAll();
@@ -627,24 +666,29 @@ namespace Metier
         }
 
         //Permet d'ajouter un Plat
-        private void Addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<String> ingredientString, String cate)
+        public void addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<Produit> ingredient, String cate)
         {
-            //plats.Add(new Plat(plats.Count + 1, debut, fin, nom, tarif, FindProduits(ingredientString), FindCategoriePlat(cate)));
-            //Ajouter dans BDD
+            Plat p = new Plat { Nom = nom, DateEffet = debut, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate) };
+            data.ajouterPlat(p,ingredient);
+            p.ingredients = ingredient;
+            plats.Add(p);
         }
 
         //Permet d'ajouter un Produit
         public void addProduit(DateTime deb, DateTime fin, String nom, String observation, String cate)
         {
-           produits.Add(new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count+1 , Observation = observation });
-            //Ajouter à BDD
+            Produit p = new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count + 1, Observation = observation };
+            data.ajouterProduit(p);
+            produits.Add(p);
         }
 
         //Permet d'ajouter un menu
-        private void AddMenu(int code, List<String> plats)
+        public void addMenu(String nom ,List<Plat> lplats)
         {
-            //menus.Add(new Menu(code, FindPlats(plats)));
-            //Ajouter dans BDD
+            Menu m = new Menu { Nom = nom };
+            data.ajouterMenu(m, lplats);
+            m.plats = lplats;
+            menus.Add(m);
         }
 
         //Permet d'jouter un plat choisis
@@ -726,13 +770,14 @@ namespace Metier
             return produitsDispo;
         }
 
+        
 
         /// <summary>
         /// Methode pour connaitre les dates Dispo
         /// </summary>
         /// <param name="d">date</param>
         /// <returns>true si il y a déja un menu a la date donnée en paramètre sinon retourne faux</returns>
-        private Boolean DateMenuDispo(DateTime d)
+        public Boolean dateMenuDispo(DateTime d)
         {
             foreach(Menu m in menus)
             {
@@ -740,11 +785,11 @@ namespace Metier
                 {
                     if (d.Equals(da))
                     {
-                        return true;
+                        return false;
                     }
                 }
             }
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -809,6 +854,51 @@ namespace Metier
             return false;
         }
 
+        /// <summary>
+        /// Permet de charger les 20 prochaines dates sans menu
+        /// </summary>
+        public void chargeDateDispo()
+        {
+            int i;
+            for (i = 0; dateDispo.Count < 20; i++)
+            { 
+                if (dateMenuDispo(DateTime.Today.AddDays(i)) && !dateDispo.Contains(DateTime.Today.AddDays(i)))
+                {
+                    dateDispo.Add(DateTime.Today.AddDays(i));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Ajoute une date à la liste de date d'un menu
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="date"></param>
+        public void addDateToMenu(AbsMenu m, DateTime date)
+        {
+            m.dates.Add(date);
+            dateDispo.Remove(date);
+            chargeDateDispo();
+        }
+
+        public void chargeEntrPlatDes()
+        {
+            foreach(AbsPlat p in plats)
+            {
+                if (p.Categorie.Equals(CategoriePlat.Dessert))
+                {
+                    allDesserts.Add(p);
+                }
+                if (p.Categorie.Equals(CategoriePlat.Entree))
+                {
+                    allEntrees.Add(p);
+                }
+                if (p.Categorie.Equals(CategoriePlat.Plat))
+                {
+                    allPlatsRes.Add(p);
+                }
+            }
+        }
     }
 }
 

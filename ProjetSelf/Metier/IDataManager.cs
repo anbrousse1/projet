@@ -20,5 +20,15 @@ namespace Metier
 
         List<Utilisateur> chargeAllUtilisateur();
 
+        void ajouterProduit(Produit p);
+
+        void ajouterPlat(Plat p, List<Produit> lp);
+
+        void ajouterMenu(Menu p, List<Plat> lp);
+
+        void ajouterUtilisateur(Utilisateur p);
+
+        void ajouterUsager(Usager p);
+
     }
 }
