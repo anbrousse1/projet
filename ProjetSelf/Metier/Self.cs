@@ -666,24 +666,29 @@ namespace Metier
         }
 
         //Permet d'ajouter un Plat
-        private void Addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<String> ingredientString, String cate)
+        public void addplat(DateTime debut, DateTime fin, String nom, Double tarif, List<Produit> ingredient, String cate)
         {
-            //plats.Add(new Plat(plats.Count + 1, debut, fin, nom, tarif, FindProduits(ingredientString), FindCategoriePlat(cate)));
-            //Ajouter dans BDD
+            Plat p = new Plat { Nom = nom, DateEffet = debut, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate) };
+            data.ajouterPlat(p,ingredient);
+            p.ingredients = ingredient;
+            plats.Add(p);
         }
 
         //Permet d'ajouter un Produit
         public void addProduit(DateTime deb, DateTime fin, String nom, String observation, String cate)
         {
-           produits.Add(new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count+1 , Observation = observation });
-            //Ajouter à BDD
+            Produit p = new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count + 1, Observation = observation };
+            data.ajouterProduit(p);
+            produits.Add(p);
         }
 
         //Permet d'ajouter un menu
         public void addMenu(String nom ,List<Plat> lplats)
         {
-           menus.Add(new Menu { Nom=nom, plats=lplats});
-            //Ajouter dans BDD
+            Menu m = new Menu { Nom = nom };
+            data.ajouterMenu(m, lplats);
+            m.plats = lplats;
+            menus.Add(m);
         }
 
         //Permet d'jouter un plat choisis

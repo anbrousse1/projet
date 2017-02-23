@@ -9,6 +9,31 @@ namespace Persistance
 {
     public class StubDataManager : IDataManager
     {
+        public void ajouterMenu(Menu p, List<Plat> lp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ajouterPlat(Plat p, List<Produit> lp)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ajouterProduit(Produit p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ajouterUsager(Usager p)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ajouterUtilisateur(Utilisateur p)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Menu> chargeAllMenu()
         {
             return null;

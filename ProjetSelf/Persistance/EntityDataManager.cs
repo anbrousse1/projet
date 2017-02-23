@@ -310,7 +310,6 @@ namespace Persistance
                 }
                 db.SaveChanges();
             }
-            //p.ingredients = lp;
         }
 
         public void ajouterMenu(Menu p, List<Plat> lp)
@@ -327,9 +326,16 @@ namespace Persistance
                 {
                     db.MenuPlatSet.Add(new MenuPlat { idmenu = p.ID , idplat = s.ID });
                 }
-                db.SaveChanges();
+                //exception bizarre ici...
+                try
+                {
+                    db.SaveChanges();
+                }catch(Exception e)
+                {
+                    e.GetBaseException();
+                }
+                
             }
-            //p.plats = lp;
         }
 
         public void ajouterUtilisateur(Utilisateur p)
