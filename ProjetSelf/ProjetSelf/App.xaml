@@ -55,5 +55,15 @@
             <TextBlock Text="{Binding ToString()}"/>
         </DataTemplate>
 
+        <Style x:Key="labelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="DeepSkyBlue"/>
+        </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="DeepSkyBlue"/>
+        </Style>
+
     </Application.Resources>
 </Application>

@@ -665,15 +665,7 @@ namespace Metier
             return platsMenu;
         }
 
-        //Permet d'ajouter un Plat
-        public void addplat( String nom, Double tarif, List<Produit> ingredients, String cate)
-        {
 
-            Plat p = new Plat { Nom = nom, /*DateEffet = effet, DateFin = fin,*/ Tarif = tarif, Categorie = FindCategoriePlat(cate),  };
-            data.ajouterPlat(p,ingredients);
-            p.ingredients = ingredients;
-            plats.Add(p);
-        }
 
         public void addplat(DateTime effet, DateTime fin,String nom, Double tarif, List<Produit> ingredients, String cate)
         {

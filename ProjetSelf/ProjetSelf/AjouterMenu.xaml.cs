@@ -22,7 +22,11 @@ namespace Vue
     public partial class AjouterMenu : UserControl
     {
         private MainWindow parent;
-        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platsROC;
+        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platsMenuROC
+        {
+            get;
+            private set;
+        }
         private List<Plat> platsMenu = new List<Plat>();
 
         private int nbEntree = 0;
@@ -31,13 +35,12 @@ namespace Vue
 
         public AjouterMenu(MainWindow m)
         {
+            platsMenuROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(platsMenu);
             parent = m;
             parent.self.chargeEntrPlatDes();
-            platsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(platsMenu);
             DataContext = parent.self;
-            
             InitializeComponent();
-            plats.Children.Add(new SimpleListePlat(this));
+
         }
 
         private void ajouterPlatClick(object sender, RoutedEventArgs e)

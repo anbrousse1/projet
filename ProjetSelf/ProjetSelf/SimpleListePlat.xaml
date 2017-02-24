@@ -7,12 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <ListView HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsROC}" SelectionChanged="ListView_Selected"   >
+        <ListView Name="list" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_Selected"   >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Nom}"/>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
     </Grid>
 </UserControl>

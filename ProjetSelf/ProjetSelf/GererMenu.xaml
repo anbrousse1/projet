@@ -19,41 +19,41 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Sélectionner un menu de la liste et une date, ci-dessous les 20 prochaines dates disponibles" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center"/>
+        <Label Content="Sélectionner un menu de la liste et une date, ci-dessous les 20 prochaines dates disponibles" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" Style="{StaticResource labelStyle}"/>
 
         <ListView Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding dateDispoROC}" HorizontalAlignment="Center" BorderBrush="Transparent">
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <WrapPanel HorizontalAlignment="Center" Margin="50,0,50,0">
-                        <Label Content="{Binding Day}"/>
-                        <Label Content="/"/>
-                        <Label Content="{Binding Month}"/>
-                        <Label Content="/"/>
-                        <Label Content="{Binding Year}"/>
+                        <Label Content="{Binding Day}" Style="{StaticResource labelStyle}"/>
+                        <Label Content="/" Style="{StaticResource labelStyle}"/>
+                        <Label Content="{Binding Month}" Style="{StaticResource labelStyle}"/>
+                        <Label Content="/" Style="{StaticResource labelStyle}"/>
+                        <Label Content="{Binding Year}" Style="{StaticResource labelStyle}"/>
                     </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Label Content="Liste des menus entre parenthèse l'intervalle de programation disponible"/>
+            <Label Content="Liste des menus entre parenthèse l'intervalle de programation disponible" Style="{StaticResource labelStyle}" />
             <ComboBox x:Name="comboBox_menu" ItemsSource="{Binding menusROC}"  Width="130" Height="30">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
-                            <Label Content="{Binding Nom}" />
-                            <Label Content="(" />
-                            <Label Content="{Binding effet.Day}" />
-                            <Label Content="/" />
-                            <Label Content="{Binding effet.Month}"/>
-                            <Label Content="/" />
-                            <Label Content="{Binding effet.Year}"/>
-                            <Label Content=" ->" />
-                            <Label Content="{Binding fin.Day}"/>
-                            <Label Content="/" />
-                            <Label Content="{Binding fin.Month}"/>
-                            <Label Content="/" />
-                            <Label Content="{Binding fin.Year}"/>
-                            <Label Content=")" />
+                            <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="(" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding effet.Day}" Style="{StaticResource labelStyle}" />
+                            <Label Content="/" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding effet.Month}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="/" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding effet.Year}" Style="{StaticResource labelStyle}"/>
+                            <Label Content=" ->" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding fin.Day}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="/" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding fin.Month}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="/" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding fin.Year}" Style="{StaticResource labelStyle}"/>
+                            <Label Content=")" Style="{StaticResource labelStyle}"/>
                         </WrapPanel>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>

@@ -12,17 +12,17 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Récapitulatif :" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" />
+        <TextBlock Text="Récapitulatif :" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource TextBlockStyle}" />
         <ListView Grid.Row="1" MaxWidth="450" ItemsSource="{Binding platsChoisisROC}" ItemTemplate="{StaticResource recap}" Background="Transparent"/>
 
         <StackPanel Grid.Row="2">
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Total: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
-                <TextBlock Name="prixRepas" Text="0" FontSize="25"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Text="Total: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Name="prixRepas" Text="0" FontSize="25"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
-                <TextBlock Name="soldeClient" Text="0" FontSize="25" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                <TextBlock Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Name="soldeClient" Text="0" FontSize="25" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
             </WrapPanel>
         </StackPanel>
         

@@ -28,6 +28,8 @@ namespace Vue
             private set;
         }
         private List<Produit> ingredients = new List<Produit>();
+        DateTime effet;
+        DateTime fin;
 
         public AjouterPlat(MainWindow m)
         {
@@ -64,7 +66,7 @@ namespace Vue
                     }
                     else
                     {
-                        parent.self.addplat(n, t, ingredients, cate);
+                        parent.self.addplat(effet,fin,n, t, ingredients, cate);
                         MessageBox.Show("Le plat a été ajouté");
                         parent.setUC(new GestionPlat(parent));
                     }
@@ -83,9 +85,20 @@ namespace Vue
         {
             try
             {
-                ingredients.Add((Produit)prod.SelectedItem);
+                Produit p = (Produit)prod.SelectedItem;
+                if (ingredients.Count == 0)
+                {
+                    effet = p.DateEffet;
+                    fin = p.DateFin;
+                }else
+                {
+                    if (effet.CompareTo(p.DateEffet) < 0) { effet = p.DateEffet;}
+                    if (fin.CompareTo(p.DateFin) > 0) { fin = p.DateFin; }
+                }
+                ingredients.Add(p);
                 listeIngredient.Children.Clear();
                 listeIngredient.Children.Add(new SimpleListeProduit(this));
+                
             }
             catch { MessageBox.Show("Veuillez sélectionner un plat");}  
         }

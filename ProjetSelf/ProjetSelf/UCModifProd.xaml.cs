@@ -35,5 +35,9 @@ namespace Vue
             parent.setUC(new ModifierDatePlatEtProduit(parent, prod));
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GestionProduit(parent));
+        }
     }
 }

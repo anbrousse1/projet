@@ -10,7 +10,7 @@
         <ListView HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding ingredientsROC}" SelectionChanged="ListView_Selected"   >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Nom}"/>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView> 
