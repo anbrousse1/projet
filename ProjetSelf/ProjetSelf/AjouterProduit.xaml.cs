@@ -40,6 +40,16 @@ namespace Vue
             String type=(String)comboBox_type.SelectedItem;
             DateTime effet = (DateTime)dateEffet.SelectedDate;
             DateTime fin = (DateTime)dateFin.SelectedDate;
+            if (effet.CompareTo(fin)>0)
+            {
+                MessageBox.Show("La date d'effet doit etre antérieure à la date de fin");
+                return;
+            }
+            if (fin.CompareTo(DateTime.Today)<0)
+            {
+                MessageBox.Show("La date de fin doit etre supérieure à la date d'ajourd'hui");
+                return;
+            }
             String name = nom.Text;
             String obser = observation.Text;
             parent.self.addProduit(effet, fin, name, obser, type);

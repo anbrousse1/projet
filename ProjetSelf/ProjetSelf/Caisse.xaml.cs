@@ -48,7 +48,7 @@ namespace Vue
                 entree.IsEnabled = false;
                 MessageBox.Show("pas de menu pour aujourd'hui");
             }
-            if (parent.self.DroitUtilisateur.Equals("Caissier"))
+            if (parent.self.DroitUtilisateur==001)
             {
                 retour.Visibility = Visibility.Hidden;
             }
