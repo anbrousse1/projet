@@ -43,12 +43,12 @@ namespace Vue
             if (parent.self.connexion(log.Text, mdp.Password))
             {
                 
-                String fonction = parent.self.DroitUtilisateur;
-                if (fonction.Equals("Caissier"))
+                int fonction = parent.self.DroitUtilisateur;
+                if (fonction==001)
                 {
                     parent.setUC(new Caisse(parent));
                 }
-                else if (fonction.Equals("Gerant"))
+                else if (fonction==002)
                 {
                     parent.setUC(new AccueilGerant(parent));
                 }

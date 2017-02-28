@@ -27,7 +27,7 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            this.recap.Children.Add(new Recapitulatif(parent));
+            this.recap.Children.Add(new Recapitulatif(parent,true));
             ChargerBoutons();
         }
 
@@ -157,7 +157,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button1.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -169,7 +169,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button2.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button3.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button4.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button5.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -217,7 +217,7 @@ namespace Vue
         {
             parent.self.AddPlatChoisi(button6.Content.ToString());
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
     }
 }

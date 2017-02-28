@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,23 +21,13 @@ namespace Vue
     /// </summary>
     public partial class ModifierTicket : UserControl
     {
-        private MainWindow parent;
-        public ModifierTicket(MainWindow m)
+        MainWindow parent;
+        AbsRepas repas;
+        public ModifierTicket(MainWindow m, AbsRepas r)
         {
             parent = m;
+            repas = r;
             InitializeComponent();
-            mgrid.Children.Add(new Recapitulatif(parent));
-
-        }
-
-        public void clickModifier(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        public void clickAnnuler(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

@@ -180,7 +180,7 @@ namespace Metier
 
 
         private DateTime dateDuJour = DateTime.Today;
-        public String DroitUtilisateur { get; private set; }
+        public int DroitUtilisateur { get; private set; }
         public AbsUsager client;
         public AbsMenu menuDuJour;
         public double prixAPayer;
@@ -209,7 +209,7 @@ namespace Metier
             allPlatsResROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allPlatsRes);
             allDessertsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allDesserts);
 
-            DroitUtilisateur = null;
+            DroitUtilisateur = 0;
 
             chargeAll();
 
@@ -331,14 +331,14 @@ namespace Metier
         {
             foreach(AbsUtilisateur u in utilisateur)
             {
-                Console.WriteLine("self "+u.Login + " " + u.Password);
                 if(login.Equals(u.Login)&& mdp.Equals(u.Password))
                 {
                     foreach(AbsUsager usa in usager)
                     {
                         if (usa.ID == u.ID)
                         {
-                            DroitUtilisateur = getFonction(usa.CodeFonction);
+                            DroitUtilisateur =usa.CodeFonction;
+                            Console.WriteLine(DroitUtilisateur);
                             return true;
                         }
                     }
@@ -352,7 +352,7 @@ namespace Metier
         /// </summary>
         public void deconnexion()
         {
-            DroitUtilisateur = null;
+            DroitUtilisateur = 0;
         }
 
 
@@ -439,7 +439,7 @@ namespace Metier
         /// <summary>
         /// Methode pour faire payer un usager
         /// </summary>
-        public void Paiement()
+        public void paiement()
         {
             client.payer(prixAPayer);
             //Modif BDD
@@ -938,6 +938,34 @@ namespace Metier
             }
         }
 
+        public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
+        {
+            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, carte = new Carte(usager.Count + 1) });
+        }
+
+        public void addUtilisateur(string mdp, string login, int id )
+        {
+            utilisateur.Add(new Utilisateur { ID = id, Login = login, Password = mdp });
+        }
+
+        public void finPassage()
+        { 
+            foreach(KeyValuePair<AbsPlat,int> kvp in platsChoisis)
+            {
+                for(int i = 1; i <= kvp.Value; i++)
+                {
+                    client.AddPlatChoisis(kvp.Key);
+                }
+            }
+            prixAPayer = 0;
+            client = null;
+            platsChoisis.Clear();
+        }
+
+        public void chargeListRepas()
+        {
+            client.lierList();
+        }
     }
 }
 

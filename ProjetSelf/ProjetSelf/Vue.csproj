@@ -75,6 +75,9 @@
     <Compile Include="Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DefinitionMdpLog.xaml.cs">
+      <DependentUpon>DefinitionMdpLog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GererMenu.xaml.cs">
       <DependentUpon>GererMenu.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,9 @@
     </Compile>
     <Compile Include="ModifierTicket.xaml.cs">
       <DependentUpon>ModifierTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCListRepas.xaml.cs">
+      <DependentUpon>UCListRepas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Paiement.xaml.cs">
       <DependentUpon>Paiement.xaml</DependentUpon>
@@ -175,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DefinitionMdpLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GererMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModifierTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCListRepas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -22,15 +22,41 @@ namespace Vue
     public partial class Recapitulatif : UserControl
     {
         MainWindow parent;
-        public Recapitulatif(MainWindow m)
+        Boolean caisse;
+        public Recapitulatif(MainWindow m, Boolean c)
         {
             parent = m;
+            caisse = c;
             InitializeComponent();
             DataContext = parent.self;
             prixRepas.Text = parent.self.prixAPayer.ToString()+"€";
             if (parent.self.client != null)
             {
-                soldeClient.Text = parent.self.client.Solde.ToString()+"€";
+                if (parent.self.client.codePaiement == 0)
+                {
+                    solde.Text = "Retenue Salaire";
+                    if (caisse)
+                    {
+                        soldeClient.Text = (parent.self.client.Solde + parent.self.prixAPayer) + "€";
+                    }else
+                    {
+                        soldeClient.Text = (parent.self.prixAPayer) + "€";
+                    }
+
+                }
+                else
+                {
+                    if (caisse)
+                    {
+                        soldeClient.Text = (parent.self.client.Solde - parent.self.prixAPayer) + "€";
+                    }
+                    else
+                    {
+                        soldeClient.Text = (parent.self.prixAPayer) + "€";
+                    }
+                    
+                }
+
             }
             
         }

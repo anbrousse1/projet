@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,30 +17,31 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour Paiement.xaml
+    /// Logique d'interaction pour UCListRepas.xaml
     /// </summary>
-    public partial class Paiement : UserControl
+    public partial class UCListRepas : UserControl
     {
         private MainWindow parent;
-        public Paiement(MainWindow m)
+        public UCListRepas(MainWindow m)
         {
             parent = m;
+            parent.self.chargeListRepas();
             InitializeComponent();
-            mgrid.Children.Add(new Recapitulatif(parent,false));
-
+            repas.ItemsSource = parent.self.client.histoRepasROC;
+            DataContext = parent.self.client;
+            
         }
 
-        public void ClickContinuer(object sender, RoutedEventArgs e)
+
+        public void clickRetour(object sender, RoutedEventArgs e)
         {
-            parent.self.finPassage();
             parent.setUC(new Caisse(parent));
         }
 
-        public void clickTicket(object sender, RoutedEventArgs e)
+        private void repas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Enregistrer le ticket. 
-            parent.self.finPassage();
-            parent.setUC(new Caisse(parent));
+            AbsRepas r = (AbsRepas)((ListView)sender).SelectedItem;
+            parent.setUC(new ModifierTicket( parent, r));
         }
     }
 }

@@ -5,16 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Vue"
              mc:Ignorable="d" 
-             Height="auto" Width="auto">
+             d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.RowDefinitions>
-
-            <RowDefinition Height="60*" />
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="20*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Name="mgrid"/>
-        <Button Grid.Row="1" Style="{StaticResource boutonValiderUC}" x:Name="modifier" Click="clickModifier" Content="MODIFIER" MaxWidth="350"/>
-        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" x:Name="annuler" Click="clickAnnuler" Content="ANNULER" MaxWidth="350"/>
+            
     </Grid>
 </UserControl>
