@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Vue.UCListRepas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vue"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <ListView Name="repas" Grid.Row="1" MaxWidth="450"  Background="Transparent" SelectionChanged="repas_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding date}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding prix}" Style="{StaticResource TextBlockStyle}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" x:Name="annuler" Content="Retour" MaxWidth="350"/>
+    </Grid>
+</UserControl>

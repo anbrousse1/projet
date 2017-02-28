@@ -37,10 +37,12 @@ namespace Vue
                 dessert.IsEnabled = false;
                 entree.IsEnabled = false;
                 boisson.IsEnabled = false;
+                paiement.IsEnabled = false;
+                paiement.IsEnabled = false;
                 IdUsager.Children.Add(new SimulationPassageCarte(parent));
             }
-            Recapitulatif r = new Recapitulatif(parent);
-            recap.Children.Add(r);
+           
+            recap.Children.Add(new Recapitulatif(parent, true));
             if (parent.self.menuDuJour == null)
             {
                 plat.IsEnabled = false;
@@ -82,7 +84,7 @@ namespace Vue
 
         private void ClickPaiement(object sender, RoutedEventArgs e)
         {
-            //parent.self.Paiement();
+            parent.self.paiement();
             parent.setUC(new Paiement(parent));
 
         }
@@ -90,8 +92,11 @@ namespace Vue
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
             parent.self.supprimerAllPlatsChoisis();
+            parent.self.client = null;
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent, true));
+            IdUsager.Children.Clear();
+            IdUsager.Children.Add(new SimulationPassageCarte(parent));
         }
 
         private void clickRetour(object sender, RoutedEventArgs e)

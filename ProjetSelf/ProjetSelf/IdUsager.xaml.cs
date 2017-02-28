@@ -32,5 +32,9 @@ namespace Vue
             service.Text = parent.self.client.Service;
         }
 
+        private void modif_Click(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCListRepas(parent));
+        }
     }
 }

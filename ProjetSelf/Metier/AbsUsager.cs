@@ -16,9 +16,16 @@ namespace Metier
         public String Prenom { get; set; }
         public int CodeFonction { get; set; }
         public String Service { get; set; }
+        public int codePaiement;
         public AbsPaiement algoDePaiement;
         public double Solde { get; set; }
-        public List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        
+        private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
+        { 
+            get;
+            private set;
+        }
         public Carte carte;
         public String Fonction { get; set; }
 
@@ -30,23 +37,34 @@ namespace Metier
 
         internal void payer(double prix)
         {
+            if (codePaiement == 0)
+            {
+                algoDePaiement = new RetenueSalaire();
+            }else { algoDePaiement = new PreAlimente(); }
+
             algoDePaiement.algoPaiment(this, prix);
             //Effectuer changement solde dans BDD
         }
 
-
-        //Permet D'ajouter un plat choisi
+        /// <summary>
+        /// Permet D'ajouter un plat choisi
+        /// </summary>
         internal void AddPlatChoisis(AbsPlat p)
         {
             foreach (AbsRepas r in historiquePlatChoisi)
             {
-                if (r.date.Equals(DateTime.Now))
+                if (r.date.Equals(DateTime.Today))
                 {
                     r.AddPlat(p);
                     return;
                 }
             }
             new Repas().AddPlat(p);
+        }
+
+        internal void lierList()
+        {
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
         }
     }
 }

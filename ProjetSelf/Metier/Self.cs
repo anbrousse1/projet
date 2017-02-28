@@ -439,7 +439,7 @@ namespace Metier
         /// <summary>
         /// Methode pour faire payer un usager
         /// </summary>
-        public void Paiement()
+        public void paiement()
         {
             client.payer(prixAPayer);
             //Modif BDD
@@ -948,6 +948,24 @@ namespace Metier
             utilisateur.Add(new Utilisateur { ID = id, Login = login, Password = mdp });
         }
 
+        public void finPassage()
+        { 
+            foreach(KeyValuePair<AbsPlat,int> kvp in platsChoisis)
+            {
+                for(int i = 1; i <= kvp.Value; i++)
+                {
+                    client.AddPlatChoisis(kvp.Key);
+                }
+            }
+            prixAPayer = 0;
+            client = null;
+            platsChoisis.Clear();
+        }
+
+        public void chargeListRepas()
+        {
+            client.lierList();
+        }
     }
 }
 

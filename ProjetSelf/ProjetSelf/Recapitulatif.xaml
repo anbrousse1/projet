@@ -21,7 +21,7 @@
                 <TextBlock Name="prixRepas" Text="0" FontSize="25"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
             </WrapPanel>
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Name="solde" Text="Solde: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{StaticResource TextBlockStyle}"/>
                 <TextBlock Name="soldeClient" Text="0" FontSize="25" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
             </WrapPanel>
         </StackPanel>

@@ -102,6 +102,9 @@
     <Compile Include="ModifierTicket.xaml.cs">
       <DependentUpon>ModifierTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCListRepas.xaml.cs">
+      <DependentUpon>UCListRepas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Paiement.xaml.cs">
       <DependentUpon>Paiement.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModifierTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCListRepas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
