@@ -18,9 +18,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="1" Content="Ajouter menu" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="ClickAjouter"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="Programmer Menu" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="ClickProgrammer"/>
-        <Button Grid.Column="2" Grid.Row="1" Content="visualiser programmation des menus" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300"/>
+        <Button Grid.Column="0" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="ClickAjouter">
+            <TextBlock Text="Ajouter Menu" TextWrapping="Wrap"/>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300" Click="ClickProgrammer">
+            <TextBlock Text="Programmer Menu" TextWrapping="Wrap"/>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="300" MaxHeight="300">
+            <TextBlock Text="Visualiser Menus" TextWrapping="Wrap"/>
+        </Button>
 
         <Button Click="ClickRetour" Grid.Column="1" Grid.Row="2" Content="Retour" Background="Gray" MaxHeight="100" MaxWidth="100"/>
 
