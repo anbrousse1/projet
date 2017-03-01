@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,6 @@ namespace Vue
             parent = m;
             InitializeComponent();
             mgrid.Children.Add(new Recapitulatif(parent,false));
-
         }
 
         public void ClickContinuer(object sender, RoutedEventArgs e)
@@ -38,6 +38,7 @@ namespace Vue
         public void clickTicket(object sender, RoutedEventArgs e)
         {
             //Enregistrer le ticket. 
+            EcrireTicketFichier.ecrireTicket(parent.self.client,parent.self.platsChoisisROC,parent.self.prixAPayer);
             parent.self.finPassage();
             parent.setUC(new Caisse(parent));
         }

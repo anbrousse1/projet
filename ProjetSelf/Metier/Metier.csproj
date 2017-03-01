@@ -51,6 +51,7 @@
     <Compile Include="Carte.cs" />
     <Compile Include="CategoriePlat.cs" />
     <Compile Include="CategorieProduit.cs" />
+    <Compile Include="EcrireTicketFichier.cs" />
     <Compile Include="IDataManager.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuPlat.cs" />

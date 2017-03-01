@@ -1,0 +1,9 @@
+Beber Bob
+ Produits 1 : salade bleu quantité : 1
+ Produits 2 : Vin quantité : 2
+ Produits 3 : Eau gazeuse quantité : 1
+ Produits 4 : Eau plate quantité : 1
+ Produits 5 : frites quantité : 1
+ Produits 6 : Soda quantité : 1
+ Produits 7 : Jus de fruit quantité : 1
+ total = 19

@@ -16,8 +16,23 @@ namespace Test
     {
         static void Main(string[] args)
         {
+            Usager bastien = new Usager
+            {
+                Nom = "Gandboeuf",
+                Prenom = "Bastien",
+                CodeFonction = 1,
+                DateEntree = DateTime.Today,
+                Service = "Restaurant",
+                Titre = "Monsieur",
+                algoDePaiement = new PreAlimente(),
+                Solde = 25,
+                carte = new Carte(12),
+                Fonction = "Caissier"
+            };
+           // EcrireTicketFichier.ecrireTicket(bastien);
+            Read();
             
-            EntityDataManager bdd = new EntityDataManager();
+           /* EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
 
             self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
