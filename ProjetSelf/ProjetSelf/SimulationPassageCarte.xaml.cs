@@ -46,6 +46,7 @@ namespace Vue
         /// </summary>
         private System.ComponentModel.Container components = null;
         MainWindow parent;
+
         public SimulationPassageCarte(MainWindow m)
         {
             InitializeComponent();
