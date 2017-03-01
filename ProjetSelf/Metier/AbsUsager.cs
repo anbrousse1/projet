@@ -53,13 +53,15 @@ namespace Metier
         {
             foreach (AbsRepas r in historiquePlatChoisi)
             {
-                if (r.date.Equals(DateTime.Today))
+                if (r.Date.Equals(DateTime.Today))
                 {
                     r.AddPlat(p);
                     return;
                 }
             }
-            new Repas().AddPlat(p);
+            AbsRepas re = new Repas();
+            re.AddPlat(p);
+            historiquePlatChoisi.Add(re);
         }
 
         internal void lierList()

@@ -13,13 +13,15 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
-        <ListView Name="repas" Grid.Row="1" MaxWidth="450"  Background="Transparent" SelectionChanged="repas_SelectionChanged">
+        <ListView Name="repas" Grid.Row="1" MaxWidth="450"  Background="Transparent" ItemsSource="{Binding histoRepasROC}" SelectionChanged="repas_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding date}" Style="{StaticResource TextBlockStyle}" />
-                        <TextBlock Text="{Binding prix}" Style="{StaticResource TextBlockStyle}" />
-                    </StackPanel>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Date.Date}" Style="{StaticResource TextBlockStyle}" />
+                        
+                        <TextBlock Text="{Binding Prix}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="€" Style="{StaticResource TextBlockStyle}" />
+                    </WrapPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

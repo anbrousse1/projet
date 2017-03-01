@@ -27,7 +27,6 @@ namespace Vue
             parent = m;
             parent.self.chargeListRepas();
             InitializeComponent();
-            repas.ItemsSource = parent.self.client.histoRepasROC;
             DataContext = parent.self.client;
             
         }

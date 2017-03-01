@@ -146,6 +146,7 @@ namespace ACOSReadWrite
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(275, 23);
             this.txtData.TabIndex = 31;
+            this.txtData.TextChanged += new System.EventHandler(this.txtData_TextChanged);
             // 
             // GroupBox2
             // 
@@ -455,9 +456,10 @@ namespace ACOSReadWrite
                     connActive = true;
                 }
 
-                btnFormat.Enabled = true;
+                //btnFormat.Enabled = true;
                 RBAA11.Checked = true;
                 cartepresente = true;
+                format();
             
         }
 
@@ -852,7 +854,7 @@ namespace ACOSReadWrite
 			}
 			txtData.Text = tmpStr;
 
-            displayOut(0, 0, "Data read from card is displayed");			
+            displayOut(0, 0, "Data read from card is displayed" + tmpStr);			
 		}
 
 		private void readRecord(byte RecNo, byte dataLen)
@@ -872,11 +874,11 @@ namespace ACOSReadWrite
                 return;
 		}
 
-		Char Chr(int i)
-		{
-			//Return the character of the given character value
-			return Convert.ToChar(i);
-		}
+		    Char Chr(int i)
+		    {
+			    //Return the character of the given character value
+			    return Convert.ToChar(i);
+		    }
 
 		private void btnWrite_Click(object sender, System.EventArgs e)
 		{	
@@ -939,8 +941,13 @@ namespace ACOSReadWrite
 
             displayOut(0, 0, "Data read from Text Box is written to card.");			
 		}
-	
-		public static string Mid(string tmpStr, int start)
+
+        private void txtData_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public static string Mid(string tmpStr, int start)
 		{
 			return tmpStr.Substring(start, tmpStr.Length - start);
 		}

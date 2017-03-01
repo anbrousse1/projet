@@ -5,3 +5,11 @@ C:\Users\antho\Desktop\lecteur de carte\ACOS3 Read Write\obj\Debug\ACOSReadWrite
 C:\Users\antho\Desktop\lecteur de carte\ACOS3 Read Write\obj\Debug\ACOSReadWrite.exe
 C:\Users\antho\Desktop\lecteur de carte\ACOS3 Read Write\obj\Debug\ACOSReadWrite.pdb
 C:\Users\antho\Desktop\lecteur de carte\ACOS3 Read Write\obj\Debug\ACOSReadWrite.csprojResolveAssemblyReference.cache
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\bin\Debug\ACOSReadWrite.exe.config
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.exe
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.pdb
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\bin\Debug\ACOSReadWrite.exe
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\bin\Debug\ACOSReadWrite.pdb
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.csprojResolveAssemblyReference.cache
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.Form1.resources
+C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.csproj.GenerateResource.Cache

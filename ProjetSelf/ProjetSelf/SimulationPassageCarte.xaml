@@ -10,6 +10,8 @@
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <Label Content="Numéro de carte du client : " Margin="40,0,40,0" Style="{StaticResource labelStyle}"/>
             <TextBox Name="numero" Margin="40,0,40,0" MaxHeight="40" MaxWidth="40" MinWidth="20" MinHeight="20"/>
+            <TextBox Name="resultat" Margin="10,0,10,0" MaxHeight="40" MaxWidth="40" MinWidth="20" MinHeight="20" Width="63"/>
+
             <Button Content="OK" Margin="40,0,40,0" Click="clickOK"/>
         </WrapPanel>
     </Grid>
