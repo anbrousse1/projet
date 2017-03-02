@@ -55,6 +55,7 @@
     <Compile Include="IDataManager.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="MenuPlat.cs" />
+    <Compile Include="ModifProdEventArgs.cs" />
     <Compile Include="ModWinsCard.cs" />
     <Compile Include="Plat.cs" />
     <Compile Include="PlatCEventArgs.cs" />

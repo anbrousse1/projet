@@ -102,6 +102,9 @@
     <Compile Include="ModifierTicket.xaml.cs">
       <DependentUpon>ModifierTicket.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifProdUC.xaml.cs">
+      <DependentUpon>ModifProdUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NumeroCarteEnBrut.xaml.cs">
       <DependentUpon>NumeroCarteEnBrut.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModifierTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifProdUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

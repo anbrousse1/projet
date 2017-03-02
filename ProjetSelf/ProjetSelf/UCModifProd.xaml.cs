@@ -39,5 +39,11 @@ namespace Vue
         {
             parent.setUC(new GestionProduit(parent));
         }
+
+        private void UCModifProd_Clicked(object sender, ModifProdEventArgs e)
+        {
+            AbsProduit p = parent.self.findProduitByName((sender as ModifProdUC).NomProd);
+            parent.self.supprimerProduit(p);
+        }
     }
 }

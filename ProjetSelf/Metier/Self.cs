@@ -597,7 +597,7 @@ namespace Metier
                 default: return CategorieProduit.Autres;
             }
         }
-
+        /*
         /// <summary>
         /// Permet à partir d'une liste de string d'obtenir une liste de produits
         /// </summary>
@@ -611,7 +611,7 @@ namespace Metier
                 ingredients.Add(FindProduit(s));
             }
             return ingredients;
-        }
+        }*/
 
 
         /// <summary>
@@ -619,7 +619,7 @@ namespace Metier
         /// </summary>
         /// <param name="prod"></param>
         /// <returns></returns>
-        private AbsProduit FindProduit(String prod)
+        public AbsProduit findProduitByName(String prod)
         {
             foreach (AbsProduit p in produits)
             {
@@ -748,13 +748,13 @@ namespace Metier
         //methode pour modifier la date d'effet d'un produit 
         private void setDateEffetProduit(String produit, DateTime newDateEffet)
         {
-            FindProduit(produit).ChangerDateEffet(newDateEffet);
+            findProduitByName(produit).ChangerDateEffet(newDateEffet);
         }
 
         //methode pour modifier la date de fin d'un produit
         private void setDateFinProduit(String produit, DateTime newDateFin)
         {
-            FindProduit(produit).ChangerDateFin(newDateFin);
+            findProduitByName(produit).ChangerDateFin(newDateFin);
         }
 
 
@@ -995,6 +995,11 @@ namespace Metier
                     }
                 }
             }
+        }
+
+        public void supprimerProduit(AbsProduit p)
+        {
+            produits.Remove(p);
         }
     }
 }

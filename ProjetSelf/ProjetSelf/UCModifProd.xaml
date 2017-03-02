@@ -16,12 +16,7 @@
         <ListBox Grid.Row="1" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding produitsROC}" SelectionChanged="ListBox_SelectionChanged" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
                     <DataTemplate >
-                        <WrapPanel>
-                            <Label Content="{Binding Nom}"/>
-                            <Label Content="{Binding DateEffet}"/>
-                            <Label Content="{Binding DateFin}"/>
-                            <Label Content="{Binding Observation}"/>
-                        </WrapPanel>
+                    <local:ModifProdUC NomProd="{Binding Nom}" obsProd="{Binding Observation}" effetProd="{Binding DateEffet}" finProd="{Binding DateFin}" Clicked="UCModifProd_Clicked" />
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
