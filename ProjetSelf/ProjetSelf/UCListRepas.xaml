@@ -9,10 +9,11 @@
     <Grid>
         <Grid.RowDefinitions>
 
-            <RowDefinition Height="60*" />
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="60*"/>
             <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Sélectionner le ticket à modifier :" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
         <ListView Name="repas" Grid.Row="1" MaxWidth="450"  Background="Transparent" ItemsSource="{Binding histoRepasROC}" SelectionChanged="repas_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>

@@ -234,7 +234,7 @@ namespace Metier
         /// </summary>
         public void chargeAll()
         {
-            //getAllUsager();
+            getAllUsager();
             getAllUtilisateur();
             getAllProduit();
 
@@ -253,7 +253,7 @@ namespace Metier
         {
             if (menus != null)
             {
-                foreach (Menu m in menus)
+                foreach (AbsMenu m in menus)
                 {
                     if (m.dates.Contains(d))
                     {
@@ -706,6 +706,27 @@ namespace Metier
             }
         }
 
+        public void AddPlatChoisi(AbsPlat p)
+        {
+
+            if (p != null)
+            {
+                if (platsChoisis.ContainsKey(p))
+                {
+                    AugmenterQuantitePlat(p);
+                }
+                else
+                {
+                    platsChoisis.Add(p, 1);
+                }
+
+                prixAPayer = prixAPayer + p.Tarif;
+                //client.AddPlatChoisis(p);
+                //Ajouter à la BDD
+            }
+        }
+
+
         //Permet de modifier le prix d'un plat
         private void SetPrixPlat(String plat, double nouveauTarif)
         {
@@ -963,7 +984,17 @@ namespace Metier
 
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {
-
+            platsChoisis.Clear();
+            foreach(AbsPlatChoisis pc in r.plats)
+            {
+                foreach(AbsPlat p in plats)
+                {
+                    if(p.ID== pc.CodePlat)
+                    {
+                        AddPlatChoisi(p);
+                    }
+                }
+            }
         }
     }
 }
