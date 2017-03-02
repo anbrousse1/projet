@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Metier;
 
 namespace Vue
 {
@@ -42,6 +41,7 @@ namespace Vue
 
         private void confirmer(object sender, RoutedEventArgs e)
         {
+            //Changer la date a ajouter ...
             EcrireTicketFichier.ecrireTicket(client, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
         }
     }

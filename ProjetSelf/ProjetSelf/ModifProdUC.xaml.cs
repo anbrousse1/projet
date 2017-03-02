@@ -34,7 +34,7 @@ namespace Vue
 
         // Using a DependencyProperty as the backing store for NomProd.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NomProdProperty =
-            DependencyProperty.Register("NomProd", typeof(string), typeof(ModifProdUC), new PropertyMetadata(0));
+            DependencyProperty.Register("NomProd", typeof(string), typeof(ModifProdUC), new PropertyMetadata("rien"));
 
         public DateTime effetProd
         {
