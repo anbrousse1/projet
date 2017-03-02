@@ -14,7 +14,7 @@ namespace Metier
         public String Nom { get; set; }
         public double Tarif { get; set; }
         public CategoriePlat Categorie { get; set; }
-        public List<Produit> ingredients = new List<Produit>();
+        public List<AbsProduit> ingredients = new List<AbsProduit>();
 
         public override string ToString()
         {

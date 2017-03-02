@@ -13,7 +13,7 @@ namespace Metier
         public DateTime effet= new DateTime();
         public DateTime fin= new DateTime();
         public List<DateTime> dates = new List<DateTime>();
-        public List<Plat> plats = new List<Plat>();
+        public List<AbsPlat> plats = new List<AbsPlat>();
 
         public override string ToString()
         {
