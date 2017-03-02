@@ -26,12 +26,12 @@ namespace Metier
             get;
             private set;
         }
-        public Carte carte;
+        public int numCarte { get; set; }
         public String Fonction { get; set; }
 
         public override string ToString()
         {
-            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + carte.Numero;
+            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + numCarte;
             return m;
         }
 

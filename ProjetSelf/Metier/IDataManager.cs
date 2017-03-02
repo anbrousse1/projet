@@ -9,22 +9,22 @@ namespace Metier
     public interface IDataManager
     {
 
-        List<Produit> chargeAllProduits();
+        List<AbsProduit> chargeAllProduits();
 
-        List<Plat> chargeAllPlatAvecIngred(List<Produit> lp);
+        List<AbsPlat> chargeAllPlatAvecIngred(List<AbsProduit> lp);
 
-        List<Menu> chargeAllMenuPlat(List<Plat> lpp);
+        List<AbsMenu> chargeAllMenuPlat(List<AbsPlat> lpp);
 
 
-        List<Usager> chargeAllUsager();
+        List<AbsUsager> chargeAllUsager();
 
-        List<Utilisateur> chargeAllUtilisateur();
+        List<AbsUtilisateur> chargeAllUtilisateur();
 
         void ajouterProduit(Produit p);
 
-        void ajouterPlat(Plat p, List<Produit> lp);
+        void ajouterPlat(Plat p, List<AbsProduit> lp);
 
-        void ajouterMenu(Menu p, List<Plat> lp);
+        void ajouterMenu(Menu p, List<AbsPlat> lp);
 
         void ajouterUtilisateur(Utilisateur p);
 

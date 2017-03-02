@@ -17,6 +17,5 @@ namespace Metier
             plats.Add(new PlatChoisis(DateTime.Today, p.ID));
             Prix = Prix + p.Tarif;
         }
-
     }
 }
