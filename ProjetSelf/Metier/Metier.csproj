@@ -57,6 +57,7 @@
     <Compile Include="MenuPlat.cs" />
     <Compile Include="ModWinsCard.cs" />
     <Compile Include="Plat.cs" />
+    <Compile Include="PlatCEventArgs.cs" />
     <Compile Include="PlatChoisis.cs" />
     <Compile Include="PlatProduit.cs" />
     <Compile Include="PreAlimente.cs" />

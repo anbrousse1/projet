@@ -11,59 +11,24 @@ using System.Windows.Controls;
 
 namespace Vue
 {
-    /// <summary>
-    /// Logique d'interaction pour App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
-        /// <summary>
-        /// Méthode appelé lorqu'on clique sur un "-" dans la liste des plats choisis
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClickButtonMoins(object sender, RoutedEventArgs e)
-        {
-            Button b = (Button)sender;
-            KeyValuePair<AbsPlat, int> kvp = (KeyValuePair<AbsPlat, int>)b.DataContext;
-            AbsPlat p = kvp.Key;
-            System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
-            ListViewItem l = (ListViewItem)s.TemplatedParent;
-            ListView lv = (ListView)l.Parent;
-
-            //Console.WriteLine(((Grid)b.TemplatedParent).TemplatedParent);
-            //Grid g=(Grid)b.TemplatedParent;
-            //Recapitulatif r = (Recapitulatif)g.TemplatedParent;
-
-        }
-
-        /// <summary>
-        /// Méthode appelé lorqu'on clique sur un "+" dans la liste des plats choisis
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClickButtonPlus(object sender, RoutedEventArgs e)
-        {
-            Button b = (Button)sender;
-            KeyValuePair<AbsPlat, int> kvp = (KeyValuePair<AbsPlat, int>)b.DataContext;
-            AbsPlat p = kvp.Key;
-            System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
-            ListViewItem l = (ListViewItem)s.TemplatedParent;
-            ListView lv = (ListView)l.Parent;
-        }
-
-        /// <summary>
-        /// Méthode appelé lorqu'on clique sur un "X" dans la liste des plats choisis
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ClickButtonSupprimer(object sender, RoutedEventArgs e)
-        {
-            Button b = (Button)sender;
-            KeyValuePair<AbsPlat, int> kvp = (KeyValuePair<AbsPlat, int>)b.DataContext;
-            AbsPlat p = kvp.Key;
-            System.Windows.Controls.ContentPresenter s = (System.Windows.Controls.ContentPresenter)b.TemplatedParent;
-            ListViewItem l = (ListViewItem)s.TemplatedParent;
-            ListView lv = (ListView)l.Parent;
-        }
-    }
+    /*<DataTemplate x:Key="recap"  >
+            <Grid HorizontalAlignment = "Center" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Foreground="Black" Text="{Binding Key.Nom}" VerticalAlignment="Center" FontSize="20"/>
+                <Button  Content = "+" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Width="25" Height="25" Background="Green" Click="ClickButtonPlus"/>
+                <TextBlock  Text="{Binding Value}" Background = "Transparent"  Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" FontSize="20"/>
+                <Button Content = "-" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Width="25" Height="25" Background="Red" Click="ClickButtonMoins"/>
+                <TextBlock Grid.Column="4" Foreground="Black" Text="{Binding Key.Tarif}" VerticalAlignment="Center" FontSize="20"/>
+                <Button Content="X" Foreground="Red" Width="25" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Grid.Column="5" Click="ClickButtonSupprimer"/>
+            </Grid>
+        </DataTemplate>*/
+  
+        
 }

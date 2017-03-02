@@ -13,9 +13,15 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Récapitulatif :" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource TextBlockStyle}" />
-        <ListView Grid.Row="1" MaxWidth="450" ItemsSource="{Binding platsChoisisROC}" ItemTemplate="{StaticResource recap}" Background="Transparent"/>
+        <ListView Name="liste" Grid.Row="1" MaxWidth="450" ItemsSource="{Binding platsChoisisROC}" Background="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate   >
+                    <local:UCPlatC NomPlat="{Binding Key.Nom}"  QtePlat="{Binding Value}" TarifPlat="{Binding Key.Tarif}" Clicked="UserControl1_Clicked"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+       </ListView>
 
-        <StackPanel Grid.Row="2">
+            <StackPanel Grid.Row="2">
             <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="Total: " FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Style="{StaticResource TextBlockStyle}"/>
                 <TextBlock Name="prixRepas" Text="0" FontSize="25"  Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>

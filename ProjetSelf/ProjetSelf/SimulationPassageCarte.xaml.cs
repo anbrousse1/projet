@@ -62,9 +62,9 @@ namespace Vue
         {
             byte[] returnData = null;   // Will hold the reader names after the call to SCardListReaders
             int readerCount = 0;        // Total length of the reader names
-            string readerNames = "";    // Will hold the reader names after converting from byte array to a single string.
-            string[] readerList = null; // String array of the Reader Names
-            int idx = 0;
+            //string readerNames = "";    // Will hold the reader names after converting from byte array to a single string.
+            //string[] readerList = null; // String array of the Reader Names
+           // int idx = 0;
 
             // Established using ScardEstablishedContext()
             retcode = ModWinsCard.SCardEstablishContext(ModWinsCard.SCARD_SCOPE_USER, 0, 0, ref hContext);

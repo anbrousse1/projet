@@ -39,7 +39,7 @@ namespace Vue
                 boisson.IsEnabled = false;
                 paiement.IsEnabled = false;
                 paiement.IsEnabled = false;
-                IdUsager.Children.Add(new NumeroCarteEnBrut(parent));
+                IdUsager.Children.Add(new SimulationPassageCarte(parent));
             }
            
             recap.Children.Add(new Recapitulatif(parent, true));
@@ -88,6 +88,7 @@ namespace Vue
             parent.setUC(new Paiement(parent));
 
         }
+        
 
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {

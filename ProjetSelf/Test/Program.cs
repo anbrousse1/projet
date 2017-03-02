@@ -16,20 +16,22 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            Usager bastien = new Usager
-            {
-                Nom = "Gandboeuf",
-                Prenom = "Bastien",
-                CodeFonction = 1,
-                DateEntree = DateTime.Today,
-                Service = "Restaurant",
-                Titre = "Monsieur",
-                algoDePaiement = new PreAlimente(),
-                Solde = 25,
-                carte = new Carte(12),
-                Fonction = "Caissier"
-            };
-           // EcrireTicketFichier.ecrireTicket(bastien);
+            /* Usager bastien = new Usager
+             {
+                 Nom = "Gandboeuf",
+                 Prenom = "Bastien",
+                 CodeFonction = 1,
+                 DateEntree = DateTime.Today,
+                 Service = "Restaurant",
+                 Titre = "Monsieur",
+                 algoDePaiement = new PreAlimente(),
+                 Solde = 25,
+                 carte = new Carte(12),
+                 Fonction = "Caissier"
+             };*/
+            // EcrireTicketFichier.ecrireTicket(bastien);
+
+            Console.Write(DateTime.Now.Year);
             Read();
             
            /* EntityDataManager bdd = new EntityDataManager();

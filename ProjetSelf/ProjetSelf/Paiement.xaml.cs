@@ -38,7 +38,7 @@ namespace Vue
         public void clickTicket(object sender, RoutedEventArgs e)
         {
             //Enregistrer le ticket. 
-            EcrireTicketFichier.ecrireTicket(parent.self.client,parent.self.platsChoisisROC,parent.self.prixAPayer);
+            EcrireTicketFichier.ecrireTicket(parent.self.client,parent.self.platsChoisisROC,parent.self.prixAPayer,DateTime.Now);
             parent.self.finPassage();
             parent.setUC(new Caisse(parent));
         }

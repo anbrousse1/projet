@@ -32,33 +32,28 @@ namespace Vue
             prixRepas.Text = parent.self.prixAPayer.ToString()+"€";
             if (parent.self.client != null)
             {
-                if (parent.self.client.codePaiement == 0)
-                {
-                    solde.Text = "Retenue Salaire";
-                    if (caisse)
-                    {
-                        soldeClient.Text = (parent.self.client.Solde + parent.self.prixAPayer) + "€";
-                    }else
-                    {
-                        soldeClient.Text = (parent.self.prixAPayer) + "€";
-                    }
-
-                }
-                else
-                {
-                    if (caisse)
-                    {
-                        soldeClient.Text = (parent.self.client.Solde - parent.self.prixAPayer) + "€";
-                    }
-                    else
-                    {
-                        soldeClient.Text = (parent.self.prixAPayer) + "€";
-                    }
-                    
-                }
-
+                setTextSoldeTot();
             }
             
+        }
+
+        private void UserControl1_Clicked(object sender, PlatCEventArgs e)
+        {
+            AbsPlat p = parent.self.FindPlat((sender as UCPlatC).NomPlat);
+            if(e.Num == 0)
+            {
+                Incrementer(p);
+            }else if(e.Num == 1)
+            {
+                Decrementer(p);
+            }else if(e.Num == 2)
+            {
+                Supprimer(p);
+            }
+            liste.Items.Refresh();
+            setTextSoldeTot();
+            prixRepas.Text = parent.self.prixAPayer.ToString();
+            // il faut mettre a jour le solde en appelant la methode soldeClient.Text = parent.self.client.Solde.ToString();
         }
 
         /// <summary>
@@ -77,6 +72,7 @@ namespace Vue
         public void Incrementer(AbsPlat p)
         {
             parent.self.AugmenterQuantitePlat(p);
+            //refresh le recap
         }
 
         /// <summary>
@@ -85,7 +81,45 @@ namespace Vue
         /// <param name="p"></param>
         public void Decrementer(AbsPlat p)
         {
-            parent.self.DiminuerQuantitePlat(p);
+            if(parent.self.platsChoisisROC[p] == 1)
+            {
+                Supprimer(p);
+            }
+            else
+            {
+                parent.self.DiminuerQuantitePlat(p);
+
+            }
         }
+
+        public void setTextSoldeTot()
+        { 
+            if (parent.self.client.codePaiement == 0)
+            {
+                solde.Text = "Retenue Salaire";
+                if (caisse)
+                {
+                    soldeClient.Text = (parent.self.client.Solde + parent.self.prixAPayer) + "€";
+                }
+                else
+                {
+                    soldeClient.Text = (parent.self.prixAPayer) + "€";
+                }
+
+            }
+            else
+            {
+                if (caisse)
+                {
+                    soldeClient.Text = (parent.self.client.Solde - parent.self.prixAPayer) + "€";
+                }
+                else
+                {
+                    soldeClient.Text = (parent.self.prixAPayer) + "€";
+                }
+            }
+        }
+
+      
     }
 }

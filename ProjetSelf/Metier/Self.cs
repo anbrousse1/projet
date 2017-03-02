@@ -642,7 +642,7 @@ namespace Metier
         /// </summary>
         /// <param name="plat"></param>
         /// <returns></returns>
-        private AbsPlat FindPlat(String plat)
+        public AbsPlat FindPlat(String plat)
         {
             foreach (AbsPlat p in plats)
             {
