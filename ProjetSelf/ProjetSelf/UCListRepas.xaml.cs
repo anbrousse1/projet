@@ -40,7 +40,7 @@ namespace Vue
         private void repas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AbsRepas r = (AbsRepas)((ListView)sender).SelectedItem;
-            parent.setUC(new ModifierTicket( parent, r));
+            parent.setUC(new ModifierTicket( parent, r,parent.self.client));
         }
     }
 }

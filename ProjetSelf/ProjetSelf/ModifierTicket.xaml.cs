@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Metier;
 
 namespace Vue
 {
@@ -23,11 +24,12 @@ namespace Vue
     {
         MainWindow parent;
         AbsRepas repas;
-
-        public ModifierTicket(MainWindow m, AbsRepas r)
+        AbsUsager client;
+        public ModifierTicket(MainWindow m, AbsRepas r,AbsUsager c)
         {
             parent = m;
             repas = r;
+            client = c;
             //Charger liste plats dans Plats choisis ROC
             InitializeComponent();
             mgrid.Children.Add(new Recapitulatif(parent, false));
@@ -36,6 +38,11 @@ namespace Vue
         private void annuler(object sender, RoutedEventArgs e)
         {
             parent.setUC(new UCListRepas(parent));
+        }
+
+        private void confirmer(object sender, RoutedEventArgs e)
+        {
+            EcrireTicketFichier.ecrireTicket(client, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
         }
     }
 }
