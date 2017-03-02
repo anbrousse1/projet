@@ -20,12 +20,24 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Label Grid.ColumnSpan="4" Grid.Row="0" Content="Sélectionner une Boisson" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></Label>
-        <Button Style="{StaticResource boutonUC}" Name="button1" Grid.Column="0" Grid.Row="1" Click="ClickButton1" Background="MediumOrchid"/>
-        <Button Style="{StaticResource boutonUC}" Name="button2" Grid.Column="1" Grid.Row="1" Click="ClickButton2" Background="MediumOrchid"/>
-        <Button Style="{StaticResource boutonUC}" Name="button3" Grid.Column="0" Grid.Row="2" Click="ClickButton3" Background="MediumOrchid"/>
-        <Button Style="{StaticResource boutonUC}" Name="button4" Grid.Column="1" Grid.Row="2"  Click="ClickButton4" Background="MediumOrchid"/>
-        <Button Style="{StaticResource boutonUC}" Name="button5" Grid.Column="0" Grid.Row="3"  Click="ClickButton5" Background="MediumOrchid"/>
-        <Button Style="{StaticResource boutonUC}" Name="button6" Grid.Column="1" Grid.Row="3"  Click="ClickButton6" Background="MediumOrchid"/>
+        <Button Style="{StaticResource boutonUC}" Name="button1" Grid.Column="0" Grid.Row="1" Click="ClickButton1" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
+        <Button Style="{StaticResource boutonUC}" Name="button2" Grid.Column="1" Grid.Row="1" Click="ClickButton2" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
+        <Button Style="{StaticResource boutonUC}" Name="button3" Grid.Column="0" Grid.Row="2" Click="ClickButton3" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
+        <Button Style="{StaticResource boutonUC}" Name="button4" Grid.Column="1" Grid.Row="2"  Click="ClickButton4" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
+        <Button Style="{StaticResource boutonUC}" Name="button5" Grid.Column="0" Grid.Row="3"  Click="ClickButton5" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
+        <Button Style="{StaticResource boutonUC}" Name="button6" Grid.Column="1" Grid.Row="3"  Click="ClickButton6" Background="MediumOrchid">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" />
+        </Button>
         <StackPanel Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" >
             <Button Style="{StaticResource boutonValiderUC}" Content="Valider" Click="ClickValider" MaxWidth="250" ></Button>
             <Button Style="{StaticResource boutonAnnulerUC}" Content="Annuler" Click="ClickAnnuler"  MaxWidth="250" ></Button>
