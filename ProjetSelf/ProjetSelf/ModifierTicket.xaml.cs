@@ -23,11 +23,14 @@ namespace Vue
     {
         MainWindow parent;
         AbsRepas repas;
+
         public ModifierTicket(MainWindow m, AbsRepas r)
         {
             parent = m;
             repas = r;
+            //Charger liste plats dans Plats choisis ROC
             InitializeComponent();
+            mgrid.Children.Add(new Recapitulatif(parent, false));
         }
     }
 }

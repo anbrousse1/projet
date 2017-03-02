@@ -42,42 +42,42 @@ namespace Vue
         /// <param name="i"></param>
         private void DisableButtons(int i)
         {
-            switch (i)
+            switch(i)
             {
                 case 0:
-                    MessageBox.Show("Aucun plats de résistance dans le menu!!!");
-                    button1.IsEnabled=false;
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
-                    break;
+                MessageBox.Show("Aucun Plat dans le menu!!!");
+                button1.Visibility = Visibility.Hidden;
+                button2.Visibility = Visibility.Hidden;
+                button3.Visibility = Visibility.Hidden;
+                button4.Visibility = Visibility.Hidden;
+                button5.Visibility = Visibility.Hidden;
+                button6.Visibility = Visibility.Hidden;
+                break;
                 case 1:
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
-                    break;
+                    button2.Visibility = Visibility.Hidden;
+                button3.Visibility = Visibility.Hidden;
+                button4.Visibility = Visibility.Hidden;
+                button5.Visibility = Visibility.Hidden;
+                button6.Visibility = Visibility.Hidden;
+                break;
                 case 2:
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
-                    break;
+                    button3.Visibility = Visibility.Hidden;
+                button4.Visibility = Visibility.Hidden;
+                button5.Visibility = Visibility.Hidden;
+                button6.Visibility = Visibility.Hidden;
+                break;
                 case 3:
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
-                    break;
+                    button4.Visibility = Visibility.Hidden;
+                button5.Visibility = Visibility.Hidden;
+                button6.Visibility = Visibility.Hidden;
+                break;
                 case 4:
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
-                    break;
+                    button5.Visibility = Visibility.Hidden;
+                button6.Visibility = Visibility.Hidden;
+                break;
                 case 5:
-                    button6.IsEnabled = false;
-                    break;
+                    button6.Visibility = Visibility.Hidden;
+                break;
                 default: return;
 
             }
@@ -141,10 +141,10 @@ namespace Vue
                     b3.Text = p.Nom;
                     break;
                 case 3:
-                    b3.Text = p.Nom;
+                    b4.Text = p.Nom;
                     break;
                 case 4:
-                    b4.Text = p.Nom;
+                    b5.Text = p.Nom;
                     break;
                 case 5:
                     b6.Text = p.Nom;

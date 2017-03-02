@@ -41,38 +41,38 @@ namespace Vue
             switch (i)
             {
                 case 0:
-                    MessageBox.Show("Aucun dessert dans le menu!!!");
-                    button1.IsEnabled = false;
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    MessageBox.Show("Aucune dessert dans le menu!!!");
+                    button1.Visibility = Visibility.Hidden;
+                    button2.Visibility = Visibility.Hidden;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 1:
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button2.Visibility = Visibility.Hidden;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 2:
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 3:
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 4:
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 5:
-                    button6.IsEnabled = false;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 default: return;
 

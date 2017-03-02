@@ -966,6 +966,11 @@ namespace Metier
         {
             client.lierList();
         }
+
+        public void chargeRepaInPlatsChoisi(AbsRepas r)
+        {
+
+        }
     }
 }
 
