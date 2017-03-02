@@ -32,5 +32,10 @@ namespace Vue
             InitializeComponent();
             mgrid.Children.Add(new Recapitulatif(parent, false));
         }
+
+        private void annuler(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new UCListRepas(parent));
+        }
     }
 }

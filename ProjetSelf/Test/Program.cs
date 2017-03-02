@@ -16,7 +16,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
             /* Usager bastien = new Usager
              {
                  Nom = "Gandboeuf",
@@ -34,8 +34,7 @@ namespace Test
 
             Console.Write(DateTime.Now.Year);
             Read();
-=======
->>>>>>> 4e25d4915c28b29fa72934d8cef3b057b2f0b8c2
+
             
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);

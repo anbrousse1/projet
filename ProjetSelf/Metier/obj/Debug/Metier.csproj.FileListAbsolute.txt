@@ -1,5 +1,0 @@
-C:\Users\antho\Desktop\projet\ProjetSelf\Metier\bin\Debug\Metier.dll
-C:\Users\antho\Desktop\projet\ProjetSelf\Metier\bin\Debug\Metier.pdb
-C:\Users\antho\Desktop\projet\ProjetSelf\Metier\obj\Debug\Metier.csprojResolveAssemblyReference.cache
-C:\Users\antho\Desktop\projet\ProjetSelf\Metier\obj\Debug\Metier.dll
-C:\Users\antho\Desktop\projet\ProjetSelf\Metier\obj\Debug\Metier.pdb
