@@ -22,18 +22,18 @@ namespace Vue
     public partial class AjouterPlat : UserControl
     {
         private MainWindow parent;
-        public System.Collections.ObjectModel.ReadOnlyCollection<Produit> ingredientsROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit> ingredientsROC
         {
             get;
             private set;
         }
-        private List<Produit> ingredients = new List<Produit>();
+        private List<AbsProduit> ingredients = new List<AbsProduit>();
         DateTime effet;
         DateTime fin;
 
         public AjouterPlat(MainWindow m)
         {
-            ingredientsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(ingredients);
+            ingredientsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(ingredients);
             parent = m;
             DataContext = parent.self;
             InitializeComponent();

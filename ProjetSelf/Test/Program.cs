@@ -16,6 +16,7 @@ namespace Test
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             /* Usager bastien = new Usager
              {
                  Nom = "Gandboeuf",
@@ -33,11 +34,13 @@ namespace Test
 
             Console.Write(DateTime.Now.Year);
             Read();
+=======
+>>>>>>> 4e25d4915c28b29fa72934d8cef3b057b2f0b8c2
             
-           /* EntityDataManager bdd = new EntityDataManager();
+            EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
 
-            self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
+            /*self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
 
             foreach (var u in self.produitsROC)
             {
@@ -57,16 +60,16 @@ namespace Test
             {
                 WriteLine(u.ToString());
             }
-
+            
             Read();
-
-            /*foreach(var u in self.menusROC)
+            */
+            foreach(var u in self.menusROC)
             {
                  WriteLine(u.ToString());
             }
 
             Read();
-
+            /*
             BackupFile.Sauvegarde();
             // Inform the user that the backup has been completed.   
             System.Console.WriteLine("Full Backup complete.");

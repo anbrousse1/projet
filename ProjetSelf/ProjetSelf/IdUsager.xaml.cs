@@ -34,7 +34,13 @@ namespace Vue
 
         private void modif_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new UCListRepas(parent));
+            if (parent.self.platsChoisisROC.Count != 0)
+            {
+                MessageBox.Show("Vous ne pouvez pas modifier de ticket, veuillez terminer la commande en cours");
+            }else
+            {
+                parent.setUC(new UCListRepas(parent));
+            }
         }
     }
 }

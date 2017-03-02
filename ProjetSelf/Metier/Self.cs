@@ -11,7 +11,7 @@ namespace Metier
         /// <summary>
         /// ReadOnlyCollection des menus de l'application qui encapsule la liste menus
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<Menu> menusROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu> menusROC
         {
             get;
             private set;
@@ -19,12 +19,12 @@ namespace Metier
         /// <summary>
         /// Liste des menus
         /// </summary>                       
-        private List<Menu> menus = new List<Menu>();
+        private List<AbsMenu> menus = new List<AbsMenu>();
 
         /// <summary>
         /// ReadOnlyCollection des plats de l'application qui encapsule la liste plats
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<Plat> platROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat> platROC
         {
             get;
             private set;
@@ -32,12 +32,12 @@ namespace Metier
         /// <summary>
         /// Liste des plats
         /// </summary>
-        private List<Plat> plats = new List<Plat>();
+        private List<AbsPlat> plats = new List<AbsPlat>();
 
         /// <summary>
         /// ReadOnlyCollection des produits de l'application qui encapsule la liste produits
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<Produit> produitsROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit> produitsROC
         {
             get;
             private set;
@@ -45,12 +45,12 @@ namespace Metier
         /// <summary>
         /// Liste des plats
         /// </summary>
-        private List<Produit> produits = new List<Produit>();
+        private List<AbsProduit> produits = new List<AbsProduit>();
 
         /// <summary>
         /// ReadOnlyCollection des usagers de l'application qui encapsule la liste usagers
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<Usager> usagerROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsUsager> usagerROC
         {
             get;
             private set;
@@ -58,13 +58,13 @@ namespace Metier
         /// <summary>
         /// Liste des usagers
         /// </summary>
-        private List<Usager> usager = new List<Usager>();
+        private List<AbsUsager> usager = new List<AbsUsager>();
 
 
         /// <summary>
         /// ReadOnlyCollection des utilisateur de l'application qui encapsule la liste utilisateur
         /// </summary>
-        public System.Collections.ObjectModel.ReadOnlyCollection<Utilisateur> utilisateurROC
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsUtilisateur> utilisateurROC
         {
             get;
             private set;
@@ -72,7 +72,7 @@ namespace Metier
         /// <summary>
         /// Liste des utilisateurs
         /// </summary>
-        private List<Utilisateur> utilisateur = new List<Utilisateur>();
+        private List<AbsUtilisateur> utilisateur = new List<AbsUtilisateur>();
 
 
 
@@ -194,11 +194,11 @@ namespace Metier
         public Self(IDataManager stub)
         {
             data = stub;
-            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<Menu>(menus);
-            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<Plat>(plats);
-            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<Produit>(produits);
-            usagerROC = new System.Collections.ObjectModel.ReadOnlyCollection<Usager>(usager);
-            utilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<Utilisateur>(utilisateur);
+            menusROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsMenu>(menus);
+            platROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(plats);
+            produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(produits);
+            usagerROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsUsager>(usager);
+            utilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsUtilisateur>(utilisateur);
             entreeROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(entrees);
             platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
             dessertROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(desserts);
@@ -253,7 +253,7 @@ namespace Metier
         {
             if (menus != null)
             {
-                foreach (Menu m in menus)
+                foreach (AbsMenu m in menus)
                 {
                     if (m.dates.Contains(d))
                     {
@@ -265,16 +265,11 @@ namespace Metier
             return null;
         }
 
-
-    
-
         public void getAllMenusPlats()
         {
             menus.Clear();
             menus.AddRange(data.chargeAllMenuPlat(plats));
         }
-
-
       
         public void getAllPlatsIngre()
         {
@@ -287,7 +282,6 @@ namespace Metier
         /// </summary>
         public void getAllProduit()
         {
-            //recuperer dans BDD
             produits.Clear();
             produits.AddRange(data.chargeAllProduits());
         }
@@ -364,7 +358,7 @@ namespace Metier
         {
             foreach(AbsUsager u in usager)
             {
-                if (u.carte.Numero.ToString().Equals(numeroCarte))
+                if (u.numCarte.ToString().Equals(numeroCarte))
                 {
                    client= u;
                     return true;
@@ -667,7 +661,7 @@ namespace Metier
 
 
 
-        public void addplat(DateTime effet, DateTime fin,String nom, Double tarif, List<Produit> ingredients, String cate)
+        public void addplat(DateTime effet, DateTime fin,String nom, Double tarif, List<AbsProduit> ingredients, String cate)
         {
 
             Plat p = new Plat { Nom = nom, DateEffet = effet, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate), };
@@ -685,7 +679,7 @@ namespace Metier
         }
 
         //Permet d'ajouter un menu
-        public void addMenu(String nom ,List<Plat> lplats)
+        public void addMenu(String nom ,List<AbsPlat> lplats)
         {
             Menu m = new Menu { Nom = nom };
             data.ajouterMenu(m, lplats);
@@ -711,6 +705,27 @@ namespace Metier
                 //Ajouter à la BDD
             }
         }
+
+        public void AddPlatChoisi(AbsPlat p)
+        {
+
+            if (p != null)
+            {
+                if (platsChoisis.ContainsKey(p))
+                {
+                    AugmenterQuantitePlat(p);
+                }
+                else
+                {
+                    platsChoisis.Add(p, 1);
+                }
+
+                prixAPayer = prixAPayer + p.Tarif;
+                //client.AddPlatChoisis(p);
+                //Ajouter à la BDD
+            }
+        }
+
 
         //Permet de modifier le prix d'un plat
         private void SetPrixPlat(String plat, double nouveauTarif)
@@ -920,8 +935,8 @@ namespace Metier
             foreach (AbsMenu m in menus)
             {
 
-                DateTime min =m.plats.First<Plat>().DateEffet;
-                DateTime max = m.plats.First<Plat>().DateFin;
+                DateTime min = m.plats.First<AbsPlat>().DateEffet;
+                DateTime max = m.plats.First<AbsPlat>().DateFin;
                 foreach(AbsPlat p in m.plats)
                 {
                     if (min.CompareTo(p.DateEffet) > 0)
@@ -940,7 +955,7 @@ namespace Metier
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
         {
-            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, carte = new Carte(usager.Count + 1) });
+            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, numCarte = usager.Count + 1 });
         }
 
         public void addUtilisateur(string mdp, string login, int id )
@@ -965,6 +980,21 @@ namespace Metier
         public void chargeListRepas()
         {
             client.lierList();
+        }
+
+        public void chargeRepaInPlatsChoisi(AbsRepas r)
+        {
+            platsChoisis.Clear();
+            foreach(AbsPlatChoisis pc in r.plats)
+            {
+                foreach(AbsPlat p in plats)
+                {
+                    if(p.ID== pc.CodePlat)
+                    {
+                        AddPlatChoisi(p);
+                    }
+                }
+            }
         }
     }
 }
