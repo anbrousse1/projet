@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Vue.UCListRepas"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vue"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="20*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Sélectionner le ticket à modifier :" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <ListView Name="repas" Grid.Row="1" MaxWidth="450"  Background="Transparent" ItemsSource="{Binding histoRepasROC}" SelectionChanged="repas_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Date.Date}" Style="{StaticResource TextBlockStyle}" />
+                        
+                        <TextBlock Text="{Binding Prix}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="€" Style="{StaticResource TextBlockStyle}" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" x:Name="retour" Content="Retour"  Click="clickRetour"/>
+    </Grid>
+</UserControl>

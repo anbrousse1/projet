@@ -16,37 +16,57 @@ namespace Metier
         public String Prenom { get; set; }
         public int CodeFonction { get; set; }
         public String Service { get; set; }
+        public int codePaiement;
         public AbsPaiement algoDePaiement;
         public double Solde { get; set; }
-        public List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
-        public Carte carte;
+        
+        private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
+        { 
+            get;
+            private set;
+        }
+        public int numCarte { get; set; }
         public String Fonction { get; set; }
 
         public override string ToString()
         {
-            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + carte.Numero;
+            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + numCarte;
             return m;
         }
 
         internal void payer(double prix)
         {
+            if (codePaiement == 0)
+            {
+                algoDePaiement = new RetenueSalaire();
+            }else { algoDePaiement = new PreAlimente(); }
+
             algoDePaiement.algoPaiment(this, prix);
             //Effectuer changement solde dans BDD
         }
 
-
-        //Permet D'ajouter un plat choisi
+        /// <summary>
+        /// Permet D'ajouter un plat choisi
+        /// </summary>
         internal void AddPlatChoisis(AbsPlat p)
         {
             foreach (AbsRepas r in historiquePlatChoisi)
             {
-                if (r.date.Equals(DateTime.Now))
+                if (r.Date.Equals(DateTime.Today))
                 {
                     r.AddPlat(p);
                     return;
                 }
             }
-            new Repas().AddPlat(p);
+            AbsRepas re = new Repas();
+            re.AddPlat(p);
+            historiquePlatChoisi.Add(re);
+        }
+
+        internal void lierList()
+        {
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
         }
     }
 }

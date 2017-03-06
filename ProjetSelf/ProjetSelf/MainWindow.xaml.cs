@@ -23,7 +23,8 @@ namespace Vue
             {
                 self = new Self(new StubDataManager());
 
-            }catch(Exception e)
+            }
+            catch
             {
                 MessageBox.Show("Pas de menu programmé pour aujourd'hui");
             }

@@ -9,12 +9,12 @@ namespace Persistance
 {
     public class StubDataManager : IDataManager
     {
-        public void ajouterMenu(Menu p, List<Plat> lp)
+        public void ajouterMenu(Menu p, List<AbsPlat> lp)
         {
             return;
         }
 
-        public void ajouterPlat(Plat p, List<Produit> lp)
+        public void ajouterPlat(Plat p, List<AbsProduit> lp)
         {
             return;
         }
@@ -39,9 +39,9 @@ namespace Persistance
             return null;
         }
 
-        public List<Menu> chargeAllMenuPlat(List<Plat> lpp)
+        public List<AbsMenu> chargeAllMenuPlat(List<AbsPlat> lpp)
         {
-            List<Menu> menus = new List<Menu>();
+            List<AbsMenu> menus = new List<AbsMenu>();
 
             Menu m = new Menu { Nom = "menu 1" };
             m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, ingredients = null, Categorie = CategoriePlat.Plat });
@@ -71,9 +71,9 @@ namespace Persistance
 
 
 
-        public List<Plat> chargeAllPlatAvecIngred(List<Produit> lp)
+        public List<AbsPlat> chargeAllPlatAvecIngred(List<AbsProduit> lp)
         {
-            List<Plat> p = new List<Plat>();
+            List<AbsPlat> p = new List<AbsPlat>();
             p.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, ingredients = null, Categorie = CategoriePlat.Plat });
             p.Add(new Plat { ID = 002, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "steack", Tarif = 8.5, ingredients = null, Categorie = CategoriePlat.Plat });
             p.Add(new Plat { ID = 003, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "poulet", Tarif = 1.5, ingredients = null, Categorie = CategoriePlat.Plat });
@@ -106,14 +106,14 @@ namespace Persistance
             return p;
         }
 
-        public List<Plat> chargeAllPlats()
+        public List<AbsPlat> chargeAllPlats()
         {
             return null;
         }
 
-        public List<Produit> chargeAllProduits()
+        public List<AbsProduit> chargeAllProduits()
         {
-            List<Produit> p = new List<Produit>();
+            List<AbsProduit> p = new List<AbsProduit>();
             p.Add(new Produit { Nom = "Carotte", Categorie = CategorieProduit.Legume, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), ID = 001, Observation = "carotte bio" });
             p.Add(new Produit { Nom = "Poireaux", Categorie = CategorieProduit.Legume, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), ID = 002, Observation = "carotte bio" });
             p.Add(new Produit { Nom = "Pommes de terre", Categorie = CategorieProduit.Legume, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), ID = 003, Observation = "carotte bio" });
@@ -124,18 +124,18 @@ namespace Persistance
             return p;
         }
 
-        public List<Usager> chargeAllUsager()
+        public List<AbsUsager> chargeAllUsager()
         {
-            List < Usager >u = new List<Usager>();
-            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, Fonction="Caissier" , carte=new Carte(1)});
-            u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", Solde = 40, Fonction = "Caissier", carte = new Carte(2) });
-            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", carte = new Carte(3) });
+            List <AbsUsager>u = new List<AbsUsager>();
+            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, codePaiement=1, Fonction="Caissier" , numCarte=1});
+            u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", codePaiement=0, Solde = 0, Fonction = "Caissier", numCarte = 2 });
+            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", numCarte = 3, codePaiement=1 });
             return u;
         }
 
-        public List<Utilisateur> chargeAllUtilisateur()
+        public List<AbsUtilisateur> chargeAllUtilisateur()
         {
-            List<Utilisateur> u = new List<Utilisateur>();
+            List<AbsUtilisateur> u = new List<AbsUtilisateur>();
             u.Add(new Utilisateur { ID = 001, Login = "caisse", Password = "admin" });
             u.Add(new Utilisateur { ID = 002, Login = "gerant", Password = "admin" });
             u.Add(new Utilisateur { ID = 001, Login = "cuisine", Password = "admin" });

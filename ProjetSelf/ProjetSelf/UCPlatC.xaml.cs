@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Metier;
 
 namespace Vue
 {
@@ -26,39 +27,47 @@ namespace Vue
         }
 
 
-        public String Nom
+
+        public string NomPlat
         {
-            get { return (String)GetValue(NomProperty); }
-            set { SetValue(NomProperty, value); }
+            get { return (string)GetValue(NomPlatProperty); }
+            set { SetValue(NomPlatProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Nom.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty NomProperty =
-            DependencyProperty.Register("Nom", typeof(String), typeof(UCPlatC), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for NomPlat.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NomPlatProperty =
+            DependencyProperty.Register("NomPlat", typeof(string), typeof(UCPlatC), new PropertyMetadata("pas de plats"));
 
 
-        public String Tarif
+
+        public double TarifPlat
         {
-            get { return (String)GetValue(TarifProperty); }
-            set { SetValue(TarifProperty, value); }
+            get { return (double)GetValue(TarifPlatProperty); }
+            set { SetValue(TarifPlatProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Tarif.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TarifProperty =
-            DependencyProperty.Register("Tarif", typeof(String), typeof(UCPlatC), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for TarifPlat.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty TarifPlatProperty =
+            DependencyProperty.Register("TarifPlat", typeof(double), typeof(UCPlatC), new PropertyMetadata(0.0));
+            
 
 
-        public int Nb
+        public int QtePlat
         {
-            get { return (int)GetValue(NbProperty); }
-            set { SetValue(NbProperty, value); }
+            get { return (int)GetValue(QtePlatProperty); }
+            set { SetValue(QtePlatProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for Nb.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty NbProperty =
-            DependencyProperty.Register("Nb", typeof(int), typeof(UCPlatC), new PropertyMetadata(0));
+        // Using a DependencyProperty as the backing store for QtePlat.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty QtePlatProperty =
+            DependencyProperty.Register("QtePlat", typeof(int), typeof(UCPlatC), new PropertyMetadata(1));
 
+        public event EventHandler<PlatCEventArgs> Clicked;
 
+        void OnClicked(PlatCEventArgs args)
+        {
+            Clicked?.Invoke(this, args);
+        }
 
         /// <summary>
         /// Méthode appelé lorqu'on clique sur un "-" dans la liste des plats choisis
@@ -67,8 +76,7 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButtonMoins(object sender, RoutedEventArgs e)
         {
-
-
+            OnClicked(new PlatCEventArgs(1));
         }
 
         /// <summary>
@@ -78,7 +86,7 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButtonPlus(object sender, RoutedEventArgs e)
         {
-
+            OnClicked(new PlatCEventArgs(0));
         }
 
         /// <summary>
@@ -88,7 +96,7 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButtonSupprimer(object sender, RoutedEventArgs e)
         {
-
+            OnClicked(new PlatCEventArgs(2));
         }
 
     }

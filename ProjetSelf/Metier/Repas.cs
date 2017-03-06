@@ -8,11 +8,6 @@ namespace Metier
 {
     class Repas : AbsRepas
     {
-        internal Repas()
-        {
-            date = DateTime.Now;
-            prix = 0;
-            plats = new List<AbsPlatChoisis>();
-        }
+     
     }
 }

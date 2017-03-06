@@ -8,9 +8,8 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Numéro de carte du client : " Margin="40,0,40,0" Style="{StaticResource labelStyle}"/>
-            <TextBox Name="numero" Margin="40,0,40,0" MaxHeight="40" MaxWidth="40" MinWidth="20" MinHeight="20"/>
-            <Button Content="OK" Margin="40,0,40,0" Click="clickOK"/>
+
+            <Button Content="LIRE UNE CARTE" FontSize="20" FontWeight="Bold" Margin="40,0,40,0" Click="clickOK" Width="168" Height="46"/>
         </WrapPanel>
     </Grid>
 </UserControl>

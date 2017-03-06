@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,18 +26,21 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            mgrid.Children.Add(new Recapitulatif(parent));
-
+            mgrid.Children.Add(new Recapitulatif(parent,false));
         }
 
         public void ClickContinuer(object sender, RoutedEventArgs e)
         {
+            parent.self.finPassage();
             parent.setUC(new Caisse(parent));
         }
 
         public void clickTicket(object sender, RoutedEventArgs e)
         {
             //Enregistrer le ticket. 
+            EcrireTicketFichier.ecrireTicket(parent.self.client,parent.self.platsChoisisROC,parent.self.prixAPayer,DateTime.Now);
+            parent.self.finPassage();
+            parent.setUC(new Caisse(parent));
         }
     }
 }

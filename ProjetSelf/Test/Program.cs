@@ -16,11 +16,30 @@ namespace Test
     {
         static void Main(string[] args)
         {
+
+            /* Usager bastien = new Usager
+             {
+                 Nom = "Gandboeuf",
+                 Prenom = "Bastien",
+                 CodeFonction = 1,
+                 DateEntree = DateTime.Today,
+                 Service = "Restaurant",
+                 Titre = "Monsieur",
+                 algoDePaiement = new PreAlimente(),
+                 Solde = 25,
+                 carte = new Carte(12),
+                 Fonction = "Caissier"
+             };*/
+            // EcrireTicketFichier.ecrireTicket(bastien);
+
+            Console.Write(DateTime.Now.Year);
+            Read();
+
             
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
 
-            self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
+            /*self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
 
             foreach (var u in self.produitsROC)
             {
@@ -40,16 +59,16 @@ namespace Test
             {
                 WriteLine(u.ToString());
             }
-
+            
             Read();
-
-            /*foreach(var u in self.menusROC)
+            */
+            foreach(var u in self.menusROC)
             {
                  WriteLine(u.ToString());
             }
 
             Read();
-
+            /*
             BackupFile.Sauvegarde();
             // Inform the user that the backup has been completed.   
             System.Console.WriteLine("Full Backup complete.");

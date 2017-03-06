@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,23 +21,28 @@ namespace Vue
     /// </summary>
     public partial class ModifierTicket : UserControl
     {
-        private MainWindow parent;
-        public ModifierTicket(MainWindow m)
+        MainWindow parent;
+        AbsRepas repas;
+        AbsUsager client;
+        public ModifierTicket(MainWindow m, AbsRepas r,AbsUsager c)
         {
             parent = m;
+            repas = r;
+            client = c;
+            //Charger liste plats dans Plats choisis ROC
             InitializeComponent();
-            mgrid.Children.Add(new Recapitulatif(parent));
-
+            mgrid.Children.Add(new Recapitulatif(parent, false));
         }
 
-        public void clickModifier(object sender, RoutedEventArgs e)
+        private void annuler(object sender, RoutedEventArgs e)
         {
-            
+            parent.setUC(new UCListRepas(parent));
         }
 
-        public void clickAnnuler(object sender, RoutedEventArgs e)
+        private void confirmer(object sender, RoutedEventArgs e)
         {
-            
+            //Changer la date a ajouter ...
+            EcrireTicketFichier.ecrireTicket(client, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
         }
     }
 }

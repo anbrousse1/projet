@@ -35,7 +35,7 @@ namespace Vue
 
         private void clickAjouter(object sender, RoutedEventArgs e)
         {
-
+            parent.setUC(new AjouterUtilisateur(parent));
         }
 
         private void clickModifier(object sender, RoutedEventArgs e)

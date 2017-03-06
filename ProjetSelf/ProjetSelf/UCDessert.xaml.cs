@@ -27,7 +27,7 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            this.recap.Children.Add(new Recapitulatif(parent));
+            this.recap.Children.Add(new Recapitulatif(parent,true));
             ChargerBoutons();
         }
 
@@ -41,38 +41,38 @@ namespace Vue
             switch (i)
             {
                 case 0:
-                    MessageBox.Show("Aucun dessert dans le menu!!!");
-                    button1.IsEnabled = false;
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    MessageBox.Show("Aucune dessert dans le menu!!!");
+                    button1.Visibility = Visibility.Hidden;
+                    button2.Visibility = Visibility.Hidden;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 1:
-                    button2.IsEnabled = false;
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button2.Visibility = Visibility.Hidden;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 2:
-                    button3.IsEnabled = false;
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button3.Visibility = Visibility.Hidden;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 3:
-                    button4.IsEnabled = false;
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button4.Visibility = Visibility.Hidden;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 4:
-                    button5.IsEnabled = false;
-                    button6.IsEnabled = false;
+                    button5.Visibility = Visibility.Hidden;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 case 5:
-                    button6.IsEnabled = false;
+                    button6.Visibility = Visibility.Hidden;
                     break;
                 default: return;
 
@@ -126,22 +126,22 @@ namespace Vue
             switch (i)
             {
                 case 0:
-                    button1.Content = p.Nom;
+                    b1.Text = p.Nom; ;
                     break;
                 case 1:
-                    button2.Content = p.Nom;
+                    b2.Text = p.Nom;
                     break;
                 case 2:
-                    button3.Content = p.Nom;
+                    b3.Text = p.Nom; ;
                     break;
                 case 3:
-                    button4.Content = p.Nom;
+                    b4.Text = p.Nom;
                     break;
                 case 4:
-                    button5.Content = p.Nom;
+                    b5.Text = p.Nom;
                     break;
                 case 5:
-                    button6.Content = p.Nom;
+                    b6.Text =  p.Nom;
                     break;
 
             }
@@ -156,9 +156,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton1(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button1.Content.ToString());
+            parent.self.AddPlatChoisi(b1.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -168,9 +168,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton2(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button2.Content.ToString());
+            parent.self.AddPlatChoisi(b2.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -180,9 +180,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton3(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button3.Content.ToString());
+            parent.self.AddPlatChoisi(b3.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -192,9 +192,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton4(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button4.Content.ToString());
+            parent.self.AddPlatChoisi(b4.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -204,9 +204,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton5(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button5.Content.ToString());
+            parent.self.AddPlatChoisi(b5.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
 
         /// <summary>
@@ -216,9 +216,9 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton6(object sender, RoutedEventArgs e)
         {
-            parent.self.AddPlatChoisi(button6.Content.ToString());
+            parent.self.AddPlatChoisi(b6.Text);
             recap.Children.Clear();
-            recap.Children.Add(new Recapitulatif(parent));
+            recap.Children.Add(new Recapitulatif(parent,true));
         }
     }
 }
