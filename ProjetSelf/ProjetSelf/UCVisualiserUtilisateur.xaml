@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Vue.UCVisualiserUtilisateur"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vue"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+              x:Name="root">
+    <Grid>
+        <WrapPanel>
+            <Label Content="{Binding TitreUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
+            <Label Content="{Binding NomUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
+            <Label Content="{Binding PrenomUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
+            <Label Content="{Binding ServiceUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
+            <Button Content="Modifier" Foreground="Orange" Width="50" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Click="modifier" />
+        </WrapPanel>
+    </Grid>
+</UserControl>
+

@@ -18,7 +18,7 @@
         <ListBox Name="liste" Grid.Row="1" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding menusROC}" BorderBrush="Transparent">
             <ListBox.ItemTemplate>
                 <DataTemplate >
-                    <local:UCVisualiserMenu NomMenu="{Binding Nom}" c="UCVisualiserMenu_Clicked" />
+                    <local:UCVisualiserMenu NomMenu="{Binding Nom}" DateEffet="{Binding effet }" DateFin="{Binding fin}"  c="UCVisualiserMenu_Clicked" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

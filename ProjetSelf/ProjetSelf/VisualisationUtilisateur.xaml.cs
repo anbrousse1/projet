@@ -17,12 +17,12 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour VisualisationPlat.xaml
+    /// Logique d'interaction pour VisualisationUtilisateur.xaml
     /// </summary>
-    public partial class VisualisationPlat : UserControl
+    public partial class VisualisationUtilisateur : UserControl
     {
         MainWindow parent;
-        public VisualisationPlat(MainWindow m)
+        public VisualisationUtilisateur(MainWindow m)
         {
             parent = m;
             InitializeComponent();
@@ -31,23 +31,18 @@ namespace Vue
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new GestionPlat(parent));
+            parent.setUC(new GestionUtilisateur(parent));
         }
 
-        private void UCVisualiserPlat_Clicked(object sender, PlatCEventArgs e)
+        private void UCVisualiserUtilisateur_Clicked(object sender, PlatCEventArgs e)
         {
-            AbsPlat m = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
-            if (e.Num == 0)
-            {
-                // appelle de supprimer menu
-                parent.self.supprimerPlat(m);
-                liste.Items.Refresh();
-            }
-            else
-            {
-                //Vue modifier menu 
-                // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
-            }
+            //AbsPlat m = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
+
+            //Vue modifier menu 
+            // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
+
         }
+
+       
     }
 }

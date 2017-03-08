@@ -156,6 +156,12 @@
     <Compile Include="UCVisualiserMenu.xaml.cs">
       <DependentUpon>UCVisualiserMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UCVisualiserPlat.xaml.cs">
+      <DependentUpon>UCVisualiserPlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCVisualiserUtilisateur.xaml.cs">
+      <DependentUpon>UCVisualiserUtilisateur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidationQuitter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </Compile>
     <Compile Include="VisualisationPlat.xaml.cs">
       <DependentUpon>VisualisationPlat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VisualisationUtilisateur.xaml.cs">
+      <DependentUpon>VisualisationUtilisateur.xaml</DependentUpon>
     </Compile>
     <Compile Include="VisualitationMenu.xaml.cs">
       <DependentUpon>VisualitationMenu.xaml</DependentUpon>
@@ -319,7 +328,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UCVisualiserPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCVisualiserUtilisateur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VisualisationPlat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VisualisationUtilisateur.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

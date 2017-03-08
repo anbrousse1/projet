@@ -831,6 +831,11 @@ namespace Metier
             prixAPayer = prixAPayer-p.Tarif;
         }
 
+        public void supprimerPlat(AbsPlat p)
+        {
+            plats.Remove(p);
+        }
+
 
         /// <summary>
         /// Méthode qui permet d'incrementer la quantite d'nu plat choisis par le client

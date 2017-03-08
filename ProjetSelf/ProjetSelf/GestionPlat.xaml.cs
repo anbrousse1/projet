@@ -37,5 +37,10 @@ namespace Vue
             parent.setUC(new AjouterPlat(parent));
         }
 
+        private void visualiser(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new VisualisationPlat(parent));
+
+        }
     }
 }

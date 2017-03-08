@@ -45,7 +45,7 @@ namespace Vue
 
         private void clickVisualiser(object sender, RoutedEventArgs e)
         {
-
+            parent.setUC(new VisualisationUtilisateur(parent));
         }
 
 
