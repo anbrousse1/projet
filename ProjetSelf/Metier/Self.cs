@@ -631,6 +631,18 @@ namespace Metier
             return null;
         }
 
+        public AbsMenu findMenuByName(String menu)
+        {
+            foreach (AbsMenu m in menus)
+            {
+                if (m.Nom.Equals(menu))
+                {
+                    return m;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Permet à partir d'un string d'obtenir un plat
         /// </summary>
@@ -1000,6 +1012,11 @@ namespace Metier
         public void supprimerProduit(AbsProduit p)
         {
             produits.Remove(p);
+        }
+
+        public void supprimerMenu(AbsMenu m)
+        {
+            menus.Remove(m);
         }
     }
 }

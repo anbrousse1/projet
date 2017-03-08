@@ -44,7 +44,7 @@ namespace Vue
 
         // Using a DependencyProperty as the backing store for effetProd.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty effetProdProperty =
-            DependencyProperty.Register("effetProd", typeof(DateTime), typeof(ModifProdUC), new PropertyMetadata(0));
+            DependencyProperty.Register("effetProd", typeof(DateTime), typeof(ModifProdUC), new PropertyMetadata(DateTime.Today));
 
 
         public DateTime finProd
@@ -55,7 +55,7 @@ namespace Vue
 
         // Using a DependencyProperty as the backing store for finProd.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty finProdProperty =
-            DependencyProperty.Register("finProd", typeof(DateTime), typeof(ModifProdUC), new PropertyMetadata(0));
+            DependencyProperty.Register("finProd", typeof(DateTime), typeof(ModifProdUC), new PropertyMetadata(DateTime.Today));
 
         public string obsProd
         {
@@ -65,20 +65,25 @@ namespace Vue
 
         // Using a DependencyProperty as the backing store for obsProd.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty obsProdProperty =
-            DependencyProperty.Register("obsProd", typeof(string), typeof(ModifProdUC), new PropertyMetadata(0));
+            DependencyProperty.Register("obsProd", typeof(string), typeof(ModifProdUC), new PropertyMetadata("Aucune observation"));
 
 
-        public EventHandler<ModifProdEventArgs> Clicked;
+        public event EventHandler<PlatCEventArgs> clic;
 
-        void OnClicked(ModifProdEventArgs args)
+        void OnClicked(PlatCEventArgs args)
         {
-            Clicked?.Invoke(this, args);
+            clic?.Invoke(this, args);
         }
 
 
-        private void supprimer_Click(object sender, RoutedEventArgs e)
+        private void supprimer(object sender, RoutedEventArgs e)
         {
-            OnClicked(new ModifProdEventArgs());
+            OnClicked(new PlatCEventArgs(0));
+        }
+
+        private void modifier(object sender, RoutedEventArgs e)
+        {
+            OnClicked(new PlatCEventArgs(1));
         }
     }
 

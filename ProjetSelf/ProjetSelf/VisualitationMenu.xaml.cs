@@ -17,36 +17,40 @@ using System.Windows.Shapes;
 namespace Vue
 {
     /// <summary>
-    /// Logique d'interaction pour UCModifProd.xaml
+    /// Logique d'interaction pour VisualitationMenu.xaml
     /// </summary>
-    public partial class UCModifProd : UserControl
+    public partial class VisualitationMenu : UserControl
     {
         MainWindow parent;
-        public UCModifProd(MainWindow m)
+        public VisualitationMenu(MainWindow m)
         {
-            InitializeComponent();
             parent = m;
-            DataContext=parent.self;
+            InitializeComponent();
+            DataContext = parent.self;
+
         }
 
-    
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new GestionProduit(parent));
+            parent.setUC(new GestionMenu(parent));
         }
 
-        private void UCModifProd_Clicked(object sender, PlatCEventArgs e)
+        private void UCVisualiserMenu_Clicked(object sender, PlatCEventArgs e)
         {
-            AbsProduit p = parent.self.findProduitByName((sender as ModifProdUC).NomProd);
-            if(e.Num == 0)
+            AbsMenu m = parent.self.findMenuByName((sender as UCVisualiserMenu).NomMenu);
+            if (e.Num == 0)
             {
-                parent.self.supprimerProduit(p);
+                // appelle de supprimer menu
+                parent.self.supprimerMenu(m);
                 liste.Items.Refresh();
             }
             else
             {
-                parent.setUC(new ModifierDatePlatEtProduit(parent, p));
+                //Vue modifier menu 
+               // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
             }
         }
+
+
     }
 }

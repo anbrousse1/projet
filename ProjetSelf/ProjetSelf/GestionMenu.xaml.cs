@@ -42,5 +42,10 @@ namespace Vue
         {
             parent.setUC(new AjouterMenu(parent));
         }
+
+        private void ClickVisualiser(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new VisualitationMenu(parent));
+        }
     }
 }
