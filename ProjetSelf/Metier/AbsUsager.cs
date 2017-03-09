@@ -20,12 +20,12 @@ namespace Metier
         public AbsPaiement algoDePaiement;
         public double Solde { get; set; }
         
-        private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        /*private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
         public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
         { 
             get;
             private set;
-        }
+        }*/
         public int NumCarte { get; set; }
         public String Fonction { get; set; }
 
@@ -46,7 +46,7 @@ namespace Metier
             //Effectuer changement solde dans BDD
         }
 
-        /// <summary>
+        /*/// <summary>
         /// Permet D'ajouter un plat choisi
         /// </summary>
         internal void AddPlatChoisis(AbsPlat p)
@@ -67,6 +67,6 @@ namespace Metier
         internal void lierList()
         {
             histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
-        }
+        }*/
     }
 }

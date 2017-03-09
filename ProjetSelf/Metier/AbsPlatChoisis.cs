@@ -11,6 +11,5 @@ namespace Metier
         public int ID { get; set; }
         public DateTime Date { get; set; }
         public int CodePlat { get; set; }
-        public int IdUsager { get; set; }
     }
 }

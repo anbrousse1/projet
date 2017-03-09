@@ -14,10 +14,23 @@ namespace Metier
         public DateTime Date { get; set; }
         public int idUsager { get; set; }
 
-        internal void AddPlat(AbsPlat p)
+        public void AddPlat(AbsPlat p)
         {
             plats.Add(new PlatChoisis{ Date = DateTime.Today, CodePlat = p.ID });
             Prix = Prix + p.Tarif;
+        }
+
+        override
+        public String ToString()
+        {
+            String s;
+            s = "Repas n° " + ID + " Date : " + Date + " au prix de " + Prix + " pour l'usager n° " + idUsager + " codes Plats : ";
+            foreach(var v in plats)
+            {
+                s += v.CodePlat + " ";
+            }
+            s += ".";
+            return s;
         }
     }
 }

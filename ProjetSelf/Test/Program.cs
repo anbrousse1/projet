@@ -19,9 +19,29 @@ namespace Test
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
 
-            foreach(var u in self.menusROC)
+            foreach (var u in self.usagerROC)
             {
-                 WriteLine(u.ToString());
+                WriteLine(u.ToString());
+            }
+
+            PlatChoisis pc1 = new PlatChoisis { CodePlat = 1, Date = DateTime.Today };
+            PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today };
+            PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today };
+            PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today };
+            bdd.ajouterPlatsChoisis(pc1);
+            bdd.ajouterPlatsChoisis(pc2);
+            bdd.ajouterPlatsChoisis(pc3);
+            bdd.ajouterPlatsChoisis(pc4);
+            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
+            lpc.Add(pc1);
+            lpc.Add(pc2);
+            lpc.Add(pc3);
+            lpc.Add(pc4);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, idUsager = 1, Prix = 15},lpc);
+
+            foreach (var r in self.getAllRepas())
+            {
+                WriteLine(r.ToString());
             }
 
             Read();

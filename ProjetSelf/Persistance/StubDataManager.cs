@@ -19,9 +19,19 @@ namespace Persistance
             return;
         }
 
+        public void ajouterPlatsChoisis(PlatChoisis pc)
+        {
+            return;
+        }
+
         public void ajouterProduit(Produit p)
         {
             return;
+        }
+
+        public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
+        {
+            throw new NotImplementedException();
         }
 
         public void ajouterUsager(Usager p)
@@ -106,11 +116,6 @@ namespace Persistance
             return p;
         }
 
-        public List<AbsPlatChoisis> chargeAllPlatChoisis()
-        {
-            return null;
-        }
-
         public List<AbsPlat> chargeAllPlats()
         {
             return null;
@@ -127,6 +132,16 @@ namespace Persistance
             p.Add(new Produit { Nom = "Haricots", Categorie = CategorieProduit.Legume, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), ID = 006, Observation = "carotte bio" });
             p.Add(new Produit { Nom = "Creme fraiche", Categorie = CategorieProduit.Legume, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), ID = 007, Observation = "carotte bio" });
             return p;
+        }
+
+        public List<AbsRepas> chargeAllRepas()
+        {
+            return null;
+        }
+
+        public List<AbsRepas> chargeAllRepasPlats()
+        {
+            return null;
         }
 
         public List<AbsUsager> chargeAllUsager()

@@ -9,34 +9,6 @@ namespace Persistance
     public class EntityDataManager : IDataManager
     {
 
-        public List<AbsPlatChoisis> chargeAllPlatChoisis()
-        {
-            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
-
-            PlatChoisis pc = new PlatChoisis { Date = DateTime.Today, CodePlat = 2, IdUsager = 1 };
-            PlatChoisis pc2 = new PlatChoisis { Date = DateTime.Today, CodePlat = 1, IdUsager = 1 };
-            PlatChoisis pc3 = new PlatChoisis { Date = DateTime.Today, CodePlat = 3, IdUsager = 1 };
-            PlatChoisis pc4 = new PlatChoisis { Date = DateTime.Today, CodePlat = 3, IdUsager = 2 };
-            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
-
-            using(EntityPlatChoisis db = new EntityPlatChoisis())
-            {
-                if (db.PlatChoisisSet.Count() > 0)
-                {
-                    db.Database.Delete();
-                }
-                db.PlatChoisisSet.AddRange(new PlatChoisis[] {pc,pc2,pc3,pc4 });
-                db.SaveChanges();
-
-                foreach(var n in db.PlatChoisisSet)
-                {
-                    lpc.Add(n);
-                }
-            }
-            return lpc;
-
-        }
-
         public List<AbsMenu> chargeAllMenu()
         {
 
@@ -181,6 +153,88 @@ namespace Persistance
             return lm;
         }
 
+        public List<AbsRepas> chargeAllRepasPlats()
+        {
+            List<AbsRepas> lr = new List<AbsRepas>();
+            lr = chargeAllRepas();
+
+            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
+            lpc = chargeAllPlatsChoisis();
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<List<RepasPlats>> llrp = new List<List<RepasPlats>>();
+            List<RepasPlats> lrp = new List<RepasPlats>();
+
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var r in lr)
+                {
+                    foreach (var rp in db.RepasPlatSet)
+                    {
+                        if (r.ID == rp.IdRepas)
+                        {
+                            lrp.Add(rp);
+                        }
+                    }
+                    llrp.Add(new List<RepasPlats>(lrp));
+                    lrp.Clear();
+                }
+            }
+            foreach (var t in lr)
+            {
+                foreach (var n in llrp)
+                {
+                    foreach (var b in n)
+                    {
+                        if (b.IdRepas == t.ID)
+                        {
+                            foreach (var v in lpc)
+                            {
+                                if (v.ID == b.IdPlats)
+                                {
+                                    t.plats.Add(v);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return lr;
+        }
+
+        public List<AbsRepas> chargeAllRepas()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<AbsRepas> lr = new List<AbsRepas>();
+
+            using (EntityRepas db = new EntityRepas())
+            {
+                foreach (var r in db.RepasSet)
+                {
+                    lr.Add(r);
+                }
+            }
+            return lr;
+        }
+
+        public List<AbsPlatChoisis> chargeAllPlatsChoisis()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<AbsPlatChoisis> lr = new List<AbsPlatChoisis>();
+
+            using (EntityPlatChoisis db = new EntityPlatChoisis())
+            {
+                foreach (var r in db.PlatChoisisSet)
+                {
+                    lr.Add(r);
+                }
+            }
+            return lr;
+        }
+
         public List<AbsPlat> chargeAllPlats()
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
@@ -296,6 +350,15 @@ namespace Persistance
             return lu;
         }
         
+        public void ajouterPlatsChoisis(PlatChoisis pc)
+        {
+            using(EntityPlatChoisis db = new EntityPlatChoisis())
+            {
+                db.PlatChoisisSet.Add(pc);
+                db.SaveChanges();
+            }
+        }
+
         public void ajouterProduit(Produit p)
         {
             using (EntityProduit db = new EntityProduit())
@@ -356,6 +419,24 @@ namespace Persistance
             using (EntityUsager db = new EntityUsager())
             {
                 db.UsagerSet.Add(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
+        {
+            using (EntityRepas db = new EntityRepas())
+            {
+                db.RepasSet.Add(r);
+                db.SaveChanges();
+            }
+
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var s in lp)
+                {
+                    db.RepasPlatSet.Add(new RepasPlats { IdPlats = s.ID, IdRepas = r.ID});
+                }
                 db.SaveChanges();
             }
         }

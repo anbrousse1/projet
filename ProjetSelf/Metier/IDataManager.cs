@@ -15,12 +15,11 @@ namespace Metier
 
         List<AbsMenu> chargeAllMenuPlat(List<AbsPlat> lpp);
 
+        List<AbsRepas> chargeAllRepasPlats();
 
         List<AbsUsager> chargeAllUsager();
 
         List<AbsUtilisateur> chargeAllUtilisateur();
-
-        List<AbsPlatChoisis> chargeAllPlatChoisis();
 
         void ajouterProduit(Produit p);
 
@@ -31,6 +30,10 @@ namespace Metier
         void ajouterUtilisateur(Utilisateur p);
 
         void ajouterUsager(Usager p);
+
+        void ajouterRepas(Repas r, List<AbsPlatChoisis> lp);
+
+        void ajouterPlatsChoisis(PlatChoisis pc);
 
     }
 }

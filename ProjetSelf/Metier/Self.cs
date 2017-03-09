@@ -178,6 +178,12 @@ namespace Metier
         }
         private List<AbsPlat> allDesserts = new List<AbsPlat>();
 
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
+        {
+            get;
+            private set;
+        }
+        private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
 
         private DateTime dateDuJour = DateTime.Today;
         public int DroitUtilisateur { get; private set; }
@@ -208,6 +214,7 @@ namespace Metier
             allEntreesROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allEntrees);
             allPlatsResROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allPlatsRes);
             allDessertsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allDesserts);
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
 
             DroitUtilisateur = 0;
 
@@ -226,15 +233,12 @@ namespace Metier
 
         }
 
-
-
-
         /// <summary>
         /// Méthode pour tout charger
         /// </summary>
         public void chargeAll()
         {
-            //getAllUsager();
+            getAllUsager();
             getAllUtilisateur();
             getAllProduit();
 
@@ -243,6 +247,27 @@ namespace Metier
             
 
         }
+
+
+        public void AddPlatChoisis(AbsPlat p)
+        {
+            foreach (AbsRepas r in historiquePlatChoisi)
+            {
+                if (r.Date.Equals(DateTime.Today))
+                {
+                    r.AddPlat(p);
+                    return;
+                }
+            }
+            AbsRepas re = new Repas();
+            re.AddPlat(p);
+            historiquePlatChoisi.Add(re);
+        }
+
+        /*public void lierList()
+        {
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
+        }*/
 
         /// <summary>
         /// Retourne le menu correspondant à la date passé en paramètre
@@ -265,6 +290,11 @@ namespace Metier
             return null;
         }
 
+        public List<AbsRepas> getAllRepas()
+        {
+            return data.chargeAllRepasPlats();
+        }
+
         public void getAllMenusPlats()
         {
             menus.Clear();
@@ -276,15 +306,6 @@ namespace Metier
             plats.Clear();
             plats.AddRange(data.chargeAllPlatAvecIngred(produits));
         }
-
-        /*public void getAllPlatChoisis()
-        {
-            platsChoisis.Clear();
-            foreach(var n in data.chargeAllPlatChoisis())
-            {
-                platsChoisis.Add(findPlatById(n.ID),n.);
-            }
-        }*/
 
         /// <summary>
         /// Charge la liste de produits à partir des élements de la BDD
@@ -970,7 +991,7 @@ namespace Metier
             {
                 for(int i = 1; i <= kvp.Value; i++)
                 {
-                    client.AddPlatChoisis(kvp.Key);
+                    AddPlatChoisis(kvp.Key);
                 }
             }
             prixAPayer = 0;
@@ -978,10 +999,10 @@ namespace Metier
             platsChoisis.Clear();
         }
 
-        public void chargeListRepas()
+        /*public void chargeListRepas()
         {
             client.lierList();
-        }
+        }*/
 
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {

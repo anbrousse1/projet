@@ -25,7 +25,7 @@ namespace Vue
         public UCListRepas(MainWindow m)
         {
             parent = m;
-            parent.self.chargeListRepas();
+            //parent.self.chargeListRepas();
             InitializeComponent();
             DataContext = parent.self.client;
             
