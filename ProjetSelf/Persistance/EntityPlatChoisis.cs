@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Persistance
 {
-    class EntityPlatChoisis : DbContext
+    class EntityRepas : DbContext
     {
-        public EntityPlatChoisis() : base("name=SelfDBContext")
+        public EntityRepas() : base("name=SelfDBContext")
         { }
-        public virtual DbSet<PlatChoisis> PlatChoisisSet { get; set; }
+        public virtual DbSet<Repas> RepasSet { get; set; }
     }
 }

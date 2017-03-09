@@ -8,9 +8,11 @@ namespace Metier
 {
     public class AbsRepas
     {
-        internal List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
-        public double Prix {get; private set; }
-        public DateTime Date { get; private set; }
+        public int ID { get; set; }
+        public List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
+        public double Prix {get; set; }
+        public DateTime Date { get; set; }
+        public int idUsager { get; set; }
 
         internal void AddPlat(AbsPlat p)
         {
