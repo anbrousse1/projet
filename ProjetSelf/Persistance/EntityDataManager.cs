@@ -9,6 +9,34 @@ namespace Persistance
     public class EntityDataManager : IDataManager
     {
 
+        public List<AbsPlatChoisis> chargeAllPlatChoisis()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            PlatChoisis pc = new PlatChoisis { Date = DateTime.Today, CodePlat = 2, IdUsager = 1 };
+            PlatChoisis pc2 = new PlatChoisis { Date = DateTime.Today, CodePlat = 1, IdUsager = 1 };
+            PlatChoisis pc3 = new PlatChoisis { Date = DateTime.Today, CodePlat = 3, IdUsager = 1 };
+            PlatChoisis pc4 = new PlatChoisis { Date = DateTime.Today, CodePlat = 3, IdUsager = 2 };
+            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
+
+            using(EntityPlatChoisis db = new EntityPlatChoisis())
+            {
+                if (db.PlatChoisisSet.Count() > 0)
+                {
+                    db.Database.Delete();
+                }
+                db.PlatChoisisSet.AddRange(new PlatChoisis[] {pc,pc2,pc3,pc4 });
+                db.SaveChanges();
+
+                foreach(var n in db.PlatChoisisSet)
+                {
+                    lpc.Add(n);
+                }
+            }
+            return lpc;
+
+        }
+
         public List<AbsMenu> chargeAllMenu()
         {
 
@@ -212,12 +240,12 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Usager bastien = new Usager { Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
-                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", codePaiement = 0,
-                Solde = 25, numCarte = 1, Fonction = "Caissier"};
-            Usager leandre = new Usager {Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
-                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", codePaiement = 1,
-                Solde = 78, numCarte = 2, Fonction = "Gérant" };
+            Usager bastien = new Usager {Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
+                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 0,
+                Solde = 25, NumCarte = 1, Fonction = "Caissier"};
+            Usager leandre = new Usager { Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
+                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 1,
+                Solde = 78, NumCarte = 2, Fonction = "Gérant" };
 
             List<AbsUsager> lu = new List<AbsUsager>();
 

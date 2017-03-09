@@ -8,12 +8,12 @@ namespace Metier
 {
     class PlatChoisis :AbsPlatChoisis
     {
-
+        /*
         internal PlatChoisis(DateTime d, int code)
         {
                 date = d;
                 CodePlat = code;
-        }
+        }*/
 
     }
 }

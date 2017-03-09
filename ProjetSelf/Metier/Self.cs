@@ -234,7 +234,7 @@ namespace Metier
         /// </summary>
         public void chargeAll()
         {
-            getAllUsager();
+            //getAllUsager();
             getAllUtilisateur();
             getAllProduit();
 
@@ -276,6 +276,15 @@ namespace Metier
             plats.Clear();
             plats.AddRange(data.chargeAllPlatAvecIngred(produits));
         }
+
+        /*public void getAllPlatChoisis()
+        {
+            platsChoisis.Clear();
+            foreach(var n in data.chargeAllPlatChoisis())
+            {
+                platsChoisis.Add(find)
+            }
+        }*/
 
         /// <summary>
         /// Charge la liste de produits à partir des élements de la BDD
@@ -358,7 +367,7 @@ namespace Metier
         {
             foreach(AbsUsager u in usager)
             {
-                if (u.numCarte.ToString().Equals(numeroCarte))
+                if (u.NumCarte.ToString().Equals(numeroCarte))
                 {
                    client= u;
                     return true;
@@ -972,7 +981,7 @@ namespace Metier
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
         {
-            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, numCarte = usager.Count + 1 });
+            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
         }
 
         public void addUtilisateur(string mdp, string login, int id )

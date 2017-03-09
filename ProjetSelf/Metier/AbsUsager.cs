@@ -16,7 +16,7 @@ namespace Metier
         public String Prenom { get; set; }
         public int CodeFonction { get; set; }
         public String Service { get; set; }
-        public int codePaiement;
+        public int CodePaiement { get; set; }
         public AbsPaiement algoDePaiement;
         public double Solde { get; set; }
         
@@ -26,18 +26,18 @@ namespace Metier
             get;
             private set;
         }
-        public int numCarte { get; set; }
+        public int NumCarte { get; set; }
         public String Fonction { get; set; }
 
         public override string ToString()
         {
-            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + numCarte;
+            String m = "id : " + ID + " " + Titre + " " + Nom + " " + Prenom + " carte numéro : " + NumCarte;
             return m;
         }
 
         internal void payer(double prix)
         {
-            if (codePaiement == 0)
+            if (CodePaiement == 0)
             {
                 algoDePaiement = new RetenueSalaire();
             }else { algoDePaiement = new PreAlimente(); }

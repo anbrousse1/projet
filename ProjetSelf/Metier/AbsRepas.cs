@@ -14,7 +14,7 @@ namespace Metier
 
         internal void AddPlat(AbsPlat p)
         {
-            plats.Add(new PlatChoisis(DateTime.Today, p.ID));
+            plats.Add(new PlatChoisis{ Date = DateTime.Today, CodePlat = p.ID });
             Prix = Prix + p.Tarif;
         }
     }

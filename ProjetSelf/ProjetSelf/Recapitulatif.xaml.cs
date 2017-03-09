@@ -10,8 +10,8 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Vue
@@ -94,7 +94,7 @@ namespace Vue
 
         public void setTextSoldeTot()
         { 
-            if (parent.self.client.codePaiement == 0)
+            if (parent.self.client.CodePaiement == 0)
             {
                 solde.Text = "Retenue Salaire";
                 if (caisse)

@@ -20,6 +20,8 @@ namespace Metier
 
         List<AbsUtilisateur> chargeAllUtilisateur();
 
+        List<AbsPlatChoisis> chargeAllPlatChoisis();
+
         void ajouterProduit(Produit p);
 
         void ajouterPlat(Plat p, List<AbsProduit> lp);
