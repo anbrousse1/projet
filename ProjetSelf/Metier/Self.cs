@@ -282,7 +282,7 @@ namespace Metier
             platsChoisis.Clear();
             foreach(var n in data.chargeAllPlatChoisis())
             {
-                platsChoisis.Add(find)
+                platsChoisis.Add(findPlatById(n.ID),n.);
             }
         }*/
 
@@ -363,19 +363,15 @@ namespace Metier
         /// <summary>
         /// Permet d'identifier un usager avec son numéro de carte
         /// </summary>
-        public Boolean findUsager(String numeroCarte)
+        public Boolean findUsager(int numeroCarte)
         {
-            foreach(AbsUsager u in usager)
-            {
-                if (u.NumCarte.ToString().Equals(numeroCarte))
-                {
-                   client= u;
-                    return true;
-                }
-            }
-            return false;
+            return usager.Exists(u => u.NumCarte == numeroCarte);
         }
 
+        public AbsPlat findPlatById(int id)
+        {
+            return plats.Find(a => a.ID == id);
+        }
 
 
         /// <summary>
@@ -630,26 +626,12 @@ namespace Metier
         /// <returns></returns>
         public AbsProduit findProduitByName(String prod)
         {
-            foreach (AbsProduit p in produits)
-            {
-                if (p.Nom.Equals(prod))
-                {
-                    return p;
-                }
-            }
-            return null;
+            return produits.Find(p => p.Nom.Equals(prod));
         }
 
         public AbsMenu findMenuByName(String menu)
         {
-            foreach (AbsMenu m in menus)
-            {
-                if (m.Nom.Equals(menu))
-                {
-                    return m;
-                }
-            }
-            return null;
+            return menus.Find(m => m.Nom.Equals(menu));
         }
 
         /// <summary>
@@ -659,14 +641,7 @@ namespace Metier
         /// <returns></returns>
         public AbsPlat FindPlat(String plat)
         {
-            foreach (AbsPlat p in plats)
-            {
-                if (p.Nom.Equals(plat))
-                {
-                    return p;
-                }
-            }
-            return null;
+            return plats.Find(p => p.Nom.Equals(plat));
         }
 
         //Permet à partir d'une liste de string d'obtenir une liste de plats
