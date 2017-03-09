@@ -47,8 +47,8 @@
         <TextBlock Text="Date Fin :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="9" Style="{StaticResource TextBlockStyle}"/>
         <DatePicker x:Name="dateFin" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Center"/>
 
-        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" FontSize="30" Grid.Row="10" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click" Margin="5,5,5,5"/>
-        <Button x:Name="Annuler" Content="ANNULER" HorizontalAlignment="Left" FontSize="30" Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top" Background="Red" MinWidth="150" MinHeight="50"  Click="annuler_Click" Margin="5,5,5,5"/>
+        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Click="valider_Click"/>
+        <Button x:Name="Annuler" Style="{StaticResource boutonAnnulerUC}" Content="ANNULER" HorizontalAlignment="Left" Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top" Click="annuler_Click"/>
 
     </Grid>
 </UserControl>

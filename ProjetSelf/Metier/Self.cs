@@ -363,9 +363,9 @@ namespace Metier
         /// <summary>
         /// Permet d'identifier un usager avec son numéro de carte
         /// </summary>
-        public Boolean findUsager(int numeroCarte)
+        public Boolean findUsager(String numeroCarte)
         {
-            return usager.Exists(u => u.NumCarte == numeroCarte);
+            return usager.Exists(u => u.NumCarte.ToString().Equals(numeroCarte));
         }
 
         public AbsPlat findPlatById(int id)

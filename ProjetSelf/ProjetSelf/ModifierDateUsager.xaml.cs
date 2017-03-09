@@ -27,5 +27,14 @@ namespace Vue
             InitializeComponent();
         }
 
+        private void valider_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void retour_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

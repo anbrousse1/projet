@@ -18,8 +18,8 @@
 
         <Button Content="Modifier Date" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" MinWidth="75" Click="modifDate"/>
         <Button Content="Modifier mdp" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" MinWidth="75" Click="modifMdp"/>
-        
-        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" FontSize="30" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="Red" MinWidth="150" MinHeight="50"  Click="retour_Click" Margin="5,5,5,5"/>
+
+        <Button x:Name="retour" Content="RETOUR" Style="{StaticResource boutonAnnulerUC}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Click="retour_Click"/>
         
     </Grid>
 </UserControl>

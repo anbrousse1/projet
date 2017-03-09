@@ -21,6 +21,6 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        <Button Grid.Row="2" Content="Retour" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
+        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" Content="Retour" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Button_Click"/>
     </Grid>
 </UserControl>

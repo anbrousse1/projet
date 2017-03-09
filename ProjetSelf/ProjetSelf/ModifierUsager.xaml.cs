@@ -27,5 +27,19 @@ namespace Vue
             InitializeComponent();
         }
 
+        private void modifDate(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void modifMdp(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void retour_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -27,6 +27,6 @@
             <TextBlock Text="Modifier Produit" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
 
-        <Button Click="ClickRetour" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Content="Retour" Background="Gray" MaxHeight="100" MaxWidth="100"/>
+        <Button Click="ClickRetour" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Content="Retour" Style="{StaticResource boutonAnnulerUC}"/>
     </Grid>
 </UserControl>
