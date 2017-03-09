@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Vue.ModifierMDP"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Vue"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Mot de passe actuel : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
+        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="oldmdp"/>
+
+        <TextBlock Text="Nouveau mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1"/>
+        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="newmdp"/>
+
+        <TextBlock Text="Confirmation mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2"/>
+        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="confmdp"/>
+
+        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Center" FontSize="30" Grid.Row="3" Grid.ColumnSpan="2" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click" Margin="5,5,5,5"/>
+        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" FontSize="30" Grid.Row="4" Grid.ColumnSpan="2" Background="Red" MinWidth="150" MinHeight="50"  Click="retour_Click" Margin="5,5,5,5"/>
+
+    </Grid>
+</UserControl>

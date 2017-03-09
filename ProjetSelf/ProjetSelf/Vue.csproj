@@ -99,8 +99,20 @@
     <Compile Include="ModifierDateProduit.xaml.cs">
       <DependentUpon>ModifierDateProduit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifierDateUsager.xaml.cs">
+      <DependentUpon>ModifierDateUsager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierMDP.xaml.cs">
+      <DependentUpon>ModifierMDP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierMenu.xaml.cs">
+      <DependentUpon>ModifierMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModifierTicket.xaml.cs">
       <DependentUpon>ModifierTicket.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModifierUsager.xaml.cs">
+      <DependentUpon>ModifierUsager.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModifProdUC.xaml.cs">
       <DependentUpon>ModifProdUC.xaml</DependentUpon>
@@ -252,7 +264,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ModifierDateUsager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifierMDP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifierMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ModifierTicket.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifierUsager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
