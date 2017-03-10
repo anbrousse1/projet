@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    class PlatChoisis :AbsPlatChoisis
+    public class PlatChoisis :AbsPlatChoisis
     {
-
+        /*
         internal PlatChoisis(DateTime d, int code)
         {
                 date = d;
                 CodePlat = code;
-        }
+        }*/
 
     }
 }

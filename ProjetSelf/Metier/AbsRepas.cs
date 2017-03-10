@@ -8,14 +8,29 @@ namespace Metier
 {
     public class AbsRepas
     {
+        public int ID { get; set; }
         public List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
-        public double Prix {get; private set; }
-        public DateTime Date { get; private set; }
+        public double Prix {get; set; }
+        public DateTime Date { get; set; }
+        public int idUsager { get; set; }
 
-        internal void AddPlat(AbsPlat p)
+        public void AddPlat(AbsPlat p)
         {
-            plats.Add(new PlatChoisis(DateTime.Today, p.ID));
+            plats.Add(new PlatChoisis{ Date = DateTime.Today, CodePlat = p.ID });
             Prix = Prix + p.Tarif;
+        }
+
+        override
+        public String ToString()
+        {
+            String s;
+            s = "Repas n° " + ID + " Date : " + Date + " au prix de " + Prix + " pour l'usager n° " + idUsager + " codes Plats : ";
+            foreach(var v in plats)
+            {
+                s += v.CodePlat + " ";
+            }
+            s += ".";
+            return s;
         }
     }
 }

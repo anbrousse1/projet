@@ -16,55 +16,32 @@ namespace Test
     {
         static void Main(string[] args)
         {
-
-            /* Usager bastien = new Usager
-             {
-                 Nom = "Gandboeuf",
-                 Prenom = "Bastien",
-                 CodeFonction = 1,
-                 DateEntree = DateTime.Today,
-                 Service = "Restaurant",
-                 Titre = "Monsieur",
-                 algoDePaiement = new PreAlimente(),
-                 Solde = 25,
-                 carte = new Carte(12),
-                 Fonction = "Caissier"
-             };*/
-            // EcrireTicketFichier.ecrireTicket(bastien);
-
-            Console.Write(DateTime.Now.Year);
-            Read();
-
-            
             EntityDataManager bdd = new EntityDataManager();
             Self self = new Self(bdd);
 
-            /*self.addProduit(DateTime.Today, DateTime.Today, "test", "testestest", "Poisson");
-
-            foreach (var u in self.produitsROC)
+            foreach (var u in self.usagerROC)
             {
                 WriteLine(u.ToString());
             }
 
-            self.addplat(DateTime.Today, DateTime.Today, "plattest", 50, self.produitsROC.Where(w => w.ID > 3).ToList(), "Plat");
+            PlatChoisis pc1 = new PlatChoisis { CodePlat = 1, Date = DateTime.Today };
+            PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today };
+            PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today };
+            PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today };
+            bdd.ajouterPlatsChoisis(pc1);
+            bdd.ajouterPlatsChoisis(pc2);
+            bdd.ajouterPlatsChoisis(pc3);
+            bdd.ajouterPlatsChoisis(pc4);
+            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
+            lpc.Add(pc1);
+            lpc.Add(pc2);
+            lpc.Add(pc3);
+            lpc.Add(pc4);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, idUsager = 1, Prix = 15},lpc);
 
-            foreach (var u in self.platROC)
+            foreach (var r in self.getAllRepas())
             {
-                WriteLine(u.ToString());
-            }
-
-            self.addMenu("menutest", self.platROC.Where(w => w.ID > 2).ToList());
-
-            foreach (var u in self.menusROC)
-            {
-                WriteLine(u.ToString());
-            }
-            
-            Read();
-            */
-            foreach(var u in self.menusROC)
-            {
-                 WriteLine(u.ToString());
+                WriteLine(r.ToString());
             }
 
             Read();

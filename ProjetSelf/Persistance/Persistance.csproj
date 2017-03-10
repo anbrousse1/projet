@@ -71,8 +71,11 @@
     <Compile Include="EntityMenu.cs" />
     <Compile Include="EntityMenuPlat.cs" />
     <Compile Include="EntityPlat.cs" />
+    <Compile Include="EntityPlatChoisis.cs" />
+    <Compile Include="EntityRepas.cs" />
     <Compile Include="EntityPlatProduit.cs" />
     <Compile Include="EntityProduit.cs" />
+    <Compile Include="EntityRepasPlats.cs" />
     <Compile Include="EntityUsager.cs" />
     <Compile Include="EntityUtilisateur.cs" />
     <Compile Include="EntityUtilisateurUsager.cs" />

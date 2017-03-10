@@ -191,6 +191,12 @@ namespace Metier
         }
         private List<AbsPlat> allDesserts = new List<AbsPlat>();
 
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
+        {
+            get;
+            private set;
+        }
+        private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
 
         private DateTime dateDuJour = DateTime.Today;
         public int DroitUtilisateur { get; private set; }
@@ -222,6 +228,7 @@ namespace Metier
             allEntreesROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allEntrees);
             allPlatsResROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allPlatsRes);
             allDessertsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allDesserts);
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
 
             DroitUtilisateur = 0;
 
@@ -240,9 +247,6 @@ namespace Metier
 
         }
 
-
-
-
         /// <summary>
         /// Méthode pour tout charger
         /// </summary>
@@ -258,6 +262,27 @@ namespace Metier
             
 
         }
+
+
+        public void AddPlatChoisis(AbsPlat p)
+        {
+            foreach (AbsRepas r in historiquePlatChoisi)
+            {
+                if (r.Date.Equals(DateTime.Today))
+                {
+                    r.AddPlat(p);
+                    return;
+                }
+            }
+            AbsRepas re = new Repas();
+            re.AddPlat(p);
+            historiquePlatChoisi.Add(re);
+        }
+
+        /*public void lierList()
+        {
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
+        }*/
 
         /// <summary>
         /// Retourne le menu correspondant à la date passé en paramètre
@@ -278,6 +303,11 @@ namespace Metier
             }
 
             return null;
+        }
+
+        public List<AbsRepas> getAllRepas()
+        {
+            return data.chargeAllRepasPlats();
         }
 
         public void getAllMenusPlats()
@@ -386,17 +416,13 @@ namespace Metier
         /// </summary>
         public Boolean findUsager(String numeroCarte)
         {
-            foreach(AbsUsager u in usager)
-            {
-                if (u.numCarte.ToString().Equals(numeroCarte))
-                {
-                   client= u;
-                    return true;
-                }
-            }
-            return false;
+            return usager.Exists(u => u.NumCarte.ToString().Equals(numeroCarte));
         }
 
+        public AbsPlat findPlatById(int id)
+        {
+            return plats.Find(a => a.ID == id);
+        }
 
 
         /// <summary>
@@ -651,26 +677,12 @@ namespace Metier
         /// <returns></returns>
         public AbsProduit findProduitByName(String prod)
         {
-            foreach (AbsProduit p in produits)
-            {
-                if (p.Nom.Equals(prod))
-                {
-                    return p;
-                }
-            }
-            return null;
+            return produits.Find(p => p.Nom.Equals(prod));
         }
 
         public AbsMenu findMenuByName(String menu)
         {
-            foreach (AbsMenu m in menus)
-            {
-                if (m.Nom.Equals(menu))
-                {
-                    return m;
-                }
-            }
-            return null;
+            return menus.Find(m => m.Nom.Equals(menu));
         }
 
         /// <summary>
@@ -680,14 +692,7 @@ namespace Metier
         /// <returns></returns>
         public AbsPlat FindPlat(String plat)
         {
-            foreach (AbsPlat p in plats)
-            {
-                if (p.Nom.Equals(plat))
-                {
-                    return p;
-                }
-            }
-            return null;
+            return plats.Find(p => p.Nom.Equals(plat));
         }
 
         //Permet à partir d'une liste de string d'obtenir une liste de plats
@@ -1002,7 +1007,7 @@ namespace Metier
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
         {
-            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, numCarte = usager.Count + 1 });
+            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
         }
 
         public void addUtilisateur(string mdp, string login, int id )
@@ -1016,7 +1021,7 @@ namespace Metier
             {
                 for(int i = 1; i <= kvp.Value; i++)
                 {
-                    client.AddPlatChoisis(kvp.Key);
+                    AddPlatChoisis(kvp.Key);
                 }
             }
             prixAPayer = 0;
@@ -1024,10 +1029,10 @@ namespace Metier
             platsChoisis.Clear();
         }
 
-        public void chargeListRepas()
+        /*public void chargeListRepas()
         {
             client.lierList();
-        }
+        }*/
 
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {

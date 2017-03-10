@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    public class Repas : AbsRepas
+    public class RepasPlats
     {
-     
+        public int ID { get; set; }
+        public int IdRepas { get; set; }
+        public int IdPlats { get; set; }
     }
 }

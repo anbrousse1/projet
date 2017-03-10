@@ -8,7 +8,8 @@ namespace Metier
 {
     public abstract class AbsPlatChoisis
     {
-        internal DateTime date { get; set; }
-        internal int CodePlat { get; set; }
+        public int ID { get; set; }
+        public DateTime Date { get; set; }
+        public int CodePlat { get; set; }
     }
 }

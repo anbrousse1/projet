@@ -153,6 +153,88 @@ namespace Persistance
             return lm;
         }
 
+        public List<AbsRepas> chargeAllRepasPlats()
+        {
+            List<AbsRepas> lr = new List<AbsRepas>();
+            lr = chargeAllRepas();
+
+            List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
+            lpc = chargeAllPlatsChoisis();
+
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<List<RepasPlats>> llrp = new List<List<RepasPlats>>();
+            List<RepasPlats> lrp = new List<RepasPlats>();
+
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var r in lr)
+                {
+                    foreach (var rp in db.RepasPlatSet)
+                    {
+                        if (r.ID == rp.IdRepas)
+                        {
+                            lrp.Add(rp);
+                        }
+                    }
+                    llrp.Add(new List<RepasPlats>(lrp));
+                    lrp.Clear();
+                }
+            }
+            foreach (var t in lr)
+            {
+                foreach (var n in llrp)
+                {
+                    foreach (var b in n)
+                    {
+                        if (b.IdRepas == t.ID)
+                        {
+                            foreach (var v in lpc)
+                            {
+                                if (v.ID == b.IdPlats)
+                                {
+                                    t.plats.Add(v);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return lr;
+        }
+
+        public List<AbsRepas> chargeAllRepas()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<AbsRepas> lr = new List<AbsRepas>();
+
+            using (EntityRepas db = new EntityRepas())
+            {
+                foreach (var r in db.RepasSet)
+                {
+                    lr.Add(r);
+                }
+            }
+            return lr;
+        }
+
+        public List<AbsPlatChoisis> chargeAllPlatsChoisis()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            List<AbsPlatChoisis> lr = new List<AbsPlatChoisis>();
+
+            using (EntityPlatChoisis db = new EntityPlatChoisis())
+            {
+                foreach (var r in db.PlatChoisisSet)
+                {
+                    lr.Add(r);
+                }
+            }
+            return lr;
+        }
+
         public List<AbsPlat> chargeAllPlats()
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
@@ -212,12 +294,12 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Usager bastien = new Usager { Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
-                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", codePaiement = 0,
-                Solde = 25, numCarte = 1, Fonction = "Caissier"};
-            Usager leandre = new Usager {Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
-                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", codePaiement = 1,
-                Solde = 78, numCarte = 2, Fonction = "Gérant" };
+            Usager bastien = new Usager {Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
+                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 0,
+                Solde = 25, NumCarte = 1, Fonction = "Caissier"};
+            Usager leandre = new Usager { Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
+                DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 1,
+                Solde = 78, NumCarte = 2, Fonction = "Gérant" };
 
             List<AbsUsager> lu = new List<AbsUsager>();
 
@@ -268,6 +350,15 @@ namespace Persistance
             return lu;
         }
         
+        public void ajouterPlatsChoisis(PlatChoisis pc)
+        {
+            using(EntityPlatChoisis db = new EntityPlatChoisis())
+            {
+                db.PlatChoisisSet.Add(pc);
+                db.SaveChanges();
+            }
+        }
+
         public void ajouterProduit(Produit p)
         {
             using (EntityProduit db = new EntityProduit())
@@ -328,6 +419,24 @@ namespace Persistance
             using (EntityUsager db = new EntityUsager())
             {
                 db.UsagerSet.Add(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
+        {
+            using (EntityRepas db = new EntityRepas())
+            {
+                db.RepasSet.Add(r);
+                db.SaveChanges();
+            }
+
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var s in lp)
+                {
+                    db.RepasPlatSet.Add(new RepasPlats { IdPlats = s.ID, IdRepas = r.ID});
+                }
                 db.SaveChanges();
             }
         }

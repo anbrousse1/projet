@@ -19,9 +19,19 @@ namespace Persistance
             return;
         }
 
+        public void ajouterPlatsChoisis(PlatChoisis pc)
+        {
+            return;
+        }
+
         public void ajouterProduit(Produit p)
         {
             return;
+        }
+
+        public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
+        {
+            throw new NotImplementedException();
         }
 
         public void ajouterUsager(Usager p)
@@ -124,12 +134,22 @@ namespace Persistance
             return p;
         }
 
+        public List<AbsRepas> chargeAllRepas()
+        {
+            return null;
+        }
+
+        public List<AbsRepas> chargeAllRepasPlats()
+        {
+            return null;
+        }
+
         public List<AbsUsager> chargeAllUsager()
         {
             List <AbsUsager>u = new List<AbsUsager>();
-            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, codePaiement=1, Fonction="Caissier" , numCarte=1});
-            u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", codePaiement=0, Solde = 0, Fonction = "Caissier", numCarte = 2 });
-            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", numCarte = 3, codePaiement=1 });
+            u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, CodePaiement=1, Fonction="Caissier" , NumCarte=1});
+            u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", CodePaiement=0, Solde = 0, Fonction = "Caissier", NumCarte = 2 });
+            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", NumCarte = 3, CodePaiement=1 });
             u.Add(new Usager { Nom = "Mickey", Prenom = "Mouse", CodeFonction = 004, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 004, Service = "RH", Solde = 50, codePaiement = 1, Fonction = "Directeur", numCarte = 4 });
 
             return u;

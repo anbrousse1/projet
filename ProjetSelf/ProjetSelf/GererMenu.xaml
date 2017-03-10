@@ -63,9 +63,9 @@
 
         <DatePicker x:Name="dateMenu"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <Button x:Name="valider" Content="VALIDER" Grid.Row="2" HorizontalAlignment="Center" FontSize="30" Grid.Column="2" VerticalAlignment="Center" Background="green" MinWidth="150" MinHeight="50" Click="valider_Click"/>
+        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" Grid.Row="2" HorizontalAlignment="Center" Grid.Column="2" VerticalAlignment="Center" Click="valider_Click"/>
 
-        <Button Content="Retour" Grid.Row="3" Grid.Column="1" Click="retour_Click"/>
+        <Button x:Name="retour" Style="{StaticResource boutonAnnulerUC}" Content="RETOUR" Grid.Row="3" Grid.Column="1" Click="retour_Click"/>
 
     </Grid>
 </UserControl>
