@@ -34,15 +34,23 @@ namespace Vue
             parent.setUC(new GestionUtilisateur(parent));
         }
 
-        private void UCVisualiserUtilisateur_Clicked(object sender, PlatCEventArgs e)
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //vue modifier menu
+        }
+
+
+        /*private void UCVisualiserUtilisateur_Clicked(object sender, PlatCEventArgs e)
         {
             //AbsPlat m = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
 
             //Vue modifier menu 
             // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
 
-        }
+        }*/
 
-       
+
+
+
     }
 }

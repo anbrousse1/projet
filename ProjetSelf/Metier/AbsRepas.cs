@@ -8,7 +8,7 @@ namespace Metier
 {
     public class AbsRepas
     {
-        internal List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
+        public List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
         public double Prix {get; private set; }
         public DateTime Date { get; private set; }
 

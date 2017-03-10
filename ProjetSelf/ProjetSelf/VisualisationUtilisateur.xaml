@@ -13,10 +13,10 @@
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0"  Content="Utilisateurs"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource labelStyle}" />
-        <ListBox Name="liste" Grid.Row="1" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding usagerROC}" BorderBrush="Transparent">
+        <ListBox Name="liste" SelectionChanged="SelectionChanged" Grid.Row="1" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding usagerUtilisateurROC}" BorderBrush="Transparent">
             <ListBox.ItemTemplate>
                 <DataTemplate >
-                    <local:UCVisualiserUtilisateur TitreUtilisateur="{Binding Titre}" NomUtilisateur="{Binding Nom}" PrenomUtilisateur="{Binding Prenom}" ServiceUtilisateur="{Binding Service}"  c="UCVisualiserUtilisateur_Clicked" />
+                    <local:UCVisualiserUtilisateur TitreUtilisateur="{Binding Titre}" NomUtilisateur="{Binding Nom}" PrenomUtilisateur="{Binding Prenom}" ServiceUtilisateur="{Binding Service}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

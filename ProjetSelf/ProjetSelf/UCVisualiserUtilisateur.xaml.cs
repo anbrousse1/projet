@@ -74,7 +74,7 @@ namespace Vue
         public static readonly DependencyProperty ServiceUtilisateurProperty =
             DependencyProperty.Register("ServiceUtilisateur", typeof(string), typeof(UCVisualiserUtilisateur), new PropertyMetadata("aucun"));
 
-
+        /*
 
         public event EventHandler<PlatCEventArgs> c;
 
@@ -88,7 +88,7 @@ namespace Vue
         private void modifier(object sender, RoutedEventArgs e)
         {
             OnClicked(new PlatCEventArgs(1));
-        }
+        }*/
 
 
     }

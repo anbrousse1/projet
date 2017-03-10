@@ -60,6 +60,19 @@ namespace Metier
         /// </summary>
         private List<AbsUsager> usager = new List<AbsUsager>();
 
+        /// <summary>
+        /// ReadOnlyCollection des usagers qui sont aussi utilisateur de l'application qui encapsule la liste usagers utilisateurs
+        /// </summary>
+        public System.Collections.ObjectModel.ReadOnlyCollection<AbsUsager> usagerUtilisateurROC
+        {
+            get;
+            private set;
+        }
+        /// <summary>
+        /// Liste des usagers utilisateur
+        /// </summary>
+        private List<AbsUsager> usagerUtilisateur = new List<AbsUsager>();
+
 
         /// <summary>
         /// ReadOnlyCollection des utilisateur de l'application qui encapsule la liste utilisateur
@@ -198,6 +211,7 @@ namespace Metier
             platROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(plats);
             produitsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsProduit>(produits);
             usagerROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsUsager>(usager);
+            usagerUtilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsUsager>(usagerUtilisateur);
             utilisateurROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsUtilisateur>(utilisateur);
             entreeROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(entrees);
             platsDuJourROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(platsJour);
@@ -236,6 +250,7 @@ namespace Metier
         {
             getAllUsager();
             getAllUtilisateur();
+            getAllUsagerUtilisateur();
             getAllProduit();
 
             getAllPlatsIngre();
@@ -293,6 +308,21 @@ namespace Metier
         {
             usager.Clear();
             usager.AddRange(data.chargeAllUsager());
+        }
+
+        public void getAllUsagerUtilisateur()
+        {
+            usagerUtilisateur.Clear();
+            foreach(AbsUsager u in usager)
+            {
+                foreach(AbsUtilisateur ut in utilisateur)
+                {
+                    if(u.ID == ut.ID)
+                    {
+                        usagerUtilisateur.Add(u);
+                    }
+                }
+            }
         }
 
         /// <summary>

@@ -13,7 +13,6 @@
             <Label Content="{Binding NomUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
             <Label Content="{Binding PrenomUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
             <Label Content="{Binding ServiceUtilisateur, ElementName=root}" Style="{StaticResource labelStyle}"/>
-            <Button Content="Modifier" Foreground="Orange" Width="50" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Click="modifier" />
         </WrapPanel>
     </Grid>
 </UserControl>

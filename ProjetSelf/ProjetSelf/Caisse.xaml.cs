@@ -98,6 +98,12 @@ namespace Vue
             recap.Children.Add(new Recapitulatif(parent, true));
             IdUsager.Children.Clear();
             IdUsager.Children.Add(new SimulationPassageCarte(parent));
+            plat.IsEnabled = false;
+            dessert.IsEnabled = false;
+            entree.IsEnabled = false;
+            boisson.IsEnabled = false;
+            paiement.IsEnabled = false;
+            paiement.IsEnabled = false;
         }
 
         private void clickRetour(object sender, RoutedEventArgs e)

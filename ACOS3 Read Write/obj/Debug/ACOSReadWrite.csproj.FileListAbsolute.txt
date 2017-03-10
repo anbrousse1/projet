@@ -13,3 +13,5 @@ C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\bin\Debug\ACOSReadWrite.pdb
 C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.csprojResolveAssemblyReference.cache
 C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.Form1.resources
 C:\Users\anbrousse1\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.csproj.GenerateResource.Cache
+C:\Users\antho\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.exe
+C:\Users\antho\Desktop\projet\ACOS3 Read Write\obj\Debug\ACOSReadWrite.pdb
