@@ -350,6 +350,34 @@ namespace Persistance
             return lu;
         }
         
+        public void changementSolde(Usager u,double prix)
+        {
+            using(EntityUsager db = new EntityUsager())
+            {
+                if(u.CodePaiement == 0)
+                {
+                    db.UsagerSet.Find(u.ID).Solde += prix;
+                }
+                else db.UsagerSet.Find(u.ID).Solde -= prix;
+
+                db.SaveChanges();
+            }
+        }
+
+        public Dictionary<Usager,double> getAllRetenueSalaire()
+        {
+            Dictionary<Usager, double> dRs = new Dictionary<Usager, double>();
+
+            using (EntityUsager db = new EntityUsager())
+            {
+                foreach(var u in db.UsagerSet.Where(a => a.CodePaiement == 0))
+                {
+                    dRs.Add(u, u.Solde);
+                }
+            }
+            return dRs;
+        }
+
         public void ajouterPlatsChoisis(PlatChoisis pc)
         {
             using(EntityPlatChoisis db = new EntityPlatChoisis())
