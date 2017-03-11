@@ -14,7 +14,7 @@ namespace Metier
         public String Nom { get; set; }
         public double Tarif { get; set; }
         public CategoriePlat Categorie { get; set; }
-        public List<AbsProduit> ingredients = new List<AbsProduit>();
+        private List<AbsProduit> ingredients = new List<AbsProduit>();
 
         public override string ToString()
         {
@@ -48,6 +48,19 @@ namespace Metier
         internal void ChangerDateFin(DateTime d)
         {
             DateFin = d;
+        }
+
+        internal void AddProduit(AbsProduit p)
+        {
+            if (ingredients.Count == 0) { this.DateEffet = p.DateEffet; this.DateFin = p.DateFin; }
+            else
+            {
+                if (DateEffet.CompareTo(p.DateEffet) > 0) { DateEffet = p.DateEffet; }
+                if (DateFin.CompareTo(p.DateFin) < 0) { DateFin = p.DateFin; }
+            }
+
+            ingredients.Add(p);
+
         }
     }
 

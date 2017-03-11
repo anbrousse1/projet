@@ -30,8 +30,6 @@ namespace Vue
             parent = m;
             prod = p;
             InitializeComponent();
-            effetMin = parent.self.getDateEffetMiniProd(prod);
-            finMin = parent.self.getDateFinMiniProd(prod);
             obs.Text = p.Observation;
             dates.Text = "Veuillez sélectionner une date d'effet anterieur au " + effetMin.Day+"/"+effetMin.Month+"/"+effetMin.Year + " et un date de fin supérieur au " + finMin.Day+"/"+finMin.Month+"/"+finMin.Year;
         }

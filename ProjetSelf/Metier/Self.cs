@@ -451,7 +451,8 @@ namespace Metier
         /// <returns></returns>
         private void chargeEntrees()
         {
-            foreach (AbsPlat p in menuDuJour.plats)
+            List<AbsPlat> plats = menuDuJour.getPlats();
+            foreach (AbsPlat p in plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Entree))
                 {
@@ -479,7 +480,8 @@ namespace Metier
         /// </summary>
         private void chargePlatsResistance()
         {
-            foreach (AbsPlat p in menuDuJour.plats)
+            List<AbsPlat> plats = menuDuJour.getPlats();
+            foreach (AbsPlat p in plats)
             {
                 if (p.Categorie.Equals(CategoriePlat.Plat))
                 {
@@ -494,7 +496,8 @@ namespace Metier
         private void chargeDesserts()
         {
             {
-                foreach (AbsPlat p in menuDuJour.plats)
+                List<AbsPlat> plats=menuDuJour.getPlats();
+                foreach (AbsPlat p in plats)
                 {
                     if (p.Categorie.Equals(CategoriePlat.Dessert))
                     {
@@ -515,91 +518,8 @@ namespace Metier
             //Modif BDD
         }
 
-        public DateTime getDateEffetMiniProd(AbsProduit p)
-        {
-            DateTime mini =DateTime.Today;
-
-            foreach(AbsPlat pl in plats)
-            {
-                if (pl.ingredients != null)
-                {
-                    foreach (AbsProduit pro in pl.ingredients)
-                    {
-                        if (p.Nom.Equals(pro.Nom))
-                        {
-                            DateTime dmp = getDateEffetMiniPlat(pl);
-                            if (mini.CompareTo(dmp) > 0)
-                            {
-                                mini = dmp;
-                            }
-                        }
-                    }
-                }          
-            }
-            return mini;
-        }
-
-        public DateTime getDateFinMiniProd(AbsProduit p)
-        {
-            DateTime mini = DateTime.Today;
-
-            foreach (AbsPlat pl in plats)
-            {
-                if (pl.ingredients != null)
-                {
-                    foreach (AbsProduit pro in pl.ingredients)
-                    {
-                        if (p.Nom.Equals(pro.Nom))
-                        {
-                            DateTime dmp = getDateEffetMiniPlat(pl);
-                            if (mini.CompareTo(dmp) < 0)
-                            {
-                                mini = dmp;
-                            }
-                        }
-                    }
-                }
-               
-            }
-            return mini;
-        }
 
 
-        public DateTime getDateEffetMiniPlat(AbsPlat plat)
-        {
-            DateTime date= DateTime.Today;
-            foreach(AbsMenu m in menus)
-            {
-                if (m.plats.Contains(plat))
-                {
-                    DateTime dmm = getDatePlusProcheMenu(m);
-                    if (date.CompareTo(dmm) > 0)
-                    {
-                        date = dmm;
-                    }
-
-                }
-            }
-            return date;
-        }
-
-        private DateTime getDateFinMiniPlat(AbsPlat plat)
-        {
-            DateTime date = DateTime.Today;
-            foreach (AbsMenu m in menus)
-            {
-                if (m.plats.Contains(plat))
-                {
-                    DateTime dmm = getDatePlusProcheMenu(m);
-                    if (date.CompareTo(dmm) < 0)
-                    {
-                        date = dmm;
-                    }
-
-                }
-            }
-            return date;
-        }
 
         /// <summary>
         /// Méthode qui permet d'obtenir la prochaine fois qu'un menu sera utlisé.
@@ -733,7 +653,10 @@ namespace Metier
 
             Plat p = new Plat { Nom = nom, DateEffet = effet, DateFin = fin, Tarif = tarif, Categorie = FindCategoriePlat(cate), };
             data.ajouterPlat(p, ingredients);
-            p.ingredients = ingredients;
+            foreach(AbsProduit pro in ingredients)
+            {
+                p.AddProduit(pro);
+            }
             plats.Add(p);
         }
 
@@ -750,7 +673,10 @@ namespace Metier
         {
             Menu m = new Menu { Nom = nom };
             data.ajouterMenu(m, lplats);
-            m.plats = lplats;
+            foreach(AbsPlat p in lplats)
+            {
+                m.AddPlats(p);
+            }
             menus.Add(m);
         }
 
@@ -1001,29 +927,7 @@ namespace Metier
             }
         }
 
-        public void chargeDatesEffetMenus()
-        {
-            
-            foreach (AbsMenu m in menus)
-            {
-
-                DateTime min = m.plats.First<AbsPlat>().DateEffet;
-                DateTime max = m.plats.First<AbsPlat>().DateFin;
-                foreach(AbsPlat p in m.plats)
-                {
-                    if (min.CompareTo(p.DateEffet) > 0)
-                    {
-                        min = p.DateEffet;
-                    }
-                    if (max.CompareTo(p.DateFin) < 0)
-                    {
-                        max = p.DateFin;
-                    }
-                }
-                m.effet = min;
-                m.fin = max;
-            }
-        }
+      
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
         {
