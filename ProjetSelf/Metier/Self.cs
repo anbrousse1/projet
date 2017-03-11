@@ -515,7 +515,7 @@ namespace Metier
         public void paiement()
         {
             client.payer(prixAPayer);
-            //Modif BDD
+            
         }
 
 
@@ -617,12 +617,28 @@ namespace Metier
         /// <returns></returns>
         public AbsProduit findProduitByName(String prod)
         {
-            return produits.Find(p => p.Nom.Equals(prod));
+            //return produits.Find(p => p.Nom.Equals(prod));
+            foreach (AbsProduit u in produits)
+            {
+                if (u.Nom.Equals(prod))
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         public AbsMenu findMenuByName(String menu)
         {
-            return menus.Find(m => m.Nom.Equals(menu));
+            //return menus.Find(m => m.Nom.Equals(menu));
+            foreach (AbsMenu u in menus)
+            {
+                if (u.Nom.Equals(menu))
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -632,7 +648,15 @@ namespace Metier
         /// <returns></returns>
         public AbsPlat FindPlat(String plat)
         {
-            return plats.Find(p => p.Nom.Equals(plat));
+            //return plats.Find(p => p.Nom.Equals(plat));
+            foreach (AbsPlat u in plats)
+            {
+                if (u.Nom.Equals(plat))
+                {
+                    return u;
+                }
+            }
+            return null;
         }
 
         //Permet à partir d'une liste de string d'obtenir une liste de plats
