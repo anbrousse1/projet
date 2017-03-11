@@ -11,23 +11,23 @@ namespace Metier
         public int ID { get; set; }
         public DateTime DateEntree { get; set; }
         public DateTime DateSortie { get; set; }
-        public String Titre { get; set; }
-        public String Nom { get; set; }
-        public String Prenom { get; set; }
+        public string Titre { get; set; }
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
         public int CodeFonction { get; set; }
-        public String Service { get; set; }
+        public string Service { get; set; }
         public int CodePaiement { get; set; }
         public AbsPaiement algoDePaiement;
         public double Solde { get; set; }
         
-        /*private List<AbsRepas> historiquePlatChoisi = new List<AbsRepas>();
+        /*private List<AbsRepas> histoRepas = new List<AbsRepas>();
         public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> histoRepasROC
         { 
             get;
             private set;
         }*/
         public int NumCarte { get; set; }
-        public String Fonction { get; set; }
+        public string Fonction { get; set; }
 
         public override string ToString()
         {
@@ -51,7 +51,7 @@ namespace Metier
         /// </summary>
         internal void AddPlatChoisis(AbsPlat p)
         {
-            foreach (AbsRepas r in historiquePlatChoisi)
+            foreach (AbsRepas r in histoRepas)
             {
                 if (r.Date.Equals(DateTime.Today))
                 {
@@ -61,12 +61,12 @@ namespace Metier
             }
             AbsRepas re = new Repas();
             re.AddPlat(p);
-            historiquePlatChoisi.Add(re);
+            histoRepas.Add(re);
         }
 
         internal void lierList()
         {
-            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(historiquePlatChoisi);
+            histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(histoRepas);
         }*/
     }
 }
