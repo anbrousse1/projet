@@ -13,7 +13,7 @@ namespace Metier
         public DateTime effet= new DateTime();
         public DateTime fin= new DateTime();
         public List<DateTime> dates = new List<DateTime>();
-        public List<AbsPlat> plats = new List<AbsPlat>();
+        private List<AbsPlat> plats = new List<AbsPlat>();
 
         public override string ToString()
         {
@@ -43,6 +43,26 @@ namespace Metier
         internal void AddListDate(List<DateTime> d)
         {
             dates.AddRange(d);
+        }
+
+
+        internal void AddPlats(AbsPlat p)
+        {
+            if (plats.Count == 0)
+            {
+                effet = p.DateEffet;
+                fin = p.DateFin;
+            }else
+            {
+                if (effet.CompareTo(p.DateEffet) > 0) { effet = p.DateEffet; }
+                if (fin.CompareTo(p.DateFin) < 0) { fin = p.DateFin; }
+            }
+            plats.Add(p);
+        }
+
+        internal List<AbsPlat> getPlats()
+        {
+            return plats;
         }
     }
 }

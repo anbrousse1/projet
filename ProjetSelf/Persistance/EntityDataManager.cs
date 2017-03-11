@@ -83,7 +83,7 @@ namespace Persistance
                             {
                                 if (v.ID == b.idproduit)
                                 {
-                                    t.ingredients.Add(v);
+                                    t.AddProduit(v);
                                 }
                             }
                         }
@@ -142,7 +142,7 @@ namespace Persistance
                             {
                                 if (v.ID == b.idplat)
                                 {
-                                    t.plats.Add(v);
+                                    t.AddPlats(v);
                                     //t.dates.Add(v.DateEffet);
                                 }
                             }

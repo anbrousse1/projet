@@ -25,7 +25,6 @@ namespace Vue
         public GererMenu(MainWindow m)
         {
             parent = m;
-            parent.self.chargeDatesEffetMenus();
             parent.self.chargeDateDispo();
             DataContext = parent.self;
             InitializeComponent();
