@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
     <DockPanel>
-        <Button DockPanel.Dock="Top" Content="Déconnexion" MinHeight="75" MinWidth="200"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"></Button>
+        <Button DockPanel.Dock="Top" Content="Déconnexion" MinHeight="75" MinWidth="200"  HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Click="ClickDeconnexion" ></Button>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -19,10 +19,10 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Click="ClickCaisse" Content="Caisse" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" FontSize="35"></Button>
-            <Button Click="ClickStats" Content="Statistique" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Column="1" FontSize="35"></Button>
+            <Button Name="stat" Click="ClickStats" Content="Statistique" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Column="1" FontSize="35"></Button>
             <Button Click="ClickGestionMenu"  Content="Gestion des Menus" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" Grid.Column="2" FontSize="35"></Button>
             <Button Click="ClickGestionProduit" Content="Gestion des Produits" Foreground="Black" Background="LightSkyBlue"  Margin="50 50 50 50" FontWeight="Bold" Grid.Row="1" FontSize="35"></Button>
-            <Button Click="ClickGestionUtilisateur" Content="Gestion des Utilisateurs" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1"></Button>
+            <Button Name="user" Click="ClickGestionUtilisateur" Content="Gestion des Utilisateurs" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1"></Button>
             <Button Click="ClickGestionPlat" Content="Gestion des Plats" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="2"></Button>
         </Grid>
     </DockPanel>

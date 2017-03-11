@@ -26,6 +26,12 @@ namespace Vue
         {
             InitializeComponent();
             parent = m;
+
+            if(parent.self.DroitUtilisateur == 3)
+            {
+                stat.Visibility = Visibility.Hidden;
+                user.Visibility = Visibility.Hidden;
+            }
         }
 
         private void ClickGestionPlat(object sender, RoutedEventArgs e)
@@ -58,5 +64,12 @@ namespace Vue
         {
             parent.setUC(new Stats(parent));
         }
+
+        private void ClickDeconnexion(object sender, RoutedEventArgs e)
+        {
+            parent.self.deconnexion();
+            parent.setUC(new Connexion(parent));
+        }
+
     }
 }

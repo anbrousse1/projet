@@ -78,7 +78,7 @@ namespace Vue
 
         private void ClickDeconnexion(object sender, RoutedEventArgs e)
         {
-            //parent.self.deconnexion();
+            parent.self.deconnexion();
             parent.setUC(new Connexion(parent));
         }
 

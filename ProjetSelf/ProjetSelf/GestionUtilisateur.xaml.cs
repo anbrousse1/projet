@@ -38,10 +38,6 @@ namespace Vue
             parent.setUC(new AjouterUtilisateur(parent));
         }
 
-        private void clickModifier(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void clickVisualiser(object sender, RoutedEventArgs e)
         {

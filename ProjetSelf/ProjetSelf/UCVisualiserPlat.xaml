@@ -8,13 +8,19 @@
              d:DesignHeight="300" d:DesignWidth="300" 
              x:Name="root">
     <Grid>
-        <WrapPanel>
-            <Label Content="{Binding NomPlat, ElementName=root}" Style="{StaticResource labelStyle}"/>
-            <Label Content="{Binding DateEffet, ElementName=root}" Style="{StaticResource labelStyle}"/>
-            <Label Content="{Binding DateFin, ElementName=root}" Style="{StaticResource labelStyle}"/>
-            <Label Content="{Binding Tarif, ElementName=root}" Style="{StaticResource labelStyle}"/>
-            <Button Content="X" Foreground="Red" Width="25" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Click="supprimer" />
-            <Button Content="Modifier" Foreground="Orange" Width="50" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,25,0" Click="modifier" />
-        </WrapPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="75"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="{Binding NomPlat, ElementName=root}" Style="{StaticResource labelStyle}" Grid.Column="0"/>
+        <Label Content="{Binding DateEffet, ElementName=root}" Style="{StaticResource labelStyle}" Grid.Column="1"/>
+        <Label Content="{Binding DateFin, ElementName=root}" Style="{StaticResource labelStyle}" Grid.Column="2"/>
+        <Label Content="{Binding Tarif, ElementName=root}" Style="{StaticResource labelStyle}" Grid.Column="3"/>
+        <Button Content="X" Foreground="Red" Width="25" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Click="supprimer" />
+        <Button Content="Modifier" Foreground="Orange" Width="50" Height="25"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="5" Click="modifier" />
     </Grid>
 </UserControl>

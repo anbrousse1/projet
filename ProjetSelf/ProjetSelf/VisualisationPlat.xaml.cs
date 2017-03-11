@@ -39,14 +39,14 @@ namespace Vue
             AbsPlat m = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
             if (e.Num == 0)
             {
-                // appelle de supprimer menu
+                // Verifier si on peut supprimer ou supprimer des menu où il est.
                 parent.self.supprimerPlat(m);
                 liste.Items.Refresh();
             }
             else
             {
                 //Vue modifier menu 
-                // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
+                //parent.setUC(new ModifierDatePlatEtProduit(parent, m));
             }
         }
     }

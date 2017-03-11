@@ -31,7 +31,7 @@ namespace Vue
         private void valider_Click(object sender, RoutedEventArgs e)
         {
 
-            if( dateEntree.SelectedDate==null || fonction.SelectedItem == null || prenom.Text.Equals("") || nom.Text.Equals("") || titre.SelectedItem==null )
+            if( dateEntree.SelectedDate==null || fonction.SelectedItem == null || prenom.Text.Equals("") || nom.Text.Equals("") || titre.SelectedItem==null ||paiement.SelectedItem==null )
             {
                 MessageBox.Show("Vous devez remplir tous les champs");
                 return;
@@ -49,12 +49,12 @@ namespace Vue
                     MessageBox.Show("La date de fin doit etre supérieur à la date de début");
                     return;
                 }
-                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, (DateTime)dateFin.SelectedDate);
+                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, (DateTime)dateFin.SelectedDate, getCodePaiement());
                 parent.setUC(new DefinitionMdpLog(parent));
                 return;
             }else
             {
-                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, new DateTime(9999,12,31));
+                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, new DateTime(9999,12,31), getCodePaiement());
                 parent.setUC(new DefinitionMdpLog(parent));
             }
             
@@ -74,6 +74,9 @@ namespace Vue
 
             titre.Items.Add("Monsieur");
             titre.Items.Add("Madame");
+
+            paiement.Items.Add("Retenue Salaire");
+            paiement.Items.Add("Pré Alimenté");
         }
 
         private int getCodeFonction(string fonction)
@@ -89,5 +92,16 @@ namespace Vue
             return 003;
         }
 
+
+        private int getCodePaiement()
+        {
+            if(paiement.SelectedItem.Equals("Retenue Salaire"))
+            {
+                return 0;
+            }else
+            {
+                return 1;
+            }
+        }
     }
 }

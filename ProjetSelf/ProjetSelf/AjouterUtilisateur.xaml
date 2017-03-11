@@ -26,26 +26,26 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Ajouter un utilisateur" Grid.RowSpan="2" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50" Style="{StaticResource TextBlockStyle}" />
 
-        <TextBlock Text="Matricule :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="2" Style="{StaticResource TextBlockStyle}" />
-        <TextBox x:Name="matricule" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30" Grid.Row="2" Margin="15,0,0,0"/>
+        <TextBlock Text="Nom :" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+        <TextBox x:Name="nom" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0"/>
 
-        <TextBlock Text="Nom :" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-        <TextBox x:Name="nom" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0"/>
+        <TextBlock Text="Prénom :" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+        <TextBox x:Name="prenom" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="130" Height="30" Margin="15,0,0,0"/>
 
-        <TextBlock Text="Prénom :" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-        <TextBox x:Name="prenom" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="130" Height="30" Margin="15,0,0,0"/>
+        <TextBlock Text="Titre :" Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+        <ComboBox x:Name="titre" Grid.Column="1" Grid.Row="4"  VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="130"  Margin="15,0,0,0"/>
 
-        <TextBlock Text="Titre :" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-        <ComboBox x:Name="titre" Grid.Column="1" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Left" MinWidth="130"  Margin="15,0,0,0"/>
+        <TextBlock Text="Fonction :" Grid.Column="0" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+        <ComboBox x:Name="fonction" Grid.Column="1" Grid.Row="5"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0" />
 
-        <TextBlock Text="Fonction :" Grid.Column="0" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-        <ComboBox x:Name="fonction" Grid.Column="1" Grid.Row="7"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="130" Height="30" Margin="15,0,0,0" />
+        <TextBlock Text="Date Entrée :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="6" Style="{StaticResource TextBlockStyle}"/>
+        <DatePicker x:Name="dateEntree"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Center"/>
 
-        <TextBlock Text="Date Entrée :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="8" Style="{StaticResource TextBlockStyle}"/>
-        <DatePicker x:Name="dateEntree"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Center"/>
+        <TextBlock Text="Date Fin :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="7" Style="{StaticResource TextBlockStyle}"/>
+        <DatePicker x:Name="dateFin" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"/>
 
-        <TextBlock Text="Date Fin :" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="30" Grid.Row="9" Style="{StaticResource TextBlockStyle}"/>
-        <DatePicker x:Name="dateFin" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Center"/>
+        <TextBlock Text="Moyen de Paiement :" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+        <ComboBox x:Name="paiement" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" />
 
         <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Right" Grid.Row="10" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Click="valider_Click"/>
         <Button x:Name="Annuler" Style="{StaticResource boutonAnnulerUC}" Content="ANNULER" HorizontalAlignment="Left" Grid.Row="10" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top" Click="annuler_Click"/>

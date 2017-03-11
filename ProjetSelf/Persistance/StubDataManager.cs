@@ -161,7 +161,7 @@ namespace Persistance
             List<AbsUtilisateur> u = new List<AbsUtilisateur>();
             u.Add(new Utilisateur { ID = 001, Login = "caisse", Password = "admin" });
             u.Add(new Utilisateur { ID = 002, Login = "gerant", Password = "admin" });
-            u.Add(new Utilisateur { ID = 001, Login = "cuisine", Password = "admin" });
+            u.Add(new Utilisateur { ID = 003, Login = "cuisine", Password = "admin" });
             return u;
         }
     }

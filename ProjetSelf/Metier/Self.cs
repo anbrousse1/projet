@@ -909,9 +909,9 @@ namespace Metier
 
       
 
-        public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin) 
+        public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
         {
-            usager.Add(new Usager { Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
+            usager.Add(new Usager { CodePaiement=code , Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
         }
 
         public void addUtilisateur(string mdp, string login, int id )

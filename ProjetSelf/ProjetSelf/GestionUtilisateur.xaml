@@ -10,7 +10,6 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -21,14 +20,12 @@
         <Button Grid.Column="0" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" Click="clickAjouter">
             <TextBlock Text="Ajouter/Supprimer Utilisateur" TextWrapping="Wrap" TextAlignment="Center" />
         </Button>
-        <Button Grid.Column="1" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" Click="clickModifier">
-            <TextBlock Text="Modifier Utilisateur" TextWrapping="Wrap" TextAlignment="Center"/>
-        </Button>
+
         <Button Grid.Column="2" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" Click="clickVisualiser">
             <TextBlock Text="Visualiser Utilisateurs" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
 
-        <Button Click="ClickRetour" Grid.Column="1" Grid.Row="2" Content="Retour"  Style="{StaticResource boutonAnnulerUC}"/>
+        <Button Click="ClickRetour"  Grid.ColumnSpan="2"  Grid.Row="2" Content="Retour"  Style="{StaticResource boutonAnnulerUC}"/>
 
     </Grid>
 </UserControl>
