@@ -29,8 +29,6 @@ namespace Vue
 
         private void clickOK(object sender, RoutedEventArgs e)
         {
-           
-
             if (parent.self.findUsager(numero.Text))
             {
                 parent.setUC(new Caisse(parent));

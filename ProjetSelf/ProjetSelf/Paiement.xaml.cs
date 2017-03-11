@@ -39,7 +39,7 @@ namespace Vue
         {
             //Enregistrer le ticket. 
             EcrireTicketFichier.ecrireTicket(parent.self.client,parent.self.platsChoisisROC,parent.self.prixAPayer,DateTime.Now);
-            parent.self.finPassage();
+            parent.self.finPassage();            
             parent.setUC(new Caisse(parent));
         }
     }
