@@ -40,6 +40,7 @@ namespace Vue
             parent.self.chargeEntrPlatDes();
             DataContext = parent.self;
             InitializeComponent();
+            list.DataContext = this;
 
         }
 
@@ -60,10 +61,7 @@ namespace Vue
                     }
                     else
                     {
-                        platsMenu.Add(p);
-                        nbPlat++;
-                        plats.Children.Clear();
-                        plats.Children.Add(new SimpleListePlat(this));
+                        AjouterALaListe(p);
                     }
                 }
             }else
@@ -90,10 +88,7 @@ namespace Vue
                     }
                     else
                     {
-                        platsMenu.Add(p);
-                        nbEntree++;
-                        plats.Children.Clear();
-                        plats.Children.Add(new SimpleListePlat(this));
+                        AjouterALaListe(p);
                     }
                 }
 
@@ -121,10 +116,7 @@ namespace Vue
                     }
                     else
                     {
-                        platsMenu.Add(p);
-                        nbDessert++;
-                        plats.Children.Clear();
-                        plats.Children.Add(new SimpleListePlat(this));
+                        AjouterALaListe(p);
                     }
                 }
             }
@@ -137,8 +129,7 @@ namespace Vue
         public void supprimerPlat(Plat p)
         {
             platsMenu.Remove(p);
-            plats.Children.Clear();
-            plats.Children.Add(new SimpleListePlat(this));
+            list.Items.Refresh();
         }
 
         private void ajouterMenuClick(object sender, RoutedEventArgs e)
@@ -157,6 +148,51 @@ namespace Vue
                 
             }
         }
+
+        private void Importer_Click(object sender, RoutedEventArgs e)
+        {
+            AbsMenu m = (AbsMenu)menu.SelectedItem;
+            if (m == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un menu");
+                return;
+            }
+            List<AbsPlat> plats = m.getPlats();
+            foreach(AbsPlat p in plats)
+            {
+                AjouterALaListe(p);
+            }
+        }
+
+
+
+        private void AjouterALaListe(AbsPlat p)
+        {
+            switch (p.Categorie)
+            {
+
+                case CategoriePlat.Plat:
+                    platsMenu.Add(p);
+                    nbPlat++;
+                    break;
+                case CategoriePlat.Dessert:
+                    platsMenu.Add(p);
+                    nbDessert++;
+                    break;
+                default:
+                    platsMenu.Add(p);
+                    nbEntree++;
+                    break;
+            }
+            list.Items.Refresh();
+        }
+
+        private void ListView_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            Plat p = (Plat)((ListView)sender).SelectedItem;
+            supprimerPlat(p);
+        }
+
     }
 
 

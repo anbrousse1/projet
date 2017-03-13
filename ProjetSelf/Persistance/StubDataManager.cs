@@ -150,7 +150,7 @@ namespace Persistance
             List <AbsUsager>u = new List<AbsUsager>();
             u.Add(new Usager {Nom="Beber", Prenom="Bob", CodeFonction=001, DateEntree=DateTime.Today.AddDays(-2), DateSortie =DateTime.Today.AddMonths(6), Titre="Mr", ID=001, Service="Restaurant", Solde=40, CodePaiement=1, Fonction="Caissier" , NumCarte=1});
             u.Add(new Usager { Nom = "Leponge", Prenom = "Bob", CodeFonction = 002, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 002, Service = "Restaurant", CodePaiement=0, Solde = 0, Fonction = "Caissier", NumCarte = 2 });
-            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", NumCarte = 3, CodePaiement=1 });
+            u.Add(new Usager { Nom = "LeBricoleur", Prenom = "Bob", CodeFonction = 003, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(-1), Titre = "Mr", ID = 003, Service = "Restaurant", Solde = 40, Fonction = "Caissier", NumCarte = 3, CodePaiement=1 });
             u.Add(new Usager { Nom = "Mickey", Prenom = "Mouse", CodeFonction = 004, DateEntree = DateTime.Today.AddDays(-2), DateSortie = DateTime.Today.AddMonths(6), Titre = "Mr", ID = 004, Service = "RH", Solde = 50, CodePaiement = 1, Fonction = "Directeur", NumCarte = 4 });
 
             return u;

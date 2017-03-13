@@ -40,12 +40,12 @@
 
         <Style x:Key="labelStyle" TargetType="{x:Type Label}">
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Foreground" Value="DeepSkyBlue"/>
+            <Setter Property="Foreground" Value="Black"/>
         </Style>
 
         <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Foreground" Value="DeepSkyBlue"/>
+            <Setter Property="Foreground" Value="Black"/>
         </Style>
 
     </Application.Resources>

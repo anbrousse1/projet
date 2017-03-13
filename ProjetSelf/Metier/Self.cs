@@ -399,10 +399,9 @@ namespace Metier
                 {
                     foreach(AbsUsager usa in usager)
                     {
-                        if (usa.ID == u.ID)
+                        if (usa.ID == u.ID && usa.DateSortie.CompareTo(DateTime.Today)>0)
                         {
                             DroitUtilisateur =usa.CodeFonction;
-                            Console.WriteLine(DroitUtilisateur);
                             return true;
                         }
                     }

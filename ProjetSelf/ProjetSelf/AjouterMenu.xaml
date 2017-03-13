@@ -17,60 +17,73 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
+        
 
         <WrapPanel Grid.Row="0" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Veuillez entrer un Nom pour votre menu :" Style="{StaticResource labelStyle}"/>
+            <Label FontWeight="Bold"  Content="Veuillez entrer un Nom pour votre menu :" Style="{StaticResource labelStyle}"/>
             <TextBox Name="nomM" MinWidth="250"/>
         </WrapPanel>
 
-        <Label Content="Sélectionner des entrées :" Grid.RowSpan="2" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Style="{StaticResource labelStyle}"/>
-        <Label Content="Sélectionner des plats :" Grid.RowSpan="2" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Style="{StaticResource labelStyle}"/>
-        <Label Content="Sélectionner des desserts :" Grid.RowSpan="2" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Style="{StaticResource labelStyle}"/>
 
-        <ComboBox Name="entree" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" ItemsSource="{Binding allEntreesROC}" VerticalAlignment="Center" MinWidth="100">
+        <ComboBox Name="menu" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" ItemsSource="{Binding menusROC}" VerticalAlignment="Center" MinWidth="100">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"  FontWeight="Bold" />
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Name="plat" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" ItemsSource="{Binding allPlatsResROC}" VerticalAlignment="Center" MinWidth="100">
+        <Button Content="Importer" Grid.Column="2" Grid.Row="1" MaxWidth="75" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Importer_Click"/>
+
+        <Label Content="Sélectionner des entrées :" Grid.RowSpan="2" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Style="{StaticResource labelStyle}"/>
+        <Label Content="Sélectionner des plats :" Grid.RowSpan="2" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"  FontWeight="Bold"  Style="{StaticResource labelStyle}"/>
+        <Label Content="Sélectionner des desserts :" Grid.RowSpan="2" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"  FontWeight="Bold"  Style="{StaticResource labelStyle}"/>
+
+        <ComboBox Name="entree" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" ItemsSource="{Binding allEntreesROC}" VerticalAlignment="Center" MinWidth="100">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"  FontWeight="Bold" />
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Name="dessert" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" ItemsSource="{Binding allDessertsROC}" VerticalAlignment="Center" MinWidth="100">
+        <ComboBox Name="plat" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" ItemsSource="{Binding allPlatsResROC}" VerticalAlignment="Center" MinWidth="100">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"  FontWeight="Bold" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Name="dessert" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" ItemsSource="{Binding allDessertsROC}" VerticalAlignment="Center" MinWidth="100">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                        <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"  FontWeight="Bold" />
                     </WrapPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <Button Content="Ajouter" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterEntreeClick"/>
-        <Button Content="Ajouter" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterPlatClick"/>
-        <Button Content="Ajouter" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterDessertClick" />
+        <Button Content="Ajouter" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterEntreeClick"/>
+        <Button Content="Ajouter" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterPlatClick"/>
+        <Button Content="Ajouter" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterDessertClick" />
 
-        <Button Content="retour" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
-        <StackPanel Grid.Column="2" Grid.RowSpan="6" Grid.Row="1">
-            <Label Content="Liste des plats ajoutés au Menu, cliquer sur un plat pour le supprimer" Style="{StaticResource labelStyle}"/>
-            <Grid Name="plats"/>
-        </StackPanel>
-        
-
-
-
-        <Button Content="Valider" Style="{StaticResource boutonValiderUC}" Grid.Column="2" Grid.Row="7" Click="ajouterMenuClick"/>
+        <Button Content="retour" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"/>
+        <Label Grid.Column="2" Grid.Row="2" Content="Liste des plats ajoutés au Menu, cliquer sur un plat pour le supprimer" Style="{StaticResource labelStyle}"  FontWeight="Bold" />
+        <ListView Name="list" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_Selected" Grid.Column="2" Grid.Row="3" Grid.RowSpan="5" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+         <Button Content="Valider" Style="{StaticResource boutonValiderUC}" Grid.Column="2" Grid.Row="8" Click="ajouterMenuClick"/>
 
     </Grid>
 </UserControl>

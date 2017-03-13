@@ -60,7 +60,7 @@ namespace Metier
             plats.Add(p);
         }
 
-        internal List<AbsPlat> getPlats()
+        public List<AbsPlat> getPlats()
         {
             return plats;
         }
