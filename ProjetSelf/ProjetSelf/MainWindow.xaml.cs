@@ -19,6 +19,7 @@ namespace Vue
 
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+            //background.Source = new BitmapImage(new Uri("Images/background.jpg", UriKind.Relative));
             try
             {
                 self = new Self(new StubDataManager());

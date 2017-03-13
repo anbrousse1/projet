@@ -35,7 +35,7 @@ namespace Vue
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-
+            parent.setUC(new GestionMenu(parent));
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
