@@ -29,7 +29,7 @@ namespace Vue
             DataContext = parent.self;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Retour_Click(object sender, RoutedEventArgs e)
         {
             parent.setUC(new GestionPlat(parent));
         }
