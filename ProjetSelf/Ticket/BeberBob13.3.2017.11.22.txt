@@ -1,0 +1,9 @@
+ EasySelf
+caissier : Beber Bob
+Beber Bob
+
+-----------------------
+ Produits 1 : steack quantité : 1 prix : 8,5
+ Produits 2 : frites quantité : 1 prix : 3
+
+Total : 11,5

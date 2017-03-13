@@ -37,7 +37,7 @@ namespace Test
             lpc.Add(pc2);
             lpc.Add(pc3);
             lpc.Add(pc4);
-            bdd.ajouterRepas(new Repas { Date = DateTime.Today, idUsager = 1, Prix = 15},lpc);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 15},lpc);
 
             foreach (var r in self.getAllRepas())
             {

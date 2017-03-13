@@ -27,7 +27,7 @@ namespace Vue
             parent = m;
             //parent.self.chargeListRepas();
             InitializeComponent();
-            DataContext = parent.self.client;
+            DataContext = parent.self;
             
         }
 

@@ -209,6 +209,7 @@ namespace Metier
         private DateTime dateDuJour = DateTime.Today;
         public int DroitUtilisateur { get; private set; }
         public AbsUsager client;
+        public AbsUsager caissier;
         public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
@@ -278,15 +279,41 @@ namespace Metier
         {
             foreach (AbsRepas r in histoRepas)
             {
-                if (r.Date.Equals(DateTime.Today))
+                if (r.Date.Date.CompareTo(DateTime.Now.Date)==0 && r.Date.Minute.CompareTo(DateTime.Now.Minute)==0 && r.Date.Second.CompareTo(DateTime.Now.Second) == 0)
                 {
                     r.AddPlat(p);
                     return;
                 }
             }
             AbsRepas re = new Repas();
+            re.IdUsager = client.ID;
+            re.IdCaissier = caissier.ID;
+            re.Date = DateTime.Now;
             re.AddPlat(p);
             histoRepas.Add(re);
+        }
+
+        public void chargePlatRepas(AbsRepas r)
+        {
+            platsChoisis.Clear();
+            
+            foreach(AbsPlatChoisis p in r.plats)
+            {
+                foreach(AbsPlat pl in plats)
+                {
+                    if(pl.ID == p.CodePlat)
+                    {
+                        if (platsChoisis.ContainsKey(pl))
+                        {
+                            platsChoisis[pl] += 1;
+                        }else
+                        {
+                            platsChoisis.Add(pl, 1);
+                        }
+
+                    }
+                }
+            }
         }
 
         /*public void lierList()
@@ -402,6 +429,7 @@ namespace Metier
                         if (usa.ID == u.ID && usa.DateSortie.CompareTo(DateTime.Today)>0)
                         {
                             DroitUtilisateur =usa.CodeFonction;
+                            caissier = usa;
                             return true;
                         }
                     }
@@ -513,7 +541,7 @@ namespace Metier
         /// </summary>
         public void paiement()
         {
-            client.payer(prixAPayer);
+          client.payer(prixAPayer);
             
         }
 
@@ -963,7 +991,8 @@ namespace Metier
         }
 
         public void finPassage()
-        { 
+        {
+            paiement();
             foreach(KeyValuePair<AbsPlat,int> kvp in platsChoisis)
             {
                 for(int i = 1; i <= kvp.Value; i++)
@@ -976,18 +1005,7 @@ namespace Metier
             platsChoisis.Clear();
         }
 
-        public void enregistrementRepas()
-        {
-            AbsRepas r = new Repas { idUsager = client.ID, Date = DateTime.Today, Prix = prixAPayer};
-
-
-        }
-
-        /*public void chargeListRepas()
-        {
-            client.lierList();
-        }*/
-
+      
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {
             platsChoisis.Clear();

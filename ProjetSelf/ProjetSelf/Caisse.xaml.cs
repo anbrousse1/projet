@@ -84,7 +84,6 @@ namespace Vue
 
         private void ClickPaiement(object sender, RoutedEventArgs e)
         {
-            parent.self.paiement();
             parent.setUC(new Paiement(parent));
 
         }
