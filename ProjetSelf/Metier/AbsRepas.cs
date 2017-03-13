@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    public class AbsRepas
+    public abstract class AbsRepas
     {
         public int ID { get; set; }
         public List<AbsPlatChoisis> plats = new List<AbsPlatChoisis>();
@@ -31,6 +31,7 @@ namespace Metier
             {
                 s += v.CodePlat + " ";
             }
+            s += "N° Caissier " + IdCaissier;
             s += ".";
             return s;
         }

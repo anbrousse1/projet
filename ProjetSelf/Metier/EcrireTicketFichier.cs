@@ -32,6 +32,26 @@ namespace Metier
 
         }
         //Faire une methode pour modifier le ticket avec une version 2 
+        public static void modifTicket(AbsUsager u, AbsUsager c, System.Collections.ObjectModel.ReadOnlyDictionary<AbsPlat, int> lp, double total, DateTime d)
+        {
+            int i = 1;
+            string identite = u.Nom + " " + u.Prenom + "\n";
+            string date = d.Day.ToString() + "." + d.Month.ToString() + "." + d.Year.ToString() + "." + d.Hour + "." + d.Minute;
+            string info = "";
+            string appli = "EasySelf";
+            string caissier = "caissier : " + c.Nom + " " + c.Prenom;
+            foreach (KeyValuePair<AbsPlat, int> r in lp)
+            {
+                info = info + " Produits " + i + " : " + r.Key.Nom + " quantité : " + r.Value + " prix : " + r.Key.Tarif * r.Value + "\n";
+                i++;
+            }
+
+            string tot = "Total : " + total.ToString();
+            string[] text = { appli, caissier, identite, "-----------------------", info, tot };
+
+            System.IO.File.WriteAllLines("../../../Ticket/" + u.Nom + u.Prenom + date + "V2.txt", text);
+
+        }
 
 
     }

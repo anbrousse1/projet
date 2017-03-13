@@ -36,6 +36,22 @@ namespace Vue
             }
             
         }
+        public Recapitulatif(MainWindow m, Boolean c,double prix,AbsUsager u)
+        {
+            parent = m;
+            caisse = c;
+            InitializeComponent();
+            DataContext = parent.self;
+            parent.self.client = u;
+            u.Solde = u.Solde + prix;
+            parent.self.prixAPayer = prix;
+            prixRepas.Text = parent.self.prixAPayer.ToString() + "€";
+            if (parent.self.client != null)
+            {
+                setTextSoldeTot();
+            }
+
+        }
 
         private void UserControl1_Clicked(object sender, PlatCEventArgs e)
         {
@@ -72,7 +88,6 @@ namespace Vue
         public void Incrementer(AbsPlat p)
         {
             parent.self.AugmenterQuantitePlat(p);
-            //refresh le recap
         }
 
         /// <summary>
@@ -103,7 +118,7 @@ namespace Vue
                 }
                 else
                 {
-                    soldeClient.Text = (parent.self.prixAPayer) + "€";
+                    soldeClient.Text = (parent.self.client.Solde) + "€";
                 }
 
             }
@@ -115,7 +130,7 @@ namespace Vue
                 }
                 else
                 {
-                    soldeClient.Text = (parent.self.prixAPayer) + "€";
+                    soldeClient.Text = (parent.self.client.Solde) + "€";
                 }
             }
         }

@@ -26,7 +26,7 @@ namespace Vue
         {
             parent = m;
             InitializeComponent();
-            mgrid.Children.Add(new Recapitulatif(parent,false));
+            mgrid.Children.Add(new Recapitulatif(parent,true));
         }
 
         public void ClickContinuer(object sender, RoutedEventArgs e)

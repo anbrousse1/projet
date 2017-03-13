@@ -542,7 +542,7 @@ namespace Metier
         /// </summary>
         public void paiement()
         {
-            client.payer(prixAPayer);
+          client.payer(prixAPayer);
             
         }
 
@@ -992,7 +992,8 @@ namespace Metier
         }
 
         public void finPassage()
-        { 
+        {
+            paiement();
             foreach(KeyValuePair<AbsPlat,int> kvp in platsChoisis)
             {
                 for(int i = 1; i <= kvp.Value; i++)
