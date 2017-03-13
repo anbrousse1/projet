@@ -30,6 +30,7 @@ namespace Vue
             repas = r;
             client = c;
             //Charger liste plats dans Plats choisis ROC
+            parent.self.chargePlatRepas(repas);
             InitializeComponent();
             mgrid.Children.Add(new Recapitulatif(parent, false));
         }
@@ -42,7 +43,8 @@ namespace Vue
         private void confirmer(object sender, RoutedEventArgs e)
         {
             //Changer la date a ajouter ...
-            EcrireTicketFichier.ecrireTicket(client, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
+            EcrireTicketFichier.ecrireTicket(client,parent.self.caissier, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
+            parent.setUC(new Caisse(parent));
         }
     }
 }

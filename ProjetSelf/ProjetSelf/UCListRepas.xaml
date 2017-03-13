@@ -18,8 +18,23 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                        <TextBlock Text="{Binding Date.Date}" Style="{StaticResource TextBlockStyle}" />
-                        
+                        <TextBlock Text="{Binding Date.Day}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="/" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding Date.Month}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="/" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding Date.Year}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text=" " Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding Date.Hour}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text=":" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding Date.Minute}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text=":" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text="{Binding Date.Second}" Style="{StaticResource TextBlockStyle}" />
+                        <TextBlock Text=" " Style="{StaticResource TextBlockStyle}" />
+
+
+
+
+
                         <TextBlock Text="{Binding Prix}" Style="{StaticResource TextBlockStyle}" />
                         <TextBlock Text="€" Style="{StaticResource TextBlockStyle}" />
                     </WrapPanel>
