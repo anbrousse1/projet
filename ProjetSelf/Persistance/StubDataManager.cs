@@ -9,6 +9,11 @@ namespace Persistance
 {
     public class StubDataManager : IDataManager
     {
+        public void addDateToMenu(AbsMenu m, DateTime d)
+        {
+            return;
+        }
+
         public void ajouterMenu(Menu p, List<AbsPlat> lp)
         {
             return;

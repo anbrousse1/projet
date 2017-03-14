@@ -28,10 +28,6 @@ namespace Test
             PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today };
             PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today };
             PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today };
-            bdd.ajouterPlatsChoisis(pc1);
-            bdd.ajouterPlatsChoisis(pc2);
-            bdd.ajouterPlatsChoisis(pc3);
-            bdd.ajouterPlatsChoisis(pc4);
             List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
             lpc.Add(pc1);
             lpc.Add(pc2);

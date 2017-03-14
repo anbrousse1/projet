@@ -69,6 +69,7 @@
     <Compile Include="BackupFile.cs" />
     <Compile Include="EntityDataManager.cs" />
     <Compile Include="EntityMenu.cs" />
+    <Compile Include="EntityMenuDates.cs" />
     <Compile Include="EntityMenuPlat.cs" />
     <Compile Include="EntityPlat.cs" />
     <Compile Include="EntityPlatChoisis.cs" />
