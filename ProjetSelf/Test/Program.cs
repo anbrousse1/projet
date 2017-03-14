@@ -39,7 +39,7 @@ namespace Test
             lpc.Add(pc4);
             bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 15},lpc);
 
-            foreach (var r in self.getAllRepas())
+            foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
             {
                 WriteLine(r.ToString());
             }

@@ -774,31 +774,41 @@ namespace Metier
         //Permet de modifier le prix d'un plat
         private void SetPrixPlat(String plat, double nouveauTarif)
         {
-            FindPlat(plat).changerTarif(nouveauTarif);
+            AbsPlat p = FindPlat(plat);
+            p.changerTarif(nouveauTarif);
+            data.setPrixPlat(p, nouveauTarif);
         }
 
         //methode pour modifier la date d'effet d'un plat
         private void setDateEffetPlat(String plat, DateTime newDateEffet)
         {
-            FindPlat(plat).ChangerDateEffet(newDateEffet);
+            AbsPlat p = FindPlat(plat);
+            p.ChangerDateEffet(newDateEffet);
+            data.setDateEffetPlat(p, newDateEffet);
         }
 
         //methode pour modifier la date de fin d'un plat
         private void setDateFinPlat(String plat, DateTime newDateFin)
         {
-            FindPlat(plat).ChangerDateFin(newDateFin);
+            AbsPlat p = FindPlat(plat);
+            p.ChangerDateFin(newDateFin);
+            data.setDateFinPlat(p, newDateFin);
         }
 
         //methode pour modifier la date d'effet d'un produit 
         private void setDateEffetProduit(String produit, DateTime newDateEffet)
         {
-            findProduitByName(produit).ChangerDateEffet(newDateEffet);
+            AbsProduit p = findProduitByName(produit);
+            p.ChangerDateEffet(newDateEffet);
+            data.setDateEffetProduit(p, newDateEffet);
         }
 
         //methode pour modifier la date de fin d'un produit
         private void setDateFinProduit(String produit, DateTime newDateFin)
         {
-            findProduitByName(produit).ChangerDateFin(newDateFin);
+            AbsProduit p = findProduitByName(produit);
+            p.ChangerDateFin(newDateFin);
+            data.setDateFinProduit(p, newDateFin);
         }
 
 
@@ -1005,7 +1015,6 @@ namespace Metier
             platsChoisis.Clear();
         }
 
-      
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {
             platsChoisis.Clear();

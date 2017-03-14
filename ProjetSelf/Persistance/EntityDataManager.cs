@@ -378,6 +378,36 @@ namespace Persistance
             return dRs;
         }
 
+        public List<AbsRepas> getRepasUsager(AbsUsager u)
+        {
+            List<AbsRepas> lr = new List<AbsRepas>();
+            
+            using(EntityRepas db = new EntityRepas())
+            {
+                foreach(var r in db.RepasSet.Where(a => a.IdUsager == u.ID))
+                {
+                    lr.Add(r);
+                }
+            }
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var r in lr)
+                {
+                    foreach (var rp in db.RepasPlatSet.Where(a => a.IdRepas == r.ID))
+                    {
+                        using (EntityPlatChoisis db2 = new EntityPlatChoisis())
+                        {
+                            foreach (var pc in db2.PlatChoisisSet.Where(a => a.CodePlat == rp.IdPlats))
+                            {
+                                r.plats.Add(pc);
+                            }
+                        }
+                    }
+                }
+            }
+            return lr;
+        }
+
         public void ajouterPlatsChoisis(PlatChoisis pc)
         {
             using(EntityPlatChoisis db = new EntityPlatChoisis())
@@ -468,5 +498,94 @@ namespace Persistance
                 db.SaveChanges();
             }
         }
+
+        public void setPrixPlat(AbsPlat p, double prix)
+        {
+            using(EntityPlat db = new EntityPlat())
+            {
+                foreach(var r in db.PlatSet)
+                {
+                    if(r.ID == p.ID)
+                    {
+                        r.Tarif = prix;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateEffetPlat(AbsPlat p, DateTime date)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                foreach (var r in db.PlatSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateEffet = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateFinPlat(AbsPlat p, DateTime date)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                foreach (var r in db.PlatSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateFin = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateEffetProduit(AbsProduit p, DateTime date)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                foreach (var r in db.ProduitSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateEffet = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateFinProduit(AbsProduit p, DateTime date)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                foreach (var r in db.ProduitSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateFin = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        /*public void addDateToMenu(AbsMenu m, DateTime d)
+        {
+            using (EntityMenu db = new EntityMenu())
+            {
+                foreach(var p in db.MenuSet)
+                {
+                    if(p.ID == m.ID)
+                    {
+                        p.
+                    }
+                }
+            }
+        }*/
     }
 }
