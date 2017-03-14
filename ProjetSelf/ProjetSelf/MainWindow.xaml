@@ -8,9 +8,13 @@
             Title="MainWindow" Width="640" Height="480"  WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="#484854">
     <DockPanel>
         <Grid DockPanel.Dock="Top" Margin="10,10,10,0">
-            <Image x:Name="image" Width="100" Margin="10" HorizontalAlignment="Left"/>
-            <Label Content="EasySelf" FontSize="40" Margin="115,0,-115,0"/>
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="8*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="image" Width="100" Margin="10,10,0,10" HorizontalAlignment="Left"/>
+            <Label Content="EasySelf" FontSize="40" Margin="115,0,-115,0" Grid.ColumnSpan="2"/>
+            <Button Content="?" Foreground="Blue" FontSize="20" Width="30" Height="30" Grid.Column="1" Click="Aide"/>
         </Grid>
         <Grid DockPanel.Dock="Bottom" Margin="0,447,519,0">
             <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0"  Width="75" Click="quitter_Click"/>

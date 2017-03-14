@@ -60,6 +60,12 @@
     <Compile Include="AccueilGerant.xaml.cs">
       <DependentUpon>AccueilGerant.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Aide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aide.Designer.cs">
+      <DependentUpon>Aide.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterMenu.xaml.cs">
       <DependentUpon>AjouterMenu.xaml</DependentUpon>
     </Compile>
@@ -391,6 +397,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Aide.resx">
+      <DependentUpon>Aide.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

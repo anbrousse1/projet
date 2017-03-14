@@ -43,6 +43,9 @@ namespace Vue
             this.mGridCentre.Children.Add(uc);
         }
 
-
+        private void Aide(object sender, RoutedEventArgs e)
+        {
+            new Aide().Show();
+        }
     }
 }
