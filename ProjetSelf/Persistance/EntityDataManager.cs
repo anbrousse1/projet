@@ -143,9 +143,21 @@ namespace Persistance
                                 if (v.ID == b.idplat)
                                 {
                                     t.AddPlats(v);
-                                    //t.dates.Add(v.DateEffet);
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            using(EntityMenuDates db = new EntityMenuDates())
+            {
+                foreach(var m in lm)
+                {
+                    foreach(var md in db.MenuDatesSet)
+                    {
+                        if(m.ID == md.CodeMenu)
+                        {
+                            m.AddDate(md.Date);
                         }
                     }
                 }
@@ -408,7 +420,7 @@ namespace Persistance
             return lr;
         }
 
-        public void ajouterPlatsChoisis(PlatChoisis pc)
+        private void ajouterPlatsChoisis(PlatChoisis pc)
         {
             using(EntityPlatChoisis db = new EntityPlatChoisis())
             {
@@ -487,6 +499,11 @@ namespace Persistance
             {
                 db.RepasSet.Add(r);
                 db.SaveChanges();
+            }
+
+            foreach(var pc in lp)
+            {
+                ajouterPlatsChoisis((PlatChoisis)pc);
             }
 
             using (EntityRepasPlats db = new EntityRepasPlats())
@@ -574,18 +591,13 @@ namespace Persistance
             }
         }
 
-        /*public void addDateToMenu(AbsMenu m, DateTime d)
+        public void addDateToMenu(AbsMenu m, DateTime d)
         {
-            using (EntityMenu db = new EntityMenu())
+            using(EntityMenuDates db = new EntityMenuDates())
             {
-                foreach(var p in db.MenuSet)
-                {
-                    if(p.ID == m.ID)
-                    {
-                        p.
-                    }
-                }
+                db.MenuDatesSet.Add(new MenuDates { CodeMenu = m.ID, Date = d });
+                db.SaveChanges();
             }
-        }*/
+        }
     }
 }

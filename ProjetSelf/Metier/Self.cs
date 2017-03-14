@@ -889,7 +889,7 @@ namespace Metier
         /// </summary>
         /// <param name="p"></param>
         public void supprimerPlatChoisis(AbsPlat p)
-        { 
+        {
             platsChoisis.Remove(p);
             prixAPayer = prixAPayer-p.Tarif;
         }
@@ -1013,12 +1013,16 @@ namespace Metier
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
         {
-            usager.Add(new Usager { CodePaiement=code , Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
+            Usager u = new Usager { CodePaiement = code, Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 };
+            usager.Add(u);
+            data.ajouterUsager(u);
         }
 
         public void addUtilisateur(string mdp, string login, int id )
         {
-            utilisateur.Add(new Utilisateur { ID = id, Login = login, Password = mdp });
+            Utilisateur u = new Utilisateur { ID = id, Login = login, Password = mdp };
+            utilisateur.Add(u);
+            data.ajouterUtilisateur(u);
         }
 
         public void finPassage()
