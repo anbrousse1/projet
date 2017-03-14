@@ -35,5 +35,15 @@ namespace Metier
 
         void ajouterPlatsChoisis(PlatChoisis pc);
 
+        void setPrixPlat(AbsPlat p, double prix);
+
+        void setDateEffetPlat(AbsPlat p, DateTime date);
+
+        void setDateFinPlat(AbsPlat p, DateTime date);
+
+        void setDateEffetProduit(AbsProduit p, DateTime date);
+
+        void setDateFinProduit(AbsProduit p, DateTime date);
+
     }
 }

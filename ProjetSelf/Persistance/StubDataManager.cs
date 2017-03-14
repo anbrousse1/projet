@@ -164,5 +164,30 @@ namespace Persistance
             u.Add(new Utilisateur { ID = 003, Login = "cuisine", Password = "admin" });
             return u;
         }
+
+        public void setDateEffetPlat(AbsPlat p, DateTime date)
+        {
+            return;
+        }
+
+        public void setDateEffetProduit(AbsProduit p, DateTime date)
+        {
+            return;
+        }
+
+        public void setDateFinPlat(AbsPlat p, DateTime date)
+        {
+            return;
+        }
+
+        public void setDateFinProduit(AbsProduit p, DateTime date)
+        {
+            return;
+        }
+
+        public void setPrixPlat(AbsPlat p, double prix)
+        {
+            return;
+        }
     }
 }
