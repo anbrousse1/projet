@@ -196,14 +196,20 @@ namespace Metier
             get;
             private set;
         }
+        
         private List<AbsRepas> histoRepas = new List<AbsRepas>();
 
-
+        /// <summary>
+        /// Liste qui encapsule repas
+        /// </summary>
         public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> repasROC
         {
             get;
             private set;
         }
+        /// <summary>
+        /// Cette liste est chargée des repas d'un usager
+        /// </summary>
         private List<AbsRepas> repas = new List<AbsRepas>();
 
         private DateTime dateDuJour = DateTime.Today;
@@ -767,6 +773,21 @@ namespace Metier
                 prixAPayer = prixAPayer + p.Tarif;
                 //client.AddPlatChoisis(p);
                 //Ajouter à la BDD
+            }
+        }
+        /// <summary>
+        /// Cette fonction permet de charger la liste de repas d'un usager
+        /// </summary>
+        /// <param name="u"></param>
+        public void chargerHistoRepasUsager(AbsUsager u)
+        {
+            repas.Clear();
+            foreach(AbsRepas r in histoRepas)
+            {
+                if(r.IdUsager == u.ID)
+                {
+                    repas.Add(r);
+                }
             }
         }
 

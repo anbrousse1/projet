@@ -61,7 +61,14 @@ namespace Vue
                 MessageBox.Show("Identifiant érronés");
             }
         }
-
-
+        
+        override
+        public string ToString()
+        {
+            return "Connexion";
+        }
+        
     }
+
+    
 }

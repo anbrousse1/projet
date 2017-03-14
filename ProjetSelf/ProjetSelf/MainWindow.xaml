@@ -17,7 +17,7 @@
             <Button Content="?" Foreground="Blue" FontSize="20" Width="30" Height="30" Grid.Column="1" Click="Aide"/>
         </Grid>
         <Grid DockPanel.Dock="Bottom" Margin="0,447,519,0">
-            <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0"  Width="75" Click="quitter_Click"/>
+            <Button x:Name="quitter" Content="Quitter" HorizontalAlignment="Left" Margin="10,0,0,0"  Width="75" Height="30" Click="quitter_Click"/>
         </Grid>
 
         <Grid  Name="mGridCentre" Margin="0,0,0,-442">

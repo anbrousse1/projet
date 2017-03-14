@@ -13,6 +13,7 @@ namespace Vue
     public partial class MainWindow : Window
     {
         internal Self self;
+        string child = "";
 
         public MainWindow()
         {
@@ -28,8 +29,8 @@ namespace Vue
             {
                 MessageBox.Show("Pas de menu programmé pour aujourd'hui");
             }
-            
-            mGridCentre.Children.Add(new Connexion(this));
+
+            setUC(new Connexion(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)
@@ -39,13 +40,14 @@ namespace Vue
 
         internal void setUC(UserControl uc)
         {
+            child = uc.ToString();
             this.mGridCentre.Children.Clear();
             this.mGridCentre.Children.Add(uc);
         }
 
         private void Aide(object sender, RoutedEventArgs e)
         {
-            new Aide().Show();
+            new Aide(child).Show();
         }
     }
 }
