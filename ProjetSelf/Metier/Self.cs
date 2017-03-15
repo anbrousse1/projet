@@ -219,6 +219,7 @@ namespace Metier
         public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
+        public string log;
 
 
         /// <summary>
@@ -436,6 +437,7 @@ namespace Metier
                         {
                             DroitUtilisateur =usa.CodeFonction;
                             caissier = usa;
+                            log = u.Login;
                             return true;
                         }
                     }
@@ -444,12 +446,25 @@ namespace Metier
             return false;
         }
 
+
+
         /// <summary>
         /// méthode permattant à un utilisateur de se déconnecter 
         /// </summary>
         public void deconnexion()
         {
             DroitUtilisateur = 0;
+        }
+
+        public void changerMdp(string mdp)
+        {
+            foreach(AbsUtilisateur u in utilisateur)
+            {
+                if (u.Login.Equals(log))
+                {
+                    u.Password = mdp;
+                }
+            }
         }
 
 

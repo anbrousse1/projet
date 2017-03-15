@@ -48,7 +48,7 @@ namespace Vue
         {
             if (nbPlat != 6)
             {
-                Plat p = (Plat)plat.SelectedItem;
+                AbsPlat p = (AbsPlat)plat.SelectedItem;
                 if (p == null)
                 {
                     MessageBox.Show("Veuillez sélectionner un plat");
@@ -103,7 +103,7 @@ namespace Vue
         {
             if (nbDessert != 6)
             {
-                Plat p = (Plat)dessert.SelectedItem;
+                AbsPlat p = (AbsPlat)dessert.SelectedItem;
                 if (p == null)
                 {
                     MessageBox.Show("Veuillez sélectionner un dessert");
@@ -126,10 +126,26 @@ namespace Vue
             }
         }
 
-        public void supprimerPlat(Plat p)
+        public void supprimerPlat(AbsPlat p)
         {
-            platsMenu.Remove(p);
-            list.Items.Refresh();
+            if (p != null)
+            {
+                switch (p.Categorie)
+                {
+
+                    case CategoriePlat.Plat:
+                        nbPlat--;
+                        break;
+                    case CategoriePlat.Dessert:
+                        nbDessert--;
+                        break;
+                    default:
+                        nbEntree--;
+                        break;
+                }
+                platsMenu.Remove(p);
+                list.Items.Refresh();
+            }
         }
 
         private void ajouterMenuClick(object sender, RoutedEventArgs e)
@@ -189,10 +205,16 @@ namespace Vue
 
         private void ListView_Selected(object sender, SelectionChangedEventArgs e)
         {
-            Plat p = (Plat)((ListView)sender).SelectedItem;
+            AbsPlat p = (AbsPlat)((ListView)sender).SelectedItem;
             supprimerPlat(p);
         }
 
+  
+
+        private void retour(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new GestionMenu(parent));
+        }
     }
 
 

@@ -29,7 +29,26 @@ namespace Vue
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-
+            if (parent.self.connexion(parent.self.log, oldmdp.Password))
+            {
+                if (newmdp.Password.Equals(confmdp.Password))
+                {
+                    if (!newmdp.Password.Equals(""))
+                    {
+                        parent.self.changerMdp(newmdp.Password);
+                        MessageBox.Show("Le mot de passe a été modifié");
+                    }else
+                    {
+                        MessageBox.Show("Nouveau mot de passe incorrect");
+                    }
+                }else
+                {
+                    MessageBox.Show("Les deux mots de passe sont différents");
+                }
+            }else
+            {
+                MessageBox.Show("Mot de passe incorrect");
+            }
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)

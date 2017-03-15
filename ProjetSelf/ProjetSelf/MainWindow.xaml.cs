@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Metier;
 using Persistance;
+using System.Windows.Media;
 
 namespace Vue
 {
@@ -20,6 +21,9 @@ namespace Vue
 
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+            im = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+
+
             try
             {
                 self = new Self(new StubDataManager());
@@ -31,6 +35,7 @@ namespace Vue
             }
 
             setUC(new Connexion(this));
+            
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)
@@ -41,8 +46,13 @@ namespace Vue
         internal void setUC(UserControl uc)
         {
             child = uc.ToString();
-            this.mGridCentre.Children.Clear();
-            this.mGridCentre.Children.Add(uc);
+            mGridCentre.Children.Clear();
+            mGridCentre.Children.Add(uc);
+        }
+
+        public void setBackground2Color()
+        {
+            mGridCentre.Background = new SolidColorBrush(Colors.SlateGray);
         }
 
         private void Aide(object sender, RoutedEventArgs e)
