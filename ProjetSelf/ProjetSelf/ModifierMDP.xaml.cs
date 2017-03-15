@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,20 +22,23 @@ namespace Vue
     public partial class ModifierMDP : UserControl
     {
         private MainWindow parent;
-        public ModifierMDP(MainWindow m)
+        private AbsUsager ut;
+
+        public ModifierMDP(MainWindow m, AbsUsager u)
         {
             parent = m;
+            ut = u;
             InitializeComponent();
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new ModifierUsager(parent));
+            parent.setUC(new ModifierUsager(parent, ut));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,11 @@ namespace Vue
     public partial class ModifierDateUsager : UserControl
     {
         private MainWindow parent;
-        public ModifierDateUsager(MainWindow m)
+        private AbsUsager usager;
+        public ModifierDateUsager(MainWindow m, AbsUsager u)
         {
             parent = m;
+            usager = u;
             InitializeComponent();
         }
 
@@ -34,7 +37,7 @@ namespace Vue
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new ModifierUsager(parent));
+            parent.setUC(new ModifierUsager(parent,usager));
         }
     }
 }

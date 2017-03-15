@@ -36,7 +36,8 @@ namespace Vue
 
         private void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //vue modifier menu
+            AbsUsager u = (AbsUsager)((ListBox)sender).SelectedItem; ;
+            parent.setUC(new ModifierUsager(parent,u));
         }
 
 

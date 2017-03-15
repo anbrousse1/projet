@@ -36,17 +36,16 @@ namespace Vue
 
         private void UCVisualiserPlat_Clicked(object sender, PlatCEventArgs e)
         {
-            AbsPlat m = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
+            AbsPlat p = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
             if (e.Num == 0)
             {
                 // Verifier si on peut supprimer ou supprimer des menu où il est.
-                parent.self.supprimerPlat(m);
+                parent.self.supprimerPlat(p);
                 liste.Items.Refresh();
             }
             else
             {
-                //Vue modifier menu 
-                //parent.setUC(new ModifierDatePlatEtProduit(parent, m));
+                //parent.setUC(new ModifierDatePlatEtProduit(parent, p));
             }
         }
     }

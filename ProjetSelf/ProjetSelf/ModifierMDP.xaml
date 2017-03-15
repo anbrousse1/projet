@@ -12,24 +12,23 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Mot de passe actuel : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
-        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="oldmdp"/>
+        <TextBlock Text="Mot de passe actuel : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0" VerticalAlignment="Bottom"/>
+        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="24" Width="150" Name="oldmdp"/>
 
-        <TextBlock Text="Nouveau mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1"/>
+        <TextBlock Text="Nouveau mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>
         <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="newmdp"/>
 
-        <TextBlock Text="Confirmation mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2"/>
-        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="150" Name="confmdp"/>
+        <TextBlock Text="Confirmation mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top"/>
+        <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="150" Name="confmdp"/>
 
-        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="2" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
-        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center"  Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource boutonAnnulerUC}" Click="retour_Click"/>
+        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
+        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center"  Grid.Row="3" Grid.Column ="1" Style="{StaticResource boutonAnnulerUC}" Click="retour_Click"/>
 
     </Grid>
 </UserControl>
