@@ -143,9 +143,21 @@ namespace Persistance
                                 if (v.ID == b.idplat)
                                 {
                                     t.AddPlats(v);
-                                    //t.dates.Add(v.DateEffet);
                                 }
                             }
+                        }
+                    }
+                }
+            }
+            using(EntityMenuDates db = new EntityMenuDates())
+            {
+                foreach(var m in lm)
+                {
+                    foreach(var md in db.MenuDatesSet)
+                    {
+                        if(m.ID == md.CodeMenu)
+                        {
+                            m.AddDate(md.Date);
                         }
                     }
                 }
@@ -378,7 +390,37 @@ namespace Persistance
             return dRs;
         }
 
-        public void ajouterPlatsChoisis(PlatChoisis pc)
+        public List<AbsRepas> getRepasUsager(AbsUsager u)
+        {
+            List<AbsRepas> lr = new List<AbsRepas>();
+            
+            using(EntityRepas db = new EntityRepas())
+            {
+                foreach(var r in db.RepasSet.Where(a => a.IdUsager == u.ID))
+                {
+                    lr.Add(r);
+                }
+            }
+            using (EntityRepasPlats db = new EntityRepasPlats())
+            {
+                foreach (var r in lr)
+                {
+                    foreach (var rp in db.RepasPlatSet.Where(a => a.IdRepas == r.ID))
+                    {
+                        using (EntityPlatChoisis db2 = new EntityPlatChoisis())
+                        {
+                            foreach (var pc in db2.PlatChoisisSet.Where(a => a.CodePlat == rp.IdPlats))
+                            {
+                                r.plats.Add(pc);
+                            }
+                        }
+                    }
+                }
+            }
+            return lr;
+        }
+
+        private void ajouterPlatsChoisis(PlatChoisis pc)
         {
             using(EntityPlatChoisis db = new EntityPlatChoisis())
             {
@@ -459,12 +501,101 @@ namespace Persistance
                 db.SaveChanges();
             }
 
+            foreach(var pc in lp)
+            {
+                ajouterPlatsChoisis((PlatChoisis)pc);
+            }
+
             using (EntityRepasPlats db = new EntityRepasPlats())
             {
                 foreach (var s in lp)
                 {
                     db.RepasPlatSet.Add(new RepasPlats { IdPlats = s.ID, IdRepas = r.ID});
                 }
+                db.SaveChanges();
+            }
+        }
+
+        public void setPrixPlat(AbsPlat p, double prix)
+        {
+            using(EntityPlat db = new EntityPlat())
+            {
+                foreach(var r in db.PlatSet)
+                {
+                    if(r.ID == p.ID)
+                    {
+                        r.Tarif = prix;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateEffetPlat(AbsPlat p, DateTime date)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                foreach (var r in db.PlatSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateEffet = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateFinPlat(AbsPlat p, DateTime date)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                foreach (var r in db.PlatSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateFin = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateEffetProduit(AbsProduit p, DateTime date)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                foreach (var r in db.ProduitSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateEffet = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void setDateFinProduit(AbsProduit p, DateTime date)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                foreach (var r in db.ProduitSet)
+                {
+                    if (r.ID == p.ID)
+                    {
+                        r.DateFin = date;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void addDateToMenu(AbsMenu m, DateTime d)
+        {
+            using(EntityMenuDates db = new EntityMenuDates())
+            {
+                db.MenuDatesSet.Add(new MenuDates { CodeMenu = m.ID, Date = d });
                 db.SaveChanges();
             }
         }

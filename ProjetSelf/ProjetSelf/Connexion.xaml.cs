@@ -51,6 +51,7 @@ namespace Vue
                 else if (fonction==002)
                 {
                     parent.setUC(new AccueilGerant(parent));
+                    parent.setBackground2Color();
                 }
                 else
                 {
@@ -61,7 +62,14 @@ namespace Vue
                 MessageBox.Show("Identifiant érronés");
             }
         }
-
-
+        
+        override
+        public string ToString()
+        {
+            return "Connexion";
+        }
+        
     }
+
+    
 }

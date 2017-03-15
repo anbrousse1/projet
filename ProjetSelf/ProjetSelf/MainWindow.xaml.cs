@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Metier;
 using Persistance;
+using System.Windows.Media;
 
 namespace Vue
 {
@@ -13,12 +14,16 @@ namespace Vue
     public partial class MainWindow : Window
     {
         internal Self self;
+        string child = "";
 
         public MainWindow()
         {
 
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+            im = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
+
+
             try
             {
                 self = new Self(new StubDataManager());
@@ -28,8 +33,9 @@ namespace Vue
             {
                 MessageBox.Show("Pas de menu programmé pour aujourd'hui");
             }
+
+            setUC(new Connexion(this));
             
-            mGridCentre.Children.Add(new Connexion(this));
         }
 
         internal void quitter_Click(object sender, RoutedEventArgs e)
@@ -39,10 +45,19 @@ namespace Vue
 
         internal void setUC(UserControl uc)
         {
-            this.mGridCentre.Children.Clear();
-            this.mGridCentre.Children.Add(uc);
+            child = uc.ToString();
+            mGridCentre.Children.Clear();
+            mGridCentre.Children.Add(uc);
         }
 
+        public void setBackground2Color()
+        {
+            mGridCentre.Background = new SolidColorBrush(Colors.SlateGray);
+        }
 
+        private void Aide(object sender, RoutedEventArgs e)
+        {
+            new Aide(child).Show();
+        }
     }
 }

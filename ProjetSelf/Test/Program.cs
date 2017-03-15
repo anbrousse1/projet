@@ -28,10 +28,6 @@ namespace Test
             PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today };
             PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today };
             PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today };
-            bdd.ajouterPlatsChoisis(pc1);
-            bdd.ajouterPlatsChoisis(pc2);
-            bdd.ajouterPlatsChoisis(pc3);
-            bdd.ajouterPlatsChoisis(pc4);
             List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
             lpc.Add(pc1);
             lpc.Add(pc2);
@@ -39,7 +35,7 @@ namespace Test
             lpc.Add(pc4);
             bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 15},lpc);
 
-            foreach (var r in self.getAllRepas())
+            foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
             {
                 WriteLine(r.ToString());
             }

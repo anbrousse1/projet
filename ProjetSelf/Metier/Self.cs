@@ -196,14 +196,20 @@ namespace Metier
             get;
             private set;
         }
+        
         private List<AbsRepas> histoRepas = new List<AbsRepas>();
 
-
+        /// <summary>
+        /// Liste qui encapsule repas
+        /// </summary>
         public System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas> repasROC
         {
             get;
             private set;
         }
+        /// <summary>
+        /// Cette liste est chargée des repas d'un usager
+        /// </summary>
         private List<AbsRepas> repas = new List<AbsRepas>();
 
         private DateTime dateDuJour = DateTime.Today;
@@ -213,6 +219,7 @@ namespace Metier
         public AbsMenu menuDuJour;
         public double prixAPayer;
         public IDataManager data;
+        public string log;
 
 
         /// <summary>
@@ -430,6 +437,7 @@ namespace Metier
                         {
                             DroitUtilisateur =usa.CodeFonction;
                             caissier = usa;
+                            log = u.Login;
                             return true;
                         }
                     }
@@ -438,12 +446,25 @@ namespace Metier
             return false;
         }
 
+
+
         /// <summary>
         /// méthode permattant à un utilisateur de se déconnecter 
         /// </summary>
         public void deconnexion()
         {
             DroitUtilisateur = 0;
+        }
+
+        public void changerMdp(string mdp)
+        {
+            foreach(AbsUtilisateur u in utilisateur)
+            {
+                if (u.Login.Equals(log))
+                {
+                    u.Password = mdp;
+                }
+            }
         }
 
 
@@ -769,36 +790,61 @@ namespace Metier
                 //Ajouter à la BDD
             }
         }
+        /// <summary>
+        /// Cette fonction permet de charger la liste de repas d'un usager
+        /// </summary>
+        /// <param name="u"></param>
+        public void chargerHistoRepasUsager(AbsUsager u)
+        {
+            repas.Clear();
+            foreach(AbsRepas r in histoRepas)
+            {
+                if(r.IdUsager == u.ID)
+                {
+                    repas.Add(r);
+                }
+            }
+        }
 
 
         //Permet de modifier le prix d'un plat
         private void SetPrixPlat(String plat, double nouveauTarif)
         {
-            FindPlat(plat).changerTarif(nouveauTarif);
+            AbsPlat p = FindPlat(plat);
+            p.changerTarif(nouveauTarif);
+            data.setPrixPlat(p, nouveauTarif);
         }
 
         //methode pour modifier la date d'effet d'un plat
         private void setDateEffetPlat(String plat, DateTime newDateEffet)
         {
-            FindPlat(plat).ChangerDateEffet(newDateEffet);
+            AbsPlat p = FindPlat(plat);
+            p.ChangerDateEffet(newDateEffet);
+            data.setDateEffetPlat(p, newDateEffet);
         }
 
         //methode pour modifier la date de fin d'un plat
         private void setDateFinPlat(String plat, DateTime newDateFin)
         {
-            FindPlat(plat).ChangerDateFin(newDateFin);
+            AbsPlat p = FindPlat(plat);
+            p.ChangerDateFin(newDateFin);
+            data.setDateFinPlat(p, newDateFin);
         }
 
         //methode pour modifier la date d'effet d'un produit 
         private void setDateEffetProduit(String produit, DateTime newDateEffet)
         {
-            findProduitByName(produit).ChangerDateEffet(newDateEffet);
+            AbsProduit p = findProduitByName(produit);
+            p.ChangerDateEffet(newDateEffet);
+            data.setDateEffetProduit(p, newDateEffet);
         }
 
         //methode pour modifier la date de fin d'un produit
         private void setDateFinProduit(String produit, DateTime newDateFin)
         {
-            findProduitByName(produit).ChangerDateFin(newDateFin);
+            AbsProduit p = findProduitByName(produit);
+            p.ChangerDateFin(newDateFin);
+            data.setDateFinProduit(p, newDateFin);
         }
 
 
@@ -858,7 +904,7 @@ namespace Metier
         /// </summary>
         /// <param name="p"></param>
         public void supprimerPlatChoisis(AbsPlat p)
-        { 
+        {
             platsChoisis.Remove(p);
             prixAPayer = prixAPayer-p.Tarif;
         }
@@ -982,12 +1028,16 @@ namespace Metier
 
         public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
         {
-            usager.Add(new Usager { CodePaiement=code , Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 });
+            Usager u = new Usager { CodePaiement = code, Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 };
+            usager.Add(u);
+            data.ajouterUsager(u);
         }
 
         public void addUtilisateur(string mdp, string login, int id )
         {
-            utilisateur.Add(new Utilisateur { ID = id, Login = login, Password = mdp });
+            Utilisateur u = new Utilisateur { ID = id, Login = login, Password = mdp };
+            utilisateur.Add(u);
+            data.ajouterUtilisateur(u);
         }
 
         public void finPassage()
@@ -1005,7 +1055,6 @@ namespace Metier
             platsChoisis.Clear();
         }
 
-      
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {
             platsChoisis.Clear();
