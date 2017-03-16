@@ -58,7 +58,7 @@ namespace Metier
         /// <summary>
         /// Liste des usagers
         /// </summary>
-        private List<AbsUsager> usager = new List<AbsUsager>();
+       private List<AbsUsager> usager = new List<AbsUsager>();
 
         /// <summary>
         /// ReadOnlyCollection des usagers qui sont aussi utilisateur de l'application qui encapsule la liste usagers utilisateurs
@@ -253,15 +253,11 @@ namespace Metier
             chargeAll();
 
             dateDuJour = DateTime.Today;
-            menuDuJour = getMenu(dateDuJour);
+           
 
-            if (menuDuJour != null)
-            {
-                chargeBoisson();
-                chargeDesserts();
-                chargeEntrees();
-                chargePlatsResistance();
-            }
+            chargeBoisson();
+
+            chargePlatJour();
 
         }
 
@@ -281,6 +277,17 @@ namespace Metier
 
         }
 
+
+        private void chargePlatJour()
+        {
+            menuDuJour = getMenu(dateDuJour);
+            if (menuDuJour != null)
+            {
+                chargeDesserts();
+                chargeEntrees();
+                chargePlatsResistance();
+            }
+        }
 
         public void AddPlatChoisis(AbsPlat p)
         {
@@ -433,7 +440,7 @@ namespace Metier
                 {
                     foreach(AbsUsager usa in usager)
                     {
-                        if (usa.ID == u.ID && usa.DateSortie.CompareTo(DateTime.Today)>0)
+                        if (usa.ID == u.CodeUsager && usa.DateSortie.CompareTo(DateTime.Today)>=0)
                         {
                             DroitUtilisateur =usa.CodeFonction;
                             caissier = usa;
@@ -1001,8 +1008,10 @@ namespace Metier
         public void addDateToMenu(AbsMenu m, DateTime date)
         {
             m.dates.Add(date);
+            data.addDateToMenu(m, date);
             dateDispo.Remove(date);
             chargeDateDispo();
+            chargePlatJour();
         }
 
         public void chargeEntrPlatDes()
@@ -1026,16 +1035,18 @@ namespace Metier
 
       
 
-        public void addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
+        public int addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
         {
             Usager u = new Usager { CodePaiement = code, Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 };
             usager.Add(u);
+            usagerUtilisateur.Add(u);
             data.ajouterUsager(u);
+            return usager.Count;
         }
 
-        public void addUtilisateur(string mdp, string login, int id )
+        public void addUtilisateur(string mdp, string login, int id,int idu )
         {
-            Utilisateur u = new Utilisateur { ID = id, Login = login, Password = mdp };
+            Utilisateur u = new Utilisateur { ID = id, Login = login, Password = mdp, CodeUsager = idu};
             utilisateur.Add(u);
             data.ajouterUtilisateur(u);
         }

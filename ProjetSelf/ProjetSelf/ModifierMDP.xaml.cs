@@ -53,7 +53,7 @@ namespace Vue
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new ModifierUsager(parent));
+            //parent.setUC(new ModifierUsager(parent));
         }
     }
 }

@@ -60,26 +60,34 @@ namespace Vue
 
         private void dateEffet_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((DateTime)dateEffet.SelectedDate != null)
+            try
             {
-                if (((DateTime)dateEffet.SelectedDate).CompareTo(effetMin) > 0)
+                if ((DateTime)dateEffet.SelectedDate != null)
                 {
-                    MessageBox.Show("Date d'effet sélectioné non valide");
-                    dateEffet.SelectedDate = null;
+                    if (((DateTime)dateEffet.SelectedDate).CompareTo(effetMin) > 0)
+                    {
+                        MessageBox.Show("Date d'effet sélectioné non valide");
+                        dateEffet.SelectedDate = null;
+                    }
                 }
             }
+            catch { }
         }
 
         private void dateFin_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if ((DateTime)dateFin.SelectedDate != null)
+            try
             {
-                if (((DateTime)dateFin.SelectedDate).CompareTo(finMin) < 0)
+                if ((DateTime)dateFin.SelectedDate != null)
                 {
-                    MessageBox.Show("Date de fin sélectioné non valide");
-                    dateFin.SelectedDate = null;
+                    if (((DateTime)dateFin.SelectedDate).CompareTo(finMin) < 0)
+                    {
+                        MessageBox.Show("Date de fin sélectioné non valide");
+                        dateFin.SelectedDate = null;
+                    }
                 }
             }
+            catch { }
         }
 
         private void text_changed(object sender, RoutedEventArgs e)

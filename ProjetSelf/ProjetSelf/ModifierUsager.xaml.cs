@@ -36,7 +36,7 @@ namespace Vue
 
         private void modifMdp(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new ModifierMDP(parent, usager));
+            parent.setUC(new ModifierMDP(parent));
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)

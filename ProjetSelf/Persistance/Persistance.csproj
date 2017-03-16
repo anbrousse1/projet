@@ -79,7 +79,6 @@
     <Compile Include="EntityRepasPlats.cs" />
     <Compile Include="EntityUsager.cs" />
     <Compile Include="EntityUtilisateur.cs" />
-    <Compile Include="EntityUtilisateurUsager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StubDataManager.cs" />
   </ItemGroup>

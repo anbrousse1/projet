@@ -306,10 +306,10 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Usager bastien = new Usager {Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 1,
+            Usager bastien = new Usager {Nom = "Gandboeuf", Prenom = "Bastien", CodeFonction = 001,
                 DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 0,
                 Solde = 25, NumCarte = 1, Fonction = "Caissier"};
-            Usager leandre = new Usager { Nom = "Perrot", Prenom = "Leandre", CodeFonction = 2,
+            Usager leandre = new Usager { Nom = "Perrot", Prenom = "Leandre", CodeFonction = 002,
                 DateEntree = DateTime.Today, DateSortie = DateTime.Today, Service = "Restaurant", Titre = "Monsieur", CodePaiement = 1,
                 Solde = 78, NumCarte = 2, Fonction = "Gérant" };
 
@@ -338,8 +338,11 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Utilisateur bastien = new Utilisateur {Login = "bagandboeu", Password = "1234" };
-            Utilisateur leandre = new Utilisateur {Login = "leperrot", Password = "1234" };
+            //List<AbsUsager> lusa = new List<AbsUsager>();
+            //lusa = chargeAllUsager();
+
+            Utilisateur bastien = new Utilisateur {Login = "bagandboeu", Password = "1234", CodeUsager = 1 };
+            Utilisateur leandre = new Utilisateur {Login = "leperrot", Password = "1234" , CodeUsager = 2};
 
             List<AbsUtilisateur> lu = new List<AbsUtilisateur>();
 

@@ -49,13 +49,13 @@ namespace Vue
                     MessageBox.Show("La date de fin doit etre supérieur à la date de début");
                     return;
                 }
-                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, (DateTime)dateFin.SelectedDate, getCodePaiement());
-                parent.setUC(new DefinitionMdpLog(parent));
+                int id=parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, (DateTime)dateFin.SelectedDate, getCodePaiement());
+                parent.setUC(new DefinitionMdpLog(parent,id));
                 return;
             }else
             {
-                parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, new DateTime(9999,12,31), getCodePaiement());
-                parent.setUC(new DefinitionMdpLog(parent));
+                int id=parent.self.addUsager((string)titre.SelectedItem, (string)fonction.SelectedItem, getCodeFonction((string)fonction.SelectedItem), nom.Text, prenom.Text, (DateTime)dateEntree.SelectedDate, new DateTime(9999,12,31), getCodePaiement());
+                parent.setUC(new DefinitionMdpLog(parent,id));
             }
             
 

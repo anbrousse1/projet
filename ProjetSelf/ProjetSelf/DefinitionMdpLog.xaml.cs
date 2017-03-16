@@ -21,10 +21,12 @@ namespace Vue
     public partial class DefinitionMdpLog : UserControl
     {
         MainWindow parent;
-        public DefinitionMdpLog(MainWindow p)
+        int idu;
+        public DefinitionMdpLog(MainWindow p, int id)
         {
             InitializeComponent();
             parent = p;
+            idu = id;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -36,7 +38,7 @@ namespace Vue
             }
             if (mdp2.Password.Equals(mdp1.Password))
             {
-                parent.self.addUtilisateur(mdp1.Password, login.Text, parent.self.utilisateurROC.Count);
+                parent.self.addUtilisateur(mdp1.Password, login.Text, parent.self.utilisateurROC.Count,idu);
                 parent.setUC(new GestionUtilisateur(parent));
             }else
             {
