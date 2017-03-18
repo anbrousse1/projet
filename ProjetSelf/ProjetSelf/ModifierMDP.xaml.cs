@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Metier;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,11 @@ namespace Vue
     public partial class ModifierMDP : UserControl
     {
         private MainWindow parent;
-        public ModifierMDP(MainWindow m)
+        private AbsUsager usager;
+
+        public ModifierMDP(MainWindow m, AbsUsager u)
         {
+            usager = u;
             parent = m;
             InitializeComponent();
         }
@@ -35,8 +39,9 @@ namespace Vue
                 {
                     if (!newmdp.Password.Equals(""))
                     {
-                        parent.self.changerMdp(newmdp.Password);
+                        parent.self.changerMdp(newmdp.Password, usager);
                         MessageBox.Show("Le mot de passe a été modifié");
+                        parent.setUC(new ModifierUsager(parent, usager));
                     }else
                     {
                         MessageBox.Show("Nouveau mot de passe incorrect");
@@ -53,7 +58,7 @@ namespace Vue
 
         private void retour_Click(object sender, RoutedEventArgs e)
         {
-            //parent.setUC(new ModifierUsager(parent));
+            parent.setUC(new ModifierUsager(parent, usager));
         }
     }
 }

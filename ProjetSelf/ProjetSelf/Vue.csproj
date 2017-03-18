@@ -121,6 +121,9 @@
     <Compile Include="ModifierMenu.xaml.cs">
       <DependentUpon>ModifierMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifierPlat.xaml.cs">
+      <DependentUpon>ModifierPlat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ModifierTicket.xaml.cs">
       <DependentUpon>ModifierTicket.xaml</DependentUpon>
     </Compile>
@@ -286,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModifierMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModifierPlat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

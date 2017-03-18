@@ -47,7 +47,7 @@ namespace Vue
             else
             {
                 //Vue modifier menu 
-               // parent.setUC(new ModifierDatePlatEtProduit(parent, m));
+                parent.setUC(new ModifierMenu(parent, m));
             }
         }
 

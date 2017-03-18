@@ -32,6 +32,25 @@ namespace Vue
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
+            DateTime d;
+            if (dateUsager.SelectedDate == null)
+            {
+                d = new DateTime(9999, 12, 31);
+            }
+            else
+            {
+                d = (DateTime)dateUsager.SelectedDate;
+            }
+            if (d.CompareTo(DateTime.Today)<0)
+            {
+               MessageBox.Show("La date sélectionée doit être supérieur ou égale à la date d'aujourd'hui");
+               return;
+            }else
+            {
+               parent.self.modifierDateFinUtlisateur(usager, d);
+               MessageBox.Show("Modification éffectuée");
+               parent.setUC(new ModifierUsager(parent, usager));
+            }
 
         }
 

@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -23,23 +23,33 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Plats : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
-            <ComboBox Name="SelectPlat" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" ItemsSource="{Binding allPlatsROC}" MinWidth="100">
+            <TextBlock Text="Plats : " FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
+            <ComboBox Name="SelectPlat" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding platROC}" MinWidth="100">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Content="Ajouter" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" MinWidth="75" Click="ajouterPlatMenuClick"/>
+            <Button Content="Ajouter" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="100" MinWidth="200" Click="ajouterPlatMenuClick"/>
 
-            <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
-            <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
-            
+            <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" Grid.Column="1" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
+                <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right"  Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
+            </Grid>
+
         </Grid>
 
-        <ListView Grid.Column="1" MinWidth="150">
-            
+        <ListView Name="listPlat" Grid.Column="1" MinWidth="150" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_SelectionChanged" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
     </Grid>

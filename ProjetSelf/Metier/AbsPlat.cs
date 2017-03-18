@@ -62,6 +62,56 @@ namespace Metier
             ingredients.Add(p);
 
         }
+
+        public bool Equals(AbsPlat p)
+        {
+            if (this.Nom.Equals(p.Nom))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        public override bool Equals(object right)
+        {
+            //check null
+            if (object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+
+            if (object.ReferenceEquals(this, right))
+            {
+                return true;
+            }
+
+            if (this.GetType() != right.GetType())
+            {
+                return false;
+            }
+
+            return this.Equals(right as AbsPlat);
+        }
+
+        public List<AbsProduit> getProduits()
+        {
+            return ingredients;
+        }
+
+        internal void modifProduits(List<AbsProduit> prods)
+        {
+            ingredients = prods;
+
+        }
+
+
+        internal void modifierTarif(double tarif)
+        {
+            Tarif = tarif;
+        }
+
+
     }
 
 

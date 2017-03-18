@@ -53,10 +53,9 @@ namespace Vue
                     return;
                 }
                 double t=double.Parse(tarif.Text);
-                Console.WriteLine(ingredients.Count);
-                if (n.Equals("") || ingredients.Count==0 )
+                if (n.Equals("") )
                 {
-                    MessageBox.Show("Veuillez remplir tout les champs et ajouter au moins un ingrédient");
+                    MessageBox.Show("Veuillez remplir tout les champs ");
                 }
                 else
                 {

@@ -45,7 +45,7 @@ namespace Vue
             }
             else
             {
-                //parent.setUC(new ModifierDatePlatEtProduit(parent, p));
+                parent.setUC(new ModifierPlat(parent, p));
             }
         }
     }

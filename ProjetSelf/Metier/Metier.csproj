@@ -46,6 +46,7 @@
     <Compile Include="AbsPlatChoisis.cs" />
     <Compile Include="AbsProduit.cs" />
     <Compile Include="AbsRepas.cs" />
+    <Compile Include="AbsTarif.cs" />
     <Compile Include="AbsUsager.cs" />
     <Compile Include="AbsUtilisateur.cs" />
     <Compile Include="Carte.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="RepasPlats.cs" />
     <Compile Include="RetenueSalaire.cs" />
     <Compile Include="Self.cs" />
+    <Compile Include="Tarif.cs" />
     <Compile Include="Usager.cs" />
     <Compile Include="Utilisateur.cs" />
   </ItemGroup>

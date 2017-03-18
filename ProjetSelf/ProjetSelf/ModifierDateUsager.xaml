@@ -17,12 +17,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Date Fin : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
-        <DatePicker x:Name="dateUsager" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Sélectionner une date de fin sauf si la modification concerne un CDI, ne pas sélectionner de date." Style="{StaticResource TextBlockStyle}"  Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" Click="valider_Click"/>
-        <Button x:Name="retour" Style="{StaticResource boutonAnnulerUC}" Content="RETOUR" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="2" Click="retour_Click"/>
-        
+        <TextBlock Text="Date Fin : " FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Margin="0,0,10,0"/>
+        <DatePicker x:Name="dateUsager" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="180" />
+
+        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="valider_Click"/>
+        <Button x:Name="retour" Style="{StaticResource boutonAnnulerUC}" Content="RETOUR" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="retour_Click"/>
+
 
     </Grid>
 </UserControl>

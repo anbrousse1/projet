@@ -277,6 +277,21 @@ namespace Metier
 
         }
 
+        public void modifierTarifPlat(AbsPlat p,double tarif)
+        {
+            p.modifierTarif(tarif);
+        }
+
+        public void modifierProduitsPlat(AbsPlat p, List<AbsProduit> prods)
+        {
+            p.modifProduits(prods);
+        }
+
+
+        public void modifierPlatsMenu(AbsMenu m, List<AbsPlat> plats)
+        {
+            m.ModifierPlats(plats);
+        }
 
         private void chargePlatJour()
         {
@@ -463,18 +478,27 @@ namespace Metier
             DroitUtilisateur = 0;
         }
 
-        public void changerMdp(string mdp)
+        public void changerMdp(string mdp, AbsUsager usa)
         {
-            foreach(AbsUtilisateur u in utilisateur)
+            foreach (AbsUtilisateur u in utilisateur)
             {
-                if (u.Login.Equals(log))
+                if (u.CodeUsager.Equals(usa.ID))
                 {
                     u.Password = mdp;
                 }
             }
         }
 
-
+        public void modifierDateFinUtlisateur(AbsUsager u, DateTime d)
+        {
+            foreach(AbsUsager usa in usagerUtilisateur)
+            {
+                if (usa.ID.Equals(u.ID))
+                {
+                    usa.DateSortie = d;
+                }
+            }
+        }
 
         /// <summary>
         /// Permet d'identifier un usager avec son numéro de carte

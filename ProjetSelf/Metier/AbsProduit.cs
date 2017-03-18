@@ -31,5 +31,41 @@ namespace Metier
         {
             DateFin = d;
         }
+
+
+        public bool Equals(AbsProduit p)
+        {
+            if (p != null)
+            {
+                if (this.Nom.Equals(p.Nom))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+        public override bool Equals(object right)
+        {
+            //check null
+            if (object.ReferenceEquals(right, null))
+            {
+                return false;
+            }
+
+            if (object.ReferenceEquals(this, right))
+            {
+                return true;
+            }
+
+            if (this.GetType() != right.GetType())
+            {
+                return false;
+            }
+
+            return this.Equals(right as AbsProduit);
+        }
+
     }
 }

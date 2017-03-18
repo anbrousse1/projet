@@ -22,17 +22,9 @@ namespace Vue
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
 
+            self = new Self(new StubDataManager());
+            //self = new Self(new EntityDataManager());
 
-            /*try
-            {*/
-                self = new Self(new StubDataManager());
-                //self = new Self(new EntityDataManager());
-
-            /*}
-            catch
-            {
-                MessageBox.Show("Pas de menu programmé pour aujourd'hui");
-            }*/
 
             setUC(new Connexion(this));
             

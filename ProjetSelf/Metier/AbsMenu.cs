@@ -64,5 +64,11 @@ namespace Metier
         {
             return plats;
         }
+
+        internal void ModifierPlats(List<AbsPlat> nPlats)
+        {
+            plats.Clear();
+            plats.AddRange(nPlats);
+        }
     }
 }

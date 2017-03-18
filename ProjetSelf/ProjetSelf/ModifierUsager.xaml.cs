@@ -25,6 +25,7 @@ namespace Vue
         private AbsUsager usager;
         public ModifierUsager(MainWindow m, AbsUsager u)
         {
+            usager = u;
             parent = m;
             InitializeComponent();
         }
@@ -36,7 +37,7 @@ namespace Vue
 
         private void modifMdp(object sender, RoutedEventArgs e)
         {
-            parent.setUC(new ModifierMDP(parent));
+            parent.setUC(new ModifierMDP(parent, usager));
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)
