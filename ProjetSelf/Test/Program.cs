@@ -34,12 +34,19 @@ namespace Test
             lpc.Add(pc3);
             lpc.Add(pc4);
             bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 15},lpc);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 2, IdCaissier = 1, Prix = 20 }, lpc);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 2, IdCaissier = 1, Prix = 5 }, lpc);
+            bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 6 }, lpc);
+
+            WriteLine(bdd.chiffreDAffaire());
+            WriteLine(bdd.prixMoyen());
+            WriteLine(bdd.frequentation());
 
             /*foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
             {
                 WriteLine(r.ToString());
             }*/
-            using (EntityUtilisateur db = new EntityUtilisateur())
+            /*using (EntityUtilisateur db = new EntityUtilisateur())
             {
                 foreach (var u in db.UtilisateurSet)
                 {
@@ -56,7 +63,7 @@ namespace Test
                 {
                     WriteLine(u.Password);
                 }
-            }
+            }*/
 
             Read();
             /*

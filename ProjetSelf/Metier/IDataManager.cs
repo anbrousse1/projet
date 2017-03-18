@@ -47,5 +47,7 @@ namespace Metier
 
         void addDateToMenu(AbsMenu m, DateTime d);
 
+        void modifDateSortieUsager(AbsUsager u, DateTime d);
+
     }
 }

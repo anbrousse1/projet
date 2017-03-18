@@ -170,6 +170,11 @@ namespace Persistance
             return u;
         }
 
+        public void modifDateSortieUsager(AbsUsager u, DateTime d)
+        {
+            return;
+        }
+
         public void modifMdp(AbsUtilisateur u, string mdp)
         {
             return;

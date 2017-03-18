@@ -618,5 +618,67 @@ namespace Persistance
                 db.SaveChanges();
             }
         }
+
+        public void modifDateSortieUsager(AbsUsager u, DateTime d)
+        {
+            using(EntityUsager db = new EntityUsager())
+            {
+                foreach(var i in db.UsagerSet)
+                {
+                    if(i.ID == u.ID)
+                    {
+                        i.DateSortie = d;
+                        break;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        /*public AbsPlat statTopPlat()
+        {
+            PlatChoisis p;
+            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
+            
+        }*/
+
+        public double chiffreDAffaire()
+        {
+            double ca = 0;
+            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
+            using(EntityRepas db = new EntityRepas())
+            {
+                foreach(var d in db.RepasSet)
+                {
+                    if(d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                        ca += d.Prix;
+                }
+            }
+            return ca;
+        }
+
+        public int frequentation()
+        {
+            int freq = 0;
+            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
+            using (EntityRepas db = new EntityRepas())
+            {
+                foreach (var d in db.RepasSet)
+                {
+                    if (d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                        freq ++;
+                }
+            }
+            return freq;
+        }
+
+        public double prixMoyen()
+        {
+            double pm = chiffreDAffaire();
+            using (EntityRepas db = new EntityRepas())
+            {
+                return pm = pm / db.RepasSet.Count();
+            }
+        }
     }
 }
