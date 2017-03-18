@@ -36,7 +36,7 @@ namespace Persistance
 
         public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void ajouterUsager(Usager p)
@@ -168,6 +168,11 @@ namespace Persistance
             u.Add(new Utilisateur { ID = 002, Login = "gerant", Password = "admin" });
             u.Add(new Utilisateur { ID = 003, Login = "cuisine", Password = "admin" });
             return u;
+        }
+
+        public void modifMdp(AbsUtilisateur u, string mdp)
+        {
+            return;
         }
 
         public void setDateEffetPlat(AbsPlat p, DateTime date)

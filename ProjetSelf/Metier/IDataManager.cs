@@ -33,6 +33,8 @@ namespace Metier
 
         void ajouterRepas(Repas r, List<AbsPlatChoisis> lp);
 
+        void modifMdp(AbsUtilisateur u, String mdp);
+
         void setPrixPlat(AbsPlat p, double prix);
 
         void setDateEffetPlat(AbsPlat p, DateTime date);

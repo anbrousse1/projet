@@ -459,6 +459,22 @@ namespace Persistance
             }
         }
 
+        public void modifMdp(AbsUtilisateur u, String mdp)
+        {
+            using(EntityUtilisateur db = new EntityUtilisateur())
+            {
+                foreach(var d in db.UtilisateurSet)
+                {
+                    if(d.ID == u.ID)
+                    {
+                        d.Password = mdp;
+                        break;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
         public void ajouterMenu(Menu p, List<AbsPlat> lp)
         {
             using (EntityMenu db = new EntityMenu())

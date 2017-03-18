@@ -35,9 +35,27 @@ namespace Test
             lpc.Add(pc4);
             bdd.ajouterRepas(new Repas { Date = DateTime.Today, IdUsager = 1, IdCaissier = 1, Prix = 15},lpc);
 
-            foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
+            /*foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
             {
                 WriteLine(r.ToString());
+            }*/
+            using (EntityUtilisateur db = new EntityUtilisateur())
+            {
+                foreach (var u in db.UtilisateurSet)
+                {
+                    WriteLine(u.Password);
+                }
+            }
+
+            AbsUtilisateur ut = self.utilisateurROC.ToList().Find(a => a.ID == 1);
+            bdd.modifMdp(ut, "Bonjour");
+
+            using (EntityUtilisateur db = new EntityUtilisateur())
+            {
+                foreach (var u in db.UtilisateurSet)
+                {
+                    WriteLine(u.Password);
+                }
             }
 
             Read();
