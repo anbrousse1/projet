@@ -33,6 +33,8 @@ namespace Metier
 
         void ajouterRepas(Repas r, List<AbsPlatChoisis> lp);
 
+        void modifMdp(AbsUtilisateur u, String mdp);
+
         void setPrixPlat(AbsPlat p, double prix);
 
         void setDateEffetPlat(AbsPlat p, DateTime date);
@@ -44,6 +46,8 @@ namespace Metier
         void setDateFinProduit(AbsProduit p, DateTime date);
 
         void addDateToMenu(AbsMenu m, DateTime d);
+
+        void modifDateSortieUsager(AbsUsager u, DateTime d);
 
     }
 }
