@@ -77,6 +77,7 @@
     <Compile Include="EntityPlatProduit.cs" />
     <Compile Include="EntityProduit.cs" />
     <Compile Include="EntityRepasPlats.cs" />
+    <Compile Include="EntityTarif.cs" />
     <Compile Include="EntityUsager.cs" />
     <Compile Include="EntityUtilisateur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

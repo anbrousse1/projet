@@ -8,7 +8,9 @@ namespace Metier
 {
     abstract class AbsTarif
     {
-        public double Prix { get; private set; }
-        public DateTime DateEffet { get; private set; }
+        public int ID { get; set; }
+        public int IdPlat { get; set; }
+        public double Prix { get; set; }
+        public DateTime DateEffet { get; set; }
     }
 }

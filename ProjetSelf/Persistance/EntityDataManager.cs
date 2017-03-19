@@ -548,6 +548,11 @@ namespace Persistance
                 }
                 db.SaveChanges();
             }
+            using(EntityTarif db = new EntityTarif())
+            {
+                db.TarifSet.Add(new Tarif { DateEffet = DateTime.Today, IdPlat = p.ID, Prix = prix });
+                db.SaveChanges();
+            }
         }
 
         public void setDateEffetPlat(AbsPlat p, DateTime date)
