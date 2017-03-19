@@ -15,6 +15,7 @@ namespace Metier
         public double Tarif { get; set; }
         public CategoriePlat Categorie { get; set; }
         private List<AbsProduit> ingredients = new List<AbsProduit>();
+        private List<AbsTarif> tarifs = new List<AbsTarif>();
 
         public override string ToString()
         {
@@ -32,25 +33,38 @@ namespace Metier
             return mess;
 
         }
-        //méthode permettant de modifier le tarif d'un plat 
+        /// <summary>
+        /// méthode permettant de modifier le tarif d'un plat 
+        /// </summary>
+        /// <param name="tarif"></param>
         internal void changerTarif(double tarif)
         {
             Tarif = tarif;
         }
 
-        //méthode permettant de changer la date d'effet
-        internal void ChangerDateEffet(DateTime d)
+        /// <summary>
+        /// méthode permettant de changer la date d'effet
+        /// </summary>
+        /// <param name="d"></param>
+        internal void changerDateEffet(DateTime d)
         {
             DateEffet = d;
         }
 
-        //méthode permettant de modifier la date de fin
-        internal void ChangerDateFin(DateTime d)
+        /// <summary>
+        /// méthode permettant de modifier la date de fin
+        /// </summary>
+        /// <param name="d"></param>
+        internal void changerDateFin(DateTime d)
         {
             DateFin = d;
         }
 
-        internal void AddProduit(AbsProduit p)
+        /// <summary>
+        /// permet d'ajouter des produits au plat
+        /// </summary>
+        /// <param name="p"></param>
+        internal void addProduit(AbsProduit p)
         {
             if (ingredients.Count == 0) { this.DateEffet = p.DateEffet; this.DateFin = p.DateFin; }
             else
@@ -63,7 +77,13 @@ namespace Metier
 
         }
 
-        public bool Equals(AbsPlat p)
+
+        /// <summary>
+        /// permet de vérifier si deux plats sont égaux
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public bool equals(AbsPlat p)
         {
             if (this.Nom.Equals(p.Nom))
             {
@@ -72,7 +92,11 @@ namespace Metier
             return false;
         }
 
-
+        /// <summary>
+        /// Pemret de vérifer si un objet est un AbsPlat
+        /// </summary>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public override bool Equals(object right)
         {
             //check null
@@ -91,21 +115,33 @@ namespace Metier
                 return false;
             }
 
-            return this.Equals(right as AbsPlat);
+            return this.equals(right as AbsPlat);
         }
 
+        /// <summary>
+        /// Permet de récuperer la liste des produits d'un plat 
+        /// </summary>
+        /// <returns></returns>
         public List<AbsProduit> getProduits()
         {
             return ingredients;
         }
 
+
+        /// <summary>
+        /// permet de modifier un produit 
+        /// </summary>
+        /// <param name="prods"></param>
         internal void modifProduits(List<AbsProduit> prods)
         {
             ingredients = prods;
 
         }
 
-
+        /// <summary>
+        /// permet de modifier le tarif
+        /// </summary>
+        /// <param name="tarif"></param>
         internal void modifierTarif(double tarif)
         {
             Tarif = tarif;

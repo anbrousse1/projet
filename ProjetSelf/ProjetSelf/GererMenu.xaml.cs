@@ -40,8 +40,8 @@ namespace Vue
             DateTime d;
             AbsMenu m=null;
             m =(AbsMenu)comboBox_menu.SelectedItem;
-            Console.WriteLine(m.effet);
-            Console.WriteLine(m.fin);         
+            Console.WriteLine(m.Effet);
+            Console.WriteLine(m.Fin);         
             try
             {
                 d = (DateTime)dateMenu.SelectedDate;

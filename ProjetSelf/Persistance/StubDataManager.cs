@@ -59,27 +59,27 @@ namespace Persistance
             List<AbsMenu> menus = new List<AbsMenu>();
 
             Menu m = new Menu { Nom = "menu 1" };
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, Categorie = CategoriePlat.Plat });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "steack", Tarif = 8.5,  Categorie = CategoriePlat.Plat });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "poulet", Tarif = 1.5,  Categorie = CategoriePlat.Plat });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "frites", Tarif = 3,  Categorie = CategoriePlat.Plat });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "petit pois", Tarif = 5, Categorie = CategoriePlat.Plat });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "pates", Tarif = 2,  Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "saucisse", Tarif = 3.5, Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "steack", Tarif = 8.5,  Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "poulet", Tarif = 1.5,  Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "frites", Tarif = 3,  Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "petit pois", Tarif = 5, Categorie = CategoriePlat.Plat });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "pates", Tarif = 2,  Categorie = CategoriePlat.Plat });
 
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade de fruit", Tarif = 2, Categorie = CategoriePlat.Dessert });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "creme café", Tarif = 2,  Categorie = CategoriePlat.Dessert });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "yahourt", Tarif = 2,  Categorie = CategoriePlat.Dessert });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "beignet", Tarif = 2,  Categorie = CategoriePlat.Dessert });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "baba au rhum", Tarif = 2, Categorie = CategoriePlat.Dessert });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "bonbons", Tarif = 2,  Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade de fruit", Tarif = 2, Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "creme café", Tarif = 2,  Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "yahourt", Tarif = 2,  Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "beignet", Tarif = 2,  Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "baba au rhum", Tarif = 2, Categorie = CategoriePlat.Dessert });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "bonbons", Tarif = 2,  Categorie = CategoriePlat.Dessert });
 
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2,  Categorie = CategoriePlat.Entree });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade bleu", Tarif = 2,  Categorie = CategoriePlat.Entree });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rouge", Tarif = 2, Categorie = CategoriePlat.Entree });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade orange", Tarif = 2, Categorie = CategoriePlat.Entree });
-            m.AddPlats(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rose", Tarif = 2,  Categorie = CategoriePlat.Entree });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade verte", Tarif = 2,  Categorie = CategoriePlat.Entree });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade bleu", Tarif = 2,  Categorie = CategoriePlat.Entree });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rouge", Tarif = 2, Categorie = CategoriePlat.Entree });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade orange", Tarif = 2, Categorie = CategoriePlat.Entree });
+            m.addPlat(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade rose", Tarif = 2,  Categorie = CategoriePlat.Entree });
             //m.plats.Add(new Plat { ID = 001, DateEffet = DateTime.Today, DateFin = DateTime.Today.AddDays(2), Nom = "salade marron", Tarif = 2, ingredients = null, Categorie = CategoriePlat.Entree });
-            m.AddDate(DateTime.Today);
+            m.addDate(DateTime.Today);
             menus.Add(m);
             return menus;
         }

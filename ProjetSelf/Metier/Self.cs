@@ -290,7 +290,7 @@ namespace Metier
 
         public void modifierPlatsMenu(AbsMenu m, List<AbsPlat> plats)
         {
-            m.ModifierPlats(plats);
+            m.modifierPlats(plats);
         }
 
         private void chargePlatJour()
@@ -758,7 +758,7 @@ namespace Metier
             data.ajouterPlat(p, ingredients);
             foreach(AbsProduit pro in ingredients)
             {
-                p.AddProduit(pro);
+                p.addProduit(pro);
             }
             plats.Add(p);
         }
@@ -778,7 +778,7 @@ namespace Metier
             data.ajouterMenu(m, lplats);
             foreach(AbsPlat p in lplats)
             {
-                m.AddPlats(p);
+                m.addPlat(p);
             }
             menus.Add(m);
         }
@@ -850,7 +850,7 @@ namespace Metier
         private void setDateEffetPlat(String plat, DateTime newDateEffet)
         {
             AbsPlat p = FindPlat(plat);
-            p.ChangerDateEffet(newDateEffet);
+            p.changerDateEffet(newDateEffet);
             data.setDateEffetPlat(p, newDateEffet);
         }
 
@@ -858,7 +858,7 @@ namespace Metier
         private void setDateFinPlat(String plat, DateTime newDateFin)
         {
             AbsPlat p = FindPlat(plat);
-            p.ChangerDateFin(newDateFin);
+            p.changerDateFin(newDateFin);
             data.setDateFinPlat(p, newDateFin);
         }
 

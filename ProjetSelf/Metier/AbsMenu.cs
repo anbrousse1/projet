@@ -10,8 +10,8 @@ namespace Metier
     {
         public int ID { get; set; }
         public string Nom { get; set; }
-        public DateTime effet= new DateTime();
-        public DateTime fin= new DateTime();
+        public DateTime Effet { get; set; }
+        public DateTime Fin { get; set; }
         public List<DateTime> dates = new List<DateTime>();
         private List<AbsPlat> plats = new List<AbsPlat>();
 
@@ -32,40 +32,50 @@ namespace Metier
             return mess;
         }
 
-        //Permet d'ajouter un date à un menu
-        internal void AddDate(DateTime d)
+        /// <summary>
+        /// Permet d'ajouter un date à un menu
+        /// </summary>
+        /// <param name="d"></param>
+        internal void addDate(DateTime d)
         {
             dates.Add(d);
         }
 
 
-        //Permet d'ajouter une liste de  date à un menu
-        internal void AddListDate(List<DateTime> d)
-        {
-            dates.AddRange(d);
-        }
 
-
-        internal void AddPlats(AbsPlat p)
+        /// <summary>
+        /// Permet d'ajouter un plat au menu
+        /// </summary>
+        /// <param name="p"></param>
+        internal void addPlat(AbsPlat p)
         {
             if (plats.Count == 0)
             {
-                effet = p.DateEffet;
-                fin = p.DateFin;
+                Effet = p.DateEffet;
+                Fin = p.DateFin;
             }else
             {
-                if (effet.CompareTo(p.DateEffet) > 0) { effet = p.DateEffet; }
-                if (fin.CompareTo(p.DateFin) < 0) { fin = p.DateFin; }
+                if (Effet.CompareTo(p.DateEffet) > 0) { Effet = p.DateEffet; }
+                if (Fin.CompareTo(p.DateFin) < 0) { Fin = p.DateFin; }
             }
             plats.Add(p);
         }
 
+
+        /// <summary>
+        /// permet d'obtenir la liste des plats d'un menu
+        /// </summary>
+        /// <returns></returns>
         public List<AbsPlat> getPlats()
         {
             return plats;
         }
 
-        internal void ModifierPlats(List<AbsPlat> nPlats)
+        /// <summary>
+        /// permet de modifier la liste des plats du menu 
+        /// </summary>
+        /// <param name="nPlats"></param>
+        internal void modifierPlats(List<AbsPlat> nPlats)
         {
             plats.Clear();
             plats.AddRange(nPlats);
