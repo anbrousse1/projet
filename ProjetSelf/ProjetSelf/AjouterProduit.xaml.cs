@@ -51,6 +51,7 @@ namespace Vue
                 return;
             }
             String name = nom.Text;
+            if (name.Equals("")) { MessageBox.Show("Veuillez rensegner un nom"); return; }
             String obser = observation.Text;
             parent.self.addProduit(effet, fin, name, obser, type);
             MessageBox.Show("Ajout éffectué");

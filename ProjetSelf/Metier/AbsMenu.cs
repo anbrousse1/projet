@@ -77,8 +77,44 @@ namespace Metier
         /// <param name="nPlats"></param>
         internal void modifierPlats(List<AbsPlat> nPlats)
         {
+            plats = nPlats;
+            initDateEffet();
+        }
+
+        /// <summary>
+        /// Remet la liste des plats à 0
+        /// </summary>
+        internal void clearPlats()
+        {
             plats.Clear();
-            plats.AddRange(nPlats);
+        }
+
+        internal void initDateEffet()
+        {
+            DateTime effet = plats[0].DateEffet;
+            DateTime fin = plats[0].DateFin;
+            foreach (AbsPlat p in plats)
+            {
+                if (p.DateEffet.CompareTo(effet) > 0) { effet = p.DateEffet; }
+                if (p.DateFin.CompareTo(fin) < 0) { fin = p.DateFin; }
+            }
+            this.Effet = effet;
+            this.Fin = fin;
+        }
+
+        internal Boolean supprimable()
+        {
+            if (dates.Count == 0) { return true; }
+            foreach(DateTime d in dates)
+            {
+                if (d.CompareTo(DateTime.Today) >= 0) { return false; }
+            }
+            return true;
+        }
+
+        internal Boolean containsPlat(AbsPlat p)
+        {
+            return (plats.Contains(p));
         }
     }
 }

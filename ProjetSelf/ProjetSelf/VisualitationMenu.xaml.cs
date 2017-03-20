@@ -40,13 +40,17 @@ namespace Vue
             AbsMenu m = parent.self.findMenuByName((sender as UCVisualiserMenu).NomMenu);
             if (e.Num == 0)
             {
-                // appelle de supprimer menu
-                parent.self.supprimerMenu(m);
-                liste.Items.Refresh();
+                if (parent.self.menuSupprimable(m))
+                {
+                    parent.self.supprimerMenu(m);
+                    liste.Items.Refresh();
+                }else
+                {
+                    MessageBox.Show("Le menu est utilisé il ne peut donc pas être supprimé");
+                }
             }
             else
             {
-                //Vue modifier menu 
                 parent.setUC(new ModifierMenu(parent, m));
             }
         }

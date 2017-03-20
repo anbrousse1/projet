@@ -40,8 +40,15 @@ namespace Vue
             AbsProduit p = parent.self.findProduitByName((sender as ModifProdUC).NomProd);
             if(e.Num == 0)
             {
-                parent.self.supprimerProduit(p);
-                liste.Items.Refresh();
+                if (parent.self.produitSupprimable(p))
+                {
+                    parent.self.supprimerProduit(p);
+                    liste.Items.Refresh();
+                }else
+                {
+                    MessageBox.Show("Ce produit est utilisé dans un plat il est donc impossible de le supprimer");
+                }
+
             }
             else
             {

@@ -39,9 +39,15 @@ namespace Vue
             AbsPlat p = parent.self.FindPlat((sender as UCVisualiserPlat).NomPlat);
             if (e.Num == 0)
             {
-                // Verifier si on peut supprimer ou supprimer des menu où il est.
-                parent.self.supprimerPlat(p);
-                liste.Items.Refresh();
+                if (parent.self.platSupprimable(p))
+                {
+                    parent.self.supprimerPlat(p);
+                    liste.Items.Refresh();
+                }else
+                {
+                    MessageBox.Show("Ce plat est utlisé dans un ou des menus on ne peut donc pas le supprimer");
+                }
+                
             }
             else
             {

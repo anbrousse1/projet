@@ -71,6 +71,12 @@ namespace Vue
         {
             parent.setUC(new GestionMenu(parent));
         }
+
+
+        private void dateSelect(object sender, SelectionChangedEventArgs e)
+        {
+            dateMenu.SelectedDate = (DateTime)(sender as ListView).SelectedItem;
+        }
     }
 
 }
