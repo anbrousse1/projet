@@ -135,8 +135,9 @@ namespace Metier
         internal void modifProduits(List<AbsProduit> prods)
         {
             ingredients = prods;
-
+            initDateEffet();
         }
+
 
         /// <summary>
         /// permet de modifier le tarif
@@ -147,6 +148,24 @@ namespace Metier
             Tarif = tarif;
         }
 
+
+        internal void initDateEffet()
+        {
+            DateTime effet = ingredients[0].DateEffet;
+            DateTime fin= ingredients[0].DateFin;
+            foreach(AbsProduit p in ingredients)
+            {
+                if (p.DateEffet.CompareTo(effet) > 0) { effet = p.DateEffet; }
+                if (p.DateFin.CompareTo(fin) < 0) { fin = p.DateFin; }
+            }
+            this.DateEffet = effet;
+            this.DateFin = fin;
+        }
+
+        internal Boolean containsProd(AbsProduit p)
+        {
+            return ingredients.Contains(p);
+        }
 
     }
 

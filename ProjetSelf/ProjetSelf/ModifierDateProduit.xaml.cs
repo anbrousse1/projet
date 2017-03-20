@@ -23,15 +23,15 @@ namespace Vue
     {
         MainWindow parent;
         AbsProduit prod;
-        DateTime effetMin;
-        DateTime finMin;
+        //DateTime effetMin;
+        //DateTime finMin;
         public ModifierDatePlatEtProduit(MainWindow m, AbsProduit p)
         {
             parent = m;
             prod = p;
             InitializeComponent();
             obs.Text = p.Observation;
-            dates.Text = "Veuillez sélectionner une date d'effet anterieur au " + effetMin.Day+"/"+effetMin.Month+"/"+effetMin.Year + " et un date de fin supérieur au " + finMin.Day+"/"+finMin.Month+"/"+finMin.Year;
+            dates.Text = "Veuillez sélectionner une date d'effet anterieur au " + p.DateEffet.Day+"/"+p.DateEffet.Month+"/"+p.DateEffet.Year + " et un date de fin supérieur au " + p.DateFin.Day+"/"+p.DateFin.Month+"/"+p.DateFin.Year;
         }
 
         private void clickAnnuler(object sender, RoutedEventArgs e)
@@ -44,12 +44,14 @@ namespace Vue
             if (dateEffet.SelectedDate != null)
             {
                 DateTime effet = (DateTime)dateEffet.SelectedDate;
-                prod.DateEffet = effet;
+                parent.self.changeDateEffetProd(prod, effet);
+                parent.self.mAJDatePlatsEtMenu();
             }
             if(dateFin.SelectedDate != null)
             {
                 DateTime fin = (DateTime)dateFin.SelectedDate;
-                prod.DateFin = fin;
+                parent.self.changeDateFinProd(prod, fin);
+                parent.self.mAJDatePlatsEtMenu();
             }
 
             String obser = obs.Text;
@@ -64,7 +66,7 @@ namespace Vue
             {
                 if ((DateTime)dateEffet.SelectedDate != null)
                 {
-                    if (((DateTime)dateEffet.SelectedDate).CompareTo(effetMin) > 0)
+                    if (((DateTime)dateEffet.SelectedDate).CompareTo(prod.DateEffet) > 0)
                     {
                         MessageBox.Show("Date d'effet sélectioné non valide");
                         dateEffet.SelectedDate = null;
@@ -80,7 +82,7 @@ namespace Vue
             {
                 if ((DateTime)dateFin.SelectedDate != null)
                 {
-                    if (((DateTime)dateFin.SelectedDate).CompareTo(finMin) < 0)
+                    if (((DateTime)dateFin.SelectedDate).CompareTo(prod.DateFin) < 0)
                     {
                         MessageBox.Show("Date de fin sélectioné non valide");
                         dateFin.SelectedDate = null;
