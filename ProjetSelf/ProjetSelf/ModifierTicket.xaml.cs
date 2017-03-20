@@ -24,11 +24,13 @@ namespace Vue
         MainWindow parent;
         AbsRepas repas;
         AbsUsager client;
+        double solde;
         public ModifierTicket(MainWindow m, AbsRepas r,AbsUsager c)
         {
             parent = m;
             repas = r;
             client = c;
+            solde = client.Solde;
             //Charger liste plats dans Plats choisis ROC
             parent.self.chargePlatRepas(repas);
             InitializeComponent();
@@ -38,13 +40,18 @@ namespace Vue
 
         private void annuler(object sender, RoutedEventArgs e)
         {
+            parent.self.chargePlatRepas(repas);
+            client.Solde = solde;
             parent.setUC(new UCListRepas(parent));
         }
 
         private void confirmer(object sender, RoutedEventArgs e)
         {
             //Changer la date a ajouter ...
+            //probleme avec le solde
+            parent.self.changeRepas(repas);
             EcrireTicketFichier.modifTicket(client,parent.self.caissier, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
+            parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
         }
     }

@@ -51,7 +51,6 @@ namespace Vue
                 else if (fonction==002)
                 {
                     parent.setUC(new AccueilGerant(parent));
-                    parent.setBackground2Color();
                 }
                 else
                 {

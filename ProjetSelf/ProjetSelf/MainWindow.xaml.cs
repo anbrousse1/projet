@@ -40,12 +40,7 @@ namespace Vue
             child = uc.ToString();
             mGridCentre.Children.Clear();
             mGridCentre.Children.Add(uc);
-        }
-
-        public void setBackground2Color()
-        {
-            mGridCentre.Background = new SolidColorBrush(Colors.SlateGray);
-        }
+        }       
 
         private void Aide(object sender, RoutedEventArgs e)
         {

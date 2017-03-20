@@ -6,71 +6,71 @@
              xmlns:local="clr-namespace:Vue"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
     <Grid>
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <Grid Grid.Column="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <TextBlock Text="Produits : " FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
+            <ComboBox Name="cbProd" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding produitsROC}" MinWidth="100">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Content="Ajouter" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="100" MinWidth="200" Click="ajouter_Click"/>
+            <Grid Grid.Row="1" Grid.ColumnSpan="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Tarif :" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}"/>
+                <TextBox Grid.Column="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30" Name="tarif"/>
+            </Grid>
+
+
+            <Grid Grid.Row="2" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Produits : " FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="0"/>
-                    <ComboBox Name="cbProd" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"  VerticalAlignment="Center" ItemsSource="{Binding produitsROC}" MinWidth="100">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                    <Button Content="Ajouter" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="100" MinWidth="200" Click="ajouter_Click"/>
-                <Grid Grid.Row="1" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Tarif :" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}"/>
-                    <TextBox Grid.Column="1" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="130" Height="30" Name="tarif"/>
-                </Grid>
-                
-                
-                <Grid Grid.Row="2" Grid.ColumnSpan="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" MaxHeight="150" Grid.Column="1" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
-                    <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" MaxHeight="150" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
-                </Grid>
-
+                <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" MaxHeight="150" Grid.Column="1" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
+                <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" MaxHeight="150" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
             </Grid>
 
-            <Grid Grid.Column="1" MinWidth="150">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="25"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Text="Liste des produits du plat" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-                <TextBlock Grid.Row="1" Text="(Cliquez sur un produit pour le supprimer de la liste)" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource TextBlockStyle}"/>
-                <ListView Grid.Row="2" Name="listProd" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding prodPlatROC}" SelectionChanged="listProd_SelectionChanged" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
         </Grid>
 
+        <Grid Grid.Column="1" MinWidth="150">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Liste des produits du plat" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
+            <TextBlock Grid.Row="1" Text="(Cliquez sur un produit pour le supprimer de la liste)" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource TextBlockStyle}"/>
+            <ListView Grid.Row="2" Name="listProd" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding prodPlatROC}" SelectionChanged="listProd_SelectionChanged" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
+
+
 </UserControl>

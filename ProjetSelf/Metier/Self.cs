@@ -345,6 +345,19 @@ namespace Metier
             }
         }
 
+        public void changeRepas(AbsRepas r)
+        {
+            r.plats.Clear();
+            r.Prix = 0;
+            foreach (KeyValuePair<AbsPlat, int> kvp in platsChoisis)
+            {
+                for (int i = 1; i <= kvp.Value; i++)
+                {
+                    r.AddPlat(kvp.Key);
+                }
+            }
+        }
+
         /*public void lierList()
         {
             histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(histoRepas);
