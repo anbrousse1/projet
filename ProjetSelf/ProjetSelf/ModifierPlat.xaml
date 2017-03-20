@@ -62,7 +62,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Liste des produits du plat" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
             <TextBlock Grid.Row="1" Text="(Cliquez sur un produit pour le supprimer de la liste)" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource TextBlockStyle}"/>
-            <ListView Grid.Row="2" Name="listProd" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding prodPlatROC}" SelectionChanged="listProd_SelectionChanged" >
+            <ListView Grid.Row="2" HorizontalAlignment="Center" Name="listProd" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding prodPlatROC}" SelectionChanged="listProd_SelectionChanged" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
