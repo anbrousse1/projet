@@ -52,7 +52,7 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Liste des plats du menu" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
             <TextBlock Grid.Row="1" Text="(Cliquez sur un plat pour le supprimer de la liste)" HorizontalAlignment="Center" FontSize="16" Style="{StaticResource TextBlockStyle}"/>
-            <ListView Grid.Row="2" Name="listPlat" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_SelectionChanged" >
+            <ListView Grid.Row="2" Name="listPlat" HorizontalAlignment="Center" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_SelectionChanged" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>

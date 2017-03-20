@@ -74,7 +74,7 @@
         <Button Content="Ajouter" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterPlatClick"/>
         <Button Content="Ajouter" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="75" Click="ajouterDessertClick" />
 
-        <Button Content="retour" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource boutonAnnulerUC}" Click="retour"/>
+        <Button Content="retour" Grid.Row="8" Grid.Column="1" Style="{StaticResource boutonAnnulerUC}" Click="retour"/>
         <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="2" Text="Liste des plats ajoutés au Menu, cliquez sur un plat pour le supprimer" Style="{StaticResource TextBlockStyle}"  FontWeight="Bold" />
         <ListView Name="list" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Transparent" BorderBrush="Transparent" ItemsSource="{Binding platsMenuROC}" SelectionChanged="ListView_Selected" Grid.Column="2" Grid.Row="3" Grid.RowSpan="5" >
             <ListView.ItemTemplate>
