@@ -146,6 +146,7 @@ namespace Metier
         internal void modifierTarif(double tarif)
         {
             Tarif = tarif;
+            tarifs.Add(new Tarif { DateEffet=DateTime.Today, IdPlat=this.ID, Prix=tarif});
         }
 
 
@@ -165,6 +166,29 @@ namespace Metier
         internal Boolean containsProd(AbsProduit p)
         {
             return ingredients.Contains(p);
+        }
+
+        internal double findTarif(DateTime date)
+        {
+            double tarif=0;
+            DateTime d = new DateTime(0,0,0);
+            foreach(AbsTarif t in tarifs)
+            {
+                if (date.CompareTo(t.DateEffet)>0)
+                {
+                    if(d.CompareTo(new DateTime(0, 0, 0)) == 0)
+                    {
+                        tarif = t.Prix;
+                        d = t.DateEffet;
+                    }
+                    if(d.CompareTo(t.DateEffet)<0)
+                    {
+                        tarif = t.Prix;
+                        d = t.DateEffet;
+                    }
+                }
+            }
+            return tarif;
         }
 
     }
