@@ -38,8 +38,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" Grid.Column="1" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
-                <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right"  Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
+                <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center" MaxHeight="150" Grid.Column="1" Click="retour_Click" Style="{StaticResource boutonAnnulerUC}"/>
+                <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Right" MaxHeight="150" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
             </Grid>
 
         </Grid>

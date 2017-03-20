@@ -24,10 +24,10 @@ namespace Test
                 WriteLine(u.ToString());
             }
 
-            PlatChoisis pc1 = new PlatChoisis { CodePlat = 1, Date = DateTime.Today };
-            PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today };
-            PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today };
-            PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today };
+            PlatChoisis pc1 = new PlatChoisis { CodePlat = 1, Date = DateTime.Today, Quantite = 2};
+            PlatChoisis pc2 = new PlatChoisis { CodePlat = 2, Date = DateTime.Today, Quantite = 1};
+            PlatChoisis pc3 = new PlatChoisis { CodePlat = 3, Date = DateTime.Today, Quantite = 1};
+            PlatChoisis pc4 = new PlatChoisis { CodePlat = 4, Date = DateTime.Today, Quantite = 1};
             List<AbsPlatChoisis> lpc = new List<AbsPlatChoisis>();
             lpc.Add(pc1);
             lpc.Add(pc2);
@@ -41,6 +41,16 @@ namespace Test
             WriteLine(bdd.chiffreDAffaire());
             WriteLine(bdd.prixMoyen());
             WriteLine(bdd.frequentation());
+
+            bdd.setPrixPlat(self.platROC.ToList().Find(a => a.ID == 2), 20);
+
+            using(EntityTarif db = new EntityTarif())
+            {
+                foreach(var u in db.TarifSet)
+                {
+                    WriteLine(u);
+                }
+            }
 
             /*foreach(var r in bdd.getRepasUsager(self.usagerROC.ToList().Find(a => a.ID == 1)))
             {

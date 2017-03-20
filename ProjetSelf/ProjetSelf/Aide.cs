@@ -29,7 +29,9 @@ namespace Vue
                 case "Connexion": label.Text = "Voici l'écran de connexion";
                     label1.Text += " Connexion";
                     break;
-                case "Vue.Caisse": label.Text = "Voici l'écran de la caisse et c'est Jérémy qui va le finir !";
+                case "Vue.Caisse": label.Text = "Pour commencer, il faut insérer la carte du client dans le lecteur\n pour que celui ci soit identifié. Ensuite il suffit d'utiliser les boutons pour\n "+
+                        "entrer les plats que le client a sélectionné. Sur la droite il y a un récapitulatif \nqui permet de voir les plats déja entré par le caissier mais aussi de les supprimer \n"+
+                        "ou de les modifier. Pour payer il faut cliquer sur le bouton paiement.";
                     label1.Text += " Caisse";
                     break;
                 case "Vue.AccueilGerant": label.Text = "Voici l'écran de l'accueil du gérant !\n Si vous êtes ici, c'est que vous êtes le gérant de cette application : c'est plutot cool non ? \n" + 
