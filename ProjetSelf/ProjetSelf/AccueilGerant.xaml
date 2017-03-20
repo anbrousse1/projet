@@ -21,8 +21,12 @@
             <Button Click="ClickCaisse" Content="Caisse" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" FontSize="35"></Button>
             <Button Name="stat" Click="ClickStats" Content="Statistique" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Column="1" FontSize="35"></Button>
             <Button Click="ClickGestionMenu"  Content="Gestion des Menus" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50" FontWeight="Bold" Grid.Column="2" FontSize="35"></Button>
-            <Button Click="ClickGestionProduit" Content="Gestion des Produits" Foreground="Black" Background="LightSkyBlue"  Margin="50 50 50 50" FontWeight="Bold" Grid.Row="1" FontSize="35"></Button>
-            <Button Name="user" Click="ClickGestionUtilisateur" Content="Gestion des Utilisateurs" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1"></Button>
+            <Button Click="ClickGestionProduit" Foreground="Black" Background="LightSkyBlue"  Margin="50 50 50 50" FontWeight="Bold" Grid.Row="1" FontSize="35">
+                <TextBlock Text="Gestion des Produits" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
+            <Button Name="user" Click="ClickGestionUtilisateur" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="1">
+                <TextBlock Text="Gestion des Utilisateurs" TextWrapping="Wrap" TextAlignment="Center"/>
+            </Button>
             <Button Click="ClickGestionPlat" Content="Gestion des Plats" Foreground="Black" Background="LightSkyBlue" Margin="50 50 50 50"  FontWeight="Bold" Grid.Row="1" FontSize="35" Grid.Column="2"></Button>
         </Grid>
     </DockPanel>

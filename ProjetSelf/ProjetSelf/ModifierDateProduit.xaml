@@ -33,7 +33,7 @@
         <TextBlock Text="Entrer des observation (facultatif) " Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" FontSize="15" HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}"/>
         <TextBox Name="obs" Grid.Column="1" Grid.Row="4" Margin="5,5,5,5" GotFocus="text_changed"/>
 
-        <Button Content="Appliquer" Grid.ColumnSpan="2" Grid.Row="5" Margin="10,10,10,10" Style="{StaticResource boutonValiderUC}" Click="clickValider" />
-        <Button Content="retour" Grid.ColumnSpan="2" Grid.Row="6" Margin="10,10,10,10" Style="{StaticResource boutonAnnulerUC}" Click="clickAnnuler"/>
+        <Button Content="Appliquer" Grid.ColumnSpan="2" Grid.Row="5" Margin="10,10,10,10" Style="{StaticResource boutonValiderUC}" Click="clickValider" MaxWidth="600"/>
+        <Button Content="retour" Grid.ColumnSpan="2" Grid.Row="6" Margin="10,10,10,10" Style="{StaticResource boutonAnnulerUC}" Click="clickAnnuler" MaxWidth="600"/>
     </Grid>
 </UserControl>
