@@ -277,22 +277,95 @@ namespace Metier
 
         }
 
+
+        //Permet de modifier le tarif d'un plat
         public void modifierTarifPlat(AbsPlat p,double tarif)
         {
             p.modifierTarif(tarif);
         }
 
+
+        /// <summary>
+        /// Permet de modifier la liste des produits d'un plat
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="prods"></param>
         public void modifierProduitsPlat(AbsPlat p, List<AbsProduit> prods)
         {
+
             p.modifProduits(prods);
         }
 
-
+        /// <summary>
+        /// Permet de modifier les plats d'un menu
+        /// </summary>
+        /// <param name="m"></param>
+        /// <param name="plats"></param>
         public void modifierPlatsMenu(AbsMenu m, List<AbsPlat> plats)
         {
+
             m.modifierPlats(plats);
         }
 
+
+
+        /// <summary>
+        /// Permet de changer la date de fin d'effet d'un produit
+        /// </summary>
+        /// <param name="prod"></param>
+        /// <param name="fin"></param>
+        public void changeDateFinProd(AbsProduit prod, DateTime fin)
+        {
+            prod.ChangerDateFin(fin);
+            //BDD
+        }
+
+        /// <summary>
+        /// Permet de changer la date départ d'effet d'un produit
+        /// </summary>
+        /// <param name="prod"></param>
+        /// <param name="effet"></param>
+        public void changeDateEffetProd(AbsProduit prod,DateTime effet){
+            prod.ChangerDateEffet(effet);
+            //BDD
+        }
+
+        /// <summary>
+        /// Met à jour les dates d'effets des menus
+        /// </summary>
+        private void mAJDateMenus()
+        {
+            foreach(AbsMenu m in menus)
+            {
+                m.initDateEffet();
+            }
+        }
+
+
+        /// <summary>
+        /// Met à jour les dates d'effets des plats
+        /// </summary>
+        private void mAJDatePlat()
+        {
+            foreach (AbsPlat p in plats)
+            {
+                p.initDateEffet();
+            }
+        }
+
+        /// <summary>
+        /// Appel les méthodes qui mettent à jour les dates des menus et des plats 
+        /// </summary>
+        public void mAJDatePlatsEtMenu()
+        {
+            mAJDateMenus();
+            mAJDatePlat();
+        }
+
+
+        /// <summary>
+        /// Charge le plat du jour si il y en a un
+        /// </summary>
         private void chargePlatJour()
         {
             menuDuJour = getMenu(dateDuJour);
@@ -304,6 +377,11 @@ namespace Metier
             }
         }
 
+
+        /// <summary>
+        /// Ajoute un plat à la liste des plats choisis
+        /// </summary>
+        /// <param name="p"></param>
         public void AddPlatChoisis(AbsPlat p)
         {
             foreach (AbsRepas r in histoRepas)
@@ -322,6 +400,10 @@ namespace Metier
             histoRepas.Add(re);
         }
 
+        /// <summary>
+        /// charge les plat d'un repas
+        /// </summary>
+        /// <param name="r"></param>
         public void chargePlatRepas(AbsRepas r)
         {
             platsChoisis.Clear();
@@ -384,17 +466,28 @@ namespace Metier
             return null;
         }
 
+
+        /// <summary>
+        /// Charge tous les repas
+        /// </summary>
+        /// <returns></returns>
         public List<AbsRepas> getAllRepas()
         {
             return data.chargeAllRepasPlats();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void getAllMenusPlats()
         {
             menus.Clear();
             menus.AddRange(data.chargeAllMenuPlat(plats));
         }
       
+        /// <summary>
+        /// 
+        /// </summary>
         public void getAllPlatsIngre()
         {
             plats.Clear();
@@ -418,6 +511,8 @@ namespace Metier
             usager.Clear();
             usager.AddRange(data.chargeAllUsager());
         }
+
+
 
         public void getAllUsagerUtilisateur()
         {
@@ -444,6 +539,12 @@ namespace Metier
             utilisateur.AddRange(data.chargeAllUtilisateur());
         }
 
+
+        /// <summary>
+        /// Permet d'obtenir la fonction d'un Utlisateur qui vient de se connecter
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         private String getFonction(int code)
         {
             switch (code)
@@ -491,6 +592,12 @@ namespace Metier
             DroitUtilisateur = 0;
         }
 
+
+        /// <summary>
+        /// Chnage le mot de passe d'un utilisateur
+        /// </summary>
+        /// <param name="mdp"></param>
+        /// <param name="usa"></param>
         public void changerMdp(string mdp, AbsUsager usa)
         {
             foreach (AbsUtilisateur u in utilisateur)
@@ -502,6 +609,11 @@ namespace Metier
             }
         }
 
+        /// <summary>
+        /// Permet de modifier la date de fin de contrat d'un Utilisateur
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="d"></param>
         public void modifierDateFinUtlisateur(AbsUsager u, DateTime d)
         {
             foreach(AbsUsager usa in usagerUtilisateur)
@@ -531,6 +643,12 @@ namespace Metier
 
         }
 
+
+        /// <summary>
+        /// Trouve un plat avec son Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public AbsPlat findPlatById(int id)
         {
             return plats.Find(a => a.ID == id);
@@ -720,6 +838,12 @@ namespace Metier
             return null;
         }
 
+
+        /// <summary>
+        /// Permet de trouver un menu avec son nom
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <returns></returns>
         public AbsMenu findMenuByName(String menu)
         {
             //return menus.Find(m => m.Nom.Equals(menu));
@@ -751,7 +875,11 @@ namespace Metier
             return null;
         }
 
-        //Permet à partir d'une liste de string d'obtenir une liste de plats
+        /// <summary>
+        /// Permet à partir d'une liste de string d'obtenir une liste de plats
+        /// </summary>
+        /// <param name="plats"></param>
+        /// <returns></returns>
         private List<AbsPlat> FindPlats(List<String> plats)
         {
             List<AbsPlat> platsMenu = new List<AbsPlat>();
@@ -763,7 +891,15 @@ namespace Metier
         }
 
 
-
+        /// <summary>
+        /// Permet d'ajouter un plat
+        /// </summary>
+        /// <param name="effet"></param>
+        /// <param name="fin"></param>
+        /// <param name="nom"></param>
+        /// <param name="tarif"></param>
+        /// <param name="ingredients"></param>
+        /// <param name="cate"></param>
         public void addplat(DateTime effet, DateTime fin,String nom, Double tarif, List<AbsProduit> ingredients, String cate)
         {
 
@@ -776,7 +912,14 @@ namespace Metier
             plats.Add(p);
         }
 
-        //Permet d'ajouter un Produit
+        /// <summary>
+        /// Permet d'ajouter un Produit
+        /// </summary>
+        /// <param name="deb"></param>
+        /// <param name="fin"></param>
+        /// <param name="nom"></param>
+        /// <param name="observation"></param>
+        /// <param name="cate"></param>
         public void addProduit(DateTime deb, DateTime fin, String nom, String observation, String cate)
         {
             Produit p = new Produit { Nom = nom, Categorie = FindCategorieProduit(cate), DateEffet = deb, DateFin = fin, ID = produits.Count + 1, Observation = observation };
@@ -784,7 +927,11 @@ namespace Metier
             produits.Add(p);
         }
 
-        //Permet d'ajouter un menu
+        /// <summary>
+        /// Permet d'ajouter un menu
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="lplats"></param>
         public void addMenu(String nom ,List<AbsPlat> lplats)
         {
             Menu m = new Menu { Nom = nom };
@@ -796,7 +943,10 @@ namespace Metier
             menus.Add(m);
         }
 
-        //Permet d'jouter un plat choisis
+        /// <summary>
+        /// Permet d'jouter un plat choisis
+        /// </summary>
+        /// <param name="plat"></param>
         public void AddPlatChoisi(String plat)
         {
             AbsPlat p = FindPlat(plat);
@@ -815,6 +965,11 @@ namespace Metier
             }
         }
 
+
+        /// <summary>
+        /// ajoute un plat choisi
+        /// </summary>
+        /// <param name="p"></param>
         public void AddPlatChoisi(AbsPlat p)
         {
 
@@ -851,7 +1006,11 @@ namespace Metier
         }
 
 
-        //Permet de modifier le prix d'un plat
+        /// <summary>
+        /// Permet de modifier le prix d'un plat
+        /// </summary>
+        /// <param name="plat"></param>
+        /// <param name="nouveauTarif"></param>
         private void SetPrixPlat(String plat, double nouveauTarif)
         {
             AbsPlat p = FindPlat(plat);
@@ -859,7 +1018,11 @@ namespace Metier
             data.setPrixPlat(p, nouveauTarif);
         }
 
-        //methode pour modifier la date d'effet d'un plat
+        /// <summary>
+        /// methode pour modifier la date d'effet d'un plat
+        /// </summary>
+        /// <param name="plat"></param>
+        /// <param name="newDateEffet"></param>
         private void setDateEffetPlat(String plat, DateTime newDateEffet)
         {
             AbsPlat p = FindPlat(plat);
@@ -867,7 +1030,11 @@ namespace Metier
             data.setDateEffetPlat(p, newDateEffet);
         }
 
-        //methode pour modifier la date de fin d'un plat
+        /// <summary>
+        /// methode pour modifier la date de fin d'un plat
+        /// </summary>
+        /// <param name="plat"></param>
+        /// <param name="newDateFin"></param>
         private void setDateFinPlat(String plat, DateTime newDateFin)
         {
             AbsPlat p = FindPlat(plat);
@@ -875,7 +1042,11 @@ namespace Metier
             data.setDateFinPlat(p, newDateFin);
         }
 
-        //methode pour modifier la date d'effet d'un produit 
+        /// <summary>
+        /// methode pour modifier la date d'effet d'un produit 
+        /// </summary>
+        /// <param name="produit"></param>
+        /// <param name="newDateEffet"></param>
         private void setDateEffetProduit(String produit, DateTime newDateEffet)
         {
             AbsProduit p = findProduitByName(produit);
@@ -883,7 +1054,11 @@ namespace Metier
             data.setDateEffetProduit(p, newDateEffet);
         }
 
-        //methode pour modifier la date de fin d'un produit
+        /// <summary>
+        /// methode pour modifier la date de fin d'un produit
+        /// </summary>
+        /// <param name="produit"></param>
+        /// <param name="newDateFin"></param>
         private void setDateFinProduit(String produit, DateTime newDateFin)
         {
             AbsProduit p = findProduitByName(produit);
@@ -892,7 +1067,10 @@ namespace Metier
         }
 
 
-        //methode qui retourne la liste des plats dispo à la date du jour
+        /// <summary>
+        /// methode qui retourne la liste des plats dispo à la date du jour
+        /// </summary>
+        /// <returns></returns>
         private List<AbsPlat> GetPlatsDispo()
         {
             List<AbsPlat> platDispo = new List<AbsPlat>();
@@ -907,7 +1085,10 @@ namespace Metier
         }
 
 
-        //methode qui retourne la liste des produits dispo à la date du jour
+        /// <summary>
+        /// methode qui retourne la liste des produits dispo à la date du jour
+        /// </summary>
+        /// <returns></returns>
         private List<AbsProduit> GetProduitsDispo()
         {
             List<AbsProduit> produitsDispo = new List<AbsProduit>();
@@ -953,6 +1134,11 @@ namespace Metier
             prixAPayer = prixAPayer-p.Tarif;
         }
 
+
+        /// <summary>
+        /// supprime un plat
+        /// </summary>
+        /// <param name="p"></param>
         public void supprimerPlat(AbsPlat p)
         {
             plats.Remove(p);
@@ -1010,6 +1196,12 @@ namespace Metier
             return false;
         }
 
+
+        /// <summary>
+        /// Verfifie si un plat existe 
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <returns></returns>
         public Boolean platExistant(String nom)
         {
             foreach(AbsPlat p in plats)
@@ -1051,6 +1243,9 @@ namespace Metier
             chargePlatJour();
         }
 
+        /// <summary>
+        /// Charge liste des entrées, plats et desserts 
+        /// </summary>
         public void chargeEntrPlatDes()
         {
             foreach(AbsPlat p in plats)
@@ -1071,7 +1266,18 @@ namespace Metier
         }
 
       
-
+        /// <summary>
+        /// ajoute un usager
+        /// </summary>
+        /// <param name="titre"></param>
+        /// <param name="fonction"></param>
+        /// <param name="codeFonction"></param>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
+        /// <param name="entree"></param>
+        /// <param name="fin"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
         public int addUsager(string titre, string fonction, int codeFonction, string nom, string prenom, DateTime entree, DateTime fin, int code) 
         {
             Usager u = new Usager { CodePaiement = code, Nom = nom, Prenom = prenom, CodeFonction = codeFonction, DateEntree = entree, DateSortie = fin, Titre = titre, ID = usager.Count + 1, Service = "Restaurant", Solde = 0, Fonction = fonction, NumCarte = usager.Count + 1 };
@@ -1081,6 +1287,13 @@ namespace Metier
             return usager.Count;
         }
 
+        /// <summary>
+        /// Ajoute un utilisateur
+        /// </summary>
+        /// <param name="mdp"></param>
+        /// <param name="login"></param>
+        /// <param name="id"></param>
+        /// <param name="idu"></param>
         public void addUtilisateur(string mdp, string login, int id,int idu )
         {
             Utilisateur u = new Utilisateur { ID = id, Login = login, Password = mdp, CodeUsager = idu};
@@ -1088,6 +1301,9 @@ namespace Metier
             data.ajouterUtilisateur(u);
         }
 
+        /// <summary>
+        /// Appellé à la fin du passage de l'usager en caisse
+        /// </summary>
         public void finPassage()
         {
             paiement();
@@ -1103,6 +1319,11 @@ namespace Metier
             platsChoisis.Clear();
         }
 
+
+        /// <summary>
+        /// charge repas dans plats choisis
+        /// </summary>
+        /// <param name="r"></param>
         public void chargeRepaInPlatsChoisi(AbsRepas r)
         {
             platsChoisis.Clear();
@@ -1118,14 +1339,45 @@ namespace Metier
             }
         }
 
+        /// <summary>
+        /// supprime produit
+        /// </summary>
+        /// <param name="p"></param>
         public void supprimerProduit(AbsProduit p)
         {
             produits.Remove(p);
         }
 
+        /// <summary>
+        /// supprime un menu
+        /// </summary>
+        /// <param name="m"></param>
         public void supprimerMenu(AbsMenu m)
         {
             menus.Remove(m);
+        }
+
+        public Boolean menuSupprimable(AbsMenu m)
+        {
+            return(m.supprimable());
+        }
+
+        public Boolean platSupprimable(AbsPlat p)
+        {
+            foreach(AbsMenu m in menus)
+            {
+                if (m.containsPlat(p)) { return false; }
+            }
+            return true;
+        }
+
+        public Boolean produitSupprimable(AbsProduit p)
+        {
+            foreach(AbsPlat pl in plats)
+            {
+                if (pl.containsProd(p)) { return false; }
+            }
+            return true;
         }
     }
 }

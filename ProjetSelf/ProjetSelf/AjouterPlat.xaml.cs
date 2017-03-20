@@ -59,16 +59,19 @@ namespace Vue
                 }
                 else
                 {
-                    if (parent.self.platExistant(n))
-                    {
-                        MessageBox.Show("Le nom de plat entré existe déjà");
-                    }
-                    else
-                    {
-                        parent.self.addplat(effet,fin,n, t, ingredients, cate);
-                        MessageBox.Show("Le plat a été ajouté");
-                        parent.setUC(new GestionPlat(parent));
-                    }
+                if (parent.self.platExistant(n))
+                {
+                    MessageBox.Show("Le nom de plat entré existe déjà");
+                }
+                else if (ingredients.Count == 0)
+                {
+                    MessageBox.Show("Vous devez ajouter au moins un ingrédients");
+                    return;
+                }else { 
+                    parent.self.addplat(effet,fin,n, t, ingredients, cate);
+                    MessageBox.Show("Le plat a été ajouté");
+                    parent.setUC(new GestionPlat(parent));
+                }
                 }
             //}catch { MessageBox.Show("Veuillez remplir tout les champs avec une étoile et ajouter au moins un ingrédient"); }
         }

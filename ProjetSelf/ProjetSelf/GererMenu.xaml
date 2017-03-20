@@ -21,7 +21,7 @@
 
         <Label Content="Sélectionner un menu de la liste et une date, ci-dessous les 20 prochaines dates disponibles" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" Style="{StaticResource labelStyle}"/>
 
-        <ListView Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding dateDispoROC}" HorizontalAlignment="Center" BorderBrush="Transparent">
+        <ListView Background="Transparent" Grid.ColumnSpan="3" Grid.Row="1" ItemsSource="{Binding dateDispoROC}" HorizontalAlignment="Center" BorderBrush="Transparent" SelectionChanged="dateSelect">
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <WrapPanel HorizontalAlignment="Center" Margin="50,0,50,0">
@@ -42,17 +42,17 @@
                         <WrapPanel>
                             <Label Content="{Binding Nom}" Style="{StaticResource labelStyle}"/>
                             <Label Content="(" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding effet.Day}" Style="{StaticResource labelStyle}" />
+                            <Label Content="{Binding Effet.Day}" Style="{StaticResource labelStyle}" />
                             <Label Content="/" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding effet.Month}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding Effet.Month}" Style="{StaticResource labelStyle}"/>
                             <Label Content="/" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding effet.Year}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding Effet.Year}" Style="{StaticResource labelStyle}"/>
                             <Label Content=" ->" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding fin.Day}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding Fin.Day}" Style="{StaticResource labelStyle}"/>
                             <Label Content="/" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding fin.Month}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding Fin.Month}" Style="{StaticResource labelStyle}"/>
                             <Label Content="/" Style="{StaticResource labelStyle}"/>
-                            <Label Content="{Binding fin.Year}" Style="{StaticResource labelStyle}"/>
+                            <Label Content="{Binding Fin.Year}" Style="{StaticResource labelStyle}"/>
                             <Label Content=")" Style="{StaticResource labelStyle}"/>
                         </WrapPanel>
                     </DataTemplate>

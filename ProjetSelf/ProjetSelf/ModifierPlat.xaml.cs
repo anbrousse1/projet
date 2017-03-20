@@ -65,8 +65,14 @@ namespace Vue
             {
                 parent.self.modifierTarifPlat(plat,t);
             }
-            parent.self.modifierProduitsPlat(plat, produits);
-            parent.setUC(new VisualisationPlat(parent));
+            if (produits.Count != 0)
+            {
+                parent.self.modifierProduitsPlat(plat, produits);
+                parent.setUC(new VisualisationPlat(parent));
+            }else
+            {
+                MessageBox.Show("Veuillez ajouter au moins un produit");
+            }
         }
 
         private void retour_Click(object sender, RoutedEventArgs e)
