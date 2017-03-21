@@ -1142,6 +1142,7 @@ namespace Metier
         public void supprimerPlat(AbsPlat p)
         {
             plats.Remove(p);
+            data.supprimerPlat((Plat)p);
         }
 
 
@@ -1346,6 +1347,7 @@ namespace Metier
         public void supprimerProduit(AbsProduit p)
         {
             produits.Remove(p);
+            data.supprimerProduit((Produit)p);
         }
 
         /// <summary>
@@ -1355,6 +1357,7 @@ namespace Metier
         public void supprimerMenu(AbsMenu m)
         {
             menus.Remove(m);
+            data.supprimerMenu((Menu)m);
         }
 
         public Boolean menuSupprimable(AbsMenu m)
@@ -1378,6 +1381,26 @@ namespace Metier
                 if (pl.containsProd(p)) { return false; }
             }
             return true;
+        }
+
+        public AbsPlat statTopPlat()
+        {
+            return data.statTopPlat();
+        }
+
+        public int frequentation()
+        {
+            return data.frequentation();
+        }
+
+        public double chiffreDAffaire()
+        {
+            return data.chiffreDAffaire();
+        }
+
+        public double prixMoyenRepas()
+        {
+            return data.prixMoyen();
         }
     }
 }
