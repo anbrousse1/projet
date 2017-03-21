@@ -34,7 +34,7 @@ namespace Vue
             if(comboBox_type.SelectedItem == null || dateFin.SelectedDate ==null || dateEffet.SelectedDate==null
                 || parent.self.produitExistant(nom.Text) )
             {
-                MessageBox.Show("Veuillez sélectionner tous les champs ");
+                MessageBox.Show("Veuillez renseigner tous les champs ");
                 return;
             }
             String type=(String)comboBox_type.SelectedItem;
@@ -51,10 +51,10 @@ namespace Vue
                 return;
             }
             String name = nom.Text;
-            if (name.Equals("")) { MessageBox.Show("Veuillez rensegner un nom"); return; }
+            if (name.Equals("")) { MessageBox.Show("Veuillez renseigner un nom"); return; }
             String obser = observation.Text;
             parent.self.addProduit(effet, fin, name, obser, type);
-            MessageBox.Show("Ajout éffectué");
+            MessageBox.Show("Ajout effectué");
             parent.setUC(new GestionProduit(parent));
         }
 

@@ -170,6 +170,16 @@ namespace Persistance
             return u;
         }
 
+        public double chiffreDAffaire()
+        {
+            return 0;
+        }
+
+        public int frequentation()
+        {
+            return 0;
+        }
+
         public void modifDateSortieUsager(AbsUsager u, DateTime d)
         {
             return;
@@ -178,6 +188,11 @@ namespace Persistance
         public void modifMdp(AbsUtilisateur u, string mdp)
         {
             return;
+        }
+
+        public double prixMoyen()
+        {
+            return 0;
         }
 
         public void setDateEffetPlat(AbsPlat p, DateTime date)
@@ -201,6 +216,26 @@ namespace Persistance
         }
 
         public void setPrixPlat(AbsPlat p, double prix)
+        {
+            return;
+        }
+
+        public AbsPlat statTopPlat()
+        {
+            return null;
+        }
+
+        public void supprimerMenu(Menu m)
+        {
+            return;
+        }
+
+        public void supprimerPlat(Plat p)
+        {
+            return;
+        }
+
+        public void supprimerProduit(Produit p)
         {
             return;
         }

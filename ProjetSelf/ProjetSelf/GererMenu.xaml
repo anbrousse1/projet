@@ -35,7 +35,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Label Content="Liste des menus entre parenthèse l'intervalle de programation disponible" Style="{StaticResource labelStyle}" />
+            <TextBlock Text="Liste des menus entre parenthèse l'intervalle de programation disponible" TextWrapping="Wrap" Style="{StaticResource TextBlockStyle}" />
             <ComboBox x:Name="comboBox_menu" ItemsSource="{Binding menusROC}"  Width="130" Height="30">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
