@@ -50,6 +50,7 @@ namespace Vue
             //Changer la date a ajouter ...
             //probleme avec le solde
             parent.self.changeRepas(repas);
+            parent.self.client.Solde = parent.self.solde;
             EcrireTicketFichier.modifTicket(client,parent.self.caissier, parent.self.platsChoisisROC, parent.self.prixAPayer, DateTime.Now);
             parent.self.supprimerAllPlatsChoisis();
             parent.setUC(new Caisse(parent));
