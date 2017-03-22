@@ -49,5 +49,18 @@ namespace Metier
 
         void modifDateSortieUsager(AbsUsager u, DateTime d);
 
+        void supprimerMenu(Menu m);
+
+        void supprimerProduit(Produit p);
+
+        void supprimerPlat(Plat p);
+
+        AbsPlat statTopPlat();
+
+        double chiffreDAffaire();
+
+        int frequentation();
+
+        double prixMoyen();
     }
 }

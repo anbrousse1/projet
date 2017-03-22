@@ -14,8 +14,8 @@ namespace Persistance
 
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Menu m = new Menu { Nom = "Menu1" };
-            Menu m2 = new Menu { Nom = "Menu2" };
+            Menu m = new Menu { Nom = "Menu1", Effet = DateTime.Today, Fin = DateTime.Today};
+            Menu m2 = new Menu { Nom = "Menu2", Effet = DateTime.Today, Fin = DateTime.Today};
             List<AbsMenu> lm = new List<AbsMenu>();
 
             using (EntityMenu db = new EntityMenu())
@@ -640,12 +640,61 @@ namespace Persistance
             }
         }
 
-        /*public AbsPlat statTopPlat()
+        public AbsPlat statTopPlat()
         {
-            PlatChoisis p;
+            Dictionary<AbsPlatChoisis, int> top = new Dictionary<AbsPlatChoisis, int>();
             TimeSpan ts = new TimeSpan(30, 0, 0, 0);
-            
-        }*/
+            using(EntityRepas dbR = new EntityRepas())
+            {
+                foreach(var rep in dbR.RepasSet)
+                {
+                    if(rep.Date <= rep.Date + ts && rep.Date >= rep.Date - ts)
+                    {
+                        using (EntityRepasPlats db = new EntityRepasPlats())
+                        {
+                            foreach (var rp in db.RepasPlatSet)
+                            {
+                                if(rp.IdRepas == rep.ID)
+                                {
+                                    using (EntityPlatChoisis dbP = new EntityPlatChoisis())
+                                    {
+                                        foreach (var r in dbP.PlatChoisisSet)
+                                        {
+                                            if(rp.IdPlats == r.ID)
+                                            {
+                                                if (!top.ContainsKey(r))
+                                                {
+                                                    top.Add(r, 1);
+                                                }
+                                                else top[r] += 1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            AbsPlatChoisis pc = top.Keys.ElementAt(0);
+            int i = top.Values.ElementAt(0);
+            foreach (var t in top)
+            {
+                if (t.Value > i)
+                {
+                    pc = t.Key;
+                    i = t.Value;
+                }
+            }
+            using (EntityPlat db = new EntityPlat())
+            {
+                foreach(var r in db.PlatSet)
+                {
+                    if (r.ID == pc.CodePlat) return r;
+                }
+            }
+            return null;
+        }
 
         public double chiffreDAffaire()
         {
@@ -683,6 +732,66 @@ namespace Persistance
             using (EntityRepas db = new EntityRepas())
             {
                 return pm = pm / db.RepasSet.Count();
+            }
+        }
+
+        public void supprimerMenu(Menu m)
+        {
+            using(EntityMenu db = new EntityMenu())
+            {
+                db.MenuSet.Remove(m);
+                db.SaveChanges();
+            }
+            using(EntityMenuDates db = new EntityMenuDates())
+            {
+                foreach(var md in db.MenuDatesSet)
+                {
+                    if(md.CodeMenu == m.ID)
+                    {
+                        db.MenuDatesSet.Remove(md);
+                    }
+                }
+                db.SaveChanges();
+            }
+            using (EntityMenuPlat db = new EntityMenuPlat())
+            {
+                foreach (var md in db.MenuPlatSet)
+                {
+                    if (md.idmenu == m.ID)
+                    {
+                        db.MenuPlatSet.Remove(md);
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public void supprimerProduit(Produit p)
+        {
+            using (EntityProduit db = new EntityProduit())
+            {
+                db.ProduitSet.Remove(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void supprimerPlat(Plat p)
+        {
+            using (EntityPlat db = new EntityPlat())
+            {
+                db.PlatSet.Remove(p);
+                db.SaveChanges();
+            }
+            using(EntityPlatProduit db = new EntityPlatProduit())
+            {
+                foreach(var pp in db.PlatProduitSet)
+                {
+                    if(pp.idplat == p.ID)
+                    {
+                        db.PlatProduitSet.Remove(pp);
+                    }
+                }
+                db.SaveChanges();
             }
         }
     }

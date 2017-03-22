@@ -115,10 +115,13 @@ namespace Vue
                 if (caisse)
                 {
                     soldeClient.Text = (parent.self.client.Solde + parent.self.prixAPayer) + "€";
+                    parent.self.solde = parent.self.client.Solde + parent.self.prixAPayer;
                 }
                 else
                 {
                     soldeClient.Text = (parent.self.client.Solde) + "€";
+                    parent.self.solde = parent.self.client.Solde;
+
                 }
 
             }
@@ -127,10 +130,14 @@ namespace Vue
                 if (caisse)
                 {
                     soldeClient.Text = (parent.self.client.Solde - parent.self.prixAPayer) + "€";
+                    parent.self.solde = parent.self.client.Solde - parent.self.prixAPayer;
+
                 }
                 else
                 {
                     soldeClient.Text = (parent.self.client.Solde) + "€";
+                    parent.self.solde = parent.self.client.Solde;
+
                 }
             }
         }
