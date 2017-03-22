@@ -220,6 +220,7 @@ namespace Metier
         public double prixAPayer;
         public IDataManager data;
         public string log;
+        public double solde;
 
 
         /// <summary>
