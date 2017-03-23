@@ -58,7 +58,7 @@ namespace Vue
                 }
             }else
             {
-                MessageBox.Show("Identifiant érronés");
+                MessageBox.Show("Identifiants erronés");
             }
         }
         
