@@ -14,19 +14,19 @@ namespace Persistance
 
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Menu m = new Menu { Nom = "Menu1", Effet = DateTime.Today, Fin = DateTime.Today};
-            Menu m2 = new Menu { Nom = "Menu2", Effet = DateTime.Today, Fin = DateTime.Today};
+            /*Menu m = new Menu { Nom = "Menu1", Effet = DateTime.Today, Fin = DateTime.Today};
+            Menu m2 = new Menu { Nom = "Menu2", Effet = DateTime.Today, Fin = DateTime.Today};*/
             List<AbsMenu> lm = new List<AbsMenu>();
 
             using (EntityMenu db = new EntityMenu())
             {
                 
-                if( db.MenuSet.Count() > 0)
+                /*if( db.MenuSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 db.MenuSet.AddRange(new Menu[] { m, m2 });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
                 foreach (var n in db.MenuSet)
                 {
@@ -42,21 +42,21 @@ namespace Persistance
             lpp = chargeAllPlats();
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            PlatProduit carotteRape = new PlatProduit { idplat = lpp.Find(p => p.Nom == "carotteRape").ID, idproduit = lp.Find(p => p.Nom == "carotte").ID };
+            /*PlatProduit carotteRape = new PlatProduit { idplat = lpp.Find(p => p.Nom == "carotteRape").ID, idproduit = lp.Find(p => p.Nom == "carotte").ID };
             PlatProduit saucisse = new PlatProduit { idplat = lpp.Find(p => p.Nom == "lentilleSauc").ID, idproduit = lp.Find(p => p.Nom == "saucisse").ID };
             PlatProduit lentille = new PlatProduit { idplat = lpp.Find(p => p.Nom == "lentilleSauc").ID, idproduit = lp.Find(p => p.Nom == "lentille").ID };
-            PlatProduit saucisson = new PlatProduit { idplat = lpp.Find(p => p.Nom == "saucisson").ID, idproduit = lp.Find(p => p.Nom == "saucisson").ID };
+            PlatProduit saucisson = new PlatProduit { idplat = lpp.Find(p => p.Nom == "saucisson").ID, idproduit = lp.Find(p => p.Nom == "saucisson").ID };*/
             List<List<PlatProduit>> llpp = new List<List<PlatProduit>>();
             List<PlatProduit> PlatProd = new List<PlatProduit>();
 
             using (EntityPlatProduit db = new EntityPlatProduit())
             {
-                if (db.PlatProduitSet.Count() > 0)
+                /*if (db.PlatProduitSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 db.PlatProduitSet.AddRange(new PlatProduit[] { carotteRape, saucisse, lentille, saucisson });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
                 foreach (var p in lpp)
                 {
@@ -99,23 +99,23 @@ namespace Persistance
             lm = chargeAllMenu();
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            MenuPlat mP1 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu1").ID, idplat = lpp.Find(a => a.Nom == "lentilleSauc").ID, date = DateTime.Today };
+            /*MenuPlat mP1 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu1").ID, idplat = lpp.Find(a => a.Nom == "lentilleSauc").ID, date = DateTime.Today };
             MenuPlat mP2 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu1").ID, idplat = lpp.Find(a => a.Nom == "carotteRape").ID, date = DateTime.Today };
             MenuPlat mP3 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu2").ID, idplat = lpp.Find(a => a.Nom == "saucisson").ID, date = DateTime.Today };
             MenuPlat mP4 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu2").ID, idplat = lpp.Find(a => a.Nom == "lentilleSauc").ID, date = DateTime.Today };
             MenuPlat mP5 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu1").ID, idplat = lpp.Find(a => a.Nom == "biere").ID, date = DateTime.Today };
-            MenuPlat mP6 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu2").ID, idplat = lpp.Find(a => a.Nom == "biere").ID, date = DateTime.Today };
+            MenuPlat mP6 = new MenuPlat { idmenu = lm.Find(a => a.Nom == "Menu2").ID, idplat = lpp.Find(a => a.Nom == "biere").ID, date = DateTime.Today };*/
             List<List<MenuPlat>> llmp = new List<List<MenuPlat>>();
             List<MenuPlat> lmp = new List<MenuPlat>();
 
             using (EntityMenuPlat db = new EntityMenuPlat())
             {
-                if (db.MenuPlatSet.Count() > 0)
+                /*if (db.MenuPlatSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 db.MenuPlatSet.AddRange(new MenuPlat[] { mP1, mP2, mP3, mP4, mP5, mP6 });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
                 foreach (var m in lm)
                 {
@@ -251,19 +251,19 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Plat lentilleS = new Plat { ID=1 ,Nom = "lentilleSauc", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Plat };
+            /*Plat lentilleS = new Plat { ID=1 ,Nom = "lentilleSauc", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Plat };
             Plat carotteRape = new Plat { ID = 2, Nom = "carotteRape", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
             Plat saucissonE = new Plat { ID = 3, Nom = "saucisson", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 10000, Categorie = CategoriePlat.Entree };
-            Plat biere = new Plat { ID = 4, Nom = "biere", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 2, Categorie = CategoriePlat.Boisson };
+            Plat biere = new Plat { ID = 4, Nom = "biere", DateEffet = DateTime.Today, DateFin = DateTime.Today, Tarif = 2, Categorie = CategoriePlat.Boisson };*/
             List<AbsPlat> lpp = new List<AbsPlat>();
             using (EntityPlat db = new EntityPlat())
             {
-                if (db.PlatSet.Count() > 0)
+                /*if (db.PlatSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 db.PlatSet.AddRange(new Plat[] { lentilleS, carotteRape, saucissonE, biere });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
                 foreach (var n in db.PlatSet)
                 {
@@ -278,20 +278,20 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Produit carotte = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "carotte", Observation = "Ca fait grandir", Categorie = CategorieProduit.Legume };
+            /*Produit carotte = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "carotte", Observation = "Ca fait grandir", Categorie = CategorieProduit.Legume };
             Produit saucisse = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "saucisse", Observation = "Ca fait grossir", Categorie = CategorieProduit.Viande };
             Produit saucisson = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "saucisson", Observation = "Ca fait grossir", Categorie = CategorieProduit.Charcuterie };
-            Produit lentille = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "lentille", Observation = "La maman de Yohann", Categorie = CategorieProduit.Legume };
+            Produit lentille = new Produit { DateEffet = DateTime.Today, DateFin = DateTime.Today, Nom = "lentille", Observation = "La maman de Yohann", Categorie = CategorieProduit.Legume };*/
             List<AbsProduit> lp = new List<AbsProduit>();
 
             using (EntityProduit db = new EntityProduit())
             {
-                if (db.ProduitSet.Count() > 0)
+                /*if (db.ProduitSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 db.ProduitSet.AddRange(new Produit[] { carotte, saucisse, saucisson, lentille });
-                db.SaveChanges();
+                db.SaveChanges();*/
 
                 foreach (var n in db.ProduitSet)
                 {
@@ -338,8 +338,8 @@ namespace Persistance
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            //List<AbsUsager> lusa = new List<AbsUsager>();
-            //lusa = chargeAllUsager();
+            List<AbsUsager> lusa = new List<AbsUsager>();
+            lusa = chargeAllUsager();
 
             Utilisateur bastien = new Utilisateur {Login = "bagandboeu", Password = "1234", CodeUsager = 1 };
             Utilisateur leandre = new Utilisateur {Login = "leperrot", Password = "1234" , CodeUsager = 2};
@@ -480,7 +480,13 @@ namespace Persistance
             using (EntityMenu db = new EntityMenu())
             {
                 db.MenuSet.Add(p);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }catch(Exception e)
+                {
+                    e.GetBaseException();
+                }
             }
 
             using (EntityMenuPlat db = new EntityMenuPlat())
