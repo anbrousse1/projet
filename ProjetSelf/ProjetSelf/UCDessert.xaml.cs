@@ -22,6 +22,7 @@ namespace Vue
     public partial class UCDessert : UserControl
     {
         private MainWindow parent;
+        private List<AbsPlat> plats = new List<AbsPlat>();
 
         public UCDessert(MainWindow m)
         {
@@ -96,7 +97,10 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickAnnuler(object sender, RoutedEventArgs e)
         {
-            parent.self.supprimerAllPlatsChoisis();
+            foreach(AbsPlat p in plats)
+            {
+                parent.self.supprimerPlatChoisis(p);
+            }
             parent.setUC(new Caisse(parent));
         }
 
@@ -156,7 +160,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton1(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b1.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b1.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }
@@ -168,7 +179,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton2(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b2.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b2.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }
@@ -180,7 +198,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton3(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b3.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b3.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }
@@ -192,7 +217,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton4(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b4.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b4.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }
@@ -204,7 +236,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton5(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b5.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b5.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }
@@ -216,7 +255,14 @@ namespace Vue
         /// <param name="e"></param>
         private void ClickButton6(object sender, RoutedEventArgs e)
         {
+            AbsPlat p = parent.self.FindPlat(b6.Text);
+            if (p.Tarif + parent.self.prixAPayer > parent.self.client.Solde && parent.self.client.CodePaiement == 1)
+            {
+                MessageBox.Show("opération impossible, solde client insufisant");
+                return;
+            }
             parent.self.AddPlatChoisi(b6.Text);
+            plats.Add(p);
             recap.Children.Clear();
             recap.Children.Add(new Recapitulatif(parent,true));
         }

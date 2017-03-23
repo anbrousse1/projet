@@ -221,6 +221,7 @@ namespace Metier
         public IDataManager data;
         public string log;
         public double solde;
+        private int currentMonth;
 
 
         /// <summary>
@@ -247,6 +248,13 @@ namespace Metier
             allDessertsROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsPlat>(allDesserts);
             histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(histoRepas);
             repasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(repas);
+
+            if(DateTime.Today.Month != currentMonth)
+            {
+                //Envoyer Fichie DRH
+                currentMonth = DateTime.Today.Month;
+                //Enregistrer le mois courrant dans la BDD
+            }
 
 
             DroitUtilisateur = 0;
@@ -1132,8 +1140,12 @@ namespace Metier
         /// <param name="p"></param>
         public void supprimerPlatChoisis(AbsPlat p)
         {
-            platsChoisis.Remove(p);
-            prixAPayer = prixAPayer-p.Tarif;
+            if (platsChoisis.ContainsKey(p))
+            {
+                prixAPayer = prixAPayer - platsChoisis[p] * p.Tarif;
+                platsChoisis.Remove(p);
+            }
+            
         }
 
 
@@ -1155,7 +1167,6 @@ namespace Metier
         public void AugmenterQuantitePlat(AbsPlat p)
         {
             platsChoisis[p] += 1;
-            prixAPayer = prixAPayer + p.Tarif;
         }
 
 
