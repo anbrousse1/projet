@@ -44,7 +44,7 @@
         <DatePicker x:Name="dateFin" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"/>
 
         <TextBlock Text="Moyen de Paiement :" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="30" Style="{StaticResource TextBlockStyle}"/>
-        <ComboBox x:Name="paiement" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" />
+        <ComboBox x:Name="paiement" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0" Width="130"/>
 
         <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Right" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" VerticalAlignment="Top" Click="valider_Click"/>
         <Button x:Name="Annuler" Style="{StaticResource boutonAnnulerUC}" Content="ANNULER" HorizontalAlignment="Left" Grid.Row="9" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Top" Click="annuler_Click"/>

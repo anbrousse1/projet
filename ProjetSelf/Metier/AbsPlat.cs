@@ -127,6 +127,11 @@ namespace Metier
             return ingredients;
         }
 
+        public override int GetHashCode()
+        {
+            return Nom.GetHashCode()+base.GetHashCode();
+        }
+
 
         /// <summary>
         /// permet de modifier un produit 

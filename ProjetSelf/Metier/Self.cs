@@ -936,11 +936,12 @@ namespace Metier
         public void addMenu(String nom ,List<AbsPlat> lplats)
         {
             Menu m = new Menu { Nom = nom };
-            data.ajouterMenu(m, lplats);
+            
             foreach(AbsPlat p in lplats)
             {
                 m.addPlat(p);
             }
+            data.ajouterMenu(m, lplats);
             menus.Add(m);
         }
 
@@ -1252,17 +1253,30 @@ namespace Metier
         {
             foreach(AbsPlat p in plats)
             {
+                if (allDesserts.Count() != 0) { allDesserts.Clear(); }
+                if (allEntrees.Count() != 0) { allDesserts.Clear(); }
+                if (allPlatsRes.Count() != 0) { allDesserts.Clear(); }
+
                 if (p.Categorie.Equals(CategoriePlat.Dessert))
                 {
-                    allDesserts.Add(p);
+                    if (!allDesserts.Contains(p))
+                    {
+                        allDesserts.Add(p);
+                    }
                 }
                 if (p.Categorie.Equals(CategoriePlat.Entree))
                 {
-                    allEntrees.Add(p);
+                    if (!allEntrees.Contains(p))
+                    {
+                        allEntrees.Add(p);
+                    }
                 }
                 if (p.Categorie.Equals(CategoriePlat.Plat))
                 {
-                    allPlatsRes.Add(p);
+                    if (!allEntrees.Contains(p))
+                    {
+                        allPlatsRes.Add(p);
+                    }
                 }
             }
         }

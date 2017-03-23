@@ -32,6 +32,10 @@ namespace Metier
             DateFin = d;
         }
 
+        public override int GetHashCode()
+        {
+            return Nom.GetHashCode() + base.GetHashCode();
+        }
 
         public bool Equals(AbsProduit p)
         {

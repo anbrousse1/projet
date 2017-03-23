@@ -41,7 +41,10 @@ namespace Metier
             dates.Add(d);
         }
 
-
+        public override int GetHashCode()
+        {
+            return Nom.GetHashCode() + base.GetHashCode();
+        }
 
         /// <summary>
         /// Permet d'ajouter un plat au menu
