@@ -38,7 +38,18 @@ namespace Vue
                         "Dans le cas contraire veuillez immédiatement quitter cette application !  ";
                     label1.Text += " Gérant";
                     break;
-
+                case "Vue.AjouterMenu": label.Text = "C'est ici que vous pouvez créer un nouveau menu soit en y ajoutant des plats, soit en reprenant un menu existant.";
+                    label1.Text += " Ajouter Menu";
+                    break;
+                case "Vue.AjouterPlat": label.Text = "Permet de créer un nouveau plat à partir des produits disponibles.";
+                    label1.Text += " Ajouter Plat";
+                    break;
+                case "Vue.AjouterProduit": label.Text = "Permet d'ajouter un produit à la base de données de l'application.";
+                    label1.Text += " Ajouter Produit";
+                    break;
+                case "Vue.AjouterUtilisateur": label.Text = "Permet d'ajouter un utilisateur à l'application";
+                    label1.Text += " Ajouter Utilisateur";
+                    break;
 
             }
         }
