@@ -317,13 +317,13 @@ namespace Persistance
 
             using (EntityUsager db = new EntityUsager())
             {
-                if (db.UsagerSet.Count() > 0)
+                /*if (db.UsagerSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }
+                }*/
 
-                db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
-                db.SaveChanges();
+                //db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
+                //db.SaveChanges();
                 
                 foreach (var n in db.UsagerSet)
                 {
@@ -348,13 +348,13 @@ namespace Persistance
 
             using (EntityUtilisateur db = new EntityUtilisateur())
             {
-                if (db.UtilisateurSet.Count() > 0)
+                /*if (db.UtilisateurSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 
                 db.UtilisateurSet.AddRange(new Utilisateur[] { bastien, leandre });
-                db.SaveChanges();
+                db.SaveChanges();*/
                 
                 foreach (var n in db.UtilisateurSet)
                 {
