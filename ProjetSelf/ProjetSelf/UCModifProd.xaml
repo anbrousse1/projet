@@ -13,7 +13,7 @@
             <RowDefinition Height="70*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0"  Content="Cliquez sur un produit pour modifier ces dates"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource labelStyle}" />
+        <Label Grid.Row="0"  Content="Cliquez sur un produit pour modifier ses dates"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource labelStyle}" />
         <ListBox Name="liste" Grid.Row="1" Background="Transparent" VerticalAlignment="Top" HorizontalAlignment="Center" ItemsSource="{Binding produitsROC}" BorderBrush="Transparent">
                 <ListBox.ItemTemplate>
                     <DataTemplate >

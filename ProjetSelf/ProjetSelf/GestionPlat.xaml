@@ -11,6 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -18,13 +19,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" Click="ajouterClick">
+        <Button Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" MaxWidth="600" MaxHeight="300" Background="Coral" Style="{StaticResource boutonUC}" Click="ajouterClick">
             <TextBlock Text="Ajouter Plat" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
-        <Button Grid.Column="2" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" Click="visualiser" >
+        <Button Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" MaxWidth="600" MaxHeight="300" Background="Coral" Style="{StaticResource boutonUC}" Click="visualiser" >
             <TextBlock Text="Visualiser Plats" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
 
-        <Button Click="ClickRetour" Grid.Column="1" Grid.Row="2" Content="Retour" Style="{StaticResource boutonAnnulerUC}"/>
+        <Button Click="ClickRetour" Grid.ColumnSpan="2" MaxWidth="600" Grid.Column="1" Grid.Row="2" Content="Retour" Style="{StaticResource boutonAnnulerUC}"/>
     </Grid>
 </UserControl>

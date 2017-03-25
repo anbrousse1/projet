@@ -23,8 +23,8 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="Statistiques Génerale" TextOptions.TextFormattingMode="Ideal" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
-        <Button Content="Statistiques Périodique" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2"/>
+        <Button Content="Statistiques Génerales" TextOptions.TextFormattingMode="Ideal" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
+        <Button Content="Statistiques Périodiques" Grid.Column="0" Grid.Row="2" Grid.RowSpan="2"/>
 
         <Grid Name="statHaut" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4">
             

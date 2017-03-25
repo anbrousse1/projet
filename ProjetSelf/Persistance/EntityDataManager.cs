@@ -317,13 +317,13 @@ namespace Persistance
 
             using (EntityUsager db = new EntityUsager())
             {
-                if (db.UsagerSet.Count() > 0)
+                /*if (db.UsagerSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }
+                }*/
 
-                db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
-                db.SaveChanges();
+                //db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
+                //db.SaveChanges();
                 
                 foreach (var n in db.UsagerSet)
                 {
@@ -348,13 +348,13 @@ namespace Persistance
 
             using (EntityUtilisateur db = new EntityUtilisateur())
             {
-                if (db.UtilisateurSet.Count() > 0)
+                /*if (db.UtilisateurSet.Count() > 0)
                 {
                     db.Database.Delete();
                 }
                 
                 db.UtilisateurSet.AddRange(new Utilisateur[] { bastien, leandre });
-                db.SaveChanges();
+                db.SaveChanges();*/
                 
                 foreach (var n in db.UtilisateurSet)
                 {
@@ -702,39 +702,37 @@ namespace Persistance
             return null;
         }
 
-        public double chiffreDAffaire()
+        public double chiffreDAffaire(DateTime deb, DateTime fin)
         {
             double ca = 0;
-            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
             using(EntityRepas db = new EntityRepas())
             {
                 foreach(var d in db.RepasSet)
                 {
-                    if(d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                    if(d.Date.CompareTo(deb) > 0 && d.Date.CompareTo(fin) < 0)
                         ca += d.Prix;
                 }
             }
             return ca;
         }
 
-        public int frequentation()
+        public int frequentation(DateTime deb, DateTime fin)
         {
             int freq = 0;
-            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
             using (EntityRepas db = new EntityRepas())
             {
                 foreach (var d in db.RepasSet)
                 {
-                    if (d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                    if (d.Date.CompareTo(deb) > 0 && d.Date.CompareTo(fin) < 0)
                         freq ++;
                 }
             }
             return freq;
         }
 
-        public double prixMoyen()
+        public double prixMoyen(DateTime deb, DateTime fin)
         {
-            double pm = chiffreDAffaire();
+            double pm = chiffreDAffaire(deb, fin);
             using (EntityRepas db = new EntityRepas())
             {
                 return pm = pm / db.RepasSet.Count();

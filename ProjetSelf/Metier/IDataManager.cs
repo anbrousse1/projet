@@ -57,10 +57,10 @@ namespace Metier
 
         AbsPlat statTopPlat();
 
-        double chiffreDAffaire();
+        double chiffreDAffaire(DateTime deb, DateTime fin);
 
-        int frequentation();
+        int frequentation(DateTime deb, DateTime fin);
 
-        double prixMoyen();
+        double prixMoyen(DateTime deb, DateTime fin);
     }
 }

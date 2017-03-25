@@ -42,6 +42,6 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" x:Name="retour" Content="Retour"  Click="clickRetour"/>
+        <Button Grid.Row="2" Style="{StaticResource boutonAnnulerUC}" MaxWidth="500" x:Name="retour" Content="Retour"  Click="clickRetour"/>
     </Grid>
 </UserControl>
