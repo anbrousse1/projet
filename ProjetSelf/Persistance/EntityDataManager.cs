@@ -702,39 +702,37 @@ namespace Persistance
             return null;
         }
 
-        public double chiffreDAffaire()
+        public double chiffreDAffaire(DateTime deb, DateTime fin)
         {
             double ca = 0;
-            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
             using(EntityRepas db = new EntityRepas())
             {
                 foreach(var d in db.RepasSet)
                 {
-                    if(d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                    if(d.Date.CompareTo(deb) > 0 && d.Date.CompareTo(fin) < 0)
                         ca += d.Prix;
                 }
             }
             return ca;
         }
 
-        public int frequentation()
+        public int frequentation(DateTime deb, DateTime fin)
         {
             int freq = 0;
-            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
             using (EntityRepas db = new EntityRepas())
             {
                 foreach (var d in db.RepasSet)
                 {
-                    if (d.Date <= d.Date + ts && d.Date >= d.Date - ts)
+                    if (d.Date.CompareTo(deb) > 0 && d.Date.CompareTo(fin) < 0)
                         freq ++;
                 }
             }
             return freq;
         }
 
-        public double prixMoyen()
+        public double prixMoyen(DateTime deb, DateTime fin)
         {
-            double pm = chiffreDAffaire();
+            double pm = chiffreDAffaire(deb, fin);
             using (EntityRepas db = new EntityRepas())
             {
                 return pm = pm / db.RepasSet.Count();
