@@ -107,7 +107,7 @@ namespace Vue
                 case "Vue.VisualitationMenu": label.Text = "Permet de choisir un menu existant afin de le modifier.";
                     label1.Text += " Modification Menu";
                     break;
-                case "Vue.VisualisationUtilisateur": label.Text = "Voici la liste des utilisateurs enregistrés dans l'application.";
+                case "Vue.VisualisationUtilisateur": label.Text = "Voici la liste des utilisateurs enregistrés dans l'application.\n (Cliquez sur un utilisateur pour le modifier)";
                     label1.Text += " Liste Utilisateurs";
                     break;
                 case "Vue.VisualisationPlat": label.Text = "Permet de choisir un plat existant afin de le modifier.";
