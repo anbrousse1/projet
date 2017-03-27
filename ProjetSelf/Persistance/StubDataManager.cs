@@ -24,6 +24,11 @@ namespace Persistance
             return;
         }
 
+        public void ajouterPlatsChoisis(AbsPlatChoisis pc)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ajouterPlatsChoisis(PlatChoisis pc)
         {
             return;
@@ -32,6 +37,11 @@ namespace Persistance
         public void ajouterProduit(Produit p)
         {
             return;
+        }
+
+        public void ajouterRepas(AbsRepas r, List<AbsPlatChoisis> lp)
+        {
+            throw new NotImplementedException();
         }
 
         public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
@@ -47,6 +57,11 @@ namespace Persistance
         public void ajouterUtilisateur(Utilisateur p)
         {
             return;
+        }
+
+        public void changementSolde(AbsUsager u, double prix)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Menu> chargeAllMenu()
@@ -175,9 +190,19 @@ namespace Persistance
             return 0;
         }
 
+        public double chiffreDAffaire(DateTime deb, DateTime fin)
+        {
+            throw new NotImplementedException();
+        }
+
         public int frequentation()
         {
             return 0;
+        }
+
+        public int frequentation(DateTime deb, DateTime fin)
+        {
+            throw new NotImplementedException();
         }
 
         public void modifDateSortieUsager(AbsUsager u, DateTime d)
@@ -193,6 +218,11 @@ namespace Persistance
         public double prixMoyen()
         {
             return 0;
+        }
+
+        public double prixMoyen(DateTime deb, DateTime fin)
+        {
+            throw new NotImplementedException();
         }
 
         public void setDateEffetPlat(AbsPlat p, DateTime date)
@@ -223,6 +253,11 @@ namespace Persistance
         public AbsPlat statTopPlat()
         {
             return null;
+        }
+
+        public AbsPlat statTopPlat(DateTime debut, DateTime fin)
+        {
+            throw new NotImplementedException();
         }
 
         public void supprimerMenu(Menu m)

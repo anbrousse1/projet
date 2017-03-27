@@ -50,7 +50,7 @@ namespace Vue
                     MessageBox.Show("Cette date a déjà un menu de programmé");
                 }else if (m != null)
                 {
-                    if (d.CompareTo(m.Effet) > 0 && d.CompareTo(m.Fin) < 0)
+                    if (d.CompareTo(m.Effet) >= 0 && d.CompareTo(m.Fin) <= 0)
                     {
                         parent.self.addDateToMenu(m, d);
                         parent.setUC(new GestionMenu(parent));

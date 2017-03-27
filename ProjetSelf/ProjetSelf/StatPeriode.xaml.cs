@@ -20,9 +20,32 @@ namespace Vue
     /// </summary>
     public partial class StatPeriode : UserControl
     {
-        public StatPeriode()
+        MainWindow parent;
+        public StatPeriode(MainWindow m)
         {
+            parent = m;
             InitializeComponent();
+        }
+
+        private void retourClick(object sender, RoutedEventArgs e)
+        {
+            parent.setUC(new AccueilGerant(parent));
+        }
+
+        private void validerClick(object sender, RoutedEventArgs e)
+        {
+            DateTime d;
+            DateTime f;
+            try
+            {
+                d = (DateTime)debut.SelectedDate;
+                f = (DateTime)fin.SelectedDate;
+            }
+            catch { MessageBox.Show("Sélectionner une date de début et une date de fin"); return; }
+            freq.Text = parent.self.frequentation(d, f).ToString();
+            ca.Text=parent.self.chiffreDAffaire(d, f).ToString()+" €";
+            platp.Text= parent.self.statTopPlat(d, f);
+            moy.Text= parent.self.prixMoyenRepas(d, f).ToString()+" €";
         }
     }
 }

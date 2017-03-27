@@ -317,13 +317,13 @@ namespace Persistance
 
             using (EntityUsager db = new EntityUsager())
             {
-                /*if (db.UsagerSet.Count() > 0)
+                /*if(db.UsagerSet.Count() > 0)
                 {
                     db.Database.Delete();
-                }*/
+                }
 
-                //db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
-                //db.SaveChanges();
+                db.UsagerSet.AddRange(new Usager[] {bastien,leandre});
+                db.SaveChanges();*/
                 
                 foreach (var n in db.UsagerSet)
                 {
@@ -365,9 +365,11 @@ namespace Persistance
             return lu;
         }
         
-        public void changementSolde(Usager u,double prix)
+        public void changementSolde(AbsUsager u,double prix)
         {
-            using(EntityUsager db = new EntityUsager())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityUsager db = new EntityUsager())
             {
                 if(u.CodePaiement == 0)
                 {
@@ -381,6 +383,8 @@ namespace Persistance
 
         public Dictionary<Usager,double> getAllRetenueSalaire()
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             Dictionary<Usager, double> dRs = new Dictionary<Usager, double>();
 
             using (EntityUsager db = new EntityUsager())
@@ -395,6 +399,8 @@ namespace Persistance
 
         public List<AbsRepas> getRepasUsager(AbsUsager u)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             List<AbsRepas> lr = new List<AbsRepas>();
             
             using(EntityRepas db = new EntityRepas())
@@ -423,17 +429,21 @@ namespace Persistance
             return lr;
         }
 
-        private void ajouterPlatsChoisis(PlatChoisis pc)
+        public void ajouterPlatsChoisis(AbsPlatChoisis pc)
         {
-            using(EntityPlatChoisis db = new EntityPlatChoisis())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityPlatChoisis db = new EntityPlatChoisis())
             {
-                db.PlatChoisisSet.Add(pc);
+                db.PlatChoisisSet.Add((PlatChoisis)pc);
                 db.SaveChanges();
             }
         }
 
         public void ajouterProduit(Produit p)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityProduit db = new EntityProduit())
             {
                 db.ProduitSet.Add(p);
@@ -443,6 +453,8 @@ namespace Persistance
 
         public void ajouterPlat(Plat p, List<AbsProduit> lp)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityPlat db = new EntityPlat())
             {
                 db.PlatSet.Add(p);
@@ -461,14 +473,15 @@ namespace Persistance
 
         public void modifMdp(AbsUtilisateur u, String mdp)
         {
-            using(EntityUtilisateur db = new EntityUtilisateur())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityUtilisateur db = new EntityUtilisateur())
             {
                 foreach(var d in db.UtilisateurSet)
                 {
                     if(d.ID == u.ID)
                     {
                         d.Password = mdp;
-                        break;
                     }
                 }
                 db.SaveChanges();
@@ -477,6 +490,8 @@ namespace Persistance
 
         public void ajouterMenu(Menu p, List<AbsPlat> lp)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityMenu db = new EntityMenu())
             {
                 db.MenuSet.Add(p);
@@ -502,6 +517,8 @@ namespace Persistance
 
         public void ajouterUtilisateur(Utilisateur p)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityUtilisateur db = new EntityUtilisateur())
             {
                 db.UtilisateurSet.Add(p);
@@ -511,6 +528,8 @@ namespace Persistance
 
         public void ajouterUsager(Usager p)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityUsager db = new EntityUsager())
             {
                 db.UsagerSet.Add(p);
@@ -518,11 +537,13 @@ namespace Persistance
             }
         }
 
-        public void ajouterRepas(Repas r, List<AbsPlatChoisis> lp)
+        public void ajouterRepas(AbsRepas r, List<AbsPlatChoisis> lp)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityRepas db = new EntityRepas())
             {
-                db.RepasSet.Add(r);
+                db.RepasSet.Add((Repas)r);
                 db.SaveChanges();
             }
 
@@ -543,7 +564,9 @@ namespace Persistance
 
         public void setPrixPlat(AbsPlat p, double prix)
         {
-            using(EntityPlat db = new EntityPlat())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityPlat db = new EntityPlat())
             {
                 foreach(var r in db.PlatSet)
                 {
@@ -563,6 +586,8 @@ namespace Persistance
 
         public void setDateEffetPlat(AbsPlat p, DateTime date)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityPlat db = new EntityPlat())
             {
                 foreach (var r in db.PlatSet)
@@ -578,6 +603,8 @@ namespace Persistance
 
         public void setDateFinPlat(AbsPlat p, DateTime date)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityPlat db = new EntityPlat())
             {
                 foreach (var r in db.PlatSet)
@@ -593,6 +620,8 @@ namespace Persistance
 
         public void setDateEffetProduit(AbsProduit p, DateTime date)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityProduit db = new EntityProduit())
             {
                 foreach (var r in db.ProduitSet)
@@ -608,6 +637,8 @@ namespace Persistance
 
         public void setDateFinProduit(AbsProduit p, DateTime date)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityProduit db = new EntityProduit())
             {
                 foreach (var r in db.ProduitSet)
@@ -623,7 +654,9 @@ namespace Persistance
 
         public void addDateToMenu(AbsMenu m, DateTime d)
         {
-            using(EntityMenuDates db = new EntityMenuDates())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityMenuDates db = new EntityMenuDates())
             {
                 db.MenuDatesSet.Add(new MenuDates { CodeMenu = m.ID, Date = d });
                 db.SaveChanges();
@@ -632,7 +665,9 @@ namespace Persistance
 
         public void modifDateSortieUsager(AbsUsager u, DateTime d)
         {
-            using(EntityUsager db = new EntityUsager())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityUsager db = new EntityUsager())
             {
                 foreach(var i in db.UsagerSet)
                 {
@@ -646,15 +681,16 @@ namespace Persistance
             }
         }
 
-        public AbsPlat statTopPlat()
+        public AbsPlat statTopPlat(DateTime deb, DateTime fin)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             Dictionary<AbsPlatChoisis, int> top = new Dictionary<AbsPlatChoisis, int>();
-            TimeSpan ts = new TimeSpan(30, 0, 0, 0);
             using(EntityRepas dbR = new EntityRepas())
             {
                 foreach(var rep in dbR.RepasSet)
                 {
-                    if(rep.Date <= rep.Date + ts && rep.Date >= rep.Date - ts)
+                    if(rep.Date.CompareTo(deb) > 0 && rep.Date.CompareTo(fin) < 0)
                     {
                         using (EntityRepasPlats db = new EntityRepasPlats())
                         {
@@ -704,6 +740,8 @@ namespace Persistance
 
         public double chiffreDAffaire(DateTime deb, DateTime fin)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             double ca = 0;
             using(EntityRepas db = new EntityRepas())
             {
@@ -718,6 +756,8 @@ namespace Persistance
 
         public int frequentation(DateTime deb, DateTime fin)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             int freq = 0;
             using (EntityRepas db = new EntityRepas())
             {
@@ -732,6 +772,8 @@ namespace Persistance
 
         public double prixMoyen(DateTime deb, DateTime fin)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             double pm = chiffreDAffaire(deb, fin);
             using (EntityRepas db = new EntityRepas())
             {
@@ -741,7 +783,9 @@ namespace Persistance
 
         public void supprimerMenu(Menu m)
         {
-            using(EntityMenu db = new EntityMenu())
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityMenu db = new EntityMenu())
             {
                 db.MenuSet.Remove(m);
                 db.SaveChanges();
@@ -772,6 +816,8 @@ namespace Persistance
 
         public void supprimerProduit(Produit p)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityProduit db = new EntityProduit())
             {
                 db.ProduitSet.Remove(p);
@@ -781,6 +827,8 @@ namespace Persistance
 
         public void supprimerPlat(Plat p)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
             using (EntityPlat db = new EntityPlat())
             {
                 db.PlatSet.Remove(p);

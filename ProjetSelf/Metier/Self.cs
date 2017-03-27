@@ -387,27 +387,6 @@ namespace Metier
         }
 
 
-        /// <summary>
-        /// Ajoute un plat à la liste des plats choisis
-        /// </summary>
-        /// <param name="p"></param>
-        public void AddPlatChoisis(AbsPlat p)
-        {
-            foreach (AbsRepas r in histoRepas)
-            {
-                if (r.Date.Date.CompareTo(DateTime.Now.Date)==0 && r.Date.Minute.CompareTo(DateTime.Now.Minute)==0 && r.Date.Second.CompareTo(DateTime.Now.Second) == 0)
-                {
-                    r.AddPlat(p);
-                    return;
-                }
-            }
-            AbsRepas re = new Repas();
-            re.IdUsager = client.ID;
-            re.IdCaissier = caissier.ID;
-            re.Date = DateTime.Now;
-            re.AddPlat(p);
-            histoRepas.Add(re);
-        }
 
         /// <summary>
         /// charge les plat d'un repas
@@ -444,7 +423,7 @@ namespace Metier
             {
                 for (int i = 1; i <= kvp.Value; i++)
                 {
-                    r.AddPlat(kvp.Key);
+                    r.AddPlat(new PlatChoisis { Date = DateTime.Today, CodePlat = kvp.Key.ID }, kvp.Key.Tarif);
                 }
             }
         }
@@ -614,6 +593,7 @@ namespace Metier
                 if (u.CodeUsager.Equals(usa.ID))
                 {
                     u.Password = mdp;
+                    data.modifMdp(u, mdp);
                 }
             }
         }
@@ -630,6 +610,7 @@ namespace Metier
                 if (usa.ID.Equals(u.ID))
                 {
                     usa.DateSortie = d;
+                    data.modifDateSortieUsager(usa, d);
                 }
             }
         }
@@ -733,7 +714,8 @@ namespace Metier
         /// </summary>
         public void paiement()
         {
-          client.payer(prixAPayer);
+            client.payer(prixAPayer);
+            data.changementSolde(client, prixAPayer);
             
         }
 
@@ -812,21 +794,8 @@ namespace Metier
                 default: return CategorieProduit.Autres;
             }
         }
-        /*
-        /// <summary>
-        /// Permet à partir d'une liste de string d'obtenir une liste de produits
-        /// </summary>
-        /// <param name="prod"></param>
-        /// <returns></returns>
-        private List<AbsProduit> FindProduits(List<String> prod)
-        {
-            List<AbsProduit> ingredients = new List<AbsProduit>();
-            foreach (String s in prod)
-            {
-                ingredients.Add(FindProduit(s));
-            }
-            return ingredients;
-        }*/
+
+
 
 
         /// <summary>
@@ -970,8 +939,6 @@ namespace Metier
                 }
                 
                 prixAPayer = prixAPayer + p.Tarif;
-                //client.AddPlatChoisis(p);
-                //Ajouter à la BDD
             }
         }
 
@@ -995,8 +962,7 @@ namespace Metier
                 }
 
                 prixAPayer = prixAPayer + p.Tarif;
-                //client.AddPlatChoisis(p);
-                //Ajouter à la BDD
+
             }
         }
         /// <summary>
@@ -1334,16 +1300,19 @@ namespace Metier
         public void finPassage()
         {
             paiement();
+            AbsRepas r = new Repas { Date = DateTime.Today, IdCaissier = caissier.ID, IdUsager = client.ID, Prix = 0 };
             foreach(KeyValuePair<AbsPlat,int> kvp in platsChoisis)
             {
                 for(int i = 1; i <= kvp.Value; i++)
                 {
-                    AddPlatChoisis(kvp.Key);
+                    r.AddPlat(new PlatChoisis { Date = DateTime.Today, CodePlat = kvp.Key.ID }, kvp.Key.Tarif);
                 }
             }
             prixAPayer = 0;
             client = null;
             platsChoisis.Clear();
+            repas.Add(r);
+            data.ajouterRepas(r, r.plats);
         }
 
 
@@ -1409,24 +1378,24 @@ namespace Metier
             return true;
         }
 
-        public AbsPlat statTopPlat()
+        public String statTopPlat(DateTime d, DateTime df)
         {
-            return data.statTopPlat();
+            return data.statTopPlat(d,df).Nom;
         }
 
-        public int frequentation()
+        public int frequentation(DateTime d, DateTime df)
         {
-            return data.frequentation();
+            return data.frequentation(d, df);
         }
 
-        public double chiffreDAffaire()
+        public double chiffreDAffaire(DateTime d, DateTime df)
         {
-            return data.chiffreDAffaire();
+            return data.chiffreDAffaire(d,df);
         }
 
-        public double prixMoyenRepas()
+        public double prixMoyenRepas(DateTime d, DateTime df)
         {
-            return data.prixMoyen();
+            return data.prixMoyen(d,df);
         }
     }
 }

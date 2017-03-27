@@ -16,10 +16,10 @@ namespace Metier
         public int IdCaissier { get; set; }
 
 
-        public void AddPlat(AbsPlat p)
+        public void AddPlat(AbsPlatChoisis p, double tarif)
         {
-            plats.Add(new PlatChoisis{ Date = DateTime.Today, CodePlat = p.ID });
-            Prix = Prix + p.Tarif;
+            plats.Add(p);
+            Prix = Prix +tarif;
         }
 
         override

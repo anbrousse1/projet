@@ -12,6 +12,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -20,8 +21,18 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Sélectionner une date de départ :"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <DatePicker Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <DatePicker Name="debut" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock Grid.Column="2" Grid.Row="0" Text="Sélectionner une date de fin :"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <DatePicker Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <DatePicker Name="fin" Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Valider" Style="{StaticResource boutonValiderUC}" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Click="validerClick"/>
+        <TextBlock Text="Fréquentation :" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Name="freq" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Text="Chiffre d'affaire :" Grid.Column="0" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Name="ca" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Text="Plat préféré :" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Name="platp" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Text="Prix moyen d'un repas :" Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <TextBlock Name="moy" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TextBlockStyle}"/>
+        <Button Content="Retour" Style="{StaticResource boutonAnnulerUC}" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="4" Click="retourClick"/>
     </Grid>
 </UserControl>

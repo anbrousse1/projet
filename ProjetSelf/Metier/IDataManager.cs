@@ -31,7 +31,7 @@ namespace Metier
 
         void ajouterUsager(Usager p);
 
-        void ajouterRepas(Repas r, List<AbsPlatChoisis> lp);
+        void ajouterRepas(AbsRepas r, List<AbsPlatChoisis> lp);
 
         void modifMdp(AbsUtilisateur u, String mdp);
 
@@ -55,12 +55,16 @@ namespace Metier
 
         void supprimerPlat(Plat p);
 
-        AbsPlat statTopPlat();
+        AbsPlat statTopPlat(DateTime debut, DateTime fin);
 
         double chiffreDAffaire(DateTime deb, DateTime fin);
 
         int frequentation(DateTime deb, DateTime fin);
 
         double prixMoyen(DateTime deb, DateTime fin);
+
+        void changementSolde(AbsUsager u, double prix);
+
+        void ajouterPlatsChoisis(AbsPlatChoisis pc);
     }
 }

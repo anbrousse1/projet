@@ -41,7 +41,7 @@ namespace Test
             /*WriteLine(self.chiffreDAffaire());
             WriteLine(self.prixMoyenRepas());
             WriteLine(self.frequentation());*/
-            WriteLine(self.statTopPlat());
+            //WriteLine(self.statTopPlat());
 
             /*bdd.setPrixPlat(self.platROC.ToList().Find(a => a.ID == 2), 20);
 
