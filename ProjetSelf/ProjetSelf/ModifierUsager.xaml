@@ -7,19 +7,22 @@
              mc:Ignorable="d" 
              Height="auto" Width="auto">
     <Grid MinWidth="300">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <Button Content="Modifier Date" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" MinWidth="75" Click="modifDate"/>
-        <Button Content="Modifier mdp" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" MinWidth="75" Click="modifMdp"/>
+        <Button Content="Modifier Date" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="600" MaxHeight="300" Click="modifDate"/>
+        <Button Content="Modifier mdp" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Background="Coral" Style="{StaticResource boutonUC}" MaxWidth="600" MaxHeight="300" Click="modifMdp"/>
 
-        <Button x:Name="retour" Content="RETOUR" Style="{StaticResource boutonAnnulerUC}" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Click="retour_Click"/>
+        <Button x:Name="retour" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Content="Retour" MaxWidth="600" Style="{StaticResource boutonAnnulerUC}" Click="retour_Click"/>
         
     </Grid>
 </UserControl>

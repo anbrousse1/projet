@@ -22,8 +22,8 @@ namespace Vue
             InitializeComponent();
             image.Source = new BitmapImage(new Uri("Images/fourchette.jpg", UriKind.Relative));
 
-            //self = new Self(new StubDataManager());
-            self = new Self(new EntityDataManager());
+            self = new Self(new StubDataManager());
+            //self = new Self(new EntityDataManager());
 
 
             setUC(new Connexion(this));

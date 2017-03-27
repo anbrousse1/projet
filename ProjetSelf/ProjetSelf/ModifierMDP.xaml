@@ -27,8 +27,8 @@
         <TextBlock Text="Confirmation mot de passe : " FontWeight="Bold"  HorizontalAlignment="Right" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="2" VerticalAlignment="Top"/>
         <PasswordBox Foreground="Black" Margin="10 0 0 0" Background="White" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="150" Name="confmdp"/>
 
-        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
-        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center"  Grid.Row="3" Grid.Column ="1" Style="{StaticResource boutonAnnulerUC}" Click="retour_Click"/>
+        <Button x:Name="valider" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="3" MaxHeight="200" Width="500" Grid.Column="0" Click="valider_Click" Style="{StaticResource boutonValiderUC}"/>
+        <Button x:Name="retour" Content="RETOUR" HorizontalAlignment="Center"  Grid.Row="3" MaxHeight="200" Width="500" Grid.Column ="1" Style="{StaticResource boutonAnnulerUC}" Click="retour_Click"/>
 
     </Grid>
 </UserControl>

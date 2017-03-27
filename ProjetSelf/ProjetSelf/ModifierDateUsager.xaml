@@ -22,8 +22,8 @@
         <TextBlock Text="Date Fin : " FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TextBlockStyle}" Grid.Column="0" Grid.Row="1" Margin="0,0,10,0"/>
         <DatePicker x:Name="dateUsager" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,0,0,0" Width="180" />
 
-        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="valider_Click"/>
-        <Button x:Name="retour" Style="{StaticResource boutonAnnulerUC}" Content="RETOUR" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="retour_Click"/>
+        <Button x:Name="valider" Style="{StaticResource boutonValiderUC}" Content="VALIDER" HorizontalAlignment="Center" MaxHeight="200" Width="500" Grid.Row="2" Grid.Column="0" Click="valider_Click"/>
+        <Button x:Name="retour" Style="{StaticResource boutonAnnulerUC}" Content="RETOUR" HorizontalAlignment="Center" MaxHeight="200" Width="500" Grid.Row="2" Grid.Column="1" Click="retour_Click"/>
 
 
     </Grid>
