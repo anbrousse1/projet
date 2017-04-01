@@ -58,6 +58,7 @@
     <Compile Include="MenuDates.cs" />
     <Compile Include="MenuPlat.cs" />
     <Compile Include="ModWinsCard.cs" />
+    <Compile Include="MoisEnCours.cs" />
     <Compile Include="Plat.cs" />
     <Compile Include="PlatCEventArgs.cs" />
     <Compile Include="PlatChoisis.cs" />

@@ -249,12 +249,8 @@ namespace Metier
             histoRepasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(histoRepas);
             repasROC = new System.Collections.ObjectModel.ReadOnlyCollection<AbsRepas>(repas);
 
-            if(DateTime.Today.Month != currentMonth)
-            {
-                //Envoyer Fichie DRH
-                currentMonth = DateTime.Today.Month;
-                //Enregistrer le mois courrant dans la BDD
-            }
+
+           
 
 
             DroitUtilisateur = 0;
@@ -262,7 +258,12 @@ namespace Metier
             chargeAll();
 
             dateDuJour = DateTime.Today;
-           
+            /*
+            if (DateTime.Today.Month != data.getMoisEnCours)
+            {
+                data.setMoisEnCours(DateTime.Today.Month);
+                ecrireFichierDRH();
+            }*/
 
             chargeBoisson();
 
@@ -286,6 +287,23 @@ namespace Metier
 
         }
 
+
+        private void ecrireFichierDRH()
+        {
+            string info = "";
+            foreach(AbsUsager u in usager)
+            {
+                if (u.CodePaiement == 0)
+                {
+                    info = info + u.Titre +" "+  u.Nom + " " + u.Prenom + " " + u.Service+ " " + u.Fonction +" " + u.Solde +"\n";
+                    u.Solde = 0;
+                }
+            }
+
+            String[] text= { "EasySelf  ", DateTime.Today.Month+"/"+DateTime.Today.Year+"\n","Liste des retenues sur salaire du mois : \n" ,info };
+            System.IO.File.WriteAllLines("../../../FichierDRH/" +DateTime.Today.Month+"-"+ DateTime.Today.Year+ ".txt",text);
+            //Lié à la BDD!!!!!!!!!!!!!!!!!!!!!
+        }
 
         //Permet de modifier le tarif d'un plat
         public void modifierTarifPlat(AbsPlat p,double tarif)
