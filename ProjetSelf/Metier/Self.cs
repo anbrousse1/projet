@@ -221,7 +221,6 @@ namespace Metier
         public IDataManager data;
         public string log;
         public double solde;
-        private int currentMonth;
 
 
         /// <summary>
@@ -258,12 +257,12 @@ namespace Metier
             chargeAll();
 
             dateDuJour = DateTime.Today;
-            /*
-            if (DateTime.Today.Month != data.getMoisEnCours)
+            
+            if (DateTime.Today.Month != data.getMoisEnCours().Mois)
             {
-                data.setMoisEnCours(DateTime.Today.Month);
+                data.changerMoisEnCours();
                 ecrireFichierDRH();
-            }*/
+            }
 
             chargeBoisson();
 
@@ -302,7 +301,7 @@ namespace Metier
 
             String[] text= { "EasySelf  ", DateTime.Today.Month+"/"+DateTime.Today.Year+"\n","Liste des retenues sur salaire du mois : \n" ,info };
             System.IO.File.WriteAllLines("../../../FichierDRH/" +DateTime.Today.Month+"-"+ DateTime.Today.Year+ ".txt",text);
-            //Lié à la BDD!!!!!!!!!!!!!!!!!!!!!
+            data.remiseAZero();
         }
 
         //Permet de modifier le tarif d'un plat
@@ -344,7 +343,7 @@ namespace Metier
         public void changeDateFinProd(AbsProduit prod, DateTime fin)
         {
             prod.ChangerDateFin(fin);
-            //BDD
+            data.setDateFinProduit(prod, fin);
         }
 
         /// <summary>
@@ -354,7 +353,7 @@ namespace Metier
         /// <param name="effet"></param>
         public void changeDateEffetProd(AbsProduit prod,DateTime effet){
             prod.ChangerDateEffet(effet);
-            //BDD
+            data.setDateEffetProduit(prod, effet);
         }
 
         /// <summary>

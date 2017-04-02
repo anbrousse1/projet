@@ -381,20 +381,47 @@ namespace Persistance
             }
         }
 
-        public Dictionary<Usager,double> getAllRetenueSalaire()
+        public void remiseAZero()
         {
             AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
 
-            Dictionary<Usager, double> dRs = new Dictionary<Usager, double>();
+            List<Usager> dRs = new List<Usager>();
 
             using (EntityUsager db = new EntityUsager())
             {
                 foreach(var u in db.UsagerSet.Where(a => a.CodePaiement == 0))
                 {
-                    dRs.Add(u, u.Solde);
+                    u.Solde = 0;
                 }
+                db.SaveChanges();
             }
-            return dRs;
+        }
+
+        public MoisEnCours getMoisEnCours()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            using (EntityMoisEnCours db = new EntityMoisEnCours())
+            {
+                return db.MoisEnCoursSet.ElementAt(0);
+            }
+        }
+
+        public void changerMoisEnCours()
+        {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Directory.GetCurrentDirectory());
+
+            MoisEnCours m = new MoisEnCours { Mois = DateTime.Today.Month };
+
+            using (EntityMoisEnCours db = new EntityMoisEnCours())
+            {
+                foreach(var i in db.MoisEnCoursSet)
+                {
+                    db.MoisEnCoursSet.Remove(i);
+                }
+                db.MoisEnCoursSet.Add(m);
+                db.SaveChanges();
+            } 
         }
 
         public List<AbsRepas> getRepasUsager(AbsUsager u)

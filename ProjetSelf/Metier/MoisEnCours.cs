@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Metier
 {
-    class MoisEnCours
+    public class MoisEnCours
     {
         public int Mois { get; set; }
     }
