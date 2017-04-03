@@ -66,5 +66,11 @@ namespace Metier
         void changementSolde(AbsUsager u, double prix);
 
         void ajouterPlatsChoisis(AbsPlatChoisis pc);
+
+        MoisEnCours getMoisEnCours();
+
+        void changerMoisEnCours();
+
+        void remiseAZero();
     }
 }

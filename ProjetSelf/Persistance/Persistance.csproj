@@ -71,6 +71,7 @@
     <Compile Include="EntityMenu.cs" />
     <Compile Include="EntityMenuDates.cs" />
     <Compile Include="EntityMenuPlat.cs" />
+    <Compile Include="EntityMoisEnCours.cs" />
     <Compile Include="EntityPlat.cs" />
     <Compile Include="EntityPlatChoisis.cs" />
     <Compile Include="EntityRepas.cs" />
